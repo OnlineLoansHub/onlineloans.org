@@ -12,7 +12,7 @@ import * as Yup from "yup";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
-const apiUrl = process.env.REACT_APP_API_URL;
+const apiUrl = process.env.REACT_APP_API_URL || "http://localhost:5000";
 
 // Step 1 Validation Schema
 const step1ValidationSchema = Yup.object({
@@ -44,8 +44,14 @@ const step2ValidationSchema = Yup.object({
   business_date: Yup.string().required("Business Date is required"),
   monthly_revenue: Yup.string().required("Monthly Revenue is required"),
   avg_monthly_credit: Yup.number()
-    .positive("Average Monthly Credit must be a positive number")
-    .required("Average Monthly Credit is required"),
+  .typeError("Average Monthly Credit must be a number") // Ensures the value is a valid number
+  .positive("Average Monthly Credit must be a positive number") // Must be positive
+  .test(
+    "min-max-digits",
+    "Average Monthly Credit must be between 1 and 6 digits",
+    (value) => value && value.toString().length >= 1 && value.toString().length <= 6
+  )
+  .required("Average Monthly Credit is required"),
   avg_monthly_card: Yup.number()
     .positive("Average Monthly Card must be a positive number")
     .required("Average Monthly Card is required"),
