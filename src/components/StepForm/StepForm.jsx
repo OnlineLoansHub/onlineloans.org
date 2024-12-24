@@ -327,8 +327,11 @@ const StepForm = () => {
                       setGetRespErr(response.data.message); // Show error message
                     }
                   } catch (error) {
-                    console.error("Error:", error?.response?.data?.message);
+                    // console.error("Error:", error?.response?.data?.message);
                     // Handle unexpected errors (e.g., server issues)
+                    if(error?.response?.data?.message?.code){
+                      return setGetRespErr(error?.response?.data?.code);
+                    }
                     setGetRespErr(error?.response?.data?.message);
                   }
                 }}
