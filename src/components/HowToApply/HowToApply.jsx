@@ -1,11 +1,9 @@
 import { useState } from "react";
 import arrow from "../../assets/home/up_arrow.svg";
 import { AccordinData } from "../../utils/LandingPageData";
-import { useNavigate } from "react-router-dom";
 
 export const HowToApply = ({ faq }) => {
   const [openIndex, setOpenIndex] = useState(0);
-  const navigate = useNavigate();
   const toggleAccordion = (index) => {
     setOpenIndex(openIndex === index ? null : index);
   };
@@ -34,7 +32,9 @@ export const HowToApply = ({ faq }) => {
                 <button
                   type="button"
                   className="border rounded-full bg-[#171717] border-[#171717] py-[10px] px-3  font-medium text-sm text-white hover:bg-slate-800 hover:text-[#fff] "
-                  onClick={() => navigate("/registration-form")}
+                  onClick={() =>
+                    window.open("mailto:support@procash.ai", "_self")
+                  }
                 >
                   Ask a Question
                 </button>

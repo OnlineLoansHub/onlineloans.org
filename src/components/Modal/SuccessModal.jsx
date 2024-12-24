@@ -31,7 +31,7 @@ const SuccessModal = ({ onClose }) => {
                     <p className="text-[13px] font-medium text-[#303030A3] text-center">
                       Your application has been received. Our team will review
                       your information and get back to you within 24 hours. In
-                      the meantime, feel free to contact us at
+                      the meantime, feel free to contact us at{" "}
                       <span
                         className="cursor-pointer hover:text-[#6853E4] hover:underline "
                         onClick={() =>

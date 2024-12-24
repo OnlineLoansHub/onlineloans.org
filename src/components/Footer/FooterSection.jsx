@@ -90,13 +90,13 @@ export const FooterSection = ({ whyus, howItWorks, faq, benefits }) => {
             </p>
             <div>
               <ul className="flex gap-4">
-                <li className="text-base font-normal text-[#303030A3] mb-0">
+                <li className="text-base hover:text-[#171717] hover:underline font-normal text-[#303030A3] mb-0">
                   <a href="#">Terms</a>
                 </li>
-                <li className="text-base font-normal text-[#303030A3] mb-0">
+                <li className="text-base hover:text-[#171717] hover:underline font-normal text-[#303030A3] mb-0">
                   <a href="#">Privacy</a>
                 </li>
-                <li className="text-base font-normal text-[#303030A3] mb-0">
+                <li className="text-base hover:text-[#171717] hover:underline font-normal text-[#303030A3] mb-0">
                   <a href="#">Cookies</a>
                 </li>
               </ul>
