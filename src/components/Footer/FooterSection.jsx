@@ -35,7 +35,7 @@ export const FooterSection = ({ whyus, howItWorks, faq, benefits }) => {
                 <li key={item.label}>
                   <p
                     onClick={item.onClick}
-                    className="hover:text-primary transition-colors duration-300 cursor-pointer text-base font-medium text-[#171717] mb-0"
+                    className="hover:text-[#6853E4] hover:underline cursor-pointer text-base font-medium text-[#171717] mb-0"
                   >
                     {item.label}
                   </p>
@@ -68,13 +68,13 @@ export const FooterSection = ({ whyus, howItWorks, faq, benefits }) => {
         </div>
         <div className="mb-8 sm:mb-8 md:mb-16 lg:mb-16 xl:mb-16">
           <ul className="flex gap-x-8 gap-y-6 items-center flex-col  sm:flex-row md:flex-row lg:flex-row xl:flex-row">
-            <li className="text-[15.5px] sm:text-base md:text-base lg:text-base xl:text-base font-medium text-[#171717] mb-0">
+            <li className="text-[15.5px] sm:text-base md:text-base  hover:text-[#6853E4] hover:underline lg:text-base xl:text-base font-medium text-[#171717] mb-0">
               <a href="#">Understanding Merchant Cash Advances</a>
             </li>
-            <li className="text-[15.5px] sm:text-base md:text-base lg:text-base xl:text-base font-medium text-[#171717] mb-0">
+            <li className="text-[15.5px] sm:text-base md:text-base hover:text-[#6853E4] hover:underline  lg:text-base xl:text-base font-medium text-[#171717] mb-0">
               <a href="#">Business Growth Tips</a>
             </li>
-            <li className="text-[15.5px] sm:text-base md:text-base lg:text-base xl:text-base font-medium text-[#171717] mb-0">
+            <li className="text-[15.5px] sm:text-base md:text-base hover:text-[#6853E4] hover:underline lg:text-base xl:text-base font-medium text-[#171717] mb-0">
               <a href="#">Financial Planning for Small Businesses</a>
             </li>
           </ul>

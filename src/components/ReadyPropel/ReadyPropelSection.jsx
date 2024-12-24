@@ -1,5 +1,5 @@
 import rightArrow from "../../assets/home/rightArrow.svg";
-import readyPropelImg from "../../assets/home/ready.svg";
+import readyPropelImg from "../../assets/home/ready.png";
 import { useNavigate } from "react-router-dom";
 export const ReadyPropelSection = () => {
   const navigate = useNavigate();
@@ -16,8 +16,8 @@ export const ReadyPropelSection = () => {
             </h2>
             <p className="mb-0 text-base font-normal text-[#303030A3] mt-4">
               Take the next step in your business journey with a Merchant Cash
-              Advance from **ProCash.ai**. Our team is here to provide the
-              funding you need with terms that work for you.
+              Advance from ProCash.ai. Our team is here to provide the funding
+              you need with terms that work for you.
             </p>
             <div className="mt-6 flex justify-center sm:justify-start md:justify-start lg:justify-start xl:justify-start">
               <button

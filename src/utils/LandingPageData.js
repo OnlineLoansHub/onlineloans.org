@@ -18,40 +18,40 @@ import bc_img_3 from "../assets/home/Rocket.svg";
 import bc_img_4 from "../assets/home/ShieldCheck.svg";
 
 // how it works
-import hiwork_1 from "../assets/home/hitworks_1.svg";
-import hiwork_2 from "../assets/home/hitworks_2.svg";
-import hiwork_3 from "../assets/home/hitworks_3.svg";
-import hiwork_4 from "../assets/home/hitworks_4.svg";
+import hiwork_1 from "../assets/home/hitworks_1.png";
+import hiwork_2 from "../assets/home/hitworks_2.png";
+import hiwork_3 from "../assets/home/hitworks_3.png";
+import hiwork_4 from "../assets/home/hitworks_4.png";
 
 import mariaIcon from "../assets/home/maria.svg";
 
 export const testimonialData = [
   {
-    desc: "procash.ai” helped me get money fast for my restaurant. Now, I can fix our kitchen and serve more customers!",
+    desc: "procash.ai helped me get money fast for my restaurant. Now, I can fix our kitchen and serve more customers!",
     user_name: "Carlos",
     user_from: "from Miami",
     user_img: carlosImg,
   },
   {
-    desc: "Thanks to “procash.ai”, my beauty salon got funds quickly. I bought new equipment and now have more clients!",
+    desc: "Thanks to procash.ai, my beauty salon got funds quickly. I bought new equipment and now have more clients!",
     user_name: "Jasmine",
     user_from: "from Atlanta",
     user_img: jasmineImg,
   },
   {
-    desc: "Using “procash.ai” was super easy. My boutique got the cash I needed to stock up for the holidays!",
+    desc: "Using procash.ai was super easy. My boutique got the cash I needed to stock up for the holidays!",
     user_name: "Emily",
     user_from: "from New York City",
     user_img: emilyImg,
   },
   {
-    desc: "procash.ai” provided quick funds for my auto repair shop. I bought new tools and kept my business running smoothly.",
+    desc: "procash.ai provided quick funds for my auto repair shop. I bought new tools and kept my business running smoothly.",
     user_name: "Michael",
     user_from: "from Chicago",
     user_img: michaelImg,
   },
   {
-    desc: "With *procash.ai”, my construction company got the advance fast. We bought new materials and started more projects!",
+    desc: "With procash.ai, my construction company got the advance fast. We bought new materials and started more projects!",
     user_name: "David",
     user_from: "from Houston",
     user_img: davidImg,
@@ -68,20 +68,20 @@ export const successStoriesData = [
     user_img: mariaIcon,
   },
   {
-    desc: "Partnering with ProCash.ai was a game-changer for our restaurant. The funds allowed us to renovate our space and increase our seating capacity, leading to a 30% boost in revenue!",
-    user_name: "Maria T",
+    desc: "procash.ai provided quick funds for my auto repair shop. I bought new tools and kept my business running smoothly.",
+    user_name: "Michael",
     owner: "Restaurant Manager",
     opening_date: "From 2023",
     rating: 4.5,
-    user_img: mariaIcon,
+    user_img: michaelImg,
   },
   {
-    desc: "Partnering with ProCash.ai was a game-changer for our restaurant. The funds allowed us to renovate our space and increase our seating capacity, leading to a 30% boost in revenue!",
-    user_name: "Maria U",
+    desc: "With procash.ai, my construction company got the advance fast. We bought new materials and started more projects!",
+    user_name: "David",
     owner: "Restaurant Owner",
     opening_date: "From 2022",
     rating: 4.0,
-    user_img: mariaIcon,
+    user_img: davidImg,
   },
 ];
 
@@ -167,10 +167,11 @@ export const howitWorksData = [
 export const AccordinData = [
   {
     title: "How do I apply?",
-    desc: "You will have to answer questions about your property, employment and investments as well as verify your identity, upload some documents and provide access to your bank account for verification, all standard requirements. Once all the information is submitted, you can expect an answer within 24 hours.​",
+    desc: "You will have to answer questions about your business, including its annual gross revenue, monthly credit card volume, and the number of years you have been in operation. Upload some documents such as credit card processing statements and business bank statements, Once all the information is submitted, you can expect an answer within 24 hours.​",
   },
   {
-    title: "Will applying for a loan with PADS impact my credit score?",
+    title:
+      "Will applying for a merchant cash advance with ProCash.ai impact my credit score?",
     desc: "You will have to answer questions about your property, employment and investments as well as verify your identity, upload some documents and provide access to your bank account for verification, all standard requirements. Once all the information is submitted, you can expect an answer within 24 hours.​",
   },
   {

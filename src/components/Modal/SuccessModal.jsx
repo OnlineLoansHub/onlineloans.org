@@ -29,10 +29,18 @@ const SuccessModal = ({ onClose }) => {
                   </h2>
                   <div className="">
                     <p className="text-[13px] font-medium text-[#303030A3] text-center">
-                      >Your application has been received. Our team will review
+                      Your application has been received. Our team will review
                       your information and get back to you within 24 hours. In
-                      the meantime, feel free to contact us at [Your Phone
-                      Number] or [Your Email Address] if you have any questions.
+                      the meantime, feel free to contact us at
+                      <span
+                        className="cursor-pointer hover:text-[#6853E4] hover:underline "
+                        onClick={() =>
+                          window.open("mailto:support@procash.ai", "_self")
+                        }
+                      >
+                        support@procash.ai
+                      </span>{" "}
+                      if you have any questions.
                     </p>
                   </div>
                 </div>

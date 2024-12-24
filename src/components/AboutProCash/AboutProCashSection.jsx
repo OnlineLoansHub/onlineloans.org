@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom";
-import aboutPro from "../../assets/home/Background.svg";
+import aboutPro from "../../assets/home/Background.png";
 import rightArrow from "../../assets/home/rightArrow.svg";
 export const AboutProCashSection = () => {
   const navigate = useNavigate();
@@ -15,12 +15,12 @@ export const AboutProCashSection = () => {
               About ProCash.ai
             </h2>
             <p className="mb-0 text-base font-normal text-[#303030A3] mt-4">
-              With over 6 years of experience in business financing,
-              **ProCash.ai** has been a trusted partner for thousands of
-              businesses across [Your Region/Country]. Our mission is to provide
-              accessible, flexible, and transparent funding solutions that
-              empower businesses to thrive.
+              With over 6 years of experience in business financing, ProCash.ai
+              has been a trusted partner for thousands of businesses across USA.
+              Our mission is to provide accessible, flexible, and transparent
+              funding solutions that empower businesses to thrive.
             </p>
+
             <div className="flex gap-[60px] mt-5 sm:mt-5 md:mt-8 lg:mt-8 xl:mt-8">
               <div className="md:pt-4 lg:pt-4 xl:pt-4">
                 <h3 className="font-semibold text-[20px] sm:text-[28px] md:text-[28px] lg:text-[28px] xl:text-[28px] leading-9 text-[#171717]">
@@ -32,7 +32,7 @@ export const AboutProCashSection = () => {
               </div>
               <div className="md:pt-4 lg:pt-4 xl:pt-4">
                 <h3 className="font-semibold text-[20px] sm:text-[28px] md:text-[28px] lg:text-[28px] xl:text-[28px] leading-9 text-[#171717]">
-                  366+ clients
+                  990+ clients
                 </h3>
                 <p className="font-normal text-sm text-[#303030A3]">
                   Our mission’s to drive grow & improve progress.

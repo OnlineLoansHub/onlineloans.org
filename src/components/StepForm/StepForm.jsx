@@ -14,7 +14,6 @@ import { useNavigate } from "react-router-dom";
 
 const apiUrl = process.env.REACT_APP_API_URL;
 
-
 // Step 1 Validation Schema
 const step1ValidationSchema = Yup.object({
   full_name: Yup.string()
@@ -239,7 +238,12 @@ const StepForm = () => {
               <p className="font-normal text-base text-[#303030A3] mt-[10px]">
                 Get to know how your campaign can reach a wider audience.
               </p>
-              <button className="border rounded-full border-[#30303033] shadow-[0px -0.5px 0px 0px #16191D1F inset] px-3 py-[10px] font-medium text-sm text-[#171717] hover:bg-[#5D74F1] hover:text-[#fff] mt-[30px]">
+              <button
+                className="border rounded-full border-[#30303033] shadow-[0px -0.5px 0px 0px #16191D1F inset] px-3 py-[10px] font-medium text-sm text-[#171717] hover:bg-[#5D74F1] hover:text-[#fff] mt-[30px]"
+                onClick={() =>
+                  window.open("mailto:support@procash.ai", "_self")
+                }
+              >
                 Contact Us
               </button>
             </div>
@@ -988,7 +992,12 @@ const StepForm = () => {
               <p className="font-normal text-base text-[#303030A3] mt-[10px]">
                 Get to know how your campaign can reach a wider audience.
               </p>
-              <button className="border rounded-full border-[#30303033] shadow-[0px -0.5px 0px 0px #16191D1F inset] px-3 py-[10px] font-medium text-sm text-[#171717] hover:bg-[#5D74F1] hover:text-[#fff] mt-[30px]">
+              <button
+                className="border rounded-full border-[#30303033] shadow-[0px -0.5px 0px 0px #16191D1F inset] px-3 py-[10px] font-medium text-sm text-[#171717] hover:bg-[#5D74F1] hover:text-[#fff] mt-[30px]"
+                onClick={() =>
+                  window.open("mailto:support@procash.ai", "_self")
+                }
+              >
                 Contact Us
               </button>
             </div>

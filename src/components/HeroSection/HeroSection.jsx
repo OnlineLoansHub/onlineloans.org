@@ -4,7 +4,7 @@ import menuIcon from "../../assets/home/menu.svg";
 import crossIcon from "../../assets/home/cross.svg";
 import fillStar from "../../assets/home/fillstar.svg";
 import starIcon from "../../assets/home/star.svg";
-import mobileImg from "../../assets/home/mobileImg.svg";
+import mobileImg from "../../assets/home/mobileImg.png";
 import heroArrow from "../../assets/home/applyarrow.svg";
 import logo from "../../assets/home/ProCash.svg";
 import belowTextLine from "../../assets/home/Vector.svg";
@@ -78,7 +78,7 @@ export const HeroSection = ({ whyus, howItWorks, faq, benefits }) => {
                     <li key={item.label}>
                       <p
                         onClick={item.onClick}
-                        className=" font-medium text-base text-[#171717] cursor-pointer"
+                        className=" font-medium text-base hover:text-[#6853E4] hover:underline text-[#171717] cursor-pointer"
                       >
                         {item.label}
                       </p>
@@ -135,7 +135,7 @@ export const HeroSection = ({ whyus, howItWorks, faq, benefits }) => {
                   <li key={item.label} className="mb-6">
                     <p
                       onClick={item.onClick}
-                      className="hover:text-primary transition-colors duration-300 cursor-pointer font-semibold text-base text-[#171717]"
+                      className="hover:text-[#171717] hover:underline  cursor-pointer font-semibold text-base text-[#171717]"
                     >
                       {item.label}
                     </p>
