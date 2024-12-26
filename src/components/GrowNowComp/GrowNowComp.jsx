@@ -15,7 +15,12 @@ export const GrowNowComp = ({ grownowRef }) => {
   const [getRespErr, setGetRespErr] = useState("");
   const navigate = useNavigate();
   const validationSchema = Yup.object({
-    website_name: Yup.string().required("Website name is required"),
+    website_name: Yup.string()
+      .matches(
+        /^(https?:\/\/)?([\w-]+\.)+[\w-]{2,4}(\/.*)?$/,
+        "Please enter a valid website URL"
+      )
+      .required("Website name is required"),
 
     email: Yup.string()
       .email("Invalid email address")
@@ -99,7 +104,7 @@ export const GrowNowComp = ({ grownowRef }) => {
                         agreedToTerms: values.policy,
                       };
                       const response = await axios.post(
-                        `${apiUrl}/api/user`,
+                        `${apiUrl}/user`,
                         formData,
                         {
                           headers: {
