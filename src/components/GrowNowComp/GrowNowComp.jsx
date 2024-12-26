@@ -157,12 +157,29 @@ export const GrowNowComp = ({ grownowRef }) => {
                             <Field
                               type="checkbox"
                               name="policy"
-                              className=" mr-1 accent-[#25710B]"
+                              className=" mr-1 accent-[#A394FF]"
                             />
                             I agree to{" "}
-                            <span className="text-[#25710B]"> terms</span> and{" "}
-                            <span className="text-[#25710B]">
-                              privacy policy
+                            <span className="text-[#A394FF]">
+                              {" "}
+                              <a
+                                href="/terms.pdf"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                              >
+                                {" "}
+                                terms
+                              </a>
+                            </span>{" "}
+                            and{" "}
+                            <span className="text-[#A394FF]">
+                              <a
+                                href="/policy.pdf"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                              >
+                                privacy policy
+                              </a>
                             </span>
                           </label>
                           <ErrorMessage

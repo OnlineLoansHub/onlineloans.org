@@ -2,23 +2,23 @@
 @tailwind components;
 @tailwind utilities;
 body {
-    font-family: inter;
-  }
-  div::-webkit-scrollbar {
-    width: 4px;
-  }
-  div::-webkit-scrollbar-thumb {
-    background-color: #5d74f1;
-    border-radius: 10px;
-  }
-  div::-webkit-scrollbar-track {
-    background-color: #ffffff;
-  }
-  input:focus-visible,
-  select:focus-visible {
-    outline: none;
-  }
-  
-  .radiobtn {
-    accent-color: #171717;
-  }
+  font-family: inter;
+}
+div::-webkit-scrollbar {
+  width: 4px;
+}
+div::-webkit-scrollbar-thumb {
+  background-color: #5d74f1;
+  border-radius: 10px;
+}
+div::-webkit-scrollbar-track {
+  background-color: #ffffff;
+}
+input:focus-visible,
+select:focus-visible {
+  outline: none;
+}
+
+.radiobtn {
+  accent-color: #171717;
+}

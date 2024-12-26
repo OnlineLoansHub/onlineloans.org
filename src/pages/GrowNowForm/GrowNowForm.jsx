@@ -17,35 +17,9 @@ const GrowNowForm = () => {
   const whyus = useRef(null);
   const benefits = useRef(null);
   const faq = useRef(null);
-
-  // useEffect(() => {
-  //   const slider = new Glide(".glide-01", {
-  //     type: "carousel",
-  //     focusAt: "center",
-  //     perView: 3,
-  //     autoplay: 3000,
-  //     animationDuration: 700,
-  //     gap: 24,
-  //     classNames: {
-  //       nav: {
-  //         active: "[&>*]:bg-wuiSlate-700",
-  //       },
-  //     },
-  //     breakpoints: {
-  //       1024: {
-  //         perView: 2,
-  //       },
-  //       640: {
-  //         perView: 1,
-  //       },
-  //     },
-  //   }).mount();
-
-  //   return () => {
-  //     slider.destroy();
-  //   };
-  // }, []);
-
+  const readyPropel = useRef(null);
+  const aboutProcash = useRef(null);
+  const grownowRef = useRef(null);
   useEffect(() => {
     const slider = new Glide(".glide-02", {
       type: "carousel",
@@ -122,21 +96,27 @@ const GrowNowForm = () => {
         whyus={whyus}
         howItWorks={howItWorks}
         faq={faq}
+        grownowRef={grownowRef}
       />
-      <GrowNowComp />
-      <CashAdvanceSection whyus={whyus} />
-      <AboutProCashSection />
-      <HowItworksSection howItWorks={howItWorks} />
+      <GrowNowComp grownowRef={grownowRef} />
+      <CashAdvanceSection whyus={whyus} grownowRef={grownowRef} />
+      <AboutProCashSection
+        aboutProcash={aboutProcash}
+        grownowRef={grownowRef}
+      />
+      <HowItworksSection howItWorks={howItWorks} grownowRef={grownowRef} />
       <BenefitsChoosingSection benefits={benefits} />
       <SuccessStoriesSection />
       <HowToApply faq={faq} />
       <TestimonialSection />
-      <ReadyPropelSection />
+      <ReadyPropelSection readyPropel={readyPropel} grownowRef={grownowRef} />
       <FooterSection
         benefits={benefits}
         whyus={whyus}
         howItWorks={howItWorks}
         faq={faq}
+        readyPropel={readyPropel}
+        aboutProcash={aboutProcash}
       />
     </div>
   );

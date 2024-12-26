@@ -11,8 +11,16 @@ import belowTextLine from "../../assets/home/Vector.svg";
 import rightArrow from "../../assets/home/rightArrow.svg";
 import bgTopHero from "../../assets/home/bgheroTop.svg";
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
-export const HeroSection = ({ whyus, howItWorks, faq, benefits }) => {
+import { useLocation, useNavigate } from "react-router-dom";
+export const HeroSection = ({
+  whyus,
+  howItWorks,
+  faq,
+  benefits,
+  grownowRef,
+}) => {
+  const location = useLocation();
+  const { pathname } = location;
   const navigate = useNavigate();
   const [isMobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [activeLang, setActiveLang] = useState("EN");
@@ -26,6 +34,7 @@ export const HeroSection = ({ whyus, howItWorks, faq, benefits }) => {
   const scrollToSection = (ref) => {
     ref.current?.scrollIntoView({ behavior: "smooth" });
   };
+
   return (
     <section className="bg-[#F7F8FA]">
       <div className="hidden sm:hidden md:block lg:block xl:block absolute opacity-20 top-10 w-full">
@@ -103,7 +112,15 @@ export const HeroSection = ({ whyus, howItWorks, faq, benefits }) => {
                 <button
                   type="button"
                   className="border rounded-full bg-[#171717] border-[#171717] py-[10px] px-3  font-medium text-sm text-white hover:bg-slate-800 hover:text-[#fff]"
-                  onClick={() => navigate("/form")}
+                  onClick={() => {
+                    if (pathname === "/form") {
+                      grownowRef?.current?.scrollIntoView({
+                        behavior: "smooth",
+                      });
+                    } else {
+                      navigate("/registration-form");
+                    }
+                  }}
                 >
                   Apply now
                 </button>
@@ -145,7 +162,15 @@ export const HeroSection = ({ whyus, howItWorks, faq, benefits }) => {
                   <button
                     type="button"
                     className="border rounded-full bg-[#171717] border-[#171717] py-[10px] px-3 font-medium text-sm w-full text-white hover:bg-slate-800 hover:text-[#fff] "
-                    onClick={() => navigate("/form")}
+                    onClick={() => {
+                      if (pathname === "/form") {
+                        grownowRef?.current?.scrollIntoView({
+                          behavior: "smooth",
+                        });
+                      } else {
+                        navigate("/registration-form");
+                      }
+                    }}
                   >
                     Apply now
                   </button>
@@ -230,7 +255,13 @@ export const HeroSection = ({ whyus, howItWorks, faq, benefits }) => {
               <button
                 type="button"
                 className="text-white font-semibold text-[18px] bg-[#6853E4] py-[24px] px-[44px] rounded-[100px] w-auto border border-[#201564] hover:bg-blue-400 hover:text-[#000] flex gap-2 items-center  "
-                onClick={() => navigate("/registration-form")}
+                onClick={() => {
+                  if (pathname === "/form") {
+                    grownowRef?.current?.scrollIntoView({ behavior: "smooth" });
+                  } else {
+                    navigate("/registration-form");
+                  }
+                }}
               >
                 Apply now <img src={rightArrow} alt="" />
               </button>

@@ -4,7 +4,14 @@ import facebookIcon from "../../assets/home/facebook.svg";
 import twitterIcon from "../../assets/home/twitter.svg";
 import linkendinIcon from "../../assets/home/linkendin.svg";
 import googleIcon from "../../assets/home/google.svg";
-export const FooterSection = ({ whyus, howItWorks, faq, benefits }) => {
+export const FooterSection = ({
+  whyus,
+  howItWorks,
+  faq,
+  benefits,
+  readyPropel,
+  aboutProcash,
+}) => {
   const scrollToSection = (ref) => {
     ref.current?.scrollIntoView({ behavior: "smooth" });
   };
@@ -72,14 +79,23 @@ export const FooterSection = ({ whyus, howItWorks, faq, benefits }) => {
         </div>
         <div className="mb-8 sm:mb-8 md:mb-16 lg:mb-16 xl:mb-16">
           <ul className="flex gap-x-8 gap-y-6 items-center flex-col  sm:flex-row md:flex-row lg:flex-row xl:flex-row">
-            <li className="text-[15.5px] sm:text-base md:text-base  hover:text-[#6853E4] hover:underline lg:text-base xl:text-base font-medium text-[#171717] mb-0">
-              <a href="#">Understanding Merchant Cash Advances</a>
+            <li
+              className="text-[15.5px] sm:text-base md:text-base  hover:text-[#6853E4] hover:underline lg:text-base xl:text-base font-medium text-[#171717] mb-0 cursor-pointer"
+              onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+            >
+              Understanding Merchant Cash Advances
             </li>
-            <li className="text-[15.5px] sm:text-base md:text-base hover:text-[#6853E4] hover:underline  lg:text-base xl:text-base font-medium text-[#171717] mb-0">
-              <a href="#">Business Growth Tips</a>
+            <li
+              className="text-[15.5px] sm:text-base md:text-base hover:text-[#6853E4] hover:underline  lg:text-base xl:text-base font-medium text-[#171717] mb-0 cursor-pointer"
+              onClick={() => scrollToSection(readyPropel)}
+            >
+              Business Growth Tips
             </li>
-            <li className="text-[15.5px] sm:text-base md:text-base hover:text-[#6853E4] hover:underline lg:text-base xl:text-base font-medium text-[#171717] mb-0">
-              <a href="#">Financial Planning for Small Businesses</a>
+            <li
+              className="text-[15.5px] sm:text-base md:text-base hover:text-[#6853E4] hover:underline lg:text-base xl:text-base font-medium text-[#171717] mb-0 cursor-pointer"
+              onClick={() => scrollToSection(aboutProcash)}
+            >
+              Financial Planning for Small Businesses
             </li>
           </ul>
         </div>

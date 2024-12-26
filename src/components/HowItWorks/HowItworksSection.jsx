@@ -1,7 +1,9 @@
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import rightArrow from "../../assets/home/rightArrow.svg";
 import { howitWorksData } from "../../utils/LandingPageData";
-export const HowItworksSection = ({ howItWorks }) => {
+export const HowItworksSection = ({ howItWorks, grownowRef }) => {
+  const location = useLocation();
+  const { pathname } = location;
   const navigate = useNavigate();
   return (
     <section className="max-w-[1110px] mx-auto px-3" ref={howItWorks}>
@@ -38,7 +40,15 @@ export const HowItworksSection = ({ howItWorks }) => {
                     <button
                       type="button"
                       className="text-white  font-medium text-sm bg-[#5D74F1] py-[24px] px-[44px] rounded-[100px] w-auto hover:bg-blue-400 hover:text-[#000] flex gap-2"
-                      onClick={() => navigate("/registration-form")}
+                      onClick={() => {
+                        if (pathname === "/form") {
+                          grownowRef?.current?.scrollIntoView({
+                            behavior: "smooth",
+                          });
+                        } else {
+                          navigate("/registration-form");
+                        }
+                      }}
                     >
                       {work.applynow} <img src={rightArrow} alt="" />
                     </button>

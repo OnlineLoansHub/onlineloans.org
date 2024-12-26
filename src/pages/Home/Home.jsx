@@ -16,7 +16,8 @@ const HomePage = () => {
   const whyus = useRef(null);
   const benefits = useRef(null);
   const faq = useRef(null);
-
+  const readyPropel = useRef(null);
+  const aboutProcash = useRef(null);
   // useEffect(() => {
   //   const slider = new Glide(".glide-01", {
   //     type: "carousel",
@@ -123,18 +124,20 @@ const HomePage = () => {
         faq={faq}
       />
       <CashAdvanceSection whyus={whyus} />
-      <AboutProCashSection />
+      <AboutProCashSection aboutProcash={aboutProcash} />
       <HowItworksSection howItWorks={howItWorks} />
       <BenefitsChoosingSection benefits={benefits} />
       <SuccessStoriesSection />
       <HowToApply faq={faq} />
       <TestimonialSection />
-      <ReadyPropelSection />
+      <ReadyPropelSection readyPropel={readyPropel} />
       <FooterSection
         benefits={benefits}
         whyus={whyus}
         howItWorks={howItWorks}
         faq={faq}
+        readyPropel={readyPropel}
+        aboutProcash={aboutProcash}
       />
     </div>
   );
