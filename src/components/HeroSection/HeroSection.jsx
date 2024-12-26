@@ -103,7 +103,7 @@ export const HeroSection = ({ whyus, howItWorks, faq, benefits }) => {
                 <button
                   type="button"
                   className="border rounded-full bg-[#171717] border-[#171717] py-[10px] px-3  font-medium text-sm text-white hover:bg-slate-800 hover:text-[#fff]"
-                  onClick={() => navigate("/registration-form")}
+                  onClick={() => navigate("/form")}
                 >
                   Apply now
                 </button>
@@ -145,7 +145,7 @@ export const HeroSection = ({ whyus, howItWorks, faq, benefits }) => {
                   <button
                     type="button"
                     className="border rounded-full bg-[#171717] border-[#171717] py-[10px] px-3 font-medium text-sm w-full text-white hover:bg-slate-800 hover:text-[#fff] "
-                    onClick={() => navigate("/registration-form")}
+                    onClick={() => navigate("/form")}
                   >
                     Apply now
                   </button>
@@ -219,7 +219,7 @@ export const HeroSection = ({ whyus, howItWorks, faq, benefits }) => {
 
             {/* Subtitle */}
             <p className="font-normal text-sm sm:text-base md:text-base lg:text-base xl:text-base text-[#303030A3] text-center mt-6">
-              Unlock Fast, Easy Money for Your Business. At ProCash, we know
+              Unlock Fast, Easy Money for Your Business. At ProCash.ai, we know
               every business is different. Whether you want to grow, need money
               for daily costs, or new things, our AI-Driven Merchant Cash
               Advance gives you the money you need quickly.

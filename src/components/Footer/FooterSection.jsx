@@ -44,7 +44,11 @@ export const FooterSection = ({ whyus, howItWorks, faq, benefits }) => {
             </ul>
             <ul className="flex gap-4">
               <li className="text-base font-normal text-[#303030A3] mb-0">
-                <a href="#">
+                <a
+                  href="https://www.facebook.com/procashai"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
                   <img src={facebookIcon} alt="" />
                 </a>
               </li>
@@ -91,10 +95,22 @@ export const FooterSection = ({ whyus, howItWorks, faq, benefits }) => {
             <div>
               <ul className="flex gap-4">
                 <li className="text-base hover:text-[#171717] hover:underline font-normal text-[#303030A3] mb-0">
-                  <a href="#">Terms</a>
+                  <a
+                    href="/terms.pdf"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Terms
+                  </a>
                 </li>
                 <li className="text-base hover:text-[#171717] hover:underline font-normal text-[#303030A3] mb-0">
-                  <a href="#">Privacy</a>
+                  <a
+                    href="/policy.pdf"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Privacy
+                  </a>
                 </li>
                 <li className="text-base hover:text-[#171717] hover:underline font-normal text-[#303030A3] mb-0">
                   <a href="#">Cookies</a>
