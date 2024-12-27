@@ -2,7 +2,7 @@ import successIcon from "../../assets/Featuredicon.svg";
 const SuccessModal = ({ onClose }) => {
   return (
     <div
-      className="relative z-10"
+      className="relative z-[1000]"
       aria-labelledby="modal-title"
       role="dialog"
       aria-modal="true"
