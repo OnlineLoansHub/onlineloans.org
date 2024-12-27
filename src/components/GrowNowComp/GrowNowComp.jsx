@@ -8,7 +8,7 @@ import SuccessModal from "../Modal/SuccessModal";
 import startCrossIcon from "../../assets/Closebutton.svg";
 import endCrossIcon from "../../assets/Close.svg";
 import { useNavigate } from "react-router-dom";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 const apiUrl = process.env.REACT_APP_API_URL;
 export const GrowNowComp = ({ grownowRef }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -17,7 +17,7 @@ export const GrowNowComp = ({ grownowRef }) => {
   const validationSchema = Yup.object({
     website_name: Yup.string()
       .matches(
-        /^(https?:\/\/)?([\w-]+\.)+[\w-]{2,4}(\/.*)?$/,
+        /^(https?:\/\/)?(www\.)?([\w-]+\.)+[\w-]{2,4}(\/.*)?$/,
         "Please enter a valid website URL"
       )
       .required("Website name is required"),
@@ -36,6 +36,16 @@ export const GrowNowComp = ({ grownowRef }) => {
     setIsModalOpen(false);
     navigate("/form");
   };
+
+  useEffect(() => {
+    if (getRespErr) {
+      const timer = setTimeout(() => {
+        setGetRespErr("");
+      }, 10000);
+
+      return () => clearTimeout(timer);
+    }
+  }, [getRespErr]);
   return (
     <>
       <section className="max-w-[1110px] mx-auto px-3" ref={grownowRef}>
