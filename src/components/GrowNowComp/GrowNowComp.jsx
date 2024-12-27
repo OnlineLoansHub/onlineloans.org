@@ -104,7 +104,7 @@ export const GrowNowComp = ({ grownowRef }) => {
                         agreedToTerms: values.policy,
                       };
                       const response = await axios.post(
-                        `${apiUrl}/user`,
+                        `${apiUrl}/api/user`,
                         formData,
                         {
                           headers: {
