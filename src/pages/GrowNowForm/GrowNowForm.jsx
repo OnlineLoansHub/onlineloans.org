@@ -10,42 +10,16 @@ import { HowToApply } from "../../components/HowToApply/HowToApply";
 import { TestimonialSection } from "../../components/Testimonials/TestimonialSection";
 import { ReadyPropelSection } from "../../components/ReadyPropel/ReadyPropelSection";
 import { FooterSection } from "../../components/Footer/FooterSection";
+import { GrowNowComp } from "../../components/GrowNowComp/GrowNowComp";
 
-const HomePage = () => {
+const GrowNowForm = () => {
   const howItWorks = useRef(null);
   const whyus = useRef(null);
   const benefits = useRef(null);
   const faq = useRef(null);
   const readyPropel = useRef(null);
   const aboutProcash = useRef(null);
-  // useEffect(() => {
-  //   const slider = new Glide(".glide-01", {
-  //     type: "carousel",
-  //     focusAt: "center",
-  //     perView: 3,
-  //     autoplay: 3000,
-  //     animationDuration: 700,
-  //     gap: 24,
-  //     classNames: {
-  //       nav: {
-  //         active: "[&>*]:bg-wuiSlate-700",
-  //       },
-  //     },
-  //     breakpoints: {
-  //       1024: {
-  //         perView: 2,
-  //       },
-  //       640: {
-  //         perView: 1,
-  //       },
-  //     },
-  //   }).mount();
-
-  //   return () => {
-  //     slider.destroy();
-  //   };
-  // }, []);
-
+  const grownowRef = useRef(null);
   useEffect(() => {
     const slider = new Glide(".glide-02", {
       type: "carousel",
@@ -122,15 +96,20 @@ const HomePage = () => {
         whyus={whyus}
         howItWorks={howItWorks}
         faq={faq}
+        grownowRef={grownowRef}
       />
-      <CashAdvanceSection whyus={whyus} />
-      <AboutProCashSection aboutProcash={aboutProcash} />
-      <HowItworksSection howItWorks={howItWorks} />
+      <GrowNowComp grownowRef={grownowRef} />
+      <CashAdvanceSection whyus={whyus} grownowRef={grownowRef} />
+      <AboutProCashSection
+        aboutProcash={aboutProcash}
+        grownowRef={grownowRef}
+      />
+      <HowItworksSection howItWorks={howItWorks} grownowRef={grownowRef} />
       <BenefitsChoosingSection benefits={benefits} />
       <SuccessStoriesSection />
       <HowToApply faq={faq} />
       <TestimonialSection />
-      <ReadyPropelSection readyPropel={readyPropel} />
+      <ReadyPropelSection readyPropel={readyPropel} grownowRef={grownowRef} />
       <FooterSection
         benefits={benefits}
         whyus={whyus}
@@ -143,4 +122,4 @@ const HomePage = () => {
   );
 };
 
-export default HomePage;
+export default GrowNowForm;

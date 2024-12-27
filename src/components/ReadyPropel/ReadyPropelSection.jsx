@@ -1,10 +1,12 @@
 import rightArrow from "../../assets/home/rightArrow.svg";
 import readyPropelImg from "../../assets/home/ready.png";
-import { useNavigate } from "react-router-dom";
-export const ReadyPropelSection = () => {
+import { useLocation, useNavigate } from "react-router-dom";
+export const ReadyPropelSection = ({ readyPropel, grownowRef }) => {
+  const location = useLocation();
+  const { pathname } = location;
   const navigate = useNavigate();
   return (
-    <section className="max-w-[1110px] mx-auto px-3">
+    <section className="max-w-[1110px] mx-auto px-3" ref={readyPropel}>
       <div className="md:py-20 lg:py-20 xl:py-20">
         <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-2 gap-6 md:gap-[125px] lg:gap-[125px] xl:gap-[125px] items-center">
           <div>
@@ -23,7 +25,13 @@ export const ReadyPropelSection = () => {
               <button
                 type="button"
                 className="text-white  font-medium text-sm bg-[#5D74F1] py-[24px] px-[44px] rounded-[100px] w-full sm:w-auto md:w-auto lg:w-auto xl:w-auto hover:bg-blue-400 hover:text-[#000] flex gap-2 items-center justify-center"
-                onClick={() => navigate("/registration-form")}
+                onClick={() => {
+                  if (pathname === "/form") {
+                    grownowRef?.current?.scrollIntoView({ behavior: "smooth" });
+                  } else {
+                    navigate("/registration-form");
+                  }
+                }}
               >
                 Create account <img src={rightArrow} alt="" />
               </button>
