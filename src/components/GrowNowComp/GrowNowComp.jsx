@@ -41,7 +41,7 @@ export const GrowNowComp = ({ grownowRef }) => {
     if (getRespErr) {
       const timer = setTimeout(() => {
         setGetRespErr("");
-      }, 10000);
+      }, 5000);
 
       return () => clearTimeout(timer);
     }

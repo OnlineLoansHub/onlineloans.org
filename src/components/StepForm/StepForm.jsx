@@ -296,7 +296,6 @@ const StepForm = () => {
                 }
                 onSubmit={async (values, { resetForm }) => {
                   try {
-                    console.log(values, "values is hereeee");
                     const formData = new FormData();
                     // Append form data (fields)
                     Object.keys(values).forEach((key) => {
@@ -315,20 +314,18 @@ const StepForm = () => {
 
                     // Handle response data
                     if (response.data.success) {
-                      console.log(
-                        "Business created successfully:",
-                        response.data.data
-                      );
-                      setCurrentStep((prevStep) => prevStep + 1);
                       setIsModalOpen(true); // Open modal on success
                       resetForm();
                     } else {
-                      console.error("Error:", response.data.message);
+                      console.error("Error:else", response.data.message);
                       // Handle validation error response from API
                       setGetRespErr(response.data.message); // Show error message
                     }
                   } catch (error) {
-                    console.error("Error:", error?.response?.data?.message);
+                    console.error(
+                      "Error:catch",
+                      error?.response?.data?.message
+                    );
                     // Handle unexpected errors (e.g., server issues)
                     setGetRespErr(error?.response?.data?.message);
                   }
