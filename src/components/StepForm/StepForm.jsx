@@ -12,7 +12,7 @@ import * as Yup from "yup";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
-const apiUrl = process.env.REACT_APP_API_URL || "http://localhost:5000";
+const apiUrl = process.env.REACT_APP_API_URL;
 
 // Step 1 Validation Schema
 const step1ValidationSchema = Yup.object({
@@ -53,9 +53,6 @@ const step2ValidationSchema = Yup.object({
         value && value.toString().length >= 1 && value.toString().length <= 6
     )
     .required("Average Monthly Credit is required"),
-  avg_monthly_card: Yup.number()
-    .positive("Average Monthly Card must be a positive number")
-    .required("Average Monthly Card is required"),
   current_funding: Yup.string().required("Current Funding is required"),
   consent_credit_check: Yup.boolean().oneOf(
     [true],
@@ -106,6 +103,7 @@ const StepForm = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [currentStep, setCurrentStep] = useState(1);
   const [getRespErr, setGetRespErr] = useState("");
+  const [existId, setExistId] = useState("");
   const formRef = useRef();
   const navigate = useNavigate();
   // const [isSubmitting, setIsSubmitting] = useState(false);
@@ -124,6 +122,12 @@ const StepForm = () => {
       inputRef?.current.click();
     }
   };
+
+  function getExistingId(errorString) {
+    // Use a regular expression to match the ID in the string
+    const match = errorString.match(/Existing ID: (\d+)/);
+    return match ? match[1] : null; // Return the ID if found, otherwise null
+  }
 
   const handleNext = async (e, validateForm, setTouched, values) => {
     e.preventDefault();
@@ -147,7 +151,170 @@ const StepForm = () => {
       });
       return; // prevent moving to the next step
     }
+      let existingId;
+    if(currentStep===1){
+      let obj = {
+        full_name:values?.full_name,
+        email:values?.email,
+        phone:values?.phone,
+        business_name:values?.business_name,
+        business_address:values?.business_address,
+        step:1
+      }
 
+      try {
+        console.log(obj, "obj 1 is hereww");
+        // Sending data to the API
+        const response = await axios.post(
+          `${apiUrl}/business`,
+          obj,
+          {
+            headers: {
+              "Content-Type": "application/json",
+            },
+          }
+        );
+
+        // Handle response data
+        if (response.data.success) {
+          console.log(
+            "Business created successfully:",
+            response.data.data
+          );
+          console.log(response.data?.data?.hubspotContact?.vid,'response.data?.data?.hubspotContact?.vid')
+          setExistId(response.data?.data?.hubspotContact?.vid);
+      
+        } else {
+          // console.error("Error:", response.data.message);
+          console.log(response,'response')
+          
+          // Handle validation error response from API
+          setGetRespErr(response.data.message); // Show error message
+        }
+      } catch (error) {
+         existingId =  getExistingId(error?.response?.data?.message);
+         setExistId(existingId);
+        console.log("Existing ID:", existId); // Output: 87501643895
+        if(existId){
+          try {
+            console.log(obj, "obj 1 is hereww");
+            // Sending data to the API
+            const response = await axios.post(
+              `${apiUrl}/update_business/${existId}`,
+              obj,
+              {
+                headers: {
+                  "Content-Type": "application/json",
+                },
+              }
+            );
+    
+            // Handle response data
+            if (response.data.success) {
+              console.log(
+                "Business updated successfully:",
+                response.data.data
+              );
+          
+            } else {
+              // console.error("Error:", response.data.message);
+              console.log(response,'response')
+              
+              // Handle validation error response from API
+              setGetRespErr(response.data.message); // Show error message
+            }
+          }catch(error){
+            console.log(error,'error_____')
+          }
+        }
+        // console.error("Error:", error?.response?.data?.message);
+        // Handle unexpected errors (e.g., server issues)
+        
+      //   if(error?.response?.data?.message?.code){
+      //     return setGetRespErr(error?.response?.data?.code);
+      //   }
+      //   setGetRespErr(error?.response?.data?.message);
+      }
+
+    }
+    if(currentStep===2){
+          let obj = {
+            business_type:values?.business_type,
+            business_date:values?.business_date,
+            monthly_revenue:values?.monthly_revenue,
+            average_monthly_credit_debit:values?.avg_monthly_credit,
+            // avg_monthly_card:values?.avg_monthly_card,
+            current_funding:values?.current_funding,
+            consent_credit_check:values?.consent_credit_check,
+            terms_conditions:values?.terms_conditions,
+            step:2
+          }
+
+      try {
+        console.log(existId, "obj 1 is herewwexistId");
+        // Sending data to the API
+        if(existId){
+            console.log(obj, "obj 1 is hereww");
+            // Sending data to the API
+            const response = await axios.post(
+              `${apiUrl}/update_business/${existId}`,
+              obj,
+              {
+                headers: {
+                  "Content-Type": "application/json",
+                },
+              }
+            );
+    
+            // Handle response data
+            if (response.data.success) {
+              console.log(
+                "Business updated successfully:",
+                response.data.data
+              );
+          
+            } else {
+              // console.error("Error:", response.data.message);
+              console.log(response,'response')
+              
+              // Handle validation error response from API
+              setGetRespErr(response.data.message); // Show error message
+            }
+        }
+      } catch (error) {
+      
+        // console.error("Error:", error?.response?.data?.message);
+        // Handle unexpected errors (e.g., server issues)
+        
+        if(error?.response?.data?.message?.code){
+          return setGetRespErr(error?.response?.data?.code);
+        }
+        setGetRespErr(error?.response?.data?.message);
+      }
+
+    }
+
+    // if(currentStep===3){
+    //   const response = await axios.post(
+    //     `${apiUrl}/api/send_mail`,
+    //     values,
+    //     {
+    //       headers: {
+    //         "Content-Type": "application/json",
+    //       },
+    //     }
+    //   );
+
+    //   // Handle response data
+    //   if (response.data.success) {
+    //     console.log(
+    //       "Business updated successfully:",
+    //       response.data.data
+    //     );
+    
+    //   }
+    // }
+    
     // If validation passes, move to the next step
     setCurrentStep((prevStep) => prevStep + 1);
     formRef.current?.scrollIntoView({
@@ -271,7 +438,7 @@ const StepForm = () => {
                   business_date: "",
                   monthly_revenue: "",
                   avg_monthly_credit: "",
-                  avg_monthly_card: "",
+                  // avg_monthly_card: "",
                   current_funding: "",
                   consent_credit_check: false,
                   terms_conditions: false,
@@ -304,7 +471,7 @@ const StepForm = () => {
                     });
                     // Sending data to the API
                     const response = await axios.post(
-                      `${apiUrl}/api/business`,
+                      `${apiUrl}/mail_send`,
                       formData,
                       {
                         headers: {
@@ -319,6 +486,7 @@ const StepForm = () => {
                         "Business created successfully:",
                         response.data.data
                       );
+                      setExistId(response.data?.data?.hubspotContact?.vid);
                       setCurrentStep((prevStep) => prevStep + 1);
                       setIsModalOpen(true); // Open modal on success
                       resetForm();
@@ -596,24 +764,6 @@ const StepForm = () => {
                         </div>
                         <div className="mb-6">
                           <label className="font-medium text-[13px] text-[#101828] ">
-                            Average Monthly Credit/Debit Card Transactions
-                          </label>
-                          <div className="mt-[10px]">
-                            <Field
-                              type="text"
-                              name="avg_monthly_card"
-                              className="bg-white border border-[#30303033] w-full px-3 py-[10px] rounded-lg"
-                              placeholder="$20,000"
-                            />
-                            <ErrorMessage
-                              name="avg_monthly_card"
-                              component="div"
-                              className="text-red-600"
-                            />
-                          </div>
-                        </div>
-                        <div className="mb-6">
-                          <label className="font-medium text-[13px] text-[#101828] ">
                             Current Funding Needs
                           </label>
                           <div className="mt-[10px]">
@@ -625,7 +775,7 @@ const StepForm = () => {
                               <option value="" selected>
                                 ---
                               </option>
-                              <option value="red">Expansion</option>
+                              <option value="Expansion  ">Expansion</option>
                             </Field>
                             <ErrorMessage
                               name="current_funding"

@@ -9,19 +9,15 @@ import startCrossIcon from "../../assets/Closebutton.svg";
 import endCrossIcon from "../../assets/Close.svg";
 import { useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
-const apiUrl = process.env.REACT_APP_API_URL;
+const apiUrl = process.env.REACT_APP_API_URL || "http://localhost:5000/api";
 export const GrowNowComp = ({ grownowRef }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [getRespErr, setGetRespErr] = useState("");
+  const [existId, setExistId] = useState("");
   const navigate = useNavigate();
   const validationSchema = Yup.object({
-    website_name: Yup.string()
-      .matches(
-        /^(https?:\/\/)?(www\.)?([\w-]+\.)+[\w-]{2,4}(\/.*)?$/,
-        "Please enter a valid website URL"
-      )
-      .required("Website name is required"),
-
+    business_name: Yup.string()
+      .required("Business name is required"),
     email: Yup.string()
       .email("Invalid email address")
       .required("Email is required"),
@@ -46,6 +42,11 @@ export const GrowNowComp = ({ grownowRef }) => {
       return () => clearTimeout(timer);
     }
   }, [getRespErr]);
+  function getExistingId(errorString) {
+    // Use a regular expression to match the ID in the string
+    const match = errorString.match(/Existing ID: (\d+)/);
+    return match ? match[1] : null; // Return the ID if found, otherwise null
+  }
   return (
     <>
       <section className="max-w-[1110px] mx-auto px-3" ref={grownowRef}>
@@ -101,20 +102,22 @@ export const GrowNowComp = ({ grownowRef }) => {
                   initialValues={{
                     email: "",
                     phone: "",
-                    website_name: "",
+                    business_name: "",
                     policy: false,
                   }}
                   validationSchema={validationSchema}
                   onSubmit={async (values, { resetForm }) => {
+                    let existingId;
+                    let formData;
                     try {
-                      const formData = {
+                       formData = {
                         email: values.email,
-                        website: values.website_name,
+                        website: values.business_name,
                         phone: values.phone,
                         agreedToTerms: values.policy,
                       };
                       const response = await axios.post(
-                        `${apiUrl}/api/user`,
+                        `${apiUrl}/user`,
                         formData,
                         {
                           headers: {
@@ -124,21 +127,57 @@ export const GrowNowComp = ({ grownowRef }) => {
                       );
                       // Handle response data
                       if (response.data.success) {
+                  
                         setIsModalOpen(true);
                         resetForm();
-                      } else {
-                        console.error("Error:else", response.data.message);
-                        // Handle validation error response from API
-                        setGetRespErr(response.data.message);
                       }
-                    } catch (error) {
-                      console.error(
-                        "Error:catch",
-                        error?.response?.data?.message
-                      );
-                      // Handle unexpected errors (e.g., server issues)
-                      setGetRespErr(error?.response?.data?.message);
-                    }
+                    }catch (error) {
+                      existingId =  getExistingId(error?.response?.data?.message);
+                      setExistId(existingId);
+                     console.log("Existing ID:",existingId); // Output: 87501643895
+
+                     if(existingId){
+                       try {
+                         formData.step = "1";
+                         formData.type = "new";
+                         // Sending data to the API
+                         const response = await axios.post(
+                           `${apiUrl}/update_business/${existingId}`,
+                           formData,
+                           {
+                             headers: {
+                               "Content-Type": "application/json",
+                             },
+                           }
+                         );
+                 
+                         // Handle response data
+                         if (response.data.success) {
+                           console.log(
+                             "Business updated successfully:",
+                             response.data.data
+                           );
+                           resetForm();
+                       
+                         } else {
+                           // console.error("Error:", response.data.message);
+                           console.log(response,'response')
+                           
+                           // Handle validation error response from API
+                           setGetRespErr(response.data.message); // Show error message
+                         }
+                       }catch(error){
+                         console.log(error,'error_____')
+                       }
+                     }
+                     // console.error("Error:", error?.response?.data?.message);
+                     // Handle unexpected errors (e.g., server issues)
+                     
+                   //   if(error?.response?.data?.message?.code){
+                   //     return setGetRespErr(error?.response?.data?.code);
+                   //   }
+                   //   setGetRespErr(error?.response?.data?.message);
+                   }
                   }}
                   validateOnChange={true}
                   validateOnBlur={true}
@@ -166,12 +205,12 @@ export const GrowNowComp = ({ grownowRef }) => {
                             <div className="mt-[7px] sm:mt-0 md:mt-0 lg:mt-0 xl:mt-0">
                               <Field
                                 type="text"
-                                name="website_name"
+                                name="business_name"
                                 className="bg-white border border-[#30303033] w-full px-3 py-[10px] rounded-xl"
-                                placeholder="Your business website"
+                                placeholder="Your business Name"
                               />
                               <ErrorMessage
-                                name="website_name"
+                                name="business_name"
                                 component="div"
                                 className="text-xs text-red-600"
                               />
