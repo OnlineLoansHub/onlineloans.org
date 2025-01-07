@@ -4,14 +4,12 @@ import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import axios from "axios";
 import ratingImg from "../../assets/home/ratingImg.png";
-import SuccessModal from "../Modal/SuccessModal";
 import startCrossIcon from "../../assets/Closebutton.svg";
 import endCrossIcon from "../../assets/Close.svg";
 import { useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
-const apiUrl = process.env.REACT_APP_API_URL || "http://localhost:5000/api";
+const apiUrl = process.env.REACT_APP_API_URL || "http://localhost:5000";
 export const GrowNowComp = ({ grownowRef }) => {
-  const [isModalOpen, setIsModalOpen] = useState(false);
   const [getRespErr, setGetRespErr] = useState("");
   const [existId, setExistId] = useState("");
   const navigate = useNavigate();
@@ -28,16 +26,12 @@ export const GrowNowComp = ({ grownowRef }) => {
       .required("Phone number is required"),
     policy: Yup.boolean().oneOf([true], "please select terms and policy"),
   });
-  const closeModal = () => {
-    setIsModalOpen(false);
-    navigate("/form");
-  };
 
   useEffect(() => {
     if (getRespErr) {
       const timer = setTimeout(() => {
         setGetRespErr("");
-      }, 10000);
+      }, 5000);
 
       return () => clearTimeout(timer);
     }
@@ -112,7 +106,7 @@ export const GrowNowComp = ({ grownowRef }) => {
                     try {
                        formData = {
                         email: values.email,
-                        website: values.business_name,
+                        business_name: values.business_name,
                         phone: values.phone,
                         agreedToTerms: values.policy,
                       };
@@ -127,8 +121,8 @@ export const GrowNowComp = ({ grownowRef }) => {
                       );
                       // Handle response data
                       if (response.data.success) {
-                  
-                        setIsModalOpen(true);
+                        navigate("/thankyou");
+                        // setIsModalOpen(true);
                         resetForm();
                       }
                     }catch (error) {
@@ -207,7 +201,7 @@ export const GrowNowComp = ({ grownowRef }) => {
                                 type="text"
                                 name="business_name"
                                 className="bg-white border border-[#30303033] w-full px-3 py-[10px] rounded-xl"
-                                placeholder="Your business Name"
+                                placeholder="Your business name"
                               />
                               <ErrorMessage
                                 name="business_name"
@@ -302,7 +296,6 @@ export const GrowNowComp = ({ grownowRef }) => {
           </div>
         </div>
       </section>
-      {isModalOpen && <SuccessModal onClose={closeModal} />}
     </>
   );
 };

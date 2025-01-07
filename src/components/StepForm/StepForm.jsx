@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState } from "react";
 import { Steps } from "../../utils/FormData";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import upload_Icon from "../../assets/upload_icon.svg";
-import SuccessModal from "../Modal/SuccessModal";
+// import SuccessModal from "../Modal/SuccessModal";
 import mailIcon from "../../assets/mailIcon.svg";
 import pinIcon from "../../assets/pin.svg";
 import phonIcon from "../../assets/phone.svg";
@@ -100,7 +100,7 @@ const step3ValidationSchema = Yup.object({
 });
 
 const StepForm = () => {
-  const [isModalOpen, setIsModalOpen] = useState(false);
+  // const [isModalOpen, setIsModalOpen] = useState(false);
   const [currentStep, setCurrentStep] = useState(1);
   const [getRespErr, setGetRespErr] = useState("");
   const [existId, setExistId] = useState("");
@@ -112,10 +112,94 @@ const StepForm = () => {
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   }, []);
-  const closeModal = () => {
-    setIsModalOpen(false);
-    navigate("/");
-  };
+
+  useEffect(() => {
+    if (currentStep === 2 || currentStep === 3) {
+      const gtagScript = document.createElement("script");
+      gtagScript.src =
+        "https://www.googletagmanager.com/gtag/js?id=AW-11530121883";
+      gtagScript.async = true;
+
+      document.head.appendChild(gtagScript);
+
+      const inlineScript = document.createElement("script");
+      inlineScript.innerHTML = `
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'AW-11530121883');
+      `;
+
+      document.head.appendChild(inlineScript);
+      const existingGTM = document.querySelector(
+        `script[src="https://www.googletagmanager.com/gtag/js?id=AW-11530121883"]`
+      );
+      if (existingGTM) {
+        existingGTM.remove();
+      }
+
+      const inlineGTM = Array.from(
+        document.head.getElementsByTagName("script")
+      ).find((script) => script.innerHTML.includes("gtag('js'"));
+      if (inlineGTM) {
+        inlineGTM.remove();
+      }
+
+      const fbPixelScript = document.createElement("script");
+      fbPixelScript.innerHTML = `
+        !function(f,b,e,v,n,t,s)
+        {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+        n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+        if(!f._fbq)f._fbq=n;
+        n.push=n;n.loaded=!0;n.version='2.0';
+        n.queue=[];t=b.createElement(e);t.async=!0;
+        t.src=v;s=b.getElementsByTagName(e)[0];
+        s.parentNode.insertBefore(t,s)}(window, document,'script',
+        'https://connect.facebook.net/en_US/fbevents.js');
+        fbq('init', '592433636853293'); 
+        fbq('track', 'PageView'); 
+        fbq('track', 'CompleteRegistration'); // Custom Event: Registration
+      `;
+      document.head.appendChild(fbPixelScript);
+
+      const fbNoScript = document.createElement("noscript");
+      fbNoScript.innerHTML = `
+        <img height="1" width="1" style="display:none" 
+        src="https://www.facebook.com/tr?id=592433636853293&ev=PageView&noscript=1"/>
+      `;
+      document.head.appendChild(fbNoScript);
+      return () => {
+        if (gtagScript.parentNode) {
+          document.head.removeChild(gtagScript);
+        }
+        if (inlineScript.parentNode) {
+          document.head.removeChild(inlineScript);
+        }
+        if (fbPixelScript.parentNode) {
+          document.head.removeChild(fbPixelScript);
+        }
+        if (fbNoScript.parentNode) {
+          document.head.removeChild(fbNoScript);
+        }
+      };
+    }
+  }, [currentStep]);
+
+  useEffect(() => {
+    if (getRespErr) {
+      const timer = setTimeout(() => {
+        setGetRespErr("");
+      }, 5000);
+
+      return () => clearTimeout(timer);
+    }
+  }, [getRespErr]);
+
+  // const closeModal = () => {
+  //   setIsModalOpen(false);
+  //   navigate("/");
+  // };
+
   const handleImage = () => {
     console.log(inputRef, "test out");
     if (inputRef.current) {
@@ -133,8 +217,6 @@ const StepForm = () => {
     e.preventDefault();
     // Perform validation for the current step
     const errors = await validateForm(values);
-    console.log("Validation Errors:", errors); // Log all errors
-    console.log("Touched Fields:", values); // Log current field values
 
     // Log individual field errors for debugging
     Object.keys(errors).forEach((field) => {
@@ -463,7 +545,6 @@ const StepForm = () => {
                 }
                 onSubmit={async (values, { resetForm }) => {
                   try {
-                    console.log(values, "values is hereeee");
                     const formData = new FormData();
                     // Append form data (fields)
                     Object.keys(values).forEach((key) => {
@@ -482,16 +563,13 @@ const StepForm = () => {
 
                     // Handle response data
                     if (response.data.success) {
-                      console.log(
-                        "Business created successfully:",
-                        response.data.data
-                      );
-                      setExistId(response.data?.data?.hubspotContact?.vid);
-                      setCurrentStep((prevStep) => prevStep + 1);
-                      setIsModalOpen(true); // Open modal on success
+                      navigate("/thankyou", {
+                        state: { fromRegistration: "registration-form" },
+                      });
+                      // setIsModalOpen(true); // Open modal on success
                       resetForm();
                     } else {
-                      console.error("Error:", response.data.message);
+                      console.error("Error:else", response.data.message);
                       // Handle validation error response from API
                       setGetRespErr(response.data.message); // Show error message
                     }
@@ -1101,11 +1179,11 @@ const StepForm = () => {
 
                         {currentStep === 3 ? (
                           <button
-                            onClick={() => {
-                              if (isSubmitting) {
-                                setIsModalOpen(true);
-                              }
-                            }}
+                            // onClick={() => {
+                            //   if (isSubmitting) {
+                            //     setIsModalOpen(true);
+                            //   }
+                            // }}
                             disabled={isSubmitting}
                             type="submit"
                             className="text-white font-medium text-sm bg-[#5D74F1] py-[14px] px-[26px] rounded-[100px] w-full hover:bg-blue-400 hover:text-[#000]"
@@ -1164,7 +1242,7 @@ const StepForm = () => {
           </div>
         </div>
       </div>
-      {isModalOpen && <SuccessModal onClose={closeModal} />}
+      {/* {isModalOpen && <SuccessModal onClose={closeModal} />} */}
     </>
   );
 };
