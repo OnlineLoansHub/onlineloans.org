@@ -1,10 +1,11 @@
 import React, { useEffect } from "react";
 import successIcon from "../../assets/Featuredicon.svg";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import logo from "../../assets/home/ProCash.svg";
 const Thankyou = () => {
   const navigate = useNavigate();
-
+  const location = useLocation();
+  const data = location?.state;
   useEffect(() => {
     const gtagScript = document.createElement("script");
     gtagScript.src =
@@ -88,7 +89,11 @@ const Thankyou = () => {
         <div className="container mx-auto  px-4">
           <div
             onClick={() => {
-              navigate("/form");
+              if (data?.fromRegistration) {
+                navigate("/");
+              } else {
+                navigate("/form");
+              }
             }}
           >
             <img src={logo} alt="Logo" className="cursor-pointer" />
@@ -132,7 +137,13 @@ const Thankyou = () => {
             <div className="mt-8 flex  justify-center">
               <button
                 type="button"
-                onClick={() => navigate("/form")}
+                onClick={() => {
+                  if (data?.fromRegistration) {
+                    navigate("/");
+                  } else {
+                    navigate("/form");
+                  }
+                }}
                 className="text-white font-medium text-sm bg-[#5D74F1] py-[14px] px-[26px] rounded-[100px] w-auto hover:bg-blue-400 hover:text-[#000]"
               >
                 return to the form

@@ -13,12 +13,12 @@ export const GrowNowComp = ({ grownowRef }) => {
   const [getRespErr, setGetRespErr] = useState("");
   const navigate = useNavigate();
   const validationSchema = Yup.object({
-    website_name: Yup.string()
+    business_name: Yup.string()
       // .matches(
       //   /^(https?:\/\/)?(www\.)?([\w-]+\.)+[\w-]{2,4}(\/.*)?$/,
       //   "Please enter a valid website URL"
       // )
-      .required("Website name is required"),
+      .required("Business name is required"),
 
     email: Yup.string()
       .email("Invalid email address")
@@ -95,7 +95,7 @@ export const GrowNowComp = ({ grownowRef }) => {
                   initialValues={{
                     email: "",
                     phone: "",
-                    website_name: "",
+                    business_name: "",
                     policy: false,
                   }}
                   validationSchema={validationSchema}
@@ -103,7 +103,7 @@ export const GrowNowComp = ({ grownowRef }) => {
                     try {
                       const formData = {
                         email: values.email,
-                        website: values.website_name,
+                        business_name: values.business_name,
                         phone: values.phone,
                         agreedToTerms: values.policy,
                       };
@@ -162,12 +162,12 @@ export const GrowNowComp = ({ grownowRef }) => {
                             <div className="mt-[7px] sm:mt-0 md:mt-0 lg:mt-0 xl:mt-0">
                               <Field
                                 type="text"
-                                name="website_name"
+                                name="business_name"
                                 className="bg-white border border-[#30303033] w-full px-3 py-[10px] rounded-xl"
                                 placeholder="Your business name"
                               />
                               <ErrorMessage
-                                name="website_name"
+                                name="business_name"
                                 component="div"
                                 className="text-xs text-red-600"
                               />

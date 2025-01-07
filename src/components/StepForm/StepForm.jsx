@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState } from "react";
 import { Steps } from "../../utils/FormData";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import upload_Icon from "../../assets/upload_icon.svg";
-import SuccessModal from "../Modal/SuccessModal";
+// import SuccessModal from "../Modal/SuccessModal";
 import mailIcon from "../../assets/mailIcon.svg";
 import pinIcon from "../../assets/pin.svg";
 import phonIcon from "../../assets/phone.svg";
@@ -103,7 +103,7 @@ const step3ValidationSchema = Yup.object({
 });
 
 const StepForm = () => {
-  const [isModalOpen, setIsModalOpen] = useState(false);
+  // const [isModalOpen, setIsModalOpen] = useState(false);
   const [currentStep, setCurrentStep] = useState(1);
   const [getRespErr, setGetRespErr] = useState("");
   const formRef = useRef();
@@ -114,10 +114,22 @@ const StepForm = () => {
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   }, []);
-  const closeModal = () => {
-    setIsModalOpen(false);
-    navigate("/");
-  };
+
+  useEffect(() => {
+    if (getRespErr) {
+      const timer = setTimeout(() => {
+        setGetRespErr("");
+      }, 5000);
+
+      return () => clearTimeout(timer);
+    }
+  }, [getRespErr]);
+
+  // const closeModal = () => {
+  //   setIsModalOpen(false);
+  //   navigate("/");
+  // };
+
   const handleImage = () => {
     console.log(inputRef, "test out");
     if (inputRef.current) {
@@ -129,8 +141,6 @@ const StepForm = () => {
     e.preventDefault();
     // Perform validation for the current step
     const errors = await validateForm(values);
-    console.log("Validation Errors:", errors); // Log all errors
-    console.log("Touched Fields:", values); // Log current field values
 
     // Log individual field errors for debugging
     Object.keys(errors).forEach((field) => {
@@ -314,7 +324,10 @@ const StepForm = () => {
 
                     // Handle response data
                     if (response.data.success) {
-                      setIsModalOpen(true); // Open modal on success
+                      navigate("/thankyou", {
+                        state: { fromRegistration: "registration-form" },
+                      });
+                      // setIsModalOpen(true); // Open modal on success
                       resetForm();
                     } else {
                       console.error("Error:else", response.data.message);
@@ -945,11 +958,11 @@ const StepForm = () => {
 
                         {currentStep === 3 ? (
                           <button
-                            onClick={() => {
-                              if (isSubmitting) {
-                                setIsModalOpen(true);
-                              }
-                            }}
+                            // onClick={() => {
+                            //   if (isSubmitting) {
+                            //     setIsModalOpen(true);
+                            //   }
+                            // }}
                             disabled={isSubmitting}
                             type="submit"
                             className="text-white font-medium text-sm bg-[#5D74F1] py-[14px] px-[26px] rounded-[100px] w-full hover:bg-blue-400 hover:text-[#000]"
@@ -1008,7 +1021,7 @@ const StepForm = () => {
           </div>
         </div>
       </div>
-      {isModalOpen && <SuccessModal onClose={closeModal} />}
+      {/* {isModalOpen && <SuccessModal onClose={closeModal} />} */}
     </>
   );
 };
