@@ -4,14 +4,12 @@ import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import axios from "axios";
 import ratingImg from "../../assets/home/ratingImg.png";
-import SuccessModal from "../Modal/SuccessModal";
 import startCrossIcon from "../../assets/Closebutton.svg";
 import endCrossIcon from "../../assets/Close.svg";
 import { useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
-const apiUrl = process.env.REACT_APP_API_URL;
+const apiUrl = process.env.REACT_APP_API_URL || "http://localhost:5000";
 export const GrowNowComp = ({ grownowRef }) => {
-  const [isModalOpen, setIsModalOpen] = useState(false);
   const [getRespErr, setGetRespErr] = useState("");
   const navigate = useNavigate();
   const validationSchema = Yup.object({
@@ -32,10 +30,6 @@ export const GrowNowComp = ({ grownowRef }) => {
       .required("Phone number is required"),
     policy: Yup.boolean().oneOf([true], "please select terms and policy"),
   });
-  const closeModal = () => {
-    setIsModalOpen(false);
-    navigate("/form");
-  };
 
   useEffect(() => {
     if (getRespErr) {
@@ -115,6 +109,7 @@ export const GrowNowComp = ({ grownowRef }) => {
                       };
                       const response = await axios.post(
                         `${apiUrl}/api/user`,
+
                         formData,
                         {
                           headers: {
@@ -124,7 +119,8 @@ export const GrowNowComp = ({ grownowRef }) => {
                       );
                       // Handle response data
                       if (response.data.success) {
-                        setIsModalOpen(true);
+                        navigate("/thankyou");
+                        // setIsModalOpen(true);
                         resetForm();
                       } else {
                         console.error("Error:else", response.data.message);
@@ -263,7 +259,6 @@ export const GrowNowComp = ({ grownowRef }) => {
           </div>
         </div>
       </section>
-      {isModalOpen && <SuccessModal onClose={closeModal} />}
     </>
   );
 };
