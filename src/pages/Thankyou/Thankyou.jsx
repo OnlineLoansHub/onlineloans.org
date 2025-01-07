@@ -1,9 +1,87 @@
-import React from "react";
+import React, { useEffect } from "react";
 import successIcon from "../../assets/Featuredicon.svg";
 import { useNavigate } from "react-router-dom";
 import logo from "../../assets/home/ProCash.svg";
 const Thankyou = () => {
   const navigate = useNavigate();
+
+  useEffect(() => {
+    const gtagScript = document.createElement("script");
+    gtagScript.src =
+      "https://www.googletagmanager.com/gtag/js?id=AW-11530121883";
+    gtagScript.async = true;
+
+    document.head.appendChild(gtagScript);
+
+    const inlineScript = document.createElement("script");
+    inlineScript.innerHTML = `
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'AW-11530121883');
+    `;
+
+    document.head.appendChild(inlineScript);
+
+    return () => {
+      if (gtagScript.parentNode) {
+        document.head.removeChild(gtagScript);
+      }
+      if (inlineScript.parentNode) {
+        document.head.removeChild(inlineScript);
+      }
+    };
+  }, []);
+
+  useEffect(() => {
+    const existingGTM = document.querySelector(
+      `script[src="https://www.googletagmanager.com/gtag/js?id=AW-11530121883"]`
+    );
+    if (existingGTM) {
+      existingGTM.remove();
+    }
+
+    const inlineGTM = Array.from(
+      document.head.getElementsByTagName("script")
+    ).find((script) => script.innerHTML.includes("gtag('js'"));
+    if (inlineGTM) {
+      inlineGTM.remove();
+    }
+
+    const fbPixelScript = document.createElement("script");
+    fbPixelScript.innerHTML = `
+      !function(f,b,e,v,n,t,s)
+      {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+      n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+      if(!f._fbq)f._fbq=n;
+      n.push=n;n.loaded=!0;n.version='2.0';
+      n.queue=[];t=b.createElement(e);t.async=!0;
+      t.src=v;s=b.getElementsByTagName(e)[0];
+      s.parentNode.insertBefore(t,s)}(window, document,'script',
+      'https://connect.facebook.net/en_US/fbevents.js');
+      fbq('init', '592433636853293'); 
+      fbq('track', 'PageView'); 
+      fbq('track', 'CompleteRegistration'); // Custom Event: Registration
+    `;
+    document.head.appendChild(fbPixelScript);
+
+    const fbNoScript = document.createElement("noscript");
+    fbNoScript.innerHTML = `
+      <img height="1" width="1" style="display:none" 
+      src="https://www.facebook.com/tr?id=592433636853293&ev=PageView&noscript=1"/>
+    `;
+    document.head.appendChild(fbNoScript);
+
+    return () => {
+      if (fbPixelScript.parentNode) {
+        document.head.removeChild(fbPixelScript);
+      }
+      if (fbNoScript.parentNode) {
+        document.head.removeChild(fbNoScript);
+      }
+    };
+  }, []);
+
   return (
     <div className="max-w-[1110px] mx-auto 3 ">
       <header className="py-4">

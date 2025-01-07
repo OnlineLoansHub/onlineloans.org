@@ -14,10 +14,10 @@ export const GrowNowComp = ({ grownowRef }) => {
   const navigate = useNavigate();
   const validationSchema = Yup.object({
     website_name: Yup.string()
-      .matches(
-        /^(https?:\/\/)?(www\.)?([\w-]+\.)+[\w-]{2,4}(\/.*)?$/,
-        "Please enter a valid website URL"
-      )
+      // .matches(
+      //   /^(https?:\/\/)?(www\.)?([\w-]+\.)+[\w-]{2,4}(\/.*)?$/,
+      //   "Please enter a valid website URL"
+      // )
       .required("Website name is required"),
 
     email: Yup.string()
@@ -164,7 +164,7 @@ export const GrowNowComp = ({ grownowRef }) => {
                                 type="text"
                                 name="website_name"
                                 className="bg-white border border-[#30303033] w-full px-3 py-[10px] rounded-xl"
-                                placeholder="Your business website"
+                                placeholder="Your business name"
                               />
                               <ErrorMessage
                                 name="website_name"
