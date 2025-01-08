@@ -11,7 +11,7 @@ export const CashAdvanceSection = ({ whyus, grownowRef }) => {
       <div className="pt-11 pb-8 sm:pt-[120px] sm:pb-[80px] md:pt-[120px] md:pb-[80px] lg:pt-[120px] lg:pb-[80px] xl:pt-[120px] xl:pb-[80px]">
         <div>
           <h2 className="text-start sm:text-center md:text-center lg:text-center xl:text-center text-[32px] sm:text-[40px] md:text-[40px] lg:text-[40px] xl:text-[40px] font-semibold leading-[48px] text-[#171717] tracking-tight">
-            Why Choose a Merchant Cash Advance?
+            Why Choose a Working Capital?
           </h2>
         </div>
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-3 gap-6 mt-8 sm:mt-16 md:mt-16 lg:mt-16 xl:mt-16">

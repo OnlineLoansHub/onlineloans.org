@@ -18,7 +18,7 @@ export const HowToApply = ({ faq }) => {
             </h2>
             <p className="mb-0 text-base font-normal text-[#303030A3] mt-5">
               Contact our friendly support team to learn more about how a
-              Merchant Cash Advance can benefit your business.
+              working capital can benefit your business.
             </p>
             <div className="py-6 sm:py-8 md:py-8 lg:py-8 xl:py-8 ps-8 bg-[#F9F9F9] rounded-[20px] mt-8">
               <h3 className="font-semibold text-base text-[#171717]">

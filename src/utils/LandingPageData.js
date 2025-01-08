@@ -122,7 +122,7 @@ export const benefitsChoosingData = [
   {
     img: bc_img_2,
     title: "Personalized Support",
-    desc: "Our dedicated advisors work with you to tailor the best financing solution for your business.",
+    desc: "Our dedicated team work with you to tailor the best financing solution for your business.",
   },
   {
     img: bc_img_3,
@@ -167,15 +167,15 @@ export const howitWorksData = [
 export const AccordinData = [
   {
     title: "How do I apply?",
-    desc: "Applying for a merchant cash advance with ProCash.ai is quick and easy. Simply visit our website and complete the online application form with your business details. Our team will review your information and reach out to you promptly to guide you through the next steps.",
+    desc: "Applying for a working capital with ProCash.ai is quick and easy. Simply visit our website and complete the online application form with your business details. Our team will review your information and reach out to you promptly to guide you through the next steps.",
   },
   {
-    title: "Will applying for a loan with ProCash.ai impact my credit score?",
-    desc: "No, applying for a merchant cash advance with ProCash.ai does not affect your personal or business credit score. We evaluate your application based on your business’s cash flow and revenue, ensuring a hassle-free process without impacting your credit history.​",
+    title: "Will applying with ProCash.ai impact my credit score?",
+    desc: "No, applying for a working capital with ProCash.ai does not affect your personal or business credit score. We evaluate your application based on your business’s cash flow and revenue, ensuring a hassle-free process without impacting your credit history.​",
   },
   {
-    title: "Which documents will I need to present to apply for a loan?",
-    desc: "To apply for a merchant cash advance with ProCash.ai, you'll need to provide basic business information, including recent bank statements (typically the last 3-6 months), your business’s revenue reports, and any relevant identification documents. Our streamlined process minimizes the paperwork required, making it easier for you to get the funds you need.​",
+    title: "Which documents will I need to present to apply?",
+    desc: "To apply for a working capital with ProCash.ai, you'll need to provide basic business information, including recent bank statements (typically the last 3-6 months) and any relevant identification documents. Our streamlined process minimizes the paperwork required, making it easier for you to get the funds you need.​",
   },
   {
     title: "Why do you require access to my bank account?",

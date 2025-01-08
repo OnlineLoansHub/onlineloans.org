@@ -239,7 +239,7 @@ export const HeroSection = ({
                   className="absolute -bottom-2 left-0 w-full h-auto"
                 />
               </span>{" "}
-              Merchant Cash Advances
+              Working Capital
             </h1>
 
             {/* Subtitle */}
