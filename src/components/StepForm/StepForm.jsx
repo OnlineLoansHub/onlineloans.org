@@ -134,6 +134,16 @@ const StepForm = () => {
       `;
 
       document.head.appendChild(inlineScript);
+
+      const conversionScript = document.createElement("script");
+      conversionScript.innerHTML = `
+        gtag('event', 'conversion', {
+          'send_to': 'AW-11530121883/MJVVCJbepf4ZEJvl_vkq',
+          'value': 1.0,
+          'currency': 'USD'
+        });
+      `;
+      document.head.appendChild(conversionScript);
       const existingGTM = document.querySelector(
         `script[src="https://www.googletagmanager.com/gtag/js?id=AW-11530121883"]`
       );
@@ -177,6 +187,9 @@ const StepForm = () => {
         }
         if (inlineScript.parentNode) {
           document.head.removeChild(inlineScript);
+        }
+        if (conversionScript.parentNode) {
+          document.head.removeChild(conversionScript);
         }
         if (fbPixelScript.parentNode) {
           document.head.removeChild(fbPixelScript);
