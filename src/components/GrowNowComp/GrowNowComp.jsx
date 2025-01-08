@@ -8,18 +8,14 @@ import startCrossIcon from "../../assets/Closebutton.svg";
 import endCrossIcon from "../../assets/Close.svg";
 import { useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
-const apiUrl = process.env.REACT_APP_API_URL || "http://localhost:5000";
+const apiUrl = process.env.REACT_APP_API_URL;
 export const GrowNowComp = ({ grownowRef }) => {
   const [getRespErr, setGetRespErr] = useState("");
+  const [existId, setExistId] = useState("");
   const navigate = useNavigate();
   const validationSchema = Yup.object({
     business_name: Yup.string()
-      // .matches(
-      //   /^(https?:\/\/)?(www\.)?([\w-]+\.)+[\w-]{2,4}(\/.*)?$/,
-      //   "Please enter a valid website URL"
-      // )
       .required("Business name is required"),
-
     email: Yup.string()
       .email("Invalid email address")
       .required("Email is required"),
@@ -36,10 +32,14 @@ export const GrowNowComp = ({ grownowRef }) => {
       const timer = setTimeout(() => {
         setGetRespErr("");
       }, 5000);
-
       return () => clearTimeout(timer);
     }
   }, [getRespErr]);
+  function getExistingId(errorString) {
+    // Use a regular expression to match the ID in the string
+    const match = errorString.match(/Existing ID: (\d+)/);
+    return match ? match[1] : null; // Return the ID if found, otherwise null
+  }
   return (
     <>
       <section className="max-w-[1110px] mx-auto px-3" ref={grownowRef}>
@@ -100,8 +100,10 @@ export const GrowNowComp = ({ grownowRef }) => {
                   }}
                   validationSchema={validationSchema}
                   onSubmit={async (values, { resetForm }) => {
+                    let existingId;
+                    let formData;
                     try {
-                      const formData = {
+                       formData = {
                         email: values.email,
                         business_name: values.business_name,
                         phone: values.phone,
@@ -109,7 +111,6 @@ export const GrowNowComp = ({ grownowRef }) => {
                       };
                       const response = await axios.post(
                         `${apiUrl}/api/user`,
-
                         formData,
                         {
                           headers: {
@@ -122,19 +123,54 @@ export const GrowNowComp = ({ grownowRef }) => {
                         navigate("/thankyou");
                         // setIsModalOpen(true);
                         resetForm();
-                      } else {
-                        console.error("Error:else", response.data.message);
-                        // Handle validation error response from API
-                        setGetRespErr(response.data.message);
                       }
-                    } catch (error) {
-                      console.error(
-                        "Error:catch",
-                        error?.response?.data?.message
-                      );
-                      // Handle unexpected errors (e.g., server issues)
-                      setGetRespErr(error?.response?.data?.message);
-                    }
+                    }catch (error) {
+                      existingId =  getExistingId(error?.response?.data?.message);
+                      setExistId(existingId);
+                     console.log("Existing ID:",existingId); // Output: 87501643895
+
+                     if(existingId){
+                       try {
+                         formData.step = "1";
+                         formData.type = "new";
+                         // Sending data to the API
+                         const response = await axios.post(
+                           `${apiUrl}/api/update_business/${existingId}`,
+                           formData,
+                           {
+                             headers: {
+                               "Content-Type": "application/json",
+                             },
+                           }
+                         );
+                 
+                         // Handle response data
+                         if (response.data.success) {
+                           console.log(
+                             "Business updated successfully:",
+                             response.data.data
+                           );
+                           resetForm();
+                       
+                         } else {
+                           // console.error("Error:", response.data.message);
+                           console.log(response,'response')
+                           
+                           // Handle validation error response from API
+                           setGetRespErr(response.data.message); // Show error message
+                         }
+                       }catch(error){
+                         console.log(error,'error_____')
+                       }
+                     }
+                     // console.error("Error:", error?.response?.data?.message);
+                     // Handle unexpected errors (e.g., server issues)
+                     
+                   //   if(error?.response?.data?.message?.code){
+                   //     return setGetRespErr(error?.response?.data?.code);
+                   //   }
+                   //   setGetRespErr(error?.response?.data?.message);
+                   }
                   }}
                   validateOnChange={true}
                   validateOnBlur={true}
