@@ -150,6 +150,7 @@ export const GrowNowComp = ({ grownowRef }) => {
                              "Business updated successfully:",
                              response.data.data
                            );
+                           navigate("/thankyou");
                            resetForm();
                        
                          } else {
