@@ -129,7 +129,6 @@ const StepForm = () => {
         gtag('js', new Date());
         gtag('config', 'AW-11530121883');
       `;
-
       document.head.appendChild(inlineScript);
 
       const conversionScript = document.createElement("script");
