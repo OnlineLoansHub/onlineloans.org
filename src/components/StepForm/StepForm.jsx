@@ -289,12 +289,12 @@ const StepForm = () => {
          existingId =  getExistingId(error?.response?.data?.message);
          setExistId(existingId);
         console.log("Existing ID:", existId); // Output: 87501643895
-        if(existId){
+        if(existId || existingId){
           try {
             console.log(obj, "obj 1 is hereww");
             // Sending data to the API
             const response = await axios.post(
-              `${apiUrl}/api/update_business/${existId}`,
+              `${apiUrl}/api/update_business/${existingId || existId}`,
               obj,
               {
                 headers: {
@@ -729,8 +729,8 @@ const StepForm = () => {
                                   ---
                                 </option>
                                 <option value="Retail">Retail</option>
-                                <option value="green">Green</option>
-                                <option value="blue">Blue</option>
+                                <option value="Green">Green</option>
+                                <option value="Blue">Blue</option>
                               </Field>
                               <ErrorMessage
                                 name="business_type"
