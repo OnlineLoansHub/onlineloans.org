@@ -3,7 +3,7 @@ import belowTextLine from "../../assets/home/grownowLine.png";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import axios from "axios";
-import ratingImg from "../../assets/home/ratingImg.png";
+// import ratingImg from "../../assets/home/ratingImg.png";
 import startCrossIcon from "../../assets/Closebutton.svg";
 import endCrossIcon from "../../assets/Close.svg";
 import { useNavigate } from "react-router-dom";
@@ -284,9 +284,9 @@ export const GrowNowComp = ({ grownowRef }) => {
                 <p className="text-[13px] font-normal leading-[19.2px] text-[#4A4A4A]">
                   Qualifying businesses receive up to $200K in 24 hours.
                 </p>
-                <div className="max-w-[100px] mt-[18px] sm:mt-[25px] md:mt-[25px] lg:mt-[25px] xl:mt-[25px]">
+                {/* <div className="max-w-[100px] mt-[18px] sm:mt-[25px] md:mt-[25px] lg:mt-[25px] xl:mt-[25px]">
                   <img src={ratingImg} alt="rating" className="w-full h-full" />
-                </div>
+                </div> */}
               </div>
             </div>
             <div>

@@ -83,7 +83,7 @@ export const FooterSection = ({
               className="text-[15.5px] sm:text-base md:text-base  hover:text-[#6853E4] hover:underline lg:text-base xl:text-base font-medium text-[#171717] mb-0 cursor-pointer"
               onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
             >
-              Understanding Merchant Cash Advances
+              Understanding Working Capital
             </li>
             <li
               className="text-[15.5px] sm:text-base md:text-base hover:text-[#6853E4] hover:underline  lg:text-base xl:text-base font-medium text-[#171717] mb-0 cursor-pointer"

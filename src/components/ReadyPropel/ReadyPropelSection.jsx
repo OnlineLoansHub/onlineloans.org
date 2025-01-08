@@ -17,9 +17,9 @@ export const ReadyPropelSection = ({ readyPropel, grownowRef }) => {
               Ready to Propel Your Business Forward?
             </h2>
             <p className="mb-0 text-base font-normal text-[#303030A3] mt-4">
-              Take the next step in your business journey with a Merchant Cash
-              Advance from ProCash.ai. Our team is here to provide the funding
-              you need with terms that work for you.
+              Take the next step in your business journey with a working capital
+              from ProCash.ai. Our team is here to provide the funding you need
+              with terms that work for you.
             </p>
             <div className="mt-6 flex justify-center sm:justify-start md:justify-start lg:justify-start xl:justify-start">
               <button
