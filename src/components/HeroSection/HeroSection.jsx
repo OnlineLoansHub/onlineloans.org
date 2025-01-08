@@ -246,8 +246,8 @@ export const HeroSection = ({
             <p className="font-normal text-sm sm:text-base md:text-base lg:text-base xl:text-base text-[#303030A3] text-center mt-6">
               Unlock Fast, Easy Money for Your Business. At ProCash.ai, we know
               every business is different. Whether you want to grow, need money
-              for daily costs, or new things, our AI-Driven Merchant Cash
-              Advance gives you the money you need quickly.
+              for daily costs, or new things, our AI-Driven working capital
+              gives you the money you need quickly.
             </p>
 
             {/* Action Button */}
