@@ -53,9 +53,7 @@ const step2ValidationSchema = Yup.object({
         value && value.toString().length >= 1 && value.toString().length <= 6
     )
     .required("Average Monthly Credit is required"),
-  avg_monthly_card: Yup.number()
-    .positive("Average Monthly Card must be a positive number")
-    .required("Average Monthly Card is required"),
+
   current_funding: Yup.string().required("Current Funding is required"),
   consent_credit_check: Yup.boolean().oneOf(
     [true],
@@ -367,7 +365,6 @@ const StepForm = () => {
                   business_date: "",
                   monthly_revenue: "",
                   avg_monthly_credit: "",
-                  avg_monthly_card: "",
                   current_funding: "",
                   consent_credit_check: false,
                   terms_conditions: false,
@@ -687,24 +684,7 @@ const StepForm = () => {
                             />
                           </div>
                         </div>
-                        <div className="mb-6">
-                          <label className="font-medium text-[13px] text-[#101828] ">
-                            Average Monthly Credit/Debit Card Transactions
-                          </label>
-                          <div className="mt-[10px]">
-                            <Field
-                              type="text"
-                              name="avg_monthly_card"
-                              className="bg-white border border-[#30303033] w-full px-3 py-[10px] rounded-lg"
-                              placeholder="$20,000"
-                            />
-                            <ErrorMessage
-                              name="avg_monthly_card"
-                              component="div"
-                              className="text-red-600"
-                            />
-                          </div>
-                        </div>
+
                         <div className="mb-6">
                           <label className="font-medium text-[13px] text-[#101828] ">
                             Current Funding Needs
