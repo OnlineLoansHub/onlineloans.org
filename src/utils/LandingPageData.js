@@ -177,10 +177,10 @@ export const AccordinData = [
     title: "Which documents will I need to present to apply?",
     desc: "To apply for a working capital with ProCash.ai, you'll need to provide basic business information, including recent bank statements (typically the last 3-6 months) and any relevant identification documents. Our streamlined process minimizes the paperwork required, making it easier for you to get the funds you need.​",
   },
-  {
-    title: "Why do you require access to my bank account?",
-    desc: "ProCash.ai requests access to your bank account to verify your business’s cash flow and ensure that the repayment process is seamless. This access allows us to automatically deduct a small percentage of your daily sales, making repayments manageable and aligned with your business’s revenue cycle.​",
-  },
+  // {
+  //   title: "Why do you require access to my bank account?",
+  //   desc: "ProCash.ai requests access to your bank account to verify your business’s cash flow and ensure that the repayment process is seamless. This access allows us to automatically deduct a small percentage of your daily sales, making repayments manageable and aligned with your business’s revenue cycle.​",
+  // },
   {
     title: "How do I access my funds?",
     desc: "Once your application is approved, the funds are typically deposited into your business bank account within 24 to 48 hours. We prioritize speed and efficiency to ensure that you receive the capital you need promptly to support and grow your business.",
