@@ -8,7 +8,7 @@ import startCrossIcon from "../../assets/Closebutton.svg";
 import endCrossIcon from "../../assets/Close.svg";
 import { useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
-const apiUrl = process.env.REACT_APP_API_URL || "http://localhost:5000";
+const apiUrl = process.env.REACT_APP_API_URL;
 export const GrowNowComp = ({ grownowRef }) => {
   const [getRespErr, setGetRespErr] = useState("");
   const [existId, setExistId] = useState("");
@@ -110,7 +110,7 @@ export const GrowNowComp = ({ grownowRef }) => {
                         agreedToTerms: values.policy,
                       };
                       const response = await axios.post(
-                        `${apiUrl}/user`,
+                        `${apiUrl}/api/user`,
                         formData,
                         {
                           headers: {
@@ -135,7 +135,7 @@ export const GrowNowComp = ({ grownowRef }) => {
                          formData.type = "new";
                          // Sending data to the API
                          const response = await axios.post(
-                           `${apiUrl}/update_business/${existingId}`,
+                           `${apiUrl}/api/update_business/${existingId}`,
                            formData,
                            {
                              headers: {

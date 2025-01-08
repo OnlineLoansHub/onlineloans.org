@@ -260,7 +260,7 @@ const StepForm = () => {
         console.log(obj, "obj 1 is hereww");
         // Sending data to the API
         const response = await axios.post(
-          `${apiUrl}/business`,
+          `${apiUrl}/api/business`,
           obj,
           {
             headers: {
@@ -294,7 +294,7 @@ const StepForm = () => {
             console.log(obj, "obj 1 is hereww");
             // Sending data to the API
             const response = await axios.post(
-              `${apiUrl}/update_business/${existId}`,
+              `${apiUrl}/api/update_business/${existId}`,
               obj,
               {
                 headers: {
@@ -351,7 +351,7 @@ const StepForm = () => {
             console.log(obj, "obj 1 is hereww");
             // Sending data to the API
             const response = await axios.post(
-              `${apiUrl}/update_business/${existId}`,
+              `${apiUrl}/api/update_business/${existId}`,
               obj,
               {
                 headers: {
@@ -563,7 +563,7 @@ const StepForm = () => {
                     });
                     // Sending data to the API
                     const response = await axios.post(
-                      `${apiUrl}/mail_send`,
+                      `${apiUrl}/api/mail_send`,
                       formData,
                       {
                         headers: {
