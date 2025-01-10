@@ -14,8 +14,7 @@ export const GrowNowComp = ({ grownowRef }) => {
   const [existId, setExistId] = useState("");
   const navigate = useNavigate();
   const validationSchema = Yup.object({
-    business_name: Yup.string()
-      .required("Business name is required"),
+    business_name: Yup.string().required("Business name is required"),
     email: Yup.string()
       .email("Invalid email address")
       .required("Email is required"),
@@ -103,7 +102,7 @@ export const GrowNowComp = ({ grownowRef }) => {
                     let existingId;
                     let formData;
                     try {
-                       formData = {
+                      formData = {
                         email: values.email,
                         business_name: values.business_name,
                         phone: values.phone,
@@ -120,58 +119,63 @@ export const GrowNowComp = ({ grownowRef }) => {
                       );
                       // Handle response data
                       if (response.data.success) {
-                        navigate("/thankyou");
+                        navigate("/thankyou", {
+                          state: { fromFormPage: "form-page" },
+                        });
                         // setIsModalOpen(true);
                         resetForm();
                       }
-                    }catch (error) {
-                      existingId =  getExistingId(error?.response?.data?.message);
+                    } catch (error) {
+                      existingId = getExistingId(
+                        error?.response?.data?.message
+                      );
                       setExistId(existingId);
-                     console.log("Existing ID:",existingId); // Output: 87501643895
+                      console.log("Existing ID:", existingId); // Output: 87501643895
 
-                     if(existingId){
-                       try {
-                         formData.step = "1";
-                         formData.type = "new";
-                         // Sending data to the API
-                         const response = await axios.post(
-                           `${apiUrl}/api/update_business/${existingId}`,
-                           formData,
-                           {
-                             headers: {
-                               "Content-Type": "application/json",
-                             },
-                           }
-                         );
-                 
-                         // Handle response data
-                         if (response.data.success) {
-                           console.log(
-                             "Business updated successfully:",
-                             response.data.data
-                           );
-                           navigate("/thankyou");
-                           resetForm();
-                       
-                         } else {
-                           // console.error("Error:", response.data.message);
-                           console.log(response,'response')
-                           
-                           // Handle validation error response from API
-                           setGetRespErr(response.data.message); // Show error message
-                         }
-                       }catch(error){
-                         console.log(error,'error_____')
-                       }
-                     }
-                     // console.error("Error:", error?.response?.data?.message);
-                     // Handle unexpected errors (e.g., server issues)
-                     
-                   //   if(error?.response?.data?.message?.code){
-                   //     return setGetRespErr(error?.response?.data?.code);
-                   //   }
-                   //   setGetRespErr(error?.response?.data?.message);
-                   }
+                      if (existingId) {
+                        try {
+                          formData.step = "1";
+                          formData.type = "new";
+                          // Sending data to the API
+                          const response = await axios.post(
+                            `${apiUrl}/api/update_business/${
+                              existingId || existId
+                            }`,
+                            formData,
+                            {
+                              headers: {
+                                "Content-Type": "application/json",
+                              },
+                            }
+                          );
+
+                          // Handle response data
+                          if (response.data.success) {
+                            console.log(
+                              "Business updated successfully:",
+                              response.data.data
+                            );
+                            navigate("/thankyou");
+                            resetForm();
+                          } else {
+                            // console.error("Error:", response.data.message);
+                            console.log(response, "response");
+
+                            // Handle validation error response from API
+                            setGetRespErr(response.data.message); // Show error message
+                          }
+                        } catch (error) {
+                          console.log(error, "error_____");
+                        }
+                      }
+                      // console.error("Error:", error?.response?.data?.message);
+                      // Handle unexpected errors (e.g., server issues)
+
+                      //   if(error?.response?.data?.message?.code){
+                      //     return setGetRespErr(error?.response?.data?.code);
+                      //   }
+                      //   setGetRespErr(error?.response?.data?.message);
+                    }
                   }}
                   validateOnChange={true}
                   validateOnBlur={true}

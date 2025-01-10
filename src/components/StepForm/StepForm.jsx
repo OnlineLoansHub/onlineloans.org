@@ -114,45 +114,26 @@ const StepForm = () => {
   }, []);
 
   useEffect(() => {
-    if (currentStep === 2 || currentStep === 3) {
+    if (currentStep === 2) {
+      // Google Analytics conversion tracking script
       const gtagScript = document.createElement("script");
-      gtagScript.src =
-        "https://www.googletagmanager.com/gtag/js?id=AW-11530121883";
-      gtagScript.async = true;
-
+      gtagScript.innerHTML = `
+         function gtag_report_conversion(url) {
+           var callback = function () {
+             if (typeof(url) != 'undefined') {
+               window.location = url;
+             }
+           };
+           gtag('event', 'conversion', {
+               'send_to': 'AW-11530121883/MJVVCJbepf4ZEJvl_vkq',
+               'value': 1.0,
+               'currency': 'USD',
+               'event_callback': callback
+           });
+           return false;
+         }
+       `;
       document.head.appendChild(gtagScript);
-
-      const inlineScript = document.createElement("script");
-      inlineScript.innerHTML = `
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('config', 'AW-11530121883');
-      `;
-      document.head.appendChild(inlineScript);
-
-      const conversionScript = document.createElement("script");
-      conversionScript.innerHTML = `
-        gtag('event', 'conversion', {
-          'send_to': 'AW-11530121883/MJVVCJbepf4ZEJvl_vkq',
-          'value': 1.0,
-          'currency': 'USD'
-        });
-      `;
-      document.head.appendChild(conversionScript);
-      const existingGTM = document.querySelector(
-        `script[src="https://www.googletagmanager.com/gtag/js?id=AW-11530121883"]`
-      );
-      if (existingGTM) {
-        existingGTM.remove();
-      }
-
-      const inlineGTM = Array.from(
-        document.head.getElementsByTagName("script")
-      ).find((script) => script.innerHTML.includes("gtag('js'"));
-      if (inlineGTM) {
-        inlineGTM.remove();
-      }
 
       const fbPixelScript = document.createElement("script");
       fbPixelScript.innerHTML = `
@@ -180,12 +161,6 @@ const StepForm = () => {
       return () => {
         if (gtagScript.parentNode) {
           document.head.removeChild(gtagScript);
-        }
-        if (inlineScript.parentNode) {
-          document.head.removeChild(inlineScript);
-        }
-        if (conversionScript.parentNode) {
-          document.head.removeChild(conversionScript);
         }
         if (fbPixelScript.parentNode) {
           document.head.removeChild(fbPixelScript);
@@ -245,53 +220,47 @@ const StepForm = () => {
       });
       return; // prevent moving to the next step
     }
-      let existingId;
-    if(currentStep===1){
+    let existingId;
+    if (currentStep === 1) {
       let obj = {
-        full_name:values?.full_name,
-        email:values?.email,
-        phone:values?.phone,
-        business_name:values?.business_name,
-        business_address:values?.business_address,
-        step:1
-      }
+        full_name: values?.full_name,
+        email: values?.email,
+        phone: values?.phone,
+        business_name: values?.business_name,
+        business_address: values?.business_address,
+        step: 1,
+      };
 
       try {
         console.log(obj, "obj 1 is hereww");
         // Sending data to the API
-        const response = await axios.post(
-          `${apiUrl}/api/business`,
-          obj,
-          {
-            headers: {
-              "Content-Type": "application/json",
-            },
-          }
-        );
+        const response = await axios.post(`${apiUrl}/api/business`, obj, {
+          headers: {
+            "Content-Type": "application/json",
+          },
+        });
 
         // Handle response data
         if (response.data.success) {
+          console.log("Business created successfully:", response.data.data);
           console.log(
-            "Business created successfully:",
-            response.data.data
+            response.data?.data?.hubspotContact?.vid,
+            "response.data?.data?.hubspotContact?.vid"
           );
-          console.log(response.data?.data?.hubspotContact?.vid,'response.data?.data?.hubspotContact?.vid')
           setExistId(response.data?.data?.hubspotContact?.vid);
-      
         } else {
           // console.error("Error:", response.data.message);
-          console.log(response,'response')
-          
+          console.log(response, "response");
+
           // Handle validation error response from API
           setGetRespErr(response.data.message); // Show error message
         }
       } catch (error) {
-         existingId =  getExistingId(error?.response?.data?.message);
-         setExistId(existingId);
+        existingId = getExistingId(error?.response?.data?.message);
+        setExistId(existingId);
         console.log("Existing ID:", existId); // Output: 87501643895
-        if(existId || existingId){
+        if (existId || existingId) {
           try {
-            console.log(obj, "obj 1 is hereww");
             // Sending data to the API
             const response = await axios.post(
               `${apiUrl}/api/update_business/${existingId || existId}`,
@@ -302,90 +271,79 @@ const StepForm = () => {
                 },
               }
             );
-    
+
             // Handle response data
             if (response.data.success) {
-              console.log(
-                "Business updated successfully:",
-                response.data.data
-              );
-          
+              console.log("Business updated successfully:", response.data.data);
             } else {
               // console.error("Error:", response.data.message);
-              console.log(response,'response')
-              
+              console.log(response, "response");
+
               // Handle validation error response from API
               setGetRespErr(response.data.message); // Show error message
             }
-          }catch(error){
-            console.log(error,'error_____')
+          } catch (error) {
+            console.log(error, "error_____");
           }
         }
         // console.error("Error:", error?.response?.data?.message);
         // Handle unexpected errors (e.g., server issues)
-        
-      //   if(error?.response?.data?.message?.code){
-      //     return setGetRespErr(error?.response?.data?.code);
-      //   }
-      //   setGetRespErr(error?.response?.data?.message);
-      }
 
+        //   if(error?.response?.data?.message?.code){
+        //     return setGetRespErr(error?.response?.data?.code);
+        //   }
+        //   setGetRespErr(error?.response?.data?.message);
+      }
     }
-    if(currentStep===2){
-          let obj = {
-            business_type:values?.business_type,
-            business_date:values?.business_date,
-            monthly_revenue:values?.monthly_revenue,
-            average_monthly_credit_debit:values?.avg_monthly_credit,
-            // avg_monthly_card:values?.avg_monthly_card,
-            current_funding:values?.current_funding,
-            consent_credit_check:values?.consent_credit_check,
-            terms_conditions:values?.terms_conditions,
-            step:2
-          }
+    if (currentStep === 2) {
+      let obj = {
+        business_type: values?.business_type,
+        business_date: values?.business_date,
+        monthly_revenue: values?.monthly_revenue,
+        average_monthly_credit_debit: values?.avg_monthly_credit,
+        // avg_monthly_card:values?.avg_monthly_card,
+        current_funding: values?.current_funding,
+        consent_credit_check: values?.consent_credit_check,
+        terms_conditions: values?.terms_conditions,
+        step: 2,
+      };
 
       try {
         console.log(existId, "obj 1 is herewwexistId");
         // Sending data to the API
-        if(existId){
-            console.log(obj, "obj 1 is hereww");
-            // Sending data to the API
-            const response = await axios.post(
-              `${apiUrl}/api/update_business/${existId}`,
-              obj,
-              {
-                headers: {
-                  "Content-Type": "application/json",
-                },
-              }
-            );
-    
-            // Handle response data
-            if (response.data.success) {
-              console.log(
-                "Business updated successfully:",
-                response.data.data
-              );
-          
-            } else {
-              // console.error("Error:", response.data.message);
-              console.log(response,'response')
-              
-              // Handle validation error response from API
-              setGetRespErr(response.data.message); // Show error message
+        if (existId) {
+          console.log(obj, "obj 1 is hereww");
+          // Sending data to the API
+          const response = await axios.post(
+            `${apiUrl}/api/update_business/${existId}`,
+            obj,
+            {
+              headers: {
+                "Content-Type": "application/json",
+              },
             }
+          );
+
+          // Handle response data
+          if (response.data.success) {
+            console.log("Business updated successfully:", response.data.data);
+          } else {
+            // console.error("Error:", response.data.message);
+            console.log(response, "response");
+
+            // Handle validation error response from API
+            setGetRespErr(response.data.message); // Show error message
+          }
         }
       } catch (error) {
-      
         // console.error("Error:", error?.response?.data?.message);
         // Handle unexpected errors (e.g., server issues)
-        
-        if(error?.response?.data?.message?.code){
+
+        if (error?.response?.data?.message?.code) {
           return setGetRespErr(error?.response?.data?.code);
         }
         setGetRespErr(error?.response?.data?.message);
       }
-
     }
 
     // if(currentStep===3){
@@ -405,10 +363,10 @@ const StepForm = () => {
     //       "Business updated successfully:",
     //       response.data.data
     //     );
-    
+
     //   }
     // }
-    
+
     // If validation passes, move to the next step
     setCurrentStep((prevStep) => prevStep + 1);
     formRef.current?.scrollIntoView({
@@ -574,7 +532,7 @@ const StepForm = () => {
 
                     // Handle response data
                     if (response.data.success) {
-                      navigate("/thankyou", {
+                      navigate("/thank-you", {
                         state: { fromRegistration: "registration-form" },
                       });
                       // setIsModalOpen(true); // Open modal on success
@@ -587,7 +545,7 @@ const StepForm = () => {
                   } catch (error) {
                     // console.error("Error:", error?.response?.data?.message);
                     // Handle unexpected errors (e.g., server issues)
-                    if(error?.response?.data?.message?.code){
+                    if (error?.response?.data?.message?.code) {
                       return setGetRespErr(error?.response?.data?.code);
                     }
                     setGetRespErr(error?.response?.data?.message);

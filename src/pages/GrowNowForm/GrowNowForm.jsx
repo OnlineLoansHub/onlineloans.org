@@ -89,6 +89,31 @@ const GrowNowForm = () => {
     };
   }, []);
 
+  useEffect(() => {
+    const gtagScript = document.createElement("script");
+    gtagScript.async = true;
+    gtagScript.src =
+      "https://www.googletagmanager.com/gtag/js?id=AW-11530121883";
+    document.head.appendChild(gtagScript);
+
+    const gtagInitScript = document.createElement("script");
+    gtagInitScript.innerHTML = `
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'AW-11530121883');
+      `;
+    document.head.appendChild(gtagInitScript);
+    return () => {
+      if (gtagScript.parentNode) {
+        document.head.removeChild(gtagScript);
+      }
+      if (gtagInitScript.parentNode) {
+        document.head.removeChild(gtagInitScript);
+      }
+    };
+  }, []);
+
   return (
     <div>
       <HeroSection
