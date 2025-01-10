@@ -6,31 +6,47 @@ const Thankyou = () => {
   const navigate = useNavigate();
   const location = useLocation();
   const data = location?.state;
+
+
   useEffect(() => {
     const gtagScript = document.createElement("script");
-    gtagScript.src =
-      "https://www.googletagmanager.com/gtag/js?id=AW-11530121883";
-    gtagScript.async = true;
 
-    document.head.appendChild(gtagScript);
+    // gtagScript.src =
+    //   "https://www.googletagmanager.com/gtag/js?id=AW-11530121883";
+    // gtagScript.async = true;
 
-    const inlineScript = document.createElement("script");
-    inlineScript.innerHTML = `
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'AW-11530121883');
-    `;
+    // document.head.appendChild(gtagScript);
 
-    document.head.appendChild(inlineScript);
+    // const inlineScript = document.createElement("script");
+    // inlineScript.innerHTML = `
+    //   window.dataLayer = window.dataLayer || [];
+    //   function gtag(){dataLayer.push(arguments);}
+    //   gtag('js', new Date());
+    //   gtag('config', 'AW-11530121883');
+    // `;
 
+    // document.head.appendChild(inlineScript);
+
+    //console.log(gtag_conv,'gtag_conv');
+
+    const script = document.createElement("script");
+    script.innerHTML = `
+     gtag_conv('event', 'conversion', {
+            'send_to': 'AW-11530121883/MJVVCJbepf4ZEJvl_vkq',
+            'value': 1.0,
+            'currency': 'USD'
+        });
+    `
+
+    document.body.append(script)
+ 
     return () => {
-      if (gtagScript.parentNode) {
-        document.head.removeChild(gtagScript);
-      }
-      if (inlineScript.parentNode) {
-        document.head.removeChild(inlineScript);
-      }
+      // if (gtagScript.parentNode) {
+      //   document.head.removeChild(gtagScript);
+      // }
+      // if (inlineScript.parentNode) {
+      //   document.head.removeChild(inlineScript);
+      // }
     };
   }, []);
 
