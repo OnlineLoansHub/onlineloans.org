@@ -11,6 +11,7 @@ import { TestimonialSection } from "../../components/Testimonials/TestimonialSec
 import { ReadyPropelSection } from "../../components/ReadyPropel/ReadyPropelSection";
 import { FooterSection } from "../../components/Footer/FooterSection";
 import { GrowNowComp } from "../../components/GrowNowComp/GrowNowComp";
+import { useLocation } from "react-router-dom";
 
 const GrowNowForm = () => {
   const howItWorks = useRef(null);
@@ -20,6 +21,26 @@ const GrowNowForm = () => {
   const readyPropel = useRef(null);
   const aboutProcash = useRef(null);
   const grownowRef = useRef(null);
+  const location = useLocation();
+  const data = location?.state;
+
+  useEffect(() => {
+    if (data?.fromThankYouPage === "fromThankYouPage") {
+      const isReloaded = sessionStorage.getItem("reloaded");
+      if (!isReloaded) {
+        sessionStorage.setItem("reloaded", "true");
+        window.history.replaceState({}, document.title);
+        window.location.reload();
+      }
+    }
+  }, [data?.fromThankYouPage]);
+
+  useEffect(() => {
+    if (sessionStorage.getItem("reloaded")) {
+      sessionStorage.removeItem("reloaded");
+    }
+  }, []);
+
   useEffect(() => {
     const slider = new Glide(".glide-02", {
       type: "carousel",

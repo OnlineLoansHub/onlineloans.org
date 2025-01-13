@@ -15,7 +15,9 @@ const ThankYou = () => {
               if (data?.fromRegistration) {
                 navigate("/");
               } else {
-                navigate("/form");
+                navigate("/form", {
+                  state: { fromThankYouPage: "fromThankYouPage" },
+                });
               }
             }}
           >
@@ -64,7 +66,9 @@ const ThankYou = () => {
                   if (data?.fromRegistration) {
                     navigate("/");
                   } else {
-                    navigate("/form");
+                    navigate("/form", {
+                      state: { fromThankYouPage: "fromThankYouPage" },
+                    });
                   }
                 }}
                 className="text-white font-medium text-sm bg-[#5D74F1] py-[14px] px-[26px] rounded-[100px] w-auto hover:bg-blue-400 hover:text-[#000]"
