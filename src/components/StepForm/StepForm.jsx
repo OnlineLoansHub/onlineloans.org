@@ -200,8 +200,8 @@ const StepForm = () => {
     return match ? match[1] : null; // Return the ID if found, otherwise null
   }
 
-  const handleNext = async (e, validateForm, setTouched, values) => {
-    e.preventDefault();
+  const handleNext = async (validateForm, setTouched, values,setSubmitting) => {
+    // e.preventDefault();
     // Perform validation for the current step
     const errors = await validateForm(values);
 
@@ -248,6 +248,7 @@ const StepForm = () => {
             "response.data?.data?.hubspotContact?.vid"
           );
           setExistId(response.data?.data?.hubspotContact?.vid);
+          setSubmitting(false);
         } else {
           // console.error("Error:", response.data.message);
           console.log(response, "response");
@@ -275,6 +276,7 @@ const StepForm = () => {
             // Handle response data
             if (response.data.success) {
               console.log("Business updated successfully:", response.data.data);
+              setSubmitting(false);
             } else {
               // console.error("Error:", response.data.message);
               console.log(response, "response");
@@ -327,6 +329,7 @@ const StepForm = () => {
           // Handle response data
           if (response.data.success) {
             console.log("Business updated successfully:", response.data.data);
+            setSubmitting(false);
           } else {
             // console.error("Error:", response.data.message);
             console.log(response, "response");
@@ -380,6 +383,58 @@ const StepForm = () => {
       formRef.current?.scrollIntoView({
         behavior: "smooth",
       });
+    }
+  };
+
+  const handleStepSubmit = async(values, {setSubmitting,validateForm,setTouched,resetForm}) => {
+    // Handle form submission for the current step
+    // event.preventDefault(); 
+    if (currentStep < 3) {
+      console.log("yues")
+      handleNext(validateForm, setTouched, values,setSubmitting);
+      return;
+    } else {
+      console.log("Form Submitted:", values);
+      // Add your final submit logic here
+    }
+    setSubmitting(false);
+
+    try {
+      const formData = new FormData();
+      // Append form data (fields)
+      Object.keys(values).forEach((key) => {
+        formData.append(key, values[key]);
+      });
+      // Sending data to the API
+      const response = await axios.post(
+        `${apiUrl}/api/mail_send`,
+        formData,
+        {
+          headers: {
+            "Content-Type": "multipart/form-data",
+          },
+        }
+      );
+
+      // Handle response data
+      if (response.data.success) {
+        navigate("/thank-you", {
+          state: { fromRegistration: "registration-form" },
+        });
+        // setIsModalOpen(true); // Open modal on success
+        resetForm();
+      } else {
+        console.error("Error:else", response.data.message);
+        // Handle validation error response from API
+        setGetRespErr(response.data.message); // Show error message
+      }
+    } catch (error) {
+      // console.error("Error:", error?.response?.data?.message);
+      // Handle unexpected errors (e.g., server issues)
+      if (error?.response?.data?.message?.code) {
+        return setGetRespErr(error?.response?.data?.code);
+      }
+      setGetRespErr(error?.response?.data?.message);
     }
   };
 
@@ -512,44 +567,10 @@ const StepForm = () => {
                   // ? s
                   // : step4ValidationSchema
                 }
-                onSubmit={async (values, { resetForm }) => {
-                  try {
-                    const formData = new FormData();
-                    // Append form data (fields)
-                    Object.keys(values).forEach((key) => {
-                      formData.append(key, values[key]);
-                    });
-                    // Sending data to the API
-                    const response = await axios.post(
-                      `${apiUrl}/api/mail_send`,
-                      formData,
-                      {
-                        headers: {
-                          "Content-Type": "multipart/form-data",
-                        },
-                      }
-                    );
-
-                    // Handle response data
-                    if (response.data.success) {
-                      navigate("/thank-you", {
-                        state: { fromRegistration: "registration-form" },
-                      });
-                      // setIsModalOpen(true); // Open modal on success
-                      resetForm();
-                    } else {
-                      console.error("Error:else", response.data.message);
-                      // Handle validation error response from API
-                      setGetRespErr(response.data.message); // Show error message
-                    }
-                  } catch (error) {
-                    // console.error("Error:", error?.response?.data?.message);
-                    // Handle unexpected errors (e.g., server issues)
-                    if (error?.response?.data?.message?.code) {
-                      return setGetRespErr(error?.response?.data?.code);
-                    }
-                    setGetRespErr(error?.response?.data?.message);
-                  }
+                onSubmit={(values, actions) => {
+                  console.log(actions,'acitonssssssss')
+                  const { setSubmitting,validateForm,setTouched,resetForm } = actions;
+                  handleStepSubmit(values, { setSubmitting,validateForm,setTouched,resetForm });
                 }}
                 validateOnChange={true}
                 validateOnBlur={true}
@@ -1165,11 +1186,8 @@ const StepForm = () => {
                         ) : (
                           currentStep < 3 && (
                             <button
-                              type="button"
+                              type="submit"
                               disabled={isSubmitting}
-                              onClick={(e) =>
-                                handleNext(e, validateForm, setTouched, values)
-                              }
                               className="text-white font-medium text-sm bg-[#5D74F1] py-[14px] px-[26px] rounded-[100px] w-full hover:bg-blue-400 hover:text-[#000] whitespace"
                             >
                               Next Step
