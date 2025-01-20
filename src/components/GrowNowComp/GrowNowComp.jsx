@@ -8,10 +8,12 @@ import startCrossIcon from "../../assets/Closebutton.svg";
 import endCrossIcon from "../../assets/Close.svg";
 import { useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
+import "./loader.css"
 const apiUrl = process.env.REACT_APP_API_URL;
 export const GrowNowComp = ({ grownowRef }) => {
   const [getRespErr, setGetRespErr] = useState("");
   const [existId, setExistId] = useState("");
+  const [fetching, setFetching] = useState(false);
   const navigate = useNavigate();
   const validationSchema = Yup.object({
     business_name: Yup.string().required("Business name is required"),
@@ -108,6 +110,7 @@ export const GrowNowComp = ({ grownowRef }) => {
                         phone: values.phone,
                         agreedToTerms: values.policy,
                       };
+                      setFetching(true)
                       const response = await axios.post(
                         `${apiUrl}/api/user`,
                         formData,
@@ -126,6 +129,7 @@ export const GrowNowComp = ({ grownowRef }) => {
                         resetForm();
                       }
                     } catch (error) {
+                      
                       existingId = getExistingId(
                         error?.response?.data?.message
                       );
@@ -175,6 +179,8 @@ export const GrowNowComp = ({ grownowRef }) => {
                       //     return setGetRespErr(error?.response?.data?.code);
                       //   }
                       //   setGetRespErr(error?.response?.data?.message);
+                    } finally {
+                      setFetching(false)
                     }
                   }}
                   validateOnChange={true}
@@ -277,7 +283,7 @@ export const GrowNowComp = ({ grownowRef }) => {
                             className="text-white font-medium text-sm bg-[#6853E4] py-[14px] px-[26px] rounded-[18px] w-full hover:bg-blue-400 hover:text-[#000]"
                             disabled={isSubmitting}
                           >
-                            Get Started
+                        {fetching? <span className="loader"></span>: ' Get Started'}
                           </button>
                         </div>
                       </div>
