@@ -8,6 +8,7 @@ const Thankyou = () => {
   useEffect(() => {
     if (location?.pathname === "/thankyou") {
       // google tag
+
       const gtagScript = document.createElement("script");
       gtagScript.async = true;
       gtagScript.src =
@@ -22,7 +23,11 @@ const Thankyou = () => {
         gtag('config', 'AW-11530121883');
       `;
       document.head.appendChild(gtagInitScript);
+
+
+
       const gtagConversionScript = document.createElement("script");
+      setTimeout(() => {
       gtagConversionScript.innerHTML = `
       gtag('event', 'conversion', {
         'send_to': 'AW-11530121883/MJVVCJbepf4ZEJvl_vkq',
@@ -30,7 +35,8 @@ const Thankyou = () => {
         'currency': 'USD'
       });
     `;
-      document.head.appendChild(gtagConversionScript);
+      document.body.appendChild(gtagConversionScript);
+      }, 500)
 
       //facebook
       const fbPixelScript = document.createElement("script");
