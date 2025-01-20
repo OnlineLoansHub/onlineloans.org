@@ -35,7 +35,7 @@ const Thankyou = () => {
         'currency': 'USD'
       });
     `;
-      document.body.appendChild(gtagConversionScript);
+      document.body.append(gtagConversionScript);
       }, 500)
 
       //facebook
