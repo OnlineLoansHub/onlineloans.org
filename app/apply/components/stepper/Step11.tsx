@@ -4,10 +4,13 @@ import { industry } from './Step9'
 import { financingPurposes } from './Step4'
 import { financingPurposes as longevityList } from './Step5'
 import { financingPurposes as revenueList } from './Step6'
+import PhoneInput from 'react-phone-input-2'
+import 'react-phone-input-2/lib/style.css'
 
 interface Step11Props {
   currentStep: number
 }
+
 const Step11: React.FC<Step11Props> = ({ currentStep }) => {
   const [number, setNumber] = useState('')
   const [loading, setLoader] = useState(false)
@@ -32,6 +35,10 @@ const Step11: React.FC<Step11Props> = ({ currentStep }) => {
     return emailRegex.test(email)
   }
 
+  const onPhoneChange = (value: string) => {
+    setNumber(value)
+  }
+
   useEffect(() => {
     const phoneValid = validatePhone(number)
     const emailValid = validateEmail(mail)
@@ -50,17 +57,10 @@ const Step11: React.FC<Step11Props> = ({ currentStep }) => {
     setIsFormValid(phoneValid && emailValid)
   }, [number, mail])
 
-  const handlePhoneChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const value = e.target.value
-    const cleaned = value.replace(/[^\d\s()-]/g, '')
-    setNumber(cleaned)
-  }
-
   const handleContinue = async () => {
     if (!isFormValid) return
     setValidated(true)
 
-    // Actualizar el estado con los nuevos valores
     const updatedUserInfo = {
       ...userRegisterInfo,
       phoneNumber: number,
@@ -68,7 +68,6 @@ const Step11: React.FC<Step11Props> = ({ currentStep }) => {
     }
 
     setUserRegisterInfo(updatedUserInfo)
-    console.log('Datos actualizados:', updatedUserInfo)
 
     setLoader(true)
     try {
@@ -107,14 +106,9 @@ const Step11: React.FC<Step11Props> = ({ currentStep }) => {
         },
       )
 
-      const body = await response.json()
-
-      if (response.ok && body && body.result?.status !== 'error') {
-        //TODO: Success modal show
-
+      if (response.ok) {
         reset()
-      } else {
-        //TODO: Fail modal show
+        window.location.href = '/thank-you'
       }
     } catch (error) {
       console.log(error, 'Error sending the form data')
@@ -136,16 +130,12 @@ const Step11: React.FC<Step11Props> = ({ currentStep }) => {
       </div>
 
       <div className='w-full lg:w-5/12 mx-auto flex flex-col gap-6'>
-        <div className='relative shadow-md flex flex-col gap-4'>
+        <div className='relative flex flex-col gap-4'>
           <div className='flex flex-col gap-1'>
-            <input
-              type='tel'
-              placeholder='(xxx) xxx-xxxx'
-              className={`w-full rounded-lg border-2 p-3 appearance-none bg-white text-gray-700 hover:border-blue transition-colors ${
-                errors.phone ? 'border-red-500' : ''
-              }`}
+            <PhoneInput
+              country={'us'}
               value={number}
-              onChange={handlePhoneChange}
+              onChange={onPhoneChange}
             />
             {errors.phone && (
               <span className='text-red-500 text-sm'>{errors.phone}</span>
@@ -156,7 +146,7 @@ const Step11: React.FC<Step11Props> = ({ currentStep }) => {
             <input
               type='email'
               placeholder='Email address'
-              className={`w-full rounded-lg border-2 p-3 appearance-none bg-white text-gray-700 hover:border-blue transition-colors ${
+              className={`w-full rounded-lg border-2 p-3 appearance-none bg-white text-gray-700 hover:border-blue transition-colors border-gray ${
                 errors.email ? 'border-red-500' : ''
               }`}
               value={mail}

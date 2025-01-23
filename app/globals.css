@@ -1,3 +1,21 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.form-control {
+  width: 100% !important;
+  border-radius: 0.5rem !important;
+  border-width: 2px !important;
+  border-color: 1px solid #000 !important;
+  padding: 25px 45px !important;
+  appearance: none !important;
+  background-color: #ffffff !important;
+  color: rgb(55, 65, 81) !important;
+  transition-property: color, background-color, border-color !important;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1) !important;
+  transition-duration: 150ms !important;
+}
+
+.form-control:hover {
+  border-color: #3b82f6 !important;
+}

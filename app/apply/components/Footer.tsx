@@ -12,8 +12,17 @@ const MainFooter: React.FC = () => {
   return (
     <>
       <section className='flex-flex-col'>
-        <div className='bg-[#EDF1F4] w-full py-5 h-[60px]'>
-          {/* Commented section */}
+        <div className='bg-[#EDF1F4] w-full py-5 '>
+          <div className='text-sm font-light text-black max-w-screen-md mx-auto py-2 w-10/12 lg:w-full'>
+            <p>
+              **Merchant Cash Advance (MCA) is not a traditional loan and does
+              not have an Annual Percentage Rate (APR). It is a purchase of
+              future receivables and requires no collateral. Repayment is based
+              on a fixed percentage of your future business revenue, with
+              flexible terms ranging from 3 to 24 months, depending on your
+              business’s qualifications and performance.
+            </p>
+          </div>
         </div>
         <div className='py-9 space-y-3'>
           <ul className='text-sm font-normal flex flex-wrap justify-center gap-2 text-black lg:font-medium'>
