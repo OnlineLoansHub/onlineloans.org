@@ -10,7 +10,9 @@ export default {
     extend: {
       colors: {
         blue: '#0477FE',
-        gray: '#303030',
+        gray: '#DEE2F6',
+        bgGray: '#F5F5F5',
+        black: '#171717',
       },
     },
   },
