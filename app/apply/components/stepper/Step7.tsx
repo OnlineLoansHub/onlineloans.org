@@ -83,7 +83,7 @@ const Step7: React.FC<Step7Props> = ({ currentStep }) => {
             <div className='flex flex-col items-center justify-center '>
               <span
                 key={`span-${type.id}`}
-                className={`text-sm lg:text-lg text-center font-medium flex-1 ${
+                className={`text-sm lg:text-lg text-center font-bold flex-1 ${
                   !type.showOnMobile ? 'hidden lg:flex' : ''
                 }`}
               >

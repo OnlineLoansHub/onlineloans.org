@@ -69,7 +69,7 @@ const Step9: React.FC<Step9Props> = ({ currentStep }) => {
           </select>
           <div className='absolute right-3 top-1/2 transform -translate-y-1/2 pointer-events-none'>
             <svg
-              className='w-4 h-4 text-gray-500'
+              className='w-4 h-4 text-gray'
               fill='none'
               stroke='currentColor'
               viewBox='0 0 24 24'

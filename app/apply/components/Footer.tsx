@@ -33,7 +33,7 @@ const MainFooter: React.FC = () => {
               </button>
             </li>
           </ul>
-          <p className='text-sm font-normal text-center lg:font-medium'>
+          <p className='text-sm font-normal text-center lg:font-medium text-black'>
             © Copyright 2025. All Rights Reserved.
           </p>
         </div>

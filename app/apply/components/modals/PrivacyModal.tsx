@@ -9,9 +9,7 @@ const PrivacyModal: React.FC = () => {
         </form>
         <div className='flex flex-col items-center justify-center pb-4'>
           <h1 className='text-2xl font-bold text-center'>Privacy Policy</h1>
-          <p className='text-sm text-gray-500'>
-            Last updated: February 21, 2020
-          </p>
+          <p className='text-sm text-gray'>Last updated: February 21, 2020</p>
         </div>
         <div className='space-y-4 text-xs'>
           <p>
