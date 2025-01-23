@@ -1,7 +1,6 @@
 'use client'
 import MainFooter from '../apply/components/Footer'
 import Header from '../apply/components/Header'
-import Link from 'next/link'
 
 const ThankYou: React.FC = () => {
   return (
@@ -18,11 +17,6 @@ const ThankYou: React.FC = () => {
             <li>Application takes less than 60 seconds</li>
             <li>APRs from 2.49%</li>
           </ul>
-          <Link href='/'>
-            <button className='bg-yellow-400 text-black py-3 px-6 rounded-lg text-4xl'>
-              Check Rates
-            </button>
-          </Link>
         </div>
       </div>
       <MainFooter />
