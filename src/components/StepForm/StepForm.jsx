@@ -12,7 +12,8 @@ import * as Yup from "yup";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
-const apiUrl = process.env.REACT_APP_API_URL;
+
+const apiUrl =  process.env.REACT_APP_API_URL;
 
 // Step 1 Validation Schema
 const step1ValidationSchema = Yup.object({
@@ -111,9 +112,41 @@ const StepForm = () => {
 
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: "smooth" });
+
+    
+    if (!document.getElementById('headerGtag')) {
+      const headerGtag = document.createElement("script");
+      headerGtag.async = true;
+      headerGtag.id = "headerGtag";
+      headerGtag.src = "https://www.googletagmanager.com/gtag/js?id=AW-11530121883";
+      document.head.appendChild(headerGtag);
+    }
+
+   
+    if (!document.getElementById('headerGtagConfig')) {
+      const headerGtagConfig = document.createElement("script");
+      headerGtagConfig.async = true;
+      headerGtagConfig.id = "headerGtagConfig";
+      headerGtagConfig.innerHTML = `
+       window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'AW-11530121883');
+      `;
+      document.head.appendChild(headerGtagConfig);
+    }
+
+
+    return () => {
+      document.getElementById('headerGtag')?.remove();
+      document.getElementById('headerGtagConfig')?.remove()
+    }
   }, []);
 
+
   useEffect(() => {
+
+
     if (currentStep === 2) {
       // Google Analytics conversion tracking script
       const gtagScript = document.createElement("script");
@@ -132,8 +165,12 @@ const StepForm = () => {
            });
            return false;
          }
+           gtag_report_conversion();
        `;
-      document.head.appendChild(gtagScript);
+      
+       //setTimeout(() => {
+        document.body.append(gtagScript);
+       //}, 200)
 
       const fbPixelScript = document.createElement("script");
       fbPixelScript.innerHTML = `
@@ -194,7 +231,7 @@ const StepForm = () => {
     }
   };
 
-  function getExistingId(errorString) {
+  function getExistingId(errorString = '') {
     // Use a regular expression to match the ID in the string
     const match = errorString.match(/Existing ID: (\d+)/);
     return match ? match[1] : null; // Return the ID if found, otherwise null
@@ -257,6 +294,7 @@ const StepForm = () => {
           setGetRespErr(response.data.message); // Show error message
         }
       } catch (error) {
+
         existingId = getExistingId(error?.response?.data?.message);
         setExistId(existingId);
         console.log("Existing ID:", existId); // Output: 87501643895
