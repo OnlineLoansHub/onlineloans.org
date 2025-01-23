@@ -5,6 +5,7 @@ import ribbonPng from '@/public/assets/hero/ribbon.png'
 import arrow from '@/public/assets/hero/arrow.png'
 import ctaRibbon from '@/public/assets/hero/cta-ribbon.png'
 import Image from 'next/image'
+import Link from 'next/link'
 
 export const TrustPilot = () => {
   return (
@@ -102,7 +103,10 @@ export const HeroHeader = () => {
 export const ApplyNowButton = () => {
   return (
     <article className='relative'>
-      <button className='flex items-center justify-center gap-3 py-6 px-12 bg-[#0477FE] border-[1px] border-[#201564] rounded-full hover:scale-95 transition-all duration-200 hover:bg-[#201564]'>
+      <Link
+        href='/apply'
+        className='flex items-center justify-center text-center gap-3 py-6 px-12 bg-blue border-[1px] border-[#201564] rounded-full hover:scale-95 transition-all duration-200 hover:bg-[#201564]'
+      >
         <span className='text-white text-[18px]'>Apply now</span>
         <Image
           src={arrow}
@@ -111,7 +115,7 @@ export const ApplyNowButton = () => {
           width={20}
           alt=''
         />
-      </button>
+      </Link>
 
       <Image
         className='hidden absolute md:block md:top-0 md:right-0 md:-mt-20 md:-mr-56'

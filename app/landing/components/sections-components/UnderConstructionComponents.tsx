@@ -3,7 +3,7 @@ import securityHelmet from '@/public/assets/under-construction/security-helmet.p
 
 export const MoreInfoSoonCard = () => {
   return (
-    <section className='w-full max-w-[450px] lg:max-w-[550px] rounded-2xl p-4 sm:p-8 lg:p-10 bg-[#0477FE]'>
+    <section className='w-full max-w-[450px] lg:max-w-[550px] rounded-2xl p-4 sm:p-8 lg:p-10 bg-blue'>
       <h3 className='text-white font-semibold italic text-[32px] md:text-[48px] lg:text-[64px] text-center'>
         More info soon!
       </h3>
