@@ -4,6 +4,7 @@ import React, { useState } from 'react'
 import Logo from '@/public/assets/navbar/logo.png'
 import MenuIcon from '@/public/assets/navbar/menu.png'
 import Image from 'next/image'
+import Link from 'next/link'
 
 interface NavbarMobileProps {
   isLanding: boolean
@@ -89,9 +90,11 @@ const NavbarMobile: React.FC<NavbarMobileProps> = ({ isLanding }) => {
           </ul>
 
           <div className='mt-4 px-4'>
-            <button className='w-full mb-4 bg-black text-white rounded-lg py-3'>
-              Apply now
-            </button>
+            <Link href='/apply'>
+              <button className='w-full mb-4 bg-black text-white rounded-lg py-3'>
+                Apply now
+              </button>
+            </Link>
             <div className='flex gap-4'>
               <button className='flex-1 py-2 border border-gray-300 rounded-lg text-sm font-medium'>
                 EN
