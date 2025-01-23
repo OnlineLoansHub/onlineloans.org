@@ -48,18 +48,18 @@ const BusinessTypeStep: React.FC<BusinessTypeStepProps> = ({ currentStep }) => {
         {businessTypes.map((type) => (
           <div
             key={type.id}
-            className='flex flex-col items-center justify-center gap-2 lg:w-full'
+            className='flex flex-col items-center justify-center gap-2 lg:w-full '
           >
             <button
               onClick={() => selectBusinessType(type.name)}
-              className={`p-6 border-2 rounded-lg hover:border-blue transition-colors flex flex-col items-center justify-center gap-2 w-full  ${
+              className={`p-6 border-2 rounded-lg hover:border-blue transition-colors flex flex-col items-center justify-center gap-2 w-full h-[133px]   ${
                 type.className
               } ${!type.showOnMobile ? 'hidden lg:flex' : ''}`}
             >
-              <Image src={type.icon} alt={type.name} width={90} height={96} />
+              <Image src={type.icon} alt={type.name} width={90} height={90} />
             </button>
             <span
-              className={`text-sm md:text-lg text-center font-medium flex-1 ${
+              className={`text-sm md:text-lg text-center font-medium  ${
                 !type.showOnMobile ? 'hidden lg:flex' : ''
               }`}
             >

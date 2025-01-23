@@ -21,9 +21,9 @@ const BusinessStepper: React.FC = () => {
   const { currentStep, decrementCurrentStep } = useStore()
 
   return (
-    <div className='flex flex-col bg-white w-11/12 lg:w-8/12 mx-auto shadow-lg -mt-[36px] md:-mt-[18%] lg:-mt-[150px] rounded-lg relative  2xl:-mt-[150px] text-black'>
+    <div className='flex flex-col bg-white w-11/12 lg:w-8/12 mx-auto shadow-lg  rounded-lg  text-black relative'>
       <button
-        className='bg-blue-500 text-white p-1 rounded-full absolute top-0 left-0 m-3'
+        className='bg-blue text-white p-1 rounded-full absolute top-0 left-0 m-3'
         onClick={decrementCurrentStep}
       >
         <ArrowLeft />
