@@ -136,6 +136,7 @@ const Step11: React.FC<Step11Props> = ({ currentStep }) => {
               country={'us'}
               value={number}
               onChange={onPhoneChange}
+              countryCodeEditable={false}
             />
             {errors.phone && (
               <span className='text-red-500 text-sm'>{errors.phone}</span>
@@ -164,7 +165,7 @@ const Step11: React.FC<Step11Props> = ({ currentStep }) => {
           className={`w-full py-3 px-6 text-xl lg:text-[28px] text-white font-bold transition-colors ${
             isFormValid
               ? 'bg-green-500 hover:bg-green-600'
-              : 'bg-gray-300 cursor-not-allowed'
+              : 'bg-gray cursor-not-allowed'
           }`}
         >
           {loading ? <span className='loader'></span> : 'Continue'}

@@ -80,7 +80,7 @@ const Step6: React.FC<Step6Props> = ({ currentStep }) => {
           className={`w-full py-3 px-6 text-xl lg:text-[28px] text-white font-bold transition-colors ${
             selectedOption
               ? 'bg-green-500 hover:bg-green-600'
-              : 'bg-gray-300 cursor-not-allowed'
+              : 'bg-gray cursor-not-allowed'
           }`}
         >
           Continue
