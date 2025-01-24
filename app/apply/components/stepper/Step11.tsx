@@ -72,7 +72,7 @@ const Step11: React.FC<Step11Props> = ({ currentStep }) => {
     setLoader(true)
     try {
       const response = await fetch(
-        'https://hubspot-proxy-0d8d4ed31dcb.herokuapp.com/leadPush?pid=iadvance',
+        'https://hubspot-proxy-0d8d4ed31dcb.herokuapp.com/leadPush?pid=oncash',
         {
           method: 'POST',
           redirect: 'follow',
@@ -87,6 +87,7 @@ const Step11: React.FC<Step11Props> = ({ currentStep }) => {
               business_type: businessRegisterInfo.businessType,
               bank_account: businessRegisterInfo.bankAccount,
               loan_amount: businessRegisterInfo.quantity,
+              user_href: window.location.href,
               ivestment_target: financingPurposes.find(
                 (x) => x.id === businessRegisterInfo.financingFor,
               )?.name,
@@ -107,8 +108,14 @@ const Step11: React.FC<Step11Props> = ({ currentStep }) => {
       )
 
       if (response.ok) {
-        reset()
-        window.location.href = '/thank-you'
+        //@ts-ignore
+        window.gtag('event', 'conversion', {
+          send_to: 'AW-16834519489/Q5TZCLLY05MaEMHDqds-',
+          event_callback: () => {
+            reset()
+            window.location.href = '/thank-you'
+          },
+        })
       }
     } catch (error) {
       console.log(error, 'Error sending the form data')
