@@ -13,7 +13,7 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
 
-const apiUrl =  process.env.REACT_APP_API_URL;
+const apiUrl = process.env.REACT_APP_API_URL;
 
 // Step 1 Validation Schema
 const step1ValidationSchema = Yup.object({
@@ -104,11 +104,13 @@ const StepForm = () => {
   // const [isModalOpen, setIsModalOpen] = useState(false);
   const [currentStep, setCurrentStep] = useState(1);
   const [getRespErr, setGetRespErr] = useState("");
+  
   const [existId, setExistId] = useState("");
   const formRef = useRef();
   const navigate = useNavigate();
   // const [isSubmitting, setIsSubmitting] = useState(false);
   const inputRef = useRef(null);
+  const submittedConversion = useRef(null);
 
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: "smooth" });
@@ -149,29 +151,16 @@ const StepForm = () => {
 
     if (currentStep === 2) {
       // Google Analytics conversion tracking script
-      const gtagScript = document.createElement("script");
-      gtagScript.innerHTML = `
-         function gtag_report_conversion(url) {
-           var callback = function () {
-             if (typeof(url) != 'undefined') {
-               window.location = url;
-             }
-           };
-           gtag('event', 'conversion', {
-               'send_to': 'AW-11530121883/MJVVCJbepf4ZEJvl_vkq',
-               'value': 1.0,
-               'currency': 'USD',
-               'event_callback': callback
-           });
-           return false;
-         }
-           gtag_report_conversion();
-       `;
+      if (!submittedConversion.current)
+      window.gtag('event', 'conversion', {
+        'send_to': 'AW-11530121883/MJVVCJbepf4ZEJvl_vkq',
+        'value': 1.0,
+        'currency': 'USD',
+        'event_callback': () => {
+          submittedConversion.current = true;
+        }
+      });
       
-       //setTimeout(() => {
-        document.body.append(gtagScript);
-       //}, 200)
-
       const fbPixelScript = document.createElement("script");
       fbPixelScript.innerHTML = `
         !function(f,b,e,v,n,t,s)
@@ -196,9 +185,7 @@ const StepForm = () => {
       `;
       document.head.appendChild(fbNoScript);
       return () => {
-        if (gtagScript.parentNode) {
-          document.head.removeChild(gtagScript);
-        }
+ 
         if (fbPixelScript.parentNode) {
           document.head.removeChild(fbPixelScript);
         }
