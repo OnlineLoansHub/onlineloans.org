@@ -14,7 +14,7 @@ const Footer = () => {
     <footer className='mx-auto sm:w-[640px] md:w-[768px] lg:w-[1024px] xl:w-[1280px] 2xl:w-[1300px] w-full px-2 sm:px-6 md:px-8 lg:px-10'>
       <div className='pb-8'>
         <p className='text-center text-black text-[28px] font-semibold  leading-loose sm:text-start'>
-          OnCash.ai
+          onCash.pro
         </p>
       </div>
       <section className='flex flex-col gap-5 md:flex-row md:justify-between md:items-center md:mx-auto md:w-full '>
@@ -69,7 +69,7 @@ const Footer = () => {
 
       <section className='py-8 flex flex-col gap-6 border-t border-t-[#EAECF0]/60 text-base font-normal leading-normal md:flex-row md:justify-between md:items-center'>
         <p className=' text-[#303030]/60 '>
-          © 2024 OnCash.ai. All rights reserve
+          © 2025 onCash.pro All rights reserved
         </p>
         <div className='flex gap-1'>
           <p className=' text-neutral-900 '>Proudly by american</p>
