@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import Script from 'next/script'
 import './globals.css'
+import '@/app/Clarity'
 
 export const metadata: Metadata = {
   title: 'Oncash | Find The Perfect Loan For Your Business',
@@ -33,7 +34,7 @@ export default function RootLayout({
       </Script>
 
       {/* Microsoft Clarity */}
-      <Script id='clarity'>
+      {/* <Script id='clarity'>
         {`
           (function(c,l,a,r,i,t,y){
               c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
@@ -41,7 +42,7 @@ export default function RootLayout({
               y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
           })(window, document, "clarity", "script", "q22rqfm6yn");
         `}
-      </Script>
+      </Script> */}
 
       <body className='antialiased bg-white'>{children}</body>
     </html>
