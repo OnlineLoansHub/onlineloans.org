@@ -6,7 +6,7 @@ import LandingPage from '@/app/landing/LandingPage'
 import { useClarity } from './Clarity'
 
 export default function Home() {
-  useClarity()
+  useClarity({ id: 'q22rqfm6yn' })
   return (
     <>
       <NavbarDesktop isLanding={true} />

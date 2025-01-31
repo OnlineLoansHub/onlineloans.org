@@ -6,7 +6,8 @@ import Main from './components/Main'
 import { useClarity } from '../Clarity'
 
 const Test: React.FC = () => {
-  useClarity()
+  useClarity({ id: 'q2nk0pkquq' })
+  //q2nk0pkquq
   return (
     <main className={MontserratFont.className}>
       <Main />

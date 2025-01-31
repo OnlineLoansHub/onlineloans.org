@@ -2,10 +2,12 @@
 import Clarity from '@microsoft/clarity'
 import { useEffect } from 'react'
 
-const projectId = 'q22rqfm6yn'
+interface ClarityProps {
+  id: string
+}
 
-export const useClarity = () => {
+export const useClarity = ({ id }: ClarityProps): void => {
   useEffect(() => {
-    Clarity.init(projectId)
-  }, []) // Se asegura de que se ejecute una sola vez al montar
+    Clarity.init(id)
+  }, [id]) // Dependencia del ID
 }
