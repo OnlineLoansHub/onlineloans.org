@@ -1,0 +1,169 @@
+import useStore from '../../stores/stepperStore'
+import React, { useState, useEffect } from 'react'
+import PhoneInput from 'react-phone-input-2'
+import 'react-phone-input-2/lib/style.css'
+
+interface Step11Props {
+  currentStep: number
+}
+
+const Step11: React.FC<Step11Props> = ({ currentStep }) => {
+  const [number, setNumber] = useState('')
+  const [loading, setLoader] = useState(false)
+  const [mail, setMail] = useState('')
+  const [validated, setValidated] = useState(false)
+  const [isFormValid, setIsFormValid] = useState(false)
+  const [errors, setErrors] = useState({
+    phone: '',
+    email: '',
+  })
+
+  const { setUserRegisterInfo, businessRegisterInfo, userRegisterInfo, reset } =
+    useStore()
+
+  const validatePhone = (phone: string) => {
+    const numericPhone = phone.replace(/\D/g, '')
+    return numericPhone.length >= 8
+  }
+
+  const validateEmail = (email: string) => {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
+    return emailRegex.test(email)
+  }
+
+  const onPhoneChange = (value: string) => {
+    setNumber(value)
+  }
+
+  useEffect(() => {
+    const phoneValid = validatePhone(number)
+    const emailValid = validateEmail(mail)
+
+    setErrors({
+      phone:
+        !phoneValid && number.trim() !== ''
+          ? 'Phone number must have at least 8 digits'
+          : '',
+      email:
+        !emailValid && mail.trim() !== ''
+          ? 'Please enter a valid email address'
+          : '',
+    })
+
+    setIsFormValid(phoneValid && emailValid)
+  }, [number, mail])
+
+  const handleContinue = async () => {
+    if (!isFormValid) return
+    setValidated(true)
+
+    const updatedUserInfo = {
+      ...userRegisterInfo,
+      phoneNumber: number,
+      email: mail,
+    }
+
+    setUserRegisterInfo(updatedUserInfo)
+
+    setLoader(true)
+    try {
+      const response = await fetch(
+        'https://hubspot-proxy-0d8d4ed31dcb.herokuapp.com/leadPush?pid=oncash',
+        {
+          method: 'POST',
+          redirect: 'follow',
+          headers: new Headers({
+            'Content-Type': 'text/plain;charset=utf-8',
+          }),
+          body: JSON.stringify({
+            properties: {
+              email: updatedUserInfo.email,
+              firstname: `${updatedUserInfo.firstName} ${updatedUserInfo.lastName}`,
+              phone: updatedUserInfo.phoneNumber,
+              business_type: businessRegisterInfo.businessType,
+              bank_account: businessRegisterInfo.bankAccount,
+              loan_amount: businessRegisterInfo.quantity,
+              user_href: window.location.href,
+              credit_score: businessRegisterInfo.creditScore,
+              business_name: businessRegisterInfo.businessName,
+            },
+          }),
+        },
+      )
+
+      if (response.ok) {
+        //@ts-ignore
+        window.gtag('event', 'conversion', {
+          send_to: 'AW-16834519489/Q5TZCLLY05MaEMHDqds-',
+          event_callback: () => {
+            reset()
+            window.location.href = '/thank-you'
+          },
+        })
+      }
+    } catch (error) {
+      console.log(error, 'Error sending the form data')
+    } finally {
+      setLoader(false)
+    }
+  }
+
+  return (
+    <div
+      className={`w-full mx-auto px-3 ${
+        currentStep !== 3 ? 'hidden' : 'block'
+      }`}
+    >
+      <div className='text-center mb-6'>
+        <h2 className='text-xl font-bold mb-1 lg:leading-[38px] lg:text-3xl lg:font-bold'>
+          What is the best way to reach you?
+        </h2>
+      </div>
+
+      <div className='w-full lg:w-5/12 mx-auto flex flex-col gap-6'>
+        <div className='relative flex flex-col gap-4'>
+          <div className='flex flex-col gap-1'>
+            <PhoneInput
+              country={'us'}
+              value={number}
+              onChange={onPhoneChange}
+              countryCodeEditable={false}
+            />
+            {errors.phone && (
+              <span className='text-red-500 text-sm'>{errors.phone}</span>
+            )}
+          </div>
+
+          <div className='flex flex-col gap-1'>
+            <input
+              type='email'
+              placeholder='Email address'
+              className={`w-full rounded-lg border-2 p-3 appearance-none bg-white text-gray-700 hover:border-blue transition-colors border-gray ${
+                errors.email ? 'border-red-500' : ''
+              }`}
+              value={mail}
+              onChange={(e) => setMail(e.target.value)}
+            />
+            {errors.email && (
+              <span className='text-red-500 text-sm'>{errors.email}</span>
+            )}
+          </div>
+        </div>
+
+        <button
+          onClick={handleContinue}
+          disabled={!isFormValid || validated || loading}
+          className={`w-full py-3 px-6 text-xl lg:text-[28px] text-white font-bold transition-colors ${
+            isFormValid
+              ? 'bg-green-500 hover:bg-green-600'
+              : 'bg-gray cursor-not-allowed'
+          }`}
+        >
+          {loading ? <span className='loader'></span> : 'Continue'}
+        </button>
+      </div>
+    </div>
+  )
+}
+
+export default Step11
