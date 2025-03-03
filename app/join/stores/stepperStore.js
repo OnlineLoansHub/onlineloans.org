@@ -6,10 +6,10 @@ const initBusinessRegisterInfo = {
   quantity: '',
   financingFor: '',
   howLong: '',
-  revenue: '',
   creditScore: '',
-  businessName: '',
   industry: '',
+  revenue: '',
+  businessName: '',
 }
 
 const initUserRegisterInfo = {
@@ -22,7 +22,7 @@ const initUserRegisterInfo = {
 const useStore = create((set) => ({
   businessRegisterInfo: { ...initBusinessRegisterInfo },
   userRegisterInfo: { ...initUserRegisterInfo },
-  currentStep: 1,
+  currentStep: 3,
 
   setUserRegisterInfo: (userRegisterInfo) =>
     set((state) => {

@@ -34,7 +34,7 @@ const Step1: React.FC<Step1Props> = ({ currentStep }) => {
   })
 
   // Store, global states
-  const { setUserRegisterInfo, setBusinessRegisterInfo, businessRegisterInfo, reset } = useStore()
+  const { setUserRegisterInfo, setBusinessRegisterInfo, businessRegisterInfo} = useStore()
 
 
   // -------------------- UseEffect -------------------- .
@@ -120,6 +120,7 @@ const Step1: React.FC<Step1Props> = ({ currentStep }) => {
 
     console.log("Info enviada a la API mi pa");
     setLoading(false)
+    
     // Send the Lead to the API
     // try {
     //   const response = await fetch(
