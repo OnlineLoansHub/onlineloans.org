@@ -202,6 +202,7 @@ const Step1: React.FC<Step1Props> = () => {
     // }
     console.log("Info sent :D");
     setLoading(false)
+    window.location.href = '/join/step2';
   }
 
   // ------------------------- Return ------------------------- .
