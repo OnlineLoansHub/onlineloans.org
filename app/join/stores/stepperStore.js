@@ -1,4 +1,5 @@
 import { create } from 'zustand'
+import { persist } from 'zustand/middleware'
 
 const initBusinessRegisterInfo = {
   businessType: '',
@@ -17,55 +18,70 @@ const initUserRegisterInfo = {
   lastName: '',
   phoneNumber: '',
   email: '',
+  phoneNumber2:''
 }
 
-const useStore = create((set) => ({
-  businessRegisterInfo: { ...initBusinessRegisterInfo },
-  userRegisterInfo: { ...initUserRegisterInfo },
-  currentStep: 3,
+// Versión persistente del store
+const useStore = create(
+  persist(
+    (set) => ({
+      businessRegisterInfo: { ...initBusinessRegisterInfo },
+      userRegisterInfo: { ...initUserRegisterInfo },
+      currentStep: 3,
 
-  setUserRegisterInfo: (userRegisterInfo) =>
-    set((state) => {
-      const newState = {
-        userRegisterInfo: {
-          ...state.userRegisterInfo,
-          ...userRegisterInfo,
-        },
-      }
-      console.log('UserRegisterInfo - Cambios:', userRegisterInfo)
-      return newState
+      setUserRegisterInfo: (userRegisterInfo) =>
+        set((state) => {
+          const newState = {
+            userRegisterInfo: {
+              ...state.userRegisterInfo,
+              ...userRegisterInfo,
+            },
+          }
+          console.log('UserRegisterInfo - Cambios:', userRegisterInfo)
+          return newState
+        }),
+
+      setBusinessRegisterInfo: (businessRegisterInfo) =>
+        set((state) => {
+          const newState = {
+            businessRegisterInfo: {
+              ...state.businessRegisterInfo,
+              ...businessRegisterInfo,
+            },
+          }
+          console.log('BusinessRegisterInfo - Cambios:', businessRegisterInfo)
+          return newState
+        }),
+
+      incrementCurrentStep: () =>
+        set((state) => ({ currentStep: state.currentStep + 1 })),
+      decrementCurrentStep: () =>
+        set((state) => ({
+          currentStep: state.currentStep === 1 ? 1 : state.currentStep - 1,
+        })),
+
+      reset: () => {
+        set(() => {
+          const newState = {
+            businessRegisterInfo: initBusinessRegisterInfo,
+            userRegisterInfo: initUserRegisterInfo,
+            currentStep: 1,
+          }
+          console.log('Estado reseteado:', newState)
+          return newState
+        })
+      },
     }),
-
-  setBusinessRegisterInfo: (businessRegisterInfo) =>
-    set((state) => {
-      const newState = {
-        businessRegisterInfo: {
-          ...state.businessRegisterInfo,
-          ...businessRegisterInfo,
-        },
-      }
-      console.log('BusinessRegisterInfo - Cambios:', businessRegisterInfo)
-      return newState
-    }),
-
-  incrementCurrentStep: () =>
-    set((state) => ({ currentStep: state.currentStep + 1 })),
-  decrementCurrentStep: () =>
-    set((state) => ({
-      currentStep: state.currentStep === 1 ? 1 : state.currentStep - 1,
-    })),
-
-  reset: () => {
-    set(() => {
-      const newState = {
-        businessRegisterInfo: initBusinessRegisterInfo,
-        userRegisterInfo: initUserRegisterInfo,
-        currentStep: 1,
-      }
-      console.log('Estado reseteado:', newState)
-      return newState
-    })
-  },
-}))
+    {
+      name: 'business-storage', // Nombre único para el almacenamiento
+      partialize: (state) => ({
+        // Solo persistir estas partes del estado
+        businessRegisterInfo: state.businessRegisterInfo,
+        userRegisterInfo: state.userRegisterInfo,
+        currentStep: state.currentStep,
+      }),
+    }
+  )
+)
 
 export default useStore

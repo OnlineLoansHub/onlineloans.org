@@ -1,93 +1,104 @@
+import { useState, useEffect } from 'react'
+// Zustand
 import useStore from '../../stores/stepperStore'
-import React, { useState } from 'react'
+// Utility for formatting phone number
+import { formatPhoneNumber } from '../../step3/phoneFormatter'
 
-export const financingPurposes = [
-  { id: '1', name: '$0 - $10,000' },
-  { id: '2', name: '$10,000 - $20,000' },
-  { id: '3', name: '$20,000 - $30,000' },
-  { id: '4', name: '$30,000 - $40,000' },
-  { id: '5', name: '$40,000 - $50,000' },
-  { id: '6', name: '$50,000 - $60,000' },
-  { id: '7', name: '$60,000 - $70,000' },
-  { id: '8', name: '$70,000 - $80,000' },
-  { id: '9', name: '$80,000 - $90,000' },
-  { id: '10', name: '$90,000 - $100,000' },
-  { id: '11', name: '$100,000 +' },
-]
-
-interface Step6Props {
-  currentStep: number
+interface Step3Props {
+  currentStep: number;
+  onConversion?: () => void;
 }
 
-const Step6: React.FC<Step6Props> = ({ currentStep }) => {
-  const [selectedOption, setSelectedOption] = useState('')
-  const { setBusinessRegisterInfo, incrementCurrentStep } = useStore()
+const Step3: React.FC<Step3Props> = () => {
 
-  const handleContinue = () => {
-    if (!selectedOption) return
+  // ------------------------- States ------------------------- .
+  const [phoneNumber, setPhoneNumber] = useState('')
+  const [isConfirmed, setIsConfirmed] = useState(false)
+  const [loading, setLoading] = useState(false)
 
-    setBusinessRegisterInfo({ revenue: selectedOption })
-    incrementCurrentStep()
+  // Store, global states
+  const { setUserRegisterInfo, userRegisterInfo } = useStore()
+
+  // ------------------------- Load data from Zustand -------------------------
+  useEffect(() => {
+    // Cargar el número de teléfono desde el estado global de Zustand
+    if (userRegisterInfo.phoneNumber) {
+      setPhoneNumber(userRegisterInfo.phoneNumber);
+    }
+  }, [userRegisterInfo]);
+
+  // ------------------------- Handle Continue ------------------------- .
+  const handleContinue = async () => {
+    if (!isConfirmed) return;
+    setLoading(true);
+
+    const updatedUserInfo = {
+      phoneNumber,
+    };
+
+    setUserRegisterInfo(updatedUserInfo);
+
+    console.log("Phone Confirmation Saved :D");
+
+    // Obtener y mostrar el estado global más actualizado
+    const currentState = useStore.getState();
+    console.log("Estado global actualizado:", currentState);
+
+    setLoading(false);
+    // window.location.href = '/join/step4';
   }
 
+  // ------------------------- Return ------------------------- .
   return (
-    <div
-      className={`w-full mx-auto px-3 ${
-        currentStep !== 2 ? 'hidden' : 'block'
-      }`}
-    >
+    <div className="w-full mx-auto px-3">
       <div className='text-center mb-6'>
         <h2 className='text-xl font-bold mb-1 lg:leading-[38px] lg:text-3xl lg:font-bold'>
-          How much revenue did you deposit into your business bank account last
-          month?
+          What&apos;s your name and business revenue?
         </h2>
       </div>
 
-      <div className='w-full lg:w-5/12 mx-auto flex flex-col gap-6 max-w-md'>
-        <div className='relative shadow-md'>
-          <select
-            value={selectedOption}
-            onChange={(e) => setSelectedOption(e.target.value)}
-            className='w-full p-3 border-2 rounded-lg appearance-none bg-white text-gray-700 hover:border-blue transition-colors cursor-pointer pr-10'
-          >
-            <option value=''>-- Please Select --</option>
-            {financingPurposes.map((purpose) => (
-              <option key={purpose.id} value={purpose.id}>
-                {purpose.name}
-              </option>
-            ))}
-          </select>
-          <div className='absolute right-3 top-1/2 transform -translate-y-1/2 pointer-events-none'>
-            <svg
-              className='w-4 h-4 text-gray'
-              fill='none'
-              stroke='currentColor'
-              viewBox='0 0 24 24'
-            >
-              <path
-                strokeLinecap='round'
-                strokeLinejoin='round'
-                strokeWidth={2}
-                d='M19 9l-7 7-7-7'
-              />
-            </svg>
+      <div className='w-full lg:w-5/12 mx-auto flex flex-col gap-6'>
+        {/* Phone confirmation section */}
+        <div className="flex flex-col gap-3">
+          <p className="font-semibold text-lg">
+            Please confirm your phone number to ensure smooth communication.
+          </p>
+
+          <div className="bg-gray-100 p-3 rounded-md text-center">
+            <span className="text-xl font-medium">{formatPhoneNumber(phoneNumber)}</span>
           </div>
+
+          <div className="flex items-center gap-2 mt-2">
+            <input
+              type="checkbox"
+              id="confirmPhone"
+              checked={isConfirmed}
+              onChange={(e) => setIsConfirmed(e.target.checked)}
+              className="w-5 h-5"
+            />
+            <label htmlFor="confirmPhone" className="cursor-pointer">
+              Yes, this is my correct phone number
+            </label>
+          </div>
+
+          <p className="mt-3 text-gray-700">
+            Our financing team will contact you shortly with your best funding options.
+          </p>
         </div>
 
         <button
           onClick={handleContinue}
-          disabled={!selectedOption}
-          className={`w-full py-3 px-6 text-xl lg:text-[28px] text-white font-bold transition-colors ${
-            selectedOption
-              ? 'bg-green-500 hover:bg-green-600'
-              : 'bg-gray cursor-not-allowed'
-          }`}
+          disabled={!isConfirmed || loading}
+          className={`w-full py-3 px-6 text-xl lg:text-[28px] text-white font-bold transition-colors ${isConfirmed
+            ? 'bg-green-500 hover:bg-green-600'
+            : 'bg-gray-400 cursor-not-allowed'
+            }`}
         >
-          Continue
+          {loading ? <span className="loader">Loading</span> : 'See Your Offer'}
         </button>
       </div>
     </div>
   )
 }
 
-export default Step6
+export default Step3

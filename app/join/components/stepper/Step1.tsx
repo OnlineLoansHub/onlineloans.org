@@ -11,8 +11,6 @@ interface Step1Props {
   onConversion?: () => void; // Nueva prop para el manejo de conversión
 }
 
-const STORAGE_KEY = 'businessFormData';
-
 const Step1: React.FC<Step1Props> = () => {
 
   // ------------------------- States ------------------------- .
@@ -25,7 +23,6 @@ const Step1: React.FC<Step1Props> = () => {
   const [email, setEmail] = useState('')
   const [loading, setLoading] = useState(false)
 
-  const [validated, setValidated] = useState(false)
   const [isFormValid, setIsFormValid] = useState(false)
 
   // Errors, local state
@@ -37,60 +34,16 @@ const Step1: React.FC<Step1Props> = () => {
   })
 
   // Store, global states
-  const { setUserRegisterInfo, setBusinessRegisterInfo, businessRegisterInfo } = useStore()
+  const { setUserRegisterInfo, setBusinessRegisterInfo, userRegisterInfo, businessRegisterInfo } = useStore()
 
-
-  // ------------------------- Load data from localStorage -------------------------
+  // ------------------------- Load data from Zustand -------------------------
   useEffect(() => {
-    try {
-      const savedData = localStorage.getItem(STORAGE_KEY);
-      if (savedData) {
-        const parsedData = JSON.parse(savedData);
-
-        // Populate form fields if data exists
-        if (parsedData.fullName) setFullName(parsedData.fullName);
-        if (parsedData.businessName) setBusinessName(parsedData.businessName);
-        if (parsedData.phoneNumber) setPhoneNumber(parsedData.phoneNumber);
-        if (parsedData.email) setEmail(parsedData.email);
-
-        // Update global store with saved data
-        if (parsedData.fullName || parsedData.phoneNumber || parsedData.email) {
-          setUserRegisterInfo({
-            firstName: parsedData.fullName || '',
-            phoneNumber: parsedData.phoneNumber || '',
-            email: parsedData.email || '',
-          });
-        }
-
-        if (parsedData.businessName) {
-          setBusinessRegisterInfo({
-            ...businessRegisterInfo,
-            businessName: parsedData.businessName,
-          });
-        }
-      }
-    } catch (error) {
-      console.error('Error loading form data from localStorage:', error);
-    }
-  }, []);
-
-  // ------------------------- Save data to localStorage on change -------------------------
-  useEffect(() => {
-    // Don't save empty initial state
-    if (!fullName && !businessName && !phoneNumber && !email) return;
-
-    try {
-      const dataToSave = {
-        fullName,
-        businessName,
-        phoneNumber,
-        email
-      };
-      localStorage.setItem(STORAGE_KEY, JSON.stringify(dataToSave));
-    } catch (error) {
-      console.error('Error saving form data to localStorage:', error);
-    }
-  }, [fullName, businessName, phoneNumber, email]);
+    // Cargar datos desde el estado de Zustand
+    if (userRegisterInfo.firstName) setFullName(userRegisterInfo.firstName);
+    if (userRegisterInfo.phoneNumber) setPhoneNumber(userRegisterInfo.phoneNumber);
+    if (userRegisterInfo.email) setEmail(userRegisterInfo.email);
+    if (businessRegisterInfo.businessName) setBusinessName(businessRegisterInfo.businessName);
+  }, [userRegisterInfo, businessRegisterInfo]);
 
   // ------------------------- Validation useEffect ------------------------- .
   useEffect(() => {
@@ -129,7 +82,6 @@ const Step1: React.FC<Step1Props> = () => {
   // ------------------------- Handle Continue ------------------------- .
   const handleContinue = async () => {
     if (!isFormValid) return
-    setValidated(true)
     setLoading(true)
 
     const updatedUserInfo = {
@@ -202,7 +154,11 @@ const Step1: React.FC<Step1Props> = () => {
     // }
     console.log("Info sent :D");
     setLoading(false)
-    window.location.href = '/join/step2';
+
+    const currentState = useStore.getState();
+    console.log("Estado global actualizado:", currentState);
+
+    // window.location.href = '/join/step2';
   }
 
   // ------------------------- Return ------------------------- .
@@ -276,7 +232,7 @@ const Step1: React.FC<Step1Props> = () => {
 
         <button
           onClick={handleContinue}
-          disabled={!isFormValid || validated || loading}
+          disabled={!isFormValid || loading}
           className={`w-full py-3 px-6 text-xl lg:text-[28px] text-white font-bold transition-colors ${isFormValid
             ? 'bg-green-500 hover:bg-green-600'
             : 'bg-gray cursor-not-allowed'

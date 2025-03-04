@@ -2,10 +2,10 @@
 import Link from 'next/link'
 import { ArrowLeft } from 'lucide-react'
 import StepIndicator from '../components/stepper/StepIndicator'
-import Step2 from '../components/stepper/Step2'
+import Step3 from '../components/stepper/Step3'
 import TrustpilotFooter from '../components/stepper/TrustpilotFooter'
 
-const Step2Page: React.FC = () => {
+const Step3Page: React.FC = () => {
     return (
         <div className='flex flex-col bg-white w-11/12 lg:w-8/12 mx-auto shadow-lg rounded-lg text-black relative'>
             <Link
@@ -18,7 +18,7 @@ const Step2Page: React.FC = () => {
             <StepIndicator currentStep={2} />
 
             <main className='md:w-10/12 mx-auto lg:w-full'>
-                <Step2 currentStep={2} />
+                <Step3 currentStep={2} />
             </main>
 
             <TrustpilotFooter />
@@ -26,4 +26,4 @@ const Step2Page: React.FC = () => {
     )
 }
 
-export default Step2Page
+export default Step3Page

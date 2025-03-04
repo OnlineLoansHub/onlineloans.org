@@ -1,5 +1,6 @@
-import useStore from '../../stores/stepperStore'
 import React, { useState, useEffect } from 'react'
+import useStore from '../../stores/stepperStore'
+
 import 'react-phone-input-2/lib/style.css'
 
 // Opciones de rango de ingresos para el dropdown
@@ -32,9 +33,6 @@ interface Step2Props {
   currentStep: number
 }
 
-const REVENUE_STORAGE_KEY = 'revenueFormData';
-const FUNDING_STORAGE_KEY = 'fundingFormData';
-
 const Step2: React.FC<Step2Props> = () => {
 
   // -------------------- States -------------------- .
@@ -43,88 +41,29 @@ const Step2: React.FC<Step2Props> = () => {
   const [selectedFundingOption, setSelectedFundingOption] = useState('')
   const [loading, setLoading] = useState(false)
 
-
   // Store, global states
   const { setBusinessRegisterInfo, businessRegisterInfo } = useStore()
 
-  // -------------------- Load from localStorage -------------------- .
+  // -------------------- Load from Zustand state -------------------- .
   useEffect(() => {
-    try {
-      // Cargar datos de ingresos
-      const savedRevenueData = localStorage.getItem(REVENUE_STORAGE_KEY);
-      if (savedRevenueData) {
-        const parsedRevenueData = JSON.parse(savedRevenueData);
-
-        // Populate selectedRevenueOption if data exists
-        if (parsedRevenueData.selectedOption) {
-          setSelectedRevenueOption(parsedRevenueData.selectedOption);
-
-          // Encontrar el rango de ingresos por su ID
-          const selectedRange = revenueRanges.find(range => range.id === parsedRevenueData.selectedOption);
-          const rangeValue = selectedRange ? selectedRange.name : '';
-
-          // Update global store with saved data (using the actual range value)
-          setBusinessRegisterInfo({
-            ...businessRegisterInfo,
-            revenue: rangeValue,
-          });
-        }
+    // Cargar datos de revenue desde Zustand
+    if (businessRegisterInfo.revenue) {
+      // Encontrar el ID correspondiente al nombre del rango
+      const revenueRange = revenueRanges.find(range => range.name === businessRegisterInfo.revenue);
+      if (revenueRange) {
+        setSelectedRevenueOption(revenueRange.id);
       }
+    }
 
-      // Cargar datos de financiamiento
-      const savedFundingData = localStorage.getItem(FUNDING_STORAGE_KEY);
-      if (savedFundingData) {
-        const parsedFundingData = JSON.parse(savedFundingData);
-
-        // Populate selectedFundingOption if data exists
-        if (parsedFundingData.selectedOption) {
-          setSelectedFundingOption(parsedFundingData.selectedOption);
-
-          // Encontrar el monto de financiamiento por su ID
-          const selectedAmount = fundingAmounts.find(amount => amount.id === parsedFundingData.selectedOption);
-          const amountValue = selectedAmount ? selectedAmount.name : '';
-
-          // Update global store with saved data
-          setBusinessRegisterInfo({
-            ...businessRegisterInfo,
-            quantity: amountValue,
-          });
-        }
+    // Cargar datos de quantity (funding) desde Zustand
+    if (businessRegisterInfo.quantity) {
+      // Encontrar el ID correspondiente al nombre del monto
+      const fundingAmount = fundingAmounts.find(amount => amount.name === businessRegisterInfo.quantity);
+      if (fundingAmount) {
+        setSelectedFundingOption(fundingAmount.id);
       }
-    } catch (error) {
-      console.error('Error loading data from localStorage:', error);
     }
-  }, []);
-
-  // -------------------- Save to localStorage -------------------- .
-  useEffect(() => {
-    // Don't save empty initial state
-    if (!selectedRevenueOption) return;
-
-    try {
-      const dataToSave = {
-        selectedOption: selectedRevenueOption
-      };
-      localStorage.setItem(REVENUE_STORAGE_KEY, JSON.stringify(dataToSave));
-    } catch (error) {
-      console.error('Error saving revenue data to localStorage:', error);
-    }
-  }, [selectedRevenueOption]);
-
-  useEffect(() => {
-    // Don't save empty initial state
-    if (!selectedFundingOption) return;
-
-    try {
-      const dataToSave = {
-        selectedOption: selectedFundingOption
-      };
-      localStorage.setItem(FUNDING_STORAGE_KEY, JSON.stringify(dataToSave));
-    } catch (error) {
-      console.error('Error saving funding data to localStorage:', error);
-    }
-  }, [selectedFundingOption]);
-
+  }, [businessRegisterInfo]);
 
   // -------------------- Handle Continue -------------------- .
   const handleContinue = async () => {
@@ -139,18 +78,21 @@ const Step2: React.FC<Step2Props> = () => {
     const selectedAmount = fundingAmounts.find(amount => amount.id === selectedFundingOption);
     const amountValue = selectedAmount ? selectedAmount.name : '';
 
-    console.log('Data to send: ', { selectedRevenueOption, rangeValue, selectedFundingOption, amountValue });
+    console.log('Options selected: ', { selectedRevenueOption, rangeValue, selectedFundingOption, amountValue });
 
     // Actualizar información en la store global
     setBusinessRegisterInfo({
-      ...businessRegisterInfo,
       revenue: rangeValue,
       quantity: amountValue
     })
 
     console.log("Revenue and funding info saved in global state");
+
+    const currentState = useStore.getState();
+    console.log("Estado global actualizado:", currentState);
+
     setLoading(false)
-    window.location.href = '/join/step3';
+    // window.location.href = '/join/step3';
   }
 
   // -------------------- Return -------------------- .
