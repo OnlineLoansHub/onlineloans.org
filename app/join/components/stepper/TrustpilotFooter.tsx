@@ -1,6 +1,7 @@
 import Image1 from '@/public/assets/apply/stepper/footer.png'
 import Image from 'next/image'
-const Footer: React.FC = () => {
+
+const TrustpilotFooter: React.FC = () => {
   return (
     <div className='py-3 lg:py-7 px-4 lg:px-0'>
       <Image
@@ -14,4 +15,4 @@ const Footer: React.FC = () => {
   )
 }
 
-export default Footer
+export default TrustpilotFooter
