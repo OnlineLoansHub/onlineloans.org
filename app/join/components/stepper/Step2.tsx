@@ -26,22 +26,10 @@ const STORAGE_KEY = 'revenueFormData';
 const Step2: React.FC<Step2Props> = () => {
 
   // -------------------- States -------------------- .
-  // Nuevo estado para dropdown
+  // Estado para dropdown
   const [selectedOption, setSelectedOption] = useState('')
   const [loading, setLoading] = useState(false)
 
-  // Estados originales (comentados pero mantenidos para referencia)
-  // Simple inputs, local states
-  /*
-  const [revenue, setRevenue] = useState('')
-  const [revenueError, setRevenueError] = useState('')
-  const [isFormValid, setIsFormValid] = useState(false)
-
-  // Errors, local state
-  const [errors, setErrors] = useState({
-    revenue: '',
-  })
-  */
 
   // Store, global states
   const { setBusinessRegisterInfo, businessRegisterInfo } = useStore()
@@ -67,20 +55,6 @@ const Step2: React.FC<Step2Props> = () => {
             revenue: rangeValue,
           });
         }
-
-        // Código original para el input de texto (comentado)
-        /*
-        // Populate revenue field if data exists
-        if (parsedData.revenue) {
-          setRevenue(parsedData.revenue);
-
-          // Update global store with saved data
-          setBusinessRegisterInfo({
-            ...businessRegisterInfo,
-            revenue: parsedData.revenue,
-          });
-        }
-        */
       }
     } catch (error) {
       console.error('Error loading revenue data from localStorage:', error);
@@ -102,60 +76,6 @@ const Step2: React.FC<Step2Props> = () => {
     }
   }, [selectedOption]);
 
-  // Código original para el input de texto (comentado)
-  /*
-  // -------------------- Save to localStorage -------------------- .
-  useEffect(() => {
-    // Don't save empty initial state
-    if (!revenue) return;
-
-    try {
-      const dataToSave = {
-        revenue
-      };
-      localStorage.setItem(STORAGE_KEY, JSON.stringify(dataToSave));
-    } catch (error) {
-      console.error('Error saving revenue data to localStorage:', error);
-    }
-  }, [revenue]);
-
-  // -------------------- UseEffect (validation) -------------------- .
-  useEffect(() => {
-
-    const revenueNumber = Number(revenue.replace(/,/g, ''))
-    const revenueValid = revenueNumber >= 40000
-
-    setErrors({
-      revenue: revenue && !revenueValid ? 'Minimum revenue required is $40,000' : '',
-    })
-
-    setIsFormValid(
-      revenueValid
-    )
-
-    setRevenueError(
-      revenue && !revenueValid
-        ? 'Minimum revenue required is $40,000'
-        : ''
-    )
-  }, [revenue])
-
-  // -------------------- Validations -------------------- .
-  const formatCurrency = (value: string): string => {
-    // Elimina todo excepto números
-    const numbers = value.replace(/[^\d]/g, '')
-
-    // Convierte a número y formatea con comas
-    const formatted = Number(numbers).toLocaleString('en-US')
-
-    return numbers ? `$${formatted}` : ''
-  }
-
-  const handleNumberInput = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const rawValue = e.target.value.replace(/[^\d]/g, '')
-    setRevenue(rawValue) // Guardamos el valor sin formato
-  }
-  */
 
   // -------------------- Handle Continue -------------------- .
   const handleContinue = async () => {
@@ -178,33 +98,14 @@ const Step2: React.FC<Step2Props> = () => {
     setLoading(false)
   }
 
-  /* Código original (comentado)
-  const handleContinue = async () => {
-    if (!isFormValid) return
-    setValidated(true)
-    setLoading(true)
-
-    console.log('Data to send: ', { revenue });
-
-    const updatedBusinessInfo = {
-      revenue,
-    }
-
-    setBusinessRegisterInfo(updatedBusinessInfo)
-
-    console.log("Revenue info saved in global state");
-    setLoading(false)
-  }
-  */
-
   // -------------------- Return -------------------- .
   return (
     <div
       className="w-full mx-auto px-3"
     >
-      <div className='text-center mb-6'>
-        <h2 className='text-xl font-bold mb-1 lg:leading-[38px] lg:text-3xl lg:font-bold'>
-          How much revenue did you deposit into your business bank account last month?
+      <div className='text-center mb-16'>
+        <h2 className='text-lg font-bold mb-1 lg:leading-[38px] px-8 lg:text-2xl lg:font-bold'>
+          We determine your best funding offer based on your business&apos;s average revenue. The higher your revenue, the more funding you can qualify for!
         </h2>
       </div>
 
@@ -240,22 +141,6 @@ const Step2: React.FC<Step2Props> = () => {
             </svg>
           </div>
         </div>
-
-        {/* Input original (comentado)
-        <div className="flex flex-col gap-1">
-          <input
-            type="text"
-            placeholder="Average Yearly Business Revenue"
-            className={`w-full rounded-lg border-2 p-3 appearance-none bg-white text-gray-700 hover:border-blue transition-colors ${errors.revenue ? 'border-red-500' : ''
-              }`}
-            value={formatCurrency(revenue)}
-            onChange={handleNumberInput}
-          />
-          {errors.revenue && (
-            <span className="text-red-500 text-sm">{errors.revenue}</span>
-          )}
-        </div>
-        */}
 
         <button
           onClick={handleContinue}
