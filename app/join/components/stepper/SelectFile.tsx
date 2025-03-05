@@ -1,19 +1,19 @@
-import { FaFileUpload, FaCheckCircle } from 'react-icons/fa'
-import { useCreateCompany } from '../../../storage/createCompany'
 import { useEffect } from 'react'
+import { FaFileUpload, FaCheckCircle } from 'react-icons/fa'
+import { useCreateCompany } from '../../stores/createCompany'
 
-export default function DragTest () {
+export default function DragTest() {
   const { setCerFile } = useCreateCompany()
   const cerFile = useCreateCompany((state) => state.cerFile)
 
-  function handleChange (e) {
+  function handleChange(e) {
     setCerFile(e.target.files[0])
   }
 
   useEffect(() => {
     setCerFile(null)
   }
-  , [])
+    , [])
   return (
     <div className='flex w-full items-center justify-center'>
       {!cerFile && (

@@ -14,6 +14,7 @@ const initBusinessRegisterInfo = {
 }
 
 const initUserRegisterInfo = {
+  uuid:'',
   firstName: '',
   lastName: '',
   phoneNumber: '',
@@ -21,12 +22,19 @@ const initUserRegisterInfo = {
   phoneNumber2:''
 }
 
+// Inicialización para archivos
+const initDocumentsInfo = {
+  driversLicense: null,
+  bankStatements: []
+}
+
 // Versión persistente del store
 const useStore = create(
   persist(
-    (set) => ({
+    (set, get) => ({
       businessRegisterInfo: { ...initBusinessRegisterInfo },
       userRegisterInfo: { ...initUserRegisterInfo },
+      documentsInfo: { ...initDocumentsInfo },
       currentStep: 3,
 
       setUserRegisterInfo: (userRegisterInfo) =>
@@ -53,6 +61,57 @@ const useStore = create(
           return newState
         }),
 
+      // Métodos para manejar archivos
+      setDriversLicense: (file) => {
+        set((state) => ({
+          documentsInfo: {
+            ...state.documentsInfo,
+            driversLicense: file
+          }
+        }))
+        console.log('Licencia de conducir actualizada:', file?.name)
+      },
+
+      addBankStatement: (file) => {
+        set((state) => ({
+          documentsInfo: {
+            ...state.documentsInfo,
+            bankStatements: [...state.documentsInfo.bankStatements, file]
+          }
+        }))
+        console.log('Estado de cuenta añadido:', file?.name)
+      },
+
+      removeBankStatement: (index) => {
+        set((state) => {
+          const updatedStatements = [...state.documentsInfo.bankStatements]
+          updatedStatements.splice(index, 1)
+          return {
+            documentsInfo: {
+              ...state.documentsInfo,
+              bankStatements: updatedStatements
+            }
+          }
+        })
+        console.log('Estado de cuenta eliminado en posición:', index)
+      },
+
+      removeAllBankStatements: () => {
+        set((state) => ({
+          documentsInfo: {
+            ...state.documentsInfo,
+            bankStatements: []
+          }
+        }))
+        console.log('Todos los estados de cuenta eliminados')
+      },
+
+      // Comprobación de validez de documentos
+      areDocumentsValid: () => {
+        const { driversLicense, bankStatements } = get().documentsInfo
+        return driversLicense !== null && bankStatements.length >= 3
+      },
+
       incrementCurrentStep: () =>
         set((state) => ({ currentStep: state.currentStep + 1 })),
       decrementCurrentStep: () =>
@@ -65,6 +124,7 @@ const useStore = create(
           const newState = {
             businessRegisterInfo: initBusinessRegisterInfo,
             userRegisterInfo: initUserRegisterInfo,
+            documentsInfo: initDocumentsInfo,
             currentStep: 1,
           }
           console.log('Estado reseteado:', newState)
@@ -78,6 +138,7 @@ const useStore = create(
         // Solo persistir estas partes del estado
         businessRegisterInfo: state.businessRegisterInfo,
         userRegisterInfo: state.userRegisterInfo,
+        documentsInfo: state.documentsInfo,
         currentStep: state.currentStep,
       }),
     }
