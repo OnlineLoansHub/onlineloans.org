@@ -32,7 +32,7 @@ const Step4Page: React.FC = () => {
                 </Link>
 
                 <Link
-                    href='/join/step4'
+                    href='/join/thank-you'
                     className='bg-blue text-white p-1 rounded-full absolute top-0 right-0 m-6'
                 >
                     <ArrowRight />

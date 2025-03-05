@@ -21,54 +21,54 @@ const initUserRegisterInfo = {
   phoneNumber2: ''
 }
 
-// Inicialización para archivos
+// Initial state for document files
 const initDocumentsInfo = {
   driversLicense: null,
   bankStatements: []
 }
 
-// Función para crear cliente Supabase en el navegador
+// Function to create Supabase client in the browser
 const getSupabaseClient = () => {
-  // Verificamos si estamos en el navegador
+  // Check if we're in the browser
   if (typeof window !== 'undefined') {
-    // Verificamos si supabase está disponible (cargado desde CDN)
+    // Check if supabase is available (loaded from CDN)
     if (window.supabase) {
       return window.supabase.createClient(
         'https://wvgqvjeurcwlzhgvutvs.supabase.co',
         'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Ind2Z3F2amV1cmN3bHpoZ3Z1dHZzIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDExOTYwNzcsImV4cCI6MjA1Njc3MjA3N30.gdqrXtNBNkfkVKsGdVEzFaZgaBQ-XZP8NAW1VZOm4Rg'
       );
     }
-    console.error('Supabase no está disponible. Asegúrate de incluir el script de Supabase en tu HTML.');
+    console.error('Supabase is not available. Make sure to include the Supabase script in your HTML.');
     return null;
   }
   return null;
 }
 
-// Función para generar un nombre de carpeta seguro para la URL
+// Function to generate a URL-safe folder name
 const createSafeFolderName = (firstName, businessName) => {
-  // Eliminar caracteres especiales y espacios
+  // Remove special characters and spaces
   const safeFirstName = (firstName || '').replace(/[^a-zA-Z0-9]/g, '')
   const safeBusinessName = (businessName || '').replace(/[^a-zA-Z0-9]/g, '')
   
-  // Si ambos nombres están vacíos, usar un timestamp
+  // If both names are empty, use a timestamp
   if (!safeFirstName && !safeBusinessName) {
     return `user_${Date.now()}`
   }
   
-  // Combinar nombres
+  // Combine names
   return `${safeFirstName || 'user'}_${safeBusinessName || 'business'}`
 }
 
-// Versión persistente del store
+// Persistent store with Zustand
 const useStore = create(
   persist(
     (set, get) => ({
       businessRegisterInfo: { ...initBusinessRegisterInfo },
       userRegisterInfo: { ...initUserRegisterInfo },
       documentsInfo: { ...initDocumentsInfo },
-      uploadResults: [], // Para guardar los resultados de las subidas
-      currentStep: 3,
-
+      uploadResults: [], // To store upload results
+      
+      // Update user registration information
       setUserRegisterInfo: (userRegisterInfo) =>
         set((state) => {
           const newState = {
@@ -77,10 +77,11 @@ const useStore = create(
               ...userRegisterInfo,
             },
           }
-          console.log('UserRegisterInfo - Cambios:', userRegisterInfo)
+          console.log('UserRegisterInfo - Changes:', userRegisterInfo)
           return newState
         }),
 
+      // Update business registration information  
       setBusinessRegisterInfo: (businessRegisterInfo) =>
         set((state) => {
           const newState = {
@@ -89,11 +90,12 @@ const useStore = create(
               ...businessRegisterInfo,
             },
           }
-          console.log('BusinessRegisterInfo - Cambios:', businessRegisterInfo)
+          console.log('BusinessRegisterInfo - Changes:', businessRegisterInfo)
           return newState
         }),
 
-      // Métodos para manejar archivos
+      // Methods for handling files
+      // Set driver's license file
       setDriversLicense: (file) => {
         set((state) => ({
           documentsInfo: {
@@ -101,9 +103,10 @@ const useStore = create(
             driversLicense: file
           }
         }))
-        console.log('Licencia de conducir actualizada:', file?.name)
+        console.log('Driver\'s license updated:', file?.name)
       },
 
+      // Add a bank statement file to the collection
       addBankStatement: (file) => {
         set((state) => ({
           documentsInfo: {
@@ -111,9 +114,10 @@ const useStore = create(
             bankStatements: [...state.documentsInfo.bankStatements, file]
           }
         }))
-        console.log('Estado de cuenta añadido:', file?.name)
+        console.log('Bank statement added:', file?.name)
       },
 
+      // Remove a bank statement file by index
       removeBankStatement: (index) => {
         set((state) => {
           const updatedStatements = [...state.documentsInfo.bankStatements]
@@ -125,9 +129,10 @@ const useStore = create(
             }
           }
         })
-        console.log('Estado de cuenta eliminado en posición:', index)
+        console.log('Bank statement removed at position:', index)
       },
 
+      // Remove all bank statement files
       removeAllBankStatements: () => {
         set((state) => ({
           documentsInfo: {
@@ -135,16 +140,17 @@ const useStore = create(
             bankStatements: []
           }
         }))
-        console.log('Todos los estados de cuenta eliminados')
+        console.log('All bank statements removed')
       },
 
-      // Comprobación de validez de documentos
+      // Check if required documents are valid
+      // Requires driver's license and at least 3 bank statements
       areDocumentsValid: () => {
         const { driversLicense, bankStatements } = get().documentsInfo
         return driversLicense !== null && bankStatements.length >= 3
       },
 
-      // Obtener el nombre de la carpeta para el usuario
+      // Get folder name based on user and business names
       getUserFolderName: () => {
         const { firstName } = get().userRegisterInfo
         const { businessName } = get().businessRegisterInfo
@@ -152,7 +158,7 @@ const useStore = create(
         return createSafeFolderName(firstName, businessName)
       },
 
-      // Subir un archivo a Supabase
+      // Upload a single file to Supabase storage
       uploadFileToSupabase: async (file, folderPath) => {
         if (!file) return null
         
@@ -171,7 +177,7 @@ const useStore = create(
             })
 
           if (error) {
-            console.error('Error al subir archivo:', error)
+            console.error('Error uploading file:', error)
             return { success: false, error, file }
           }
 
@@ -186,22 +192,22 @@ const useStore = create(
             fileName: file.name
           }
         } catch (err) {
-          console.error('Error en la subida:', err)
+          console.error('Error during upload:', err)
           return { success: false, error: err, file }
         }
       },
 
-      // Subir todos los documentos a Supabase
+      // Upload all documents (driver's license and bank statements) to Supabase
       uploadAllDocuments: async () => {
         const folderName = get().getUserFolderName()
         const folderPath = `users/${folderName}`
         const { driversLicense, bankStatements } = get().documentsInfo
 
-        set({ uploadResults: [] }) // Resetear resultados anteriores
+        set({ uploadResults: [] }) // Reset previous results
 
         const results = []
 
-        // Subir licencia de conducir
+        // Upload driver's license
         if (driversLicense) {
           const result = await get().uploadFileToSupabase(driversLicense, `${folderPath}/drivers-license`)
           results.push({
@@ -210,7 +216,7 @@ const useStore = create(
           })
         }
 
-        // Subir estados de cuenta
+        // Upload bank statements
         for (let i = 0; i < bankStatements.length; i++) {
           const result = await get().uploadFileToSupabase(bankStatements[i], `${folderPath}/bank-statements`)
           results.push({
@@ -220,41 +226,33 @@ const useStore = create(
           })
         }
 
-        // Guardar resultados en el estado
+        // Save results to state
         set({ uploadResults: results })
         return results
       },
 
-      incrementCurrentStep: () =>
-        set((state) => ({ currentStep: state.currentStep + 1 })),
-      decrementCurrentStep: () =>
-        set((state) => ({
-          currentStep: state.currentStep === 1 ? 1 : state.currentStep - 1,
-        })),
-
+      // Reset the entire application state to initial values
       reset: () => {
         set(() => {
           const newState = {
-            businessRegisterInfo: initBusinessRegisterInfo,
-            userRegisterInfo: initUserRegisterInfo,
-            documentsInfo: initDocumentsInfo,
-            uploadResults: [],
-            currentStep: 1,
+            businessRegisterInfo: { ...initBusinessRegisterInfo },
+            userRegisterInfo: { ...initUserRegisterInfo },
+            documentsInfo: { ...initDocumentsInfo },
+            uploadResults: []
           }
-          console.log('Estado reseteado:', newState)
+          console.log('State reset:', newState)
           return newState
         })
       },
     }),
     {
-      name: 'business-storage', // Nombre único para el almacenamiento
+      name: 'business-storage', // Unique name for storage
       partialize: (state) => ({
-        // Solo persistir estas partes del estado
+        // Only persist these parts of the state
         businessRegisterInfo: state.businessRegisterInfo,
         userRegisterInfo: state.userRegisterInfo,
         documentsInfo: state.documentsInfo,
-        uploadResults: state.uploadResults,
-        currentStep: state.currentStep,
+        uploadResults: state.uploadResults
       }),
     }
   )
