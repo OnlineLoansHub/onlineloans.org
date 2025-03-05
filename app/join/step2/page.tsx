@@ -1,9 +1,9 @@
 'use client'
 import Link from 'next/link'
 import { ArrowLeft, ArrowRight } from 'lucide-react'
-import StepIndicator from '../components/stepper/StepIndicator'
-import Step2 from '../components/stepper/Step2'
-import TrustpilotFooter from '../components/stepper/TrustpilotFooter'
+import StepIndicator from '../components/StepIndicator'
+import Step2 from '../components/Step2'
+import TrustpilotFooter from '../components/TrustpilotFooter'
 
 const Step2Page: React.FC = () => {
   return (
@@ -25,7 +25,7 @@ const Step2Page: React.FC = () => {
       <StepIndicator currentStep={2} />
 
       <main className='md:w-10/12 mx-auto lg:w-full'>
-        <Step2 currentStep={2} />
+        <Step2 />
       </main>
 
       <TrustpilotFooter />

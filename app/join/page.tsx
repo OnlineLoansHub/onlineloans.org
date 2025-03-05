@@ -1,9 +1,9 @@
 'use client'
 import Link from 'next/link'
 import Script from 'next/script'
-import StepIndicator from './components/stepper/StepIndicator'
-import Step1 from './components/stepper/Step1'
-import TrustpilotFooter from './components/stepper/TrustpilotFooter'
+import StepIndicator from './components/StepIndicator'
+import Step1 from './components/Step1'
+import TrustpilotFooter from './components/TrustpilotFooter'
 
 import { ArrowRight } from 'lucide-react'
 
@@ -36,7 +36,7 @@ const JoinPage = () => {
         <StepIndicator currentStep={1} />
 
         <main className='md:w-10/12 mx-auto lg:w-full'>
-          <Step1 currentStep={1} />
+          <Step1 />
         </main>
 
         <TrustpilotFooter />

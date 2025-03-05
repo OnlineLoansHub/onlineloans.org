@@ -1,17 +1,13 @@
 //React
 import { useState, useEffect } from 'react'
 // Zustand
-import useStore from '../../stores/stepperStore'
+import useStore from '../stores/stepperStore'
 // PhoneInput
 import PhoneInput from 'react-phone-input-2'
 import 'react-phone-input-2/lib/style.css'
 
-interface Step1Props {
-  currentStep: number;
-  onConversion?: () => void; // Nueva prop para el manejo de conversión
-}
 
-const Step1: React.FC<Step1Props> = () => {
+const Step1: React.FC = () => {
 
   // ------------------------- States ------------------------- .
   // Simple inputs, local states
@@ -142,8 +138,8 @@ const Step1: React.FC<Step1Props> = () => {
     //   if (response.ok) {
     //      // ---------- Record Google Ads conversion event ----------.
     //      if (typeof window !== 'undefined' && 'gtag' in window) {
-    //      // @ts-expect-error - gtag is not defined in the Window type
-    //      window.gtag('event', 'conversion', { 'send_to': 'AW-16834519489/Q5TZCLLY05MaEMHDqds-' });
+    //        // @ts-expect-error - gtag is not defined in the Window type
+    //        window.gtag('event', 'conversion', { 'send_to': 'AW-16834519489/Q5TZCLLY05MaEMHDqds-' });
     //      }
     //   }
     // } catch (error) {
@@ -155,6 +151,7 @@ const Step1: React.FC<Step1Props> = () => {
     console.log("Info sent :D");
     setLoading(false)
 
+    // Updated Global state
     const currentState = useStore.getState();
     console.log("Estado global actualizado:", currentState);
 
@@ -204,6 +201,7 @@ const Step1: React.FC<Step1Props> = () => {
           )}
         </div>
 
+        {/* ------------------------- PHONE INPUT ------------------------- */}
         <div className="flex flex-col gap-1">
           <PhoneInput
             country={'us'}
@@ -216,6 +214,7 @@ const Step1: React.FC<Step1Props> = () => {
           )}
         </div>
 
+        {/* ------------------------- EMAIL INPUT ------------------------- */}
         <div className="flex flex-col gap-1">
           <input
             type="email"
@@ -230,6 +229,7 @@ const Step1: React.FC<Step1Props> = () => {
           )}
         </div>
 
+        {/* ------------------------- BUTTON ------------------------- */}
         <button
           onClick={handleContinue}
           disabled={!isFormValid || loading}

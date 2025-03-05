@@ -1,18 +1,15 @@
+//React
 import { useState, useEffect } from 'react'
 // Zustand
-import useStore from '../../stores/stepperStore'
+import useStore from '../stores/stepperStore'
 // Utility for formatting phone number
-import { formatPhoneNumber } from '../../step3/phoneFormatter'
+import { formatPhoneNumber } from '../step3/phoneFormatter'
 // PhoneInput
 import PhoneInput from 'react-phone-input-2'
 import 'react-phone-input-2/lib/style.css'
 
-interface Step3Props {
-  currentStep: number;
-  onConversion?: () => void;
-}
 
-const Step3: React.FC<Step3Props> = () => {
+const Step3: React.FC = () => {
 
   // ------------------------- States ------------------------- .
   const [phoneNumber, setPhoneNumber] = useState('')
@@ -73,9 +70,18 @@ const Step3: React.FC<Step3Props> = () => {
 
     setUserRegisterInfo(updatedUserInfo);
 
+    // ---------- Record Google Ads conversion event ----------.
+    // if (typeof window !== 'undefined' && 'gtag' in window) {
+    //   // @ts-expect-error - gtag no está definido en el tipo Window
+    //   window.gtag('event', 'conversion', {
+    //     'send_to': 'AW-16834519489/xtz2COufpaAaEMHDqds-',
+    //     'value': 10.0,
+    //     'currency': 'MXN'
+    //   });
+    // }
     console.log("Phone Confirmation Saved :D");
 
-    // Obtener y mostrar el estado global más actualizado
+    // Updated Global state
     const currentState = useStore.getState();
     console.log("Estado global actualizado:", currentState);
 
@@ -94,9 +100,9 @@ const Step3: React.FC<Step3Props> = () => {
   // ------------------------- Return ------------------------- .
   return (
     <div className="w-full mx-auto px-3">
-      <div className='text-center mb-6'>
-        <h2 className='text-xl font-bold mb-1 lg:leading-[38px] lg:text-3xl lg:font-bold'>
-          What&apos;s your name and business revenue?
+      <div className='text-center mb-8'>
+        <h2 className='text-lg font-bold px-8 mb-1 lg:leading-[38px] lg:text-2xl lg:font-bold'>
+          Great News! Based on your details, your business may qualify for a custom cash advance offer tailored to your needs
         </h2>
       </div>
 

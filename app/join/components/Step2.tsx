@@ -1,6 +1,8 @@
-import React, { useState, useEffect } from 'react'
-import useStore from '../../stores/stepperStore'
-
+// React
+import { useState, useEffect } from 'react'
+// Zustand
+import useStore from '../stores/stepperStore'
+// PhoneInput
 import 'react-phone-input-2/lib/style.css'
 
 // Opciones de rango de ingresos para el dropdown
@@ -29,11 +31,7 @@ export const fundingAmounts = [
   { id: '8', name: '$1M+' },
 ]
 
-interface Step2Props {
-  currentStep: number
-}
-
-const Step2: React.FC<Step2Props> = () => {
+const Step2: React.FC = () => {
 
   // -------------------- States -------------------- .
   // Estado para dropdowns
