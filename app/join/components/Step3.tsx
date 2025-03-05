@@ -71,14 +71,14 @@ const Step3: React.FC = () => {
     setUserRegisterInfo(updatedUserInfo);
 
     // ---------- Record Google Ads conversion event ----------.
-    // if (typeof window !== 'undefined' && 'gtag' in window) {
-    //   // @ts-expect-error - gtag no está definido en el tipo Window
-    //   window.gtag('event', 'conversion', {
-    //     'send_to': 'AW-16834519489/xtz2COufpaAaEMHDqds-',
-    //     'value': 10.0,
-    //     'currency': 'MXN'
-    //   });
-    // }
+    if (typeof window !== 'undefined' && 'gtag' in window) {
+      // @ts-expect-error - gtag no está definido en el tipo Window
+      window.gtag('event', 'conversion', {
+        'send_to': 'AW-16834519489/xtz2COufpaAaEMHDqds-',
+        'value': 10.0,
+        'currency': 'MXN'
+      });
+    }
     console.log("Phone Confirmation Saved :D");
 
     // Updated Global state
@@ -87,7 +87,7 @@ const Step3: React.FC = () => {
 
     // ---------- Redirect to Step 4 page ----------.
     setLoading(false);
-    // window.location.href = '/join/step4';
+    window.location.href = '/join/step4';
   }
 
   // ------------------------- Toggle Second Phone ------------------------- .

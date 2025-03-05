@@ -91,7 +91,7 @@ const Step2: React.FC = () => {
 
     // ---------- Redirect to Step 3 page ----------.
     setLoading(false)
-    // window.location.href = '/join/step3';
+    window.location.href = '/join/step3';
   }
 
   // -------------------- Return -------------------- .

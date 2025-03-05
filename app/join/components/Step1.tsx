@@ -149,9 +149,16 @@ const Step1: React.FC = () => {
     //  window.location.href = '/join/step2';
     // }
 
+
+    // ---------- Record Google Ads conversion event ----------.
+    if (typeof window !== 'undefined' && 'gtag' in window) {
+      // @ts-expect-error - gtag is not defined in the Window type
+      window.gtag('event', 'conversion', { 'send_to': 'AW-16834519489/Q5TZCLLY05MaEMHDqds-' });
+    }
+
     // ---------- Redirect to Step 2 page ----------.
     setLoading(false)
-    // window.location.href = '/join/step2';
+    window.location.href = '/join/step2';
 
     // Updated Global state
     const currentState = useStore.getState();
