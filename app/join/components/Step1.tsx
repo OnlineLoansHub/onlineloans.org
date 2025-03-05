@@ -145,17 +145,18 @@ const Step1: React.FC = () => {
     // } catch (error) {
     //   console.error('Error sending the form data:', error)
     // } finally {
-    //   console.log("Info sent :D");
     //   setLoading(false)
+    //  window.location.href = '/join/step2';
     // }
-    console.log("Info sent :D");
+
+    // ---------- Redirect to Step 2 page ----------.
     setLoading(false)
+    // window.location.href = '/join/step2';
 
     // Updated Global state
     const currentState = useStore.getState();
     console.log("Estado global actualizado:", currentState);
 
-    // window.location.href = '/join/step2';
   }
 
   // ------------------------- Return ------------------------- .

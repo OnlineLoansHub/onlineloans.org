@@ -74,14 +74,12 @@ const Step4: React.FC = () => {
     setUploadStatus('Preparing documents for upload...')
 
     try {
-      // Obtenemos el nombre de la carpeta basado en el nombre del usuario y la empresa
+      // Set the folder name based on the user's name and business
       const folderName = getUserFolderName()
       setUploadStatus(`Uploading documents to folder ${folderName}...`)
 
-      // Subir todos los documentos a Supabase
+      // Upload all documents to Supabase
       const results = await uploadAllDocuments()
-
-      // Verificar si todas las subidas fueron exitosas
       const allSuccessful = results.every(result => result.success)
 
       if (allSuccessful) {
@@ -99,7 +97,7 @@ const Step4: React.FC = () => {
         // }
 
       } else {
-        // Encontrar errores
+        // Find errors
         const failedUploads = results.filter(result => !result.success)
         setUploadStatus(`Error uploading ${failedUploads.length} documents. Please try again.`)
         console.error('Failed uploads:', failedUploads)
@@ -108,6 +106,8 @@ const Step4: React.FC = () => {
       console.error('Error during upload process:', error)
       setUploadStatus('An unexpected error occurred. Please try again.')
     } finally {
+
+      // ---------- Redirect to Thank You page ----------.
       setLoading(false)
       // window.location.href = '/join/thank-you';
     }
@@ -137,7 +137,7 @@ const Step4: React.FC = () => {
     <div
       className="w-full mx-auto px-3 mb-6"
     >
-      {/* Mensaje si Supabase no está cargado */}
+      {/* Message if Supabase is not loaded */}
       {!supabaseLoaded && (
         <div className="bg-yellow-100 text-yellow-800 p-3 rounded mb-4 text-center">
           Loading Supabase resources...

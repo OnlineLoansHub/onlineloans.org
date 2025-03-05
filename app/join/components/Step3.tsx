@@ -85,6 +85,7 @@ const Step3: React.FC = () => {
     const currentState = useStore.getState();
     console.log("Estado global actualizado:", currentState);
 
+    // ---------- Redirect to Step 4 page ----------.
     setLoading(false);
     // window.location.href = '/join/step4';
   }
