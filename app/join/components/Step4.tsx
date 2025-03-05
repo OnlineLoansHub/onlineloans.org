@@ -3,37 +3,114 @@ import { useState, useEffect } from 'react'
 // Zustand
 import useStore from '../stores/stepperStore'
 // Icons
-import { FaFileUpload, FaCheckCircle, FaRegTrashAlt, } from 'react-icons/fa'
+import { FaFileUpload, FaCheckCircle, FaTimesCircle } from 'react-icons/fa'
 
 const Step4: React.FC = () => {
-
   // -------------------- States -------------------- .
   const [loading, setLoading] = useState(false)
+  const [uploadStatus, setUploadStatus] = useState('')
+  const [supabaseLoaded, setSupabaseLoaded] = useState(false)
 
-  // Extrae los valores y funciones del store correctamente para evitar bucles infinitos
+  // Cargar el script de Supabase cuando el componente se monte
+  useEffect(() => {
+    // Verificar si el script ya está cargado
+    if (window.supabase) {
+      setSupabaseLoaded(true)
+      return
+    }
+
+    // Crear y cargar el script
+    const script = document.createElement('script')
+    script.src = 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js'
+    script.async = true
+    script.onload = () => {
+      console.log('Supabase script loaded successfully')
+      setSupabaseLoaded(true)
+    }
+    script.onerror = () => {
+      console.error('Error loading Supabase script')
+    }
+
+    document.head.appendChild(script)
+
+    // Limpiar el script si el componente se desmonta
+    return () => {
+      // No eliminamos el script para que esté disponible en toda la aplicación
+    }
+  }, [])
+
+  // Extraer los valores y funciones del store
   const documentsInfo = useStore(state => state.documentsInfo)
   const setDriversLicense = useStore(state => state.setDriversLicense)
   const addBankStatement = useStore(state => state.addBankStatement)
   const removeBankStatement = useStore(state => state.removeBankStatement)
   const areDocumentsValid = useStore(state => state.areDocumentsValid)
+  const uploadAllDocuments = useStore(state => state.uploadAllDocuments)
+  const userRegisterInfo = useStore(state => state.userRegisterInfo)
+  const businessRegisterInfo = useStore(state => state.businessRegisterInfo)
+  const getUserFolderName = useStore(state => state.getUserFolderName)
 
   // -------------------- Handle Continue -------------------- .
   const handleContinue = async () => {
-    // Check if documents are valid before continuing
+    // Verificar que Supabase esté cargado
+    if (!supabaseLoaded) {
+      setUploadStatus('Supabase is still loading. Please wait a moment...')
+      return
+    }
+
+    // Verificar si los documentos son válidos
     if (!areDocumentsValid()) {
       alert("Please upload your driver's license and at least 3 bank statements")
       return
     }
 
+    // Verificar que el usuario haya ingresado su nombre y el nombre de la empresa
+    if (!userRegisterInfo.firstName || !businessRegisterInfo.businessName) {
+      alert("Please make sure you've entered your name and business name in the previous steps")
+      return
+    }
+
     setLoading(true)
+    setUploadStatus('Preparing documents for upload...')
 
-    console.log("Documents and funding info saved in global state");
+    try {
+      // Obtenemos el nombre de la carpeta basado en el nombre del usuario y la empresa
+      const folderName = getUserFolderName()
+      setUploadStatus(`Uploading documents to folder ${folderName}...`)
 
-    const currentState = useStore.getState();
-    console.log("Estado global actualizado:", currentState);
+      // Subir todos los documentos a Supabase
+      const results = await uploadAllDocuments()
 
-    setLoading(false)
-    // window.location.href = '/join/step3';
+      // Verificar si todas las subidas fueron exitosas
+      const allSuccessful = results.every(result => result.success)
+
+      if (allSuccessful) {
+        setUploadStatus('All documents uploaded successfully!')
+        // console.log('Documents uploaded successfully:', results)
+
+        // ---------- Record Google Ads conversion event ----------.
+        // if (typeof window !== 'undefined' && 'gtag' in window) {
+        //   // @ts-expect-error - gtag no está definido en el tipo Window
+        //   window.gtag('event', 'conversion', {
+        //     'send_to': 'AW-16834519489/21YSCM-Ss6AaEMHDqds-',
+        //     'value': 600.0,
+        //     'currency': 'MXN'
+        //   });
+        // }
+
+      } else {
+        // Encontrar errores
+        const failedUploads = results.filter(result => !result.success)
+        setUploadStatus(`Error uploading ${failedUploads.length} documents. Please try again.`)
+        console.error('Failed uploads:', failedUploads)
+      }
+    } catch (error) {
+      console.error('Error during upload process:', error)
+      setUploadStatus('An unexpected error occurred. Please try again.')
+    } finally {
+      setLoading(false)
+      // window.location.href = '/join/thank-you';
+    }
   }
 
   // Handle driver's license upload
@@ -58,22 +135,35 @@ const Step4: React.FC = () => {
   // -------------------- Return -------------------- .
   return (
     <div
-      className="w-full mx-auto px-3"
+      className="w-full mx-auto px-3 mb-6"
     >
-      <div className='text-center mb-10'>
-        <h2 className='text-lg font-bold mb-1 lg:leading-[38px] px-8 lg:text-2xl lg:font-bold'>
-          We determine your best funding offer based on your business&apos;s average revenue. The higher your revenue, the more funding you can qualify for!
+      {/* Mensaje si Supabase no está cargado */}
+      {!supabaseLoaded && (
+        <div className="bg-yellow-100 text-yellow-800 p-3 rounded mb-4 text-center">
+          Loading Supabase resources...
+        </div>
+      )}
+      <div className='text-center'>
+        <h2 className='text-lg font-bold mb-1 lg:leading-[38px] px-6 md:px-8 lg:text-2xl lg:font-bold'>
+          You&apos;re Almost Approved! And You could Secure an Offer in only 2 Hours
         </h2>
+
+        <h3 className='text-sm my-4 px-6 sm:px-8 md:px-10 lg:px-12 xl:px-16 lg:text-base font-semibold text-black/80'>
+          You&apos;re almost there! To get your personalized offer, we need to verify your business’s revenue consistency. This ensures we can provide the best funding options tailored to you.
+        </h3>
       </div>
 
-      <div className='w-full lg:w-5/12 mx-auto flex flex-col gap-6'>
+      <div className='w-full md:w-3/4 xl:w-1/2 mx-auto flex flex-col gap-6'>
+        <h3 className='text-sm mt-10 text-start mb-2 lg:leading-[32px] lg:text-base font-medium text-black/70'>
+          To secure an express funding offer —just upload your last 4 bank statements and a valid driver’s license. It takes less than 2 minutes!
+        </h3>
 
         {/* ------------------------- CONTENT. UPLOAD 4 BANK STATEMENTS AND 1 DRIVERS LICENSE -------------------------- */}
         <div className='mb-6'>
           {/* Driver's License Upload Component */}
           <div className="mb-4">
             <label className="block text-gray-700 text-md font-bold mb-3">
-              Driver's License <span className="text-red-500">*</span>
+              Driver&apos;s License <span className="text-red-500">*</span>
             </label>
 
             {/* Show uploaded driver's license */}
@@ -89,7 +179,7 @@ const Step4: React.FC = () => {
                       onClick={handleRemoveDriversLicense}
                       className="text-red-500 hover:text-red-700"
                     >
-                      <FaRegTrashAlt className="w-4 h-4" />
+                      <FaTimesCircle className="w-4 h-4" />
                     </button>
                   </div>
                 </div>
@@ -101,11 +191,11 @@ const Step4: React.FC = () => {
               <div className='flex w-full items-center justify-center'>
                 <label
                   htmlFor='select-drivers-license'
-                  className='group flex w-full cursor-pointer flex-col items-center justify-center rounded-lg border-2 border-dashed border-gray-300 bg-gray-50 hover:bg-gray-100'
+                  className='group flex w-full cursor-pointer flex-col items-center justify-center rounded-lg border-2 border-dashed border-zinc-400 hover:border-sky-300 bg-zinc-100'
                 >
                   <div className='flex flex-col items-center justify-center py-5'>
-                    <FaFileUpload className='w-6 h-6 text-gray-500 transition duration-75 group-hover:text-blue-600' />
-                    <span className='text-sm text-gray-500 font-semibold group-hover:text-black'>Click to upload Driver's License (PDF, JPG, PNG)</span>
+                    <FaFileUpload className='w-6 h-6 text-gray-500 transition duration-75 group-hover:text-blue' />
+                    <span className='text-sm text-gray-500 font-semibold group-hover:text-blue'>Click to upload Driver&apos;s License (PDF, JPG, PNG)</span>
                   </div>
                 </label>
                 <input
@@ -120,7 +210,7 @@ const Step4: React.FC = () => {
           </div>
 
           {/* Bank Statements Upload Component */}
-          <div className="mt-6">
+          <div className="mt-10">
             <label className="block text-gray-700 text-md font-bold mb-3">
               Last 4 Bank Statements <span className="text-red-500">*</span> <span className="font-normal text-sm">(At least 3 required)</span>
             </label>
@@ -140,7 +230,7 @@ const Step4: React.FC = () => {
                         onClick={() => removeBankStatement(index)}
                         className="text-red-500 hover:text-red-700"
                       >
-                        <FaRegTrashAlt className="w-4 h-4" />
+                        <FaTimesCircle className="w-4 h-4" />
                       </button>
                     </div>
                   ))}
@@ -153,14 +243,14 @@ const Step4: React.FC = () => {
               <div className='flex w-full items-center justify-center'>
                 <label
                   htmlFor='select-bank-statement'
-                  className='group flex w-full cursor-pointer flex-col items-center justify-center rounded-lg border-2 border-dashed border-gray-300 bg-gray-50 hover:bg-gray-100'
+                  className='group flex w-full cursor-pointer flex-col items-center justify-center rounded-lg border-2 border-dashed border-zinc-400 hover:border-sky-300 bg-zinc-100'
                 >
                   <div className='flex flex-col items-center justify-center py-5'>
-                    <FaFileUpload className='w-6 h-6 text-gray-500 transition duration-75 group-hover:text-blue-600' />
-                    <span className='text-sm text-gray-500 font-semibold group-hover:text-black'>
+                    <FaFileUpload className='w-6 h-6 text-gray-500 transition duration-75 group-hover:text-blue' />
+                    <span className='text-sm text-gray-500 font-semibold group-hover:text-blue'>
                       Click to upload Bank Statement (PDF, JPG, PNG)
                     </span>
-                    <span className='text-xs text-gray-400 mt-1'>
+                    <span className='text-xs text-gray-400 mt-1 '>
                       {documentsInfo.bankStatements.length} of 4 uploaded
                     </span>
                   </div>
@@ -176,11 +266,22 @@ const Step4: React.FC = () => {
             )}
           </div>
 
-          {/* Validation message */}
+          {/* Validation and upload status messages */}
           {!areDocumentsValid() && documentsInfo && (
-            <p className="text-red-500 text-sm mt-2">
-              Please upload your driver's license and at least 3 bank statements to continue.
+            <p className="text-red-500 text-sm mt-10">
+              Please upload your driver&apos;s license and at least 3 bank statements to continue.
             </p>
+          )}
+
+          {uploadStatus && (
+            <div className={`mt-4 p-3 rounded-lg text-center ${uploadStatus.includes('successfully')
+              ? 'bg-green-100 text-green-800'
+              : uploadStatus.includes('Error')
+                ? 'bg-red-100 text-red-800'
+                : 'bg-blue-100 text-blue-800'
+              }`}>
+              {uploadStatus}
+            </div>
           )}
         </div>
 
@@ -193,7 +294,7 @@ const Step4: React.FC = () => {
             : 'bg-gray-400 cursor-not-allowed'
             }`}
         >
-          {loading ? <span className="loader">Loading</span> : 'Continue'}
+          {loading ? <span className="loader">Loading...</span> : 'Submit & Get Offer'}
         </button>
       </div>
     </div>

@@ -25,17 +25,6 @@ const Step3Page: React.FC = () => {
             `}
             </Script>
 
-            {/* Event snippet for Verifyphone conversion */}
-            <Script id="conversion-event" strategy="afterInteractive">
-                {`
-                gtag('event', 'conversion', {
-                    'send_to': 'AW-16834519489/xtz2COufpaAaEMHDqds-',
-                    'value': 10.0,
-                    'currency': 'MXN'
-                });
-            `}
-            </Script>
-
             <div className='flex flex-col bg-white w-11/12 lg:w-8/12 mx-auto shadow-lg rounded-lg text-black relative'>
                 <Link
                     href='/join/step2'

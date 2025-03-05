@@ -171,7 +171,7 @@ const Step3: React.FC = () => {
             : 'bg-gray-400 cursor-not-allowed'
             }`}
         >
-          {loading ? <span className="loader">Loading</span> : 'See Your Offer'}
+          {loading ? <span className="loader">Loading</span> : 'Continue'}
         </button>
       </div>
     </div>
