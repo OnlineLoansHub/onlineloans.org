@@ -76,7 +76,9 @@ const Step4: React.FC = () => {
     try {
       // Set the folder name based on the user's name and business
       const folderName = getUserFolderName()
-      setUploadStatus(`Uploading documents to folder ${folderName}...`)
+      console.log(`Uploading documents to folder ${folderName}...`);
+
+      setUploadStatus(`Uploading documents...`)
 
       // Upload all documents to Supabase
       const results = await uploadAllDocuments()
@@ -109,7 +111,7 @@ const Step4: React.FC = () => {
 
       // ---------- Redirect to Thank You page ----------.
       setLoading(false)
-      // window.location.href = '/join/thank-you';
+      window.location.href = '/join/thank-you';
     }
   }
 

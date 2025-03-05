@@ -5,7 +5,7 @@ import StepIndicator from './components/StepIndicator'
 import Step1 from './components/Step1'
 import TrustpilotFooter from './components/TrustpilotFooter'
 
-import { ArrowRight } from 'lucide-react'
+// import { ArrowRight } from 'lucide-react'
 
 const JoinPage = () => {
   return (
@@ -26,12 +26,12 @@ const JoinPage = () => {
 
       {/* Contenido del Stepper */}
       <div className='flex flex-col bg-white w-11/12 lg:w-8/12 mx-auto shadow-lg rounded-lg text-black relative mb-12'>
-        <Link
+        {/* <Link
           href='/join/step2'
           className='bg-blue text-white p-1 rounded-full absolute top-0 right-0 m-6'
         >
           <ArrowRight />
-        </Link>
+        </Link> */}
 
         <StepIndicator currentStep={1} />
 

@@ -79,7 +79,7 @@ const ThankYou: React.FC = () => {
                     disabled={loading}
                     className="w-full py-3 px-6 text-xl lg:text-[28px] text-white font-bold transition-colors bg-green-500 hover:bg-green-600"
                 >
-                    {loading ? <span className="loader">Loading</span> : 'Continue'}
+                    {loading ? <span className="loader">Loading</span> : 'Ok'}
                 </button>
             </div>
         </div>
