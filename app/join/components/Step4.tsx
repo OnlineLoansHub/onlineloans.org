@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react'
 // Zustand
 import useStore from '../stores/stepperStore'
 // Icons
-import { FaFileUpload, FaCheckCircle, FaTimesCircle } from 'react-icons/fa'
+import { FaFileUpload, FaCheckCircle, FaTrashAlt } from 'react-icons/fa'
 
 const Step4: React.FC = () => {
   // -------------------- States -------------------- .
@@ -161,27 +161,29 @@ const Step4: React.FC = () => {
         </h3>
 
         {/* ------------------------- CONTENT. UPLOAD 4 BANK STATEMENTS AND 1 DRIVERS LICENSE -------------------------- */}
-        <div className='mb-6'>
+        <div className='mb-6 '>
           {/* Driver's License Upload Component */}
-          <div className="mb-4">
+          <div className="mb-4 ">
             <label className="block text-gray-700 text-md font-bold mb-3">
               Driver&apos;s License <span className="text-red-500">*</span>
             </label>
 
             {/* Show uploaded driver's license */}
             {documentsInfo.driversLicense && (
-              <div className="mb-3">
-                <div className="space-y-2">
+              <div className="mb-3 ">
+                <div className="space-y-2 ">
                   <div className="flex items-center justify-between bg-gray-50 p-2 rounded-lg">
-                    <div className="flex items-center">
-                      <FaCheckCircle className="w-4 h-4 mr-2 text-green-400" />
-                      <span className="text-sm">{documentsInfo.driversLicense.name}</span>
-                    </div>
+                    <section className='flex items-center'>
+                      <FaCheckCircle className="w-4 h-4 mr-2 flex-none text-green-400" />
+                      <div className=" max-w-[210px] sm:max-w-[340px] overflow-x-scroll overflow-y-hidden custom-scrollbar">
+                        <span className="text-sm w-full">{documentsInfo.driversLicense.name}</span>
+                      </div>
+                    </section>
                     <button
                       onClick={handleRemoveDriversLicense}
-                      className="text-red-500 hover:text-red-700"
+                      className="text-red-500 hover:text-red-700 ml-4 flex-none"
                     >
-                      <FaTimesCircle className="w-4 h-4" />
+                      <FaTrashAlt className="w-4 h-4" />
                     </button>
                   </div>
                 </div>
@@ -224,15 +226,17 @@ const Step4: React.FC = () => {
                 <div className="space-y-2">
                   {documentsInfo.bankStatements.map((file, index) => (
                     <div key={index} className="flex items-center justify-between bg-gray-50 p-2 rounded-lg">
-                      <div className="flex items-center">
+                      <section className="flex items-center">
                         <FaCheckCircle className="w-4 h-4 mr-2 text-green-400" />
-                        <span className="text-sm">{file.name}</span>
-                      </div>
+                        <div className=" max-w-[210px] sm:max-w-[340px] overflow-x-scroll overflow-y-hidden custom-scrollbar">
+                          <span className="text-sm w-full">{file.name}</span>
+                        </div>
+                      </section>
                       <button
                         onClick={() => removeBankStatement(index)}
-                        className="text-red-500 hover:text-red-700"
+                        className="text-red-500 hover:text-red-700 flex-none"
                       >
-                        <FaTimesCircle className="w-4 h-4" />
+                        <FaTrashAlt className="w-4 h-4" />
                       </button>
                     </div>
                   ))}

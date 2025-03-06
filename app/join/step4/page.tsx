@@ -1,7 +1,7 @@
 'use client'
 import Link from 'next/link'
 import Script from 'next/script'
-import { ArrowLeft, ArrowRight } from 'lucide-react'
+import { ArrowLeft } from 'lucide-react'
 import StepIndicator from '../components/StepIndicator'
 import Step4 from '../components/Step4'
 import TrustpilotFooter from '../components/TrustpilotFooter'
