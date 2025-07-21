@@ -1,0 +1,46 @@
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+ul,
+li {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+button {
+  border: unset;
+  padding: unset;
+}
+
+html {
+  font-size: 16px;
+}
+
+body {
+  background: var(--main-bg-color);
+  color: var(--primary-dark-color);
+  font-family: 'Lato', serif;
+}
+
+.container-content {
+  max-width: 1268px;
+  width: 100%;
+  height: 100%;
+  margin: 0 auto;
+  padding: 0 10px;
+}
+
+.underline {
+  text-decoration: underline;
+}
+
+.bold {
+  font-weight: 700;
+}

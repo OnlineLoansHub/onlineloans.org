@@ -1,0 +1,43 @@
+:root {
+  --main-bg-color: #f8f8f8;
+  --footer-bg-color: #101f30;
+  --header-main-color: #ecfaff;
+  --header-secondary-color: #effdf9;
+
+  --primary-dark-color: #000000;
+
+  --border-raduis: 10px;
+  --primary-btn-color: #1ab59b;
+  --secondary-btn-color: #c1edec;
+
+  --inter-font: 'Inter', sans-serif;
+  --roboto-font: 'Roboto', sans-serif;
+}
+
+.block-title {
+  font-size: 30px;
+  color: #000000;
+  font-weight: 400;
+  font-style: normal;
+  font-family: 'DM Serif Display', serif;
+  text-transform: uppercase;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.primary-btn {
+  min-width: 170px;
+  font-size: 16px;
+  font-weight: 500;
+  font-family: var(--inter-font);
+  border-radius: var(--border-raduis);
+  background-color: var(--primary-btn-color);
+  color: #fff;
+  padding: 13px;
+  text-wrap: nowrap;
+  cursor: pointer;
+}
+
+.section {
+  padding: 35px 0;
+}
