@@ -91,4 +91,17 @@ document.addEventListener('DOMContentLoaded', function () {
     const nextIndex = (currentIndex + 1) % slides.length;
     goToSlide(nextIndex);
   }, 3000);
+
+  const readMoreBtn = document.querySelector('.header-txt-modile-show');
+
+  readMoreBtn.addEventListener('click', () => {
+    const moreTxt = document.querySelector('.header-txt-modile-hide');
+
+    moreTxt.classList.toggle('show');
+    if (readMoreBtn.innerHTML === 'Read more') {
+      readMoreBtn.innerHTML = 'Hide';
+    } else {
+      readMoreBtn.innerHTML = 'Read more';
+    }
+  });
 });
