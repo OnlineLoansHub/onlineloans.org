@@ -6,7 +6,6 @@ class Navigation {
   }
 
   initDesktopMenu() {
-    // Десктопные выпадающие меню
     document.querySelectorAll('.navbar-link-item').forEach((item) => {
       item.addEventListener('mouseenter', () => {
         const menu = item.querySelector('.dropdown-menu');
@@ -50,14 +49,12 @@ class Navigation {
     const isOpen = this.burgerBtn.classList.contains('active');
 
     if (forceClose) {
-      // Принудительное закрытие
       if (isOpen) {
         this.burgerBtn.classList.remove('active');
         this.mobileMenu.classList.remove('active');
         document.body.classList.remove('menu-open');
       }
     } else {
-      // Обычное переключение
       if (!isOpen) {
         this.burgerBtn.classList.add('active');
         this.mobileMenu.classList.add('active');
@@ -71,31 +68,26 @@ class Navigation {
   }
 
   initLanguageSwitcher() {
-    // Обработка выбора языка
     document.querySelectorAll('.lang-option, .mobile-lang-option').forEach((option) => {
       option.addEventListener('click', async (e) => {
         e.stopPropagation();
         const lang = option.getAttribute('data-lang');
 
-        // Закрываем меню (передаем true для принудительного закрытия)
         this.toggleMenu(true);
 
         await i18n.loadTranslations(lang);
         i18n.changeLanguage(lang);
 
-        // Обновляем отображение
         document.querySelectorAll('.lang, .mobile-lang').forEach((el) => {
           el.textContent = lang.toUpperCase();
         });
 
-        // Закрываем языковое меню
         document.querySelectorAll('.lang-menu, .mobile-lang-menu').forEach((menu) => {
           menu.classList.remove('active');
         });
       });
     });
 
-    // Открытие языкового меню в мобильной версии
     const mobileLangHeader = document.querySelector('.mobile-lang-header');
     if (mobileLangHeader) {
       mobileLangHeader.addEventListener('click', (e) => {

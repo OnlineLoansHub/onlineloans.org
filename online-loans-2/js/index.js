@@ -12,7 +12,6 @@ document.addEventListener('DOMContentLoaded', function () {
     prevBtn.disabled = currentIndex === 0;
     nextBtn.disabled = currentIndex === totalBlocks - 1;
 
-    // Добавляем стили для неактивных кнопок
     prevBtn.style.opacity = prevBtn.disabled ? '0.5' : '1';
     prevBtn.style.cursor = prevBtn.disabled ? 'not-allowed' : 'pointer';
     nextBtn.style.opacity = nextBtn.disabled ? '0.5' : '1';
@@ -32,10 +31,8 @@ document.addEventListener('DOMContentLoaded', function () {
     updateArrows();
   }
 
-  // Инициализация
   goToBlock(0);
 
-  // Обработчики событий
   prevBtn.addEventListener('click', () => {
     if (!prevBtn.disabled) goToBlock(currentIndex - 1);
   });
