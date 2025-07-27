@@ -1,3 +1,4 @@
+const apiUrl = "https://api.onlineloans.org";
 (function () {
   // --- Only send initial POST on full navigation ---
   const navEntry = performance.getEntriesByType("navigation")[0];
@@ -25,7 +26,7 @@
     advertisedPageName: window.location.pathname
   };
 
-  fetch("https://api.onlineloans.org/ad-click", {
+  fetch(apiUrl + "/ad-click", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify(adClickPayload)
@@ -58,7 +59,7 @@
       propertyName
     };
 
-    fetch("/ap-click", {
+    fetch(apiUrl + "/ap-click", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(clickPayload)
