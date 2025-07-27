@@ -1,11 +1,874 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=TikTok+Sans:opsz,wght@12..36,300..900&display=swap"
+    rel="stylesheet">
+
+  <!-- В head -->
+  <script src="https://unpkg.com/i18next/dist/umd/i18next.min.js"></script>
+  <script src="https://unpkg.com/i18next-http-backend/dist/umd/i18nextHttpBackend.min.js"></script>
+
+  <!-- styles -->
+  <link rel="stylesheet" href="./css/index.css" />
+  <link rel="stylesheet" href="./css/base.css" />
+  <link rel="stylesheet" href="./css/style.css" />
 </head>
+
 <body>
-    <h1>COMMING SOON</h1>
+  <div class="container">
+    <nav class="navbar-wrapper">
+      <div class="container-content">
+
+        <div class="navbar">
+          <div class="navbar-logo-wrapper">
+            <img src="./images/logo.png" class="nav-logo" alt="logo" />
+          </div>
+
+          <!-- desktop -->
+          <ul class="navbar-links">
+            <li class="navbar-link-item dropdown">
+
+              <div class="dropdown-header">
+                <p data-i18n="navbar.loans.title"></p>
+                <img src="./images/nav_arrow.svg" class="navbar-link-arrow" />
+              </div>
+
+              <ul class="dropdown-menu">
+                <li class="dropdown-item">
+                  <p data-i18n="navbar.loans.student"></p>
+                </li>
+                <li class="dropdown-item">
+                  <p data-i18n="navbar.loans.business"></p>
+                </li>
+                <li class="dropdown-item">
+                  <p data-i18n="navbar.loans.personal"></p>
+                </li>
+                <li class="dropdown-item">
+                  <p data-i18n="navbar.loans.home"></p>
+                </li>
+              </ul>
+
+            </li>
+
+            <li class="navbar-link-item dropdown">
+
+              <div class="dropdown-header">
+                <p data-i18n="navbar.insurance.title"></p>
+                <img src="./images/nav_arrow.svg" class="navbar-link-arrow" />
+              </div>
+
+              <ul class="dropdown-menu">
+                <li class="dropdown-item">
+                  <p data-i18n="navbar.insurance.life"></p>
+                </li>
+                <li class="dropdown-item">
+                  <p data-i18n="navbar.insurance.health"></p>
+                </li>
+                <li class="dropdown-item">
+                  <p data-i18n="navbar.insurance.car"></p>
+                </li>
+                <li class="dropdown-item">
+                  <p data-i18n="navbar.insurance.home"></p>
+                </li>
+              </ul>
+
+            </li>
+
+            <li class="navbar-link-item dropdown">
+              <div class="dropdown-header">
+                <p data-i18n="navbar.finance.title"></p>
+                <img src="./images/nav_arrow.svg" class="navbar-link-arrow" />
+              </div>
+
+              <ul class="dropdown-menu">
+                <li class="dropdown-item">
+                  <p data-i18n="navbar.finance.credit"></p>
+                </li>
+                <li class="dropdown-item">
+                  <p data-i18n="navbar.finance.online"></p>
+                </li>
+                <li class="dropdown-item">
+                  <p data-i18n="navbar.finance.invest"></p>
+                </li>
+
+              </ul>
+            </li>
+
+            <li class="navbar-link-item">
+              <p data-i18n="navbar.partner.title"></p>
+            </li>
+
+            <li class="navbar-link-item">
+              <p data-i18n="navbar.about.title"></p>
+            </li>
+
+            <li class="navbar-link-item dropdown lang-dropdown">
+              <div class="dropdown-header lang-header">
+                <p class="lang">EN</p>
+              </div>
+
+              <ul class="dropdown-menu lang-menu">
+                <li class="dropdown-item lang-option" data-lang="en">
+                  <p data-i18n="navbar.lang.en"></p>
+                </li>
+
+                <li class="dropdown-item lang-option" data-lang="he">
+                  <p data-i18n="navbar.lang.he"></p>
+                </li>
+              </ul>
+            </li>
+
+          </ul>
+
+
+          <!-- mobile -->
+          <div class="mobile-menu">
+
+            <div class="mobile-header">
+
+              <div class="mobile-lang-dropdown">
+                <div class="mobile-lang-header">
+                  <p class="mobile-lang">EN</p>
+                </div>
+                <ul class="mobile-lang-menu">
+                  <li class="mobile-lang-option" data-lang="en">
+                    <p data-i18n="navbar.lang.en"></p>
+                  </li>
+                  <li class="mobile-lang-option" data-lang="he">
+                    <p data-i18n="navbar.lang.he"></p>
+                  </li>
+                </ul>
+              </div>
+
+              <!-- Бургер-кнопка -->
+              <button class="burger-btn">
+                <span></span>
+                <span></span>
+                <span></span>
+              </button>
+            </div>
+
+
+            <!-- Контент мобильного меню с кнопкой закрытия -->
+            <div class="mobile-menu-content">
+
+              <ul class="mobile-nav-links">
+                <!-- Ваши пункты меню -->
+                <li class="mobile-nav-item has-dropdown">
+                  <div class="mobile-dropdown-header">
+                    <p data-i18n="navbar.loans.title"></p>
+                    <img src="./images/nav_arrow.svg" class="mobile-dropdown-arrow" />
+                  </div>
+                  <ul class="mobile-dropdown-menu">
+                    <li class="mobile-dropdown-item">
+                      <p data-i18n="navbar.loans.student"></p>
+                    </li>
+                    <li class="mobile-dropdown-item">
+                      <p data-i18n="navbar.loans.business"></p>
+                    </li>
+                    <li class="mobile-dropdown-item">
+                      <p data-i18n="navbar.loans.personal"></p>
+                    </li>
+                    <li class="mobile-dropdown-item">
+                      <p data-i18n="navbar.loans.home"></p>
+                    </li>
+                  </ul>
+                </li>
+
+                <li class="mobile-nav-item has-dropdown">
+                  <div class="mobile-dropdown-header">
+                    <p data-i18n="navbar.insurance.title"></p>
+                    <img src="./images/nav_arrow.svg" class="mobile-dropdown-arrow" />
+                  </div>
+                  <ul class="mobile-dropdown-menu">
+                    <li class="mobile-dropdown-item">
+                      <p data-i18n="navbar.insurance.life"></p>
+                    </li>
+                    <li class="mobile-dropdown-item">
+                      <p data-i18n="navbar.insurance.health"></p>
+                    </li>
+                    <li class="mobile-dropdown-item">
+                      <p data-i18n="navbar.insurance.car"></p>
+                    </li>
+                    <li class="mobile-dropdown-item">
+                      <p data-i18n="navbar.insurance.home"></p>
+                    </li>
+                  </ul>
+                </li>
+
+                <li class="mobile-nav-item has-dropdown">
+                  <div class="mobile-dropdown-header">
+                    <p data-i18n="navbar.finance.title"></p>
+                    <img src="./images/nav_arrow.svg" class="mobile-dropdown-arrow" />
+                  </div>
+                  <ul class="mobile-dropdown-menu">
+                    <li class="mobile-dropdown-item">
+                      <p data-i18n="navbar.finance.credit"></p>
+                    </li>
+                    <li class="mobile-dropdown-item">
+                      <p data-i18n="navbar.finance.online"></p>
+                    </li>
+                    <li class="mobile-dropdown-item">
+                      <p data-i18n="navbar.finance.invest"></p>
+                    </li>
+
+                  </ul>
+                </li>
+
+                <li class="mobile-nav-item">
+                  <div class="mobile-dropdown-header">
+                    <p data-i18n="navbar.partner.title"></p>
+                  </div>
+                </li>
+                <li class="mobile-nav-item">
+                  <div class="mobile-dropdown-header">
+                    <p data-i18n="navbar.about.title"></p>
+                  </div>
+                </li>
+
+
+              </ul>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </nav>
+    <header class="header">
+      <div class="container-content">
+        <h1 class="header-title" data-i18n="header.title"></h1>
+        <div class="header-cards">
+          <div class="header-card header-card-1">
+            <ul class="header-card-list">
+              <li class="header-card-list-item header-card-list-item-3" data-i18n="header.cards.finance.invest"></li>
+              <li class="header-card-list-item header-card-list-item-2" data-i18n="header.cards.finance.online"></li>
+              <li class="header-card-list-item header-card-list-item-1" data-i18n="header.cards.finance.credit"></li>
+            </ul>
+            <p class="header-card-title" data-i18n="header.cards.finance.title"></p>
+          </div>
+          <div class="header-card header-card-2">
+            <ul class="header-card-list">
+              <li class="header-card-list-item header-card-list-item-4" data-i18n="header.cards.insurance.travel"></li>
+              <li class="header-card-list-item header-card-list-item-3" data-i18n="header.cards.insurance.pet"></li>
+              <li class="header-card-list-item header-card-list-item-2" data-i18n="header.cards.insurance.life"></li>
+              <li class="header-card-list-item header-card-list-item-1" data-i18n="header.cards.insurance.car"></li>
+            </ul>
+            <p class="header-card-title" data-i18n="header.cards.insurance.title"></p>
+          </div>
+          <div class="header-card header-card-3">
+            <ul class="header-card-list">
+              <li class="header-card-list-item header-card-list-item-4" data-i18n="header.cards.loans.student"></li>
+              <li class="header-card-list-item header-card-list-item-3" data-i18n="header.cards.loans.business"></li>
+              <li class="header-card-list-item header-card-list-item-2" data-i18n="header.cards.loans.personal"></li>
+              <li class="header-card-list-item header-card-list-item-1" data-i18n="header.cards.loans.home"></li>
+            </ul>
+            <p class="header-card-title" data-i18n="header.cards.loans.title"></p>
+          </div>
+        </div>
+      </div>
+    </header>
+    <section class="logos">
+      <div class="container-content">
+        <div class="logos-wrapper">
+          <div class="logos-title-wrapper">
+            <p class="logos-title" data-i18n="logos.title">
+            </p>
+            <span class="logos-title-name">Trustpilot</span>
+          </div>
+          <ul class="logo-list">
+            <li class="logo-list-item">
+              <img src="./images/logo_1.png" class="logo logo-1" />
+            </li>
+            <li class="logo-list-item">
+              <img src="./images/logo_2.png" class="logo logo-2" />
+            </li>
+            <li class="logo-list-item">
+              <img src="./images/logo_3.png" class="logo logo-3" />
+            </li>
+            <li class="logo-list-item">
+              <img src="./images/logo_4.png" class="logo logo-4" />
+            </li>
+            <li class="logo-list-item">
+              <img src="./images/logo_5.png" class="logo logo-5" />
+            </li>
+            <li class="logo-list-item">
+              <img src="./images/logo_6.png" class="logo logo-6" />
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+    <main class="guide section">
+      <div class="container-content">
+        <h3 class="block-title" data-i18n="guide.title"></h3>
+        <div class="guide-btn-list">
+          <button class="primary-btn active" data-i18n="guide.btns.tred"></button>
+          <button class="primary-btn" data-i18n="guide.btns.business"></button>
+          <button class="primary-btn" data-i18n="guide.btns.online"></button>
+          <button class="primary-btn" data-i18n="guide.btns.pet"></button>
+          <button class="primary-btn" data-i18n="guide.btns.debt"></button>
+          <button class="primary-btn" data-i18n="guide.btns.tax"></button>
+          <button class="primary-btn" data-i18n="guide.btns.life"></button>
+          <button class="primary-btn" data-i18n="guide.btns.credit"></button>
+        </div>
+        <div class="guide-article-grid">
+          <div class="guide-article guide-article-1">
+            <p class="guide-article-title" data-i18n="guide.cards.1.title"></p>
+            <p class="guide-article-subtitle" data-i18n="guide.cards.1.subtitle"></p>
+          </div>
+          <div class="guide-article guide-article-2">
+            <p class="guide-article-title" data-i18n="guide.cards.2.title"></p>
+            <p class="guide-article-subtitle" data-i18n="guide.cards.2.subtitle"></p>
+          </div>
+          <div class="guide-article guide-article-3">
+            <p class="guide-article-title" data-i18n="guide.cards.3.title"></p>
+            <p class="guide-article-subtitle" data-i18n="guide.cards.3.subtitle"></p>
+          </div>
+          <div class="guide-article guide-article-4">
+            <p class="guide-article-title" data-i18n="guide.cards.4.title"></p>
+            <p class="guide-article-subtitle" data-i18n="guide.cards.4.subtitle"></p>
+          </div>
+          <div class="guide-article guide-article-5">
+            <p class="guide-article-title" data-i18n="guide.cards.5.title"></p>
+            <p class="guide-article-subtitle" data-i18n="guide.cards.5.subtitle"></p>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <section class="section guide-cards">
+      <div class="container-content">
+        <div class="guide-cards-title-wrapper">
+          <h3 class="block-title" data-i18n="cards.title"></h3>
+          <p class="guide-cards-collapse" data-i18n="cards.collapse"></p>
+        </div>
+
+        <div class="guide-card-wrapper">
+
+          <div class="guide-card guide-card-1 active">
+
+            <div class="guide-card-title-block">
+              <div class="guide-card-title-wrapper">
+                <span class="guide-card-title-number">1</span>
+                <p class="guide-card-title" data-i18n="cards.1.title"></p>
+              </div>
+              <img src="./images/plus.svg" class="guide-card-plus" />
+            </div>
+
+            <div class="guide-card-article-wrapper">
+
+              <div class="guide-card-main-article">
+                <img src="./images/card_1_1.png" class="guide-card-main-article-img" />
+                <div>
+                  <p class="guide-card-main-article-title" data-i18n="cards.1.articles.1.title"></p>
+                  <button class="secondary-btn" data-i18n="cards.1.articles.1.btn"></button>
+                </div>
+              </div>
+
+              <div class="guide-card-dop-articles">
+
+                <p class="guide-card-dop-article-more" data-i18n="cards.readMore"></p>
+
+                <div class="guide-card-dop-article-wrapper">
+
+                  <div class="guide-card-dop-article">
+                    <img src="./images/card_1_2.png" class="guide-card-main-article-img" />
+                    <div class="guide-card-dop-article-txt">
+                      <p class="guide-card-dop-article-title" data-i18n="cards.1.articles.2.title"></p>
+                      <p class="guide-card-dop-article-author" data-i18n="cards.1.articles.2.author"></p>
+                    </div>
+                  </div>
+
+                  <div class="guide-card-dop-article">
+                    <img src="./images/card_1_3.png" class="guide-card-main-article-img" />
+                    <div class="guide-card-dop-article-txt">
+                      <p class="guide-card-dop-article-title" data-i18n="cards.1.articles.3.title"></p>
+                      <p class="guide-card-dop-article-author" data-i18n="cards.1.articles.3.author"></p>
+                    </div>
+                  </div>
+
+                  <div class="guide-card-dop-article">
+                    <img src="./images/card_1_4.png" class="guide-card-main-article-img" />
+                    <div class="guide-card-dop-article-txt">
+                      <p class="guide-card-dop-article-title" data-i18n="cards.1.articles.4.title"></p>
+                      <p class="guide-card-dop-article-author" data-i18n="cards.1.articles.4.author"></p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+
+          </div>
+
+          <div class="guide-card guide-card-2 active">
+
+            <div class="guide-card-title-block">
+              <div class="guide-card-title-wrapper">
+                <span class="guide-card-title-number">2</span>
+                <p class="guide-card-title" data-i18n="cards.2.title"></p>
+              </div>
+              <img src="./images/plus.svg" class="guide-card-plus" />
+            </div>
+
+            <div class="guide-card-article-wrapper">
+
+              <div class="guide-card-main-article">
+                <img src="./images/card_2_1.png" class="guide-card-main-article-img" />
+                <div>
+                  <p class="guide-card-main-article-title" data-i18n="cards.2.articles.1.title"></p>
+                  <button class="secondary-btn" data-i18n="cards.2.articles.1.btn"></button>
+                </div>
+              </div>
+
+              <div class="guide-card-dop-articles">
+
+                <p class="guide-card-dop-article-more" data-i18n="cards.readMore"></p>
+
+                <div class="guide-card-dop-article-wrapper">
+
+                  <div class="guide-card-dop-article">
+                    <img src="./images/card_2_2.png" class="guide-card-main-article-img" />
+                    <div class="guide-card-dop-article-txt">
+                      <p class="guide-card-dop-article-title" data-i18n="cards.2.articles.2.title"></p>
+                      <p class="guide-card-dop-article-author" data-i18n="cards.2.articles.2.author"></p>
+                    </div>
+                  </div>
+
+                  <div class="guide-card-dop-article">
+                    <img src="./images/card_2_3.png" class="guide-card-main-article-img" />
+                    <div class="guide-card-dop-article-txt">
+                      <p class="guide-card-dop-article-title" data-i18n="cards.2.articles.3.title"></p>
+                      <p class="guide-card-dop-article-author" data-i18n="cards.2.articles.3.author"></p>
+                    </div>
+                  </div>
+
+                  <div class="guide-card-dop-article">
+                    <img src="./images/card_2_4.png" class="guide-card-main-article-img" />
+                    <div class="guide-card-dop-article-txt">
+                      <p class="guide-card-dop-article-title" data-i18n="cards.2.articles.4.title"></p>
+                      <p class="guide-card-dop-article-author" data-i18n="cards.2.articles.4.author"></p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+          <div class="guide-card guide-card-3 active">
+
+            <div class="guide-card-title-block">
+              <div class="guide-card-title-wrapper">
+                <span class="guide-card-title-number">3</span>
+                <p class="guide-card-title" data-i18n="cards.3.title"></p>
+              </div>
+              <img src="./images/plus.svg" class="guide-card-plus" />
+            </div>
+
+            <div class="guide-card-article-wrapper">
+
+              <div class="guide-card-main-article">
+                <img src="./images/card_3_1.png" class="guide-card-main-article-img" />
+                <div>
+                  <p class="guide-card-main-article-title" data-i18n="cards.3.articles.1.title"></p>
+                  <button class="secondary-btn" data-i18n="cards.3.articles.1.btn"></button>
+                </div>
+              </div>
+
+              <div class="guide-card-dop-articles">
+
+                <p class="guide-card-dop-article-more" data-i18n="cards.readMore"></p>
+
+                <div class="guide-card-dop-article-wrapper">
+
+                  <div class="guide-card-dop-article">
+                    <img src="./images/card_3_2.png" class="guide-card-main-article-img" />
+                    <div class="guide-card-dop-article-txt">
+                      <p class="guide-card-dop-article-title" data-i18n="cards.3.articles.2.title"></p>
+                      <p class="guide-card-dop-article-author" data-i18n="cards.3.articles.2.author"></p>
+                    </div>
+                  </div>
+
+                  <div class="guide-card-dop-article">
+                    <img src="./images/card_3_3.png" class="guide-card-main-article-img" />
+                    <div class="guide-card-dop-article-txt">
+                      <p class="guide-card-dop-article-title" data-i18n="cards.3.articles.3.title"></p>
+                      <p class="guide-card-dop-article-author" data-i18n="cards.3.articles.3.author"></p>
+                    </div>
+                  </div>
+
+                  <div class="guide-card-dop-article">
+                    <img src="./images/card_3_4.png" class="guide-card-main-article-img" />
+                    <div class="guide-card-dop-article-txt">
+                      <p class="guide-card-dop-article-title" data-i18n="cards.3.articles.4.title"></p>
+                      <p class="guide-card-dop-article-author" data-i18n="cards.3.articles.4.author"></p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+          <div class="guide-card guide-card-4">
+
+            <div class="guide-card-title-block">
+              <div class="guide-card-title-wrapper">
+                <span class="guide-card-title-number">4</span>
+                <p class="guide-card-title" data-i18n="cards.4.title"></p>
+              </div>
+              <img src="./images/plus.svg" class="guide-card-plus" />
+            </div>
+
+            <div class="guide-card-article-wrapper">
+
+              <div class="guide-card-main-article">
+                <img src="./images/card_3_1.png" class="guide-card-main-article-img" />
+                <div>
+                  <p class="guide-card-main-article-title" data-i18n="cards.3.articles.1.title"></p>
+                  <button class="secondary-btn" data-i18n="cards.3.articles.1.btn"></button>
+                </div>
+              </div>
+
+              <div class="guide-card-dop-articles">
+
+                <p class="guide-card-dop-article-more" data-i18n="cards.readMore"></p>
+
+                <div class="guide-card-dop-article-wrapper">
+
+                  <div class="guide-card-dop-article">
+                    <img src="./images/card_3_2.png" class="guide-card-main-article-img" />
+                    <div class="guide-card-dop-article-txt">
+                      <p class="guide-card-dop-article-title" data-i18n="cards.3.articles.2.title"></p>
+                      <p class="guide-card-dop-article-author" data-i18n="cards.3.articles.2.author"></p>
+                    </div>
+                  </div>
+
+                  <div class="guide-card-dop-article">
+                    <img src="./images/card_3_3.png" class="guide-card-main-article-img" />
+                    <div class="guide-card-dop-article-txt">
+                      <p class="guide-card-dop-article-title" data-i18n="cards.3.articles.3.title"></p>
+                      <p class="guide-card-dop-article-author" data-i18n="cards.3.articles.3.author"></p>
+                    </div>
+                  </div>
+
+                  <div class="guide-card-dop-article">
+                    <img src="./images/card_3_4.png" class="guide-card-main-article-img" />
+                    <div class="guide-card-dop-article-txt">
+                      <p class="guide-card-dop-article-title" data-i18n="cards.3.articles.4.title"></p>
+                      <p class="guide-card-dop-article-author" data-i18n="cards.3.articles.4.author"></p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+          <div class="guide-card guide-card-5">
+
+            <div class="guide-card-title-block">
+              <div class="guide-card-title-wrapper">
+                <span class="guide-card-title-number">5</span>
+                <p class="guide-card-title" data-i18n="cards.5.title"></p>
+              </div>
+              <img src="./images/plus.svg" class="guide-card-plus" />
+            </div>
+
+            <div class="guide-card-article-wrapper">
+
+              <div class="guide-card-main-article">
+                <img src="./images/card_3_1.png" class="guide-card-main-article-img" />
+                <div>
+                  <p class="guide-card-main-article-title" data-i18n="cards.3.articles.1.title"></p>
+                  <button class="secondary-btn" data-i18n="cards.3.articles.1.btn"></button>
+                </div>
+              </div>
+
+              <div class="guide-card-dop-articles">
+
+                <p class="guide-card-dop-article-more" data-i18n="cards.readMore"></p>
+
+                <div class="guide-card-dop-article-wrapper">
+
+                  <div class="guide-card-dop-article">
+                    <img src="./images/card_3_2.png" class="guide-card-main-article-img" />
+                    <div class="guide-card-dop-article-txt">
+                      <p class="guide-card-dop-article-title" data-i18n="cards.3.articles.2.title"></p>
+                      <p class="guide-card-dop-article-author" data-i18n="cards.3.articles.2.author"></p>
+                    </div>
+                  </div>
+
+                  <div class="guide-card-dop-article">
+                    <img src="./images/card_3_3.png" class="guide-card-main-article-img" />
+                    <div class="guide-card-dop-article-txt">
+                      <p class="guide-card-dop-article-title" data-i18n="cards.3.articles.3.title"></p>
+                      <p class="guide-card-dop-article-author" data-i18n="cards.3.articles.3.author"></p>
+                    </div>
+                  </div>
+
+                  <div class="guide-card-dop-article">
+                    <img src="./images/card_3_4.png" class="guide-card-main-article-img" />
+                    <div class="guide-card-dop-article-txt">
+                      <p class="guide-card-dop-article-title" data-i18n="cards.3.articles.4.title"></p>
+                      <p class="guide-card-dop-article-author" data-i18n="cards.3.articles.4.author"></p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <section class="section help">
+      <div class="container-content">
+        <h3 class="block-title" data-i18n="help.title"></h3>
+
+        <ul class="help-list">
+          <li class="help-list-item">
+            <p class="help-list-item-title" data-i18n="help.1.title"></p>
+            <p class="help-list-item-txt" data-i18n="help.1.subtitle"></p>
+          </li>
+          <li class="help-list-item">
+            <p class="help-list-item-title" data-i18n="help.2.title"></p>
+            <p class="help-list-item-txt" data-i18n="help.2.subtitle"></p>
+          </li>
+          <li class="help-list-item">
+            <p class="help-list-item-title" data-i18n="help.3.title"></p>
+            <p class="help-list-item-txt" data-i18n="help.3.subtitle"></p>
+          </li>
+          <li class="help-list-item">
+            <p class="help-list-item-title" data-i18n="help.4.title"></p>
+            <p class="help-list-item-txt" data-i18n="help.4.subtitle"></p>
+          </li>
+        </ul>
+      </div>
+
+    </section>
+
+    <section class="section explore">
+      <div class="container-content">
+        <div class="explore-wrapper">
+          <div class="block-title-wrapper">
+            <h3 class="block-title" data-i18n="explore.title"></h3>
+            <div class="slider-arrow-wrapper">
+              <button class="slider-arrow prev">
+                <img src="./images/arrow.png" />
+              </button>
+              <button class="slider-arrow next">
+                <img src="./images/arrow.png" />
+              </button>
+            </div>
+          </div>
+
+          <div class="slider-container">
+            <div class="slider">
+
+
+              <div class="slides-container">
+
+                <!-- block 1 -->
+                <div class="slide-block">
+                  <div class="slide">
+                    <img src="./images/explore_1.png" alt="photo 1">
+                    <div class="shadow"></div>
+                    <p class="slide-title" data-i18n="explore.cards.1.title"></p>
+                  </div>
+                  <div class="slide">
+                    <img src="./images/explore_2.png" alt="photo 2">
+                    <div class="shadow"></div>
+                    <p class="slide-title" data-i18n="explore.cards.2.title"></p>
+                  </div>
+                  <div class="slide">
+                    <img src="./images/explore_3.png" alt="Фото 3">
+                    <div class="shadow"></div>
+                    <p class="slide-title" data-i18n="explore.cards.3.title"></p>
+                  </div>
+                  <div class="slide">
+                    <img src="./images/explore_4.png" alt="Фото 4">
+                    <div class="shadow"></div>
+                    <p class="slide-title" data-i18n="explore.cards.4.title"></p>
+                  </div>
+                </div>
+
+                <!-- block 2 -->
+                <div class="slide-block">
+                  <div class="slide">
+                    <img src="./images/explore_1.png" alt="photo 1">
+                    <div class="shadow"></div>
+                    <p class="slide-title" data-i18n="explore.cards.1.title"></p>
+                  </div>
+                  <div class="slide">
+                    <img src="./images/explore_2.png" alt="photo 2">
+                    <div class="shadow"></div>
+                    <p class="slide-title" data-i18n="explore.cards.2.title"></p>
+                  </div>
+                  <div class="slide">
+                    <img src="./images/explore_3.png" alt="photo 3">
+                    <div class="shadow"></div>
+                    <p class="slide-title" data-i18n="explore.cards.3.title"></p>
+                  </div>
+                  <div class="slide">
+                    <img src="./images/explore_4.png" alt="photo 4">
+                    <div class="shadow"></div>
+                    <p class="slide-title" data-i18n="explore.cards.4.title"></p>
+                  </div>
+                </div>
+
+                <!-- block 3 -->
+                <div class="slide-block">
+                  <div class="slide">
+                    <img src="./images/explore_1.png" alt="photo 1">
+                    <div class="shadow"></div>
+                    <p class="slide-title" data-i18n="explore.cards.1.title"></p>
+                  </div>
+                  <div class="slide">
+                    <img src="./images/explore_2.png" alt="photo 2">
+                    <div class="shadow"></div>
+                    <p class="slide-title" data-i18n="explore.cards.2.title"></p>
+                  </div>
+                  <div class="slide">
+                    <img src="./images/explore_3.png" alt="photo 3">
+                    <div class="shadow"></div>
+                    <p class="slide-title" data-i18n="explore.cards.3.title"></p>
+                  </div>
+                  <div class="slide">
+                    <img src="./images/explore_4.png" alt="photo 4">
+                    <div class="shadow"></div>
+                    <p class="slide-title" data-i18n="explore.cards.4.title"></p>
+                  </div>
+                </div>
+
+                <!-- block 4 -->
+                <div class="slide-block">
+                  <div class="slide">
+                    <img src="./images/explore_1.png" alt="photo 1">
+                    <div class="shadow"></div>
+                    <p class="slide-title" data-i18n="explore.cards.1.title"></p>
+                  </div>
+                  <div class="slide">
+                    <img src="./images/explore_2.png" alt="photo 2">
+                    <div class="shadow"></div>
+                    <p class="slide-title" data-i18n="explore.cards.2.title"></p>
+                  </div>
+                  <div class="slide">
+                    <img src="./images/explore_3.png" alt="photo 3">
+                    <div class="shadow"></div>
+                    <p class="slide-title" data-i18n="explore.cards.3.title"></p>
+                  </div>
+                  <div class="slide">
+                    <img src="./images/explore_4.png" alt="photo 4">
+                    <div class="shadow"></div>
+                    <p class="slide-title" data-i18n="explore.cards.4.title"></p>
+                  </div>
+                </div>
+
+                <!-- block 5 -->
+                <div class="slide-block">
+                  <div class="slide">
+                    <img src="./images/explore_1.png" alt="photo 1">
+                    <div class="shadow"></div>
+                    <p class="slide-title" data-i18n="explore.cards.1.title"></p>
+                  </div>
+                  <div class="slide">
+                    <img src="./images/explore_2.png" alt="photo 2">
+                    <div class="shadow"></div>
+                    <p class="slide-title" data-i18n="explore.cards.2.title"></p>
+                  </div>
+                  <div class="slide">
+                    <img src="./images/explore_3.png" alt="photo 3">
+                    <div class="shadow"></div>
+                    <p class="slide-title" data-i18n="explore.cards.3.title"></p>
+                  </div>
+                  <div class="slide">
+                    <img src="./images/explore_4.png" alt="photo 4">
+                    <div class="shadow"></div>
+                    <p class="slide-title" data-i18n="explore.cards.4.title"></p>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+
+            <div class="slider-controls">
+              <ul class="slider-dots">
+                <li><button class="active" data-index="0"></button></li>
+                <li><button data-index="1"></button></li>
+                <li><button data-index="2"></button></li>
+                <li><button data-index="3"></button></li>
+                <li><button data-index="4"></button></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <div class="container-content">
+
+        <div class="footer-parts">
+          <div class="footer-left-part">
+            <img src="./images/logo.png" class="footer-logo" />
+            <p class="footer-txt" data-i18n="footer.addr"></p>
+            <p class="footer-txt">1-844-733-8666</p>
+            <p class="footer-txt-small" data-i18n="footer.copy"></p>
+            <div class="footer-img-wrapper">
+              <img src="./images/f_1.svg" class="footer-img" />
+              <img src="./images/f_2.svg" class="footer-img" />
+              <img src="./images/f_3.svg" class="footer-img" />
+              <img src="./images/f_4.svg" class="footer-img" />
+              <img src="./images/f_5.svg" class="footer-img" />
+            </div>
+          </div>
+
+          <div class="footer-right-part">
+
+            <ul class="footer-right-part-list">
+              <li class="footer-right-part-list-item" data-i18n="footer.student"></li>
+              <li class="footer-right-part-list-item" data-i18n="footer.business"></li>
+              <li class="footer-right-part-list-item" data-i18n="footer.personal"></li>
+              <li class="footer-right-part-list-item" data-i18n="footer.home"></li>
+            </ul>
+            <ul class="footer-right-part-list">
+              <li class="footer-right-part-list-item" data-i18n="footer.life"></li>
+              <li class="footer-right-part-list-item" data-i18n="footer.car"></li>
+              <li class="footer-right-part-list-item" data-i18n="footer.homeIns"></li>
+              <li class="footer-right-part-list-item" data-i18n="footer.health"></li>
+            </ul>
+            <ul class="footer-right-part-list">
+              <li class="footer-right-part-list-item" data-i18n="footer.credit"></li>
+              <li class="footer-right-part-list-item" data-i18n="footer.online"></li>
+              <li class="footer-right-part-list-item" data-i18n="footer.invest"></li>
+            </ul>
+            <ul class="footer-right-part-list">
+              <li class="footer-right-part-list-item" data-i18n="footer.partner"></li>
+              <li class="footer-right-part-list-item" data-i18n="footer.about"></li>
+            </ul>
+
+          </div>
+        </div>
+
+        <p class="footer-note" data-i18n="footer.txt"></p>
+
+      </div>
+    </footer>
+
+  </div>
+  <script src="./js/i18n.js"></script>
+  <script src="./js/index.js"></script>
 </body>
+
 </html>
