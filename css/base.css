@@ -24,7 +24,7 @@ html {
 }
 
 body {
-  background: var(--main-bg-color);
+  background: #ffffff;
   color: var(--primary-dark-color);
   font-family: 'Lato', serif;
 }

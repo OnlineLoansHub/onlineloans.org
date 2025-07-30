@@ -18,17 +18,16 @@
   <!-- styles -->
   <link rel="stylesheet" href="./css/index.css" />
   <link rel="stylesheet" href="./css/base.css" />
-  <link rel="stylesheet" href="./css/style.css" />
+  <link rel="stylesheet" href="./css/style.css?v2" />
 </head>
 
 <body>
   <div class="container">
-    <nav class="navbar-wrapper">
+    <nav class="navbar-wrapper" id="navbar">
       <div class="container-content">
-
         <div class="navbar">
           <div class="navbar-logo-wrapper">
-            <img src="./images/logo.png" class="nav-logo" alt="logo" />
+            <img src="./images/logo.svg" class="nav-logo" alt="logo" />
           </div>
 
           <!-- desktop -->
@@ -247,9 +246,10 @@
         <div class="header-cards">
           <div class="header-card header-card-1">
             <ul class="header-card-list">
-              <li class="header-card-list-item header-card-list-item-3" data-i18n="header.cards.finance.invest"></li>
+              <li class="header-card-list-item header-card-list-item-4" data-i18n="header.cards.finance.cashback"></li>
+              <li class="header-card-list-item header-card-list-item-3" data-i18n="header.cards.finance.credit"></li>
               <li class="header-card-list-item header-card-list-item-2" data-i18n="header.cards.finance.online"></li>
-              <li class="header-card-list-item header-card-list-item-1" data-i18n="header.cards.finance.credit"></li>
+              <li class="header-card-list-item header-card-list-item-1" data-i18n="header.cards.finance.invest"></li>
             </ul>
             <p class="header-card-title" data-i18n="header.cards.finance.title"></p>
           </div>
@@ -283,29 +283,29 @@
             <span class="logos-title-name">Trustpilot</span>
           </div>
           <ul class="logo-list">
-            <li class="logo-list-item">
-              <img src="./images/logo_1.png" class="logo logo-1" />
+            <li class="logo-list-item logo-list-item-1">
+              <img src="./images/logo_1.svg" class="logo logo-1" />
             </li>
-            <li class="logo-list-item">
-              <img src="./images/logo_2.png" class="logo logo-2" />
+            <li class="logo-list-item logo-list-item-2">
+              <img src="./images/logo_2.svg" class="logo logo-2" />
             </li>
-            <li class="logo-list-item">
-              <img src="./images/logo_3.png" class="logo logo-3" />
+            <li class="logo-list-item logo-list-item-3">
+              <img src="./images/logo_3.svg" class="logo logo-3" />
             </li>
-            <li class="logo-list-item">
-              <img src="./images/logo_4.png" class="logo logo-4" />
+            <li class="logo-list-item logo-list-item-4">
+              <img src="./images/logo_4.svg" class="logo logo-4" />
             </li>
-            <li class="logo-list-item">
-              <img src="./images/logo_5.png" class="logo logo-5" />
+            <li class="logo-list-item logo-list-item-5">
+              <img src="./images/logo_5.svg" class="logo logo-5" />
             </li>
-            <li class="logo-list-item">
-              <img src="./images/logo_6.png" class="logo logo-6" />
+            <li class="logo-list-item logo-list-item-6">
+              <img src="./images/logo_6.svg" class="logo logo-6" />
             </li>
           </ul>
         </div>
       </div>
     </section>
-    <main class="guide section">
+    <main class="guide section" id="trigger-section">
       <div class="container-content">
         <h3 class="block-title" data-i18n="guide.title"></h3>
         <div class="guide-btn-list">
@@ -320,22 +320,32 @@
         </div>
         <div class="guide-article-grid">
           <div class="guide-article guide-article-1">
+            <div class="guide-article-shadow "></div>
+
             <p class="guide-article-title" data-i18n="guide.cards.1.title"></p>
             <p class="guide-article-subtitle" data-i18n="guide.cards.1.subtitle"></p>
           </div>
           <div class="guide-article guide-article-2">
+            <div class="guide-article-shadow "></div>
+
             <p class="guide-article-title" data-i18n="guide.cards.2.title"></p>
             <p class="guide-article-subtitle" data-i18n="guide.cards.2.subtitle"></p>
           </div>
           <div class="guide-article guide-article-3">
+            <div class="guide-article-shadow "></div>
+
             <p class="guide-article-title" data-i18n="guide.cards.3.title"></p>
             <p class="guide-article-subtitle" data-i18n="guide.cards.3.subtitle"></p>
           </div>
           <div class="guide-article guide-article-4">
+            <div class="guide-article-shadow "></div>
+
             <p class="guide-article-title" data-i18n="guide.cards.4.title"></p>
             <p class="guide-article-subtitle" data-i18n="guide.cards.4.subtitle"></p>
           </div>
           <div class="guide-article guide-article-5">
+            <div class="guide-article-shadow "></div>
+
             <p class="guide-article-title" data-i18n="guide.cards.5.title"></p>
             <p class="guide-article-subtitle" data-i18n="guide.cards.5.subtitle"></p>
           </div>
@@ -359,7 +369,18 @@
                 <span class="guide-card-title-number">1</span>
                 <p class="guide-card-title" data-i18n="cards.1.title"></p>
               </div>
-              <img src="./images/plus.svg" class="guide-card-plus" />
+
+              <button class="guide-card-plus">
+                <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path class="plus-icon-path"
+                    d="M0.241333 6.00654C0.241333 5.65303 0.527909 5.36646 0.881418 5.36646H11.1228C11.4763 5.36646 11.7629 5.65303 11.7629 6.00654C11.7629 6.36005 11.4763 6.64663 11.1228 6.64663H0.881418C0.527909 6.64663 0.241333 6.36005 0.241333 6.00654Z"
+                    fill="currentColor" />
+                  <path class="plus-icon-path"
+                    d="M5.36209 0.885935C5.36209 0.532425 5.64867 0.24585 6.00218 0.24585C6.35569 0.24585 6.64226 0.532426 6.64226 0.885935V11.1273C6.64226 11.4808 6.35569 11.7674 6.00218 11.7674C5.64867 11.7674 5.36209 11.4808 5.36209 11.1273V0.885935Z"
+                    fill="currentColor" />
+                </svg>
+              </button>
+
             </div>
 
             <div class="guide-card-article-wrapper">
@@ -368,7 +389,7 @@
                 <img src="./images/card_1_1.png" class="guide-card-main-article-img" />
                 <div>
                   <p class="guide-card-main-article-title" data-i18n="cards.1.articles.1.title"></p>
-                  <button class="secondary-btn" data-i18n="cards.1.articles.1.btn"></button>
+                  <button class="guide-card-article-btn" data-i18n="cards.1.articles.1.btn"></button>
                 </div>
               </div>
 
@@ -415,7 +436,16 @@
                 <span class="guide-card-title-number">2</span>
                 <p class="guide-card-title" data-i18n="cards.2.title"></p>
               </div>
-              <img src="./images/plus.svg" class="guide-card-plus" />
+              <button class="guide-card-plus">
+                <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path class="plus-icon-path"
+                    d="M0.241333 6.00654C0.241333 5.65303 0.527909 5.36646 0.881418 5.36646H11.1228C11.4763 5.36646 11.7629 5.65303 11.7629 6.00654C11.7629 6.36005 11.4763 6.64663 11.1228 6.64663H0.881418C0.527909 6.64663 0.241333 6.36005 0.241333 6.00654Z"
+                    fill="currentColor" />
+                  <path class="plus-icon-path"
+                    d="M5.36209 0.885935C5.36209 0.532425 5.64867 0.24585 6.00218 0.24585C6.35569 0.24585 6.64226 0.532426 6.64226 0.885935V11.1273C6.64226 11.4808 6.35569 11.7674 6.00218 11.7674C5.64867 11.7674 5.36209 11.4808 5.36209 11.1273V0.885935Z"
+                    fill="currentColor" />
+                </svg>
+              </button>
             </div>
 
             <div class="guide-card-article-wrapper">
@@ -424,7 +454,7 @@
                 <img src="./images/card_2_1.png" class="guide-card-main-article-img" />
                 <div>
                   <p class="guide-card-main-article-title" data-i18n="cards.2.articles.1.title"></p>
-                  <button class="secondary-btn" data-i18n="cards.2.articles.1.btn"></button>
+                  <button class="guide-card-article-btn" data-i18n="cards.2.articles.1.btn"></button>
                 </div>
               </div>
 
@@ -470,7 +500,16 @@
                 <span class="guide-card-title-number">3</span>
                 <p class="guide-card-title" data-i18n="cards.3.title"></p>
               </div>
-              <img src="./images/plus.svg" class="guide-card-plus" />
+              <button class="guide-card-plus">
+                <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path class="plus-icon-path"
+                    d="M0.241333 6.00654C0.241333 5.65303 0.527909 5.36646 0.881418 5.36646H11.1228C11.4763 5.36646 11.7629 5.65303 11.7629 6.00654C11.7629 6.36005 11.4763 6.64663 11.1228 6.64663H0.881418C0.527909 6.64663 0.241333 6.36005 0.241333 6.00654Z"
+                    fill="currentColor" />
+                  <path class="plus-icon-path"
+                    d="M5.36209 0.885935C5.36209 0.532425 5.64867 0.24585 6.00218 0.24585C6.35569 0.24585 6.64226 0.532426 6.64226 0.885935V11.1273C6.64226 11.4808 6.35569 11.7674 6.00218 11.7674C5.64867 11.7674 5.36209 11.4808 5.36209 11.1273V0.885935Z"
+                    fill="currentColor" />
+                </svg>
+              </button>
             </div>
 
             <div class="guide-card-article-wrapper">
@@ -479,7 +518,7 @@
                 <img src="./images/card_3_1.png" class="guide-card-main-article-img" />
                 <div>
                   <p class="guide-card-main-article-title" data-i18n="cards.3.articles.1.title"></p>
-                  <button class="secondary-btn" data-i18n="cards.3.articles.1.btn"></button>
+                  <button class="guide-card-article-btn" data-i18n="cards.3.articles.1.btn"></button>
                 </div>
               </div>
 
@@ -525,7 +564,16 @@
                 <span class="guide-card-title-number">4</span>
                 <p class="guide-card-title" data-i18n="cards.4.title"></p>
               </div>
-              <img src="./images/plus.svg" class="guide-card-plus" />
+              <button class="guide-card-plus">
+                <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path class="plus-icon-path"
+                    d="M0.241333 6.00654C0.241333 5.65303 0.527909 5.36646 0.881418 5.36646H11.1228C11.4763 5.36646 11.7629 5.65303 11.7629 6.00654C11.7629 6.36005 11.4763 6.64663 11.1228 6.64663H0.881418C0.527909 6.64663 0.241333 6.36005 0.241333 6.00654Z"
+                    fill="currentColor" />
+                  <path class="plus-icon-path"
+                    d="M5.36209 0.885935C5.36209 0.532425 5.64867 0.24585 6.00218 0.24585C6.35569 0.24585 6.64226 0.532426 6.64226 0.885935V11.1273C6.64226 11.4808 6.35569 11.7674 6.00218 11.7674C5.64867 11.7674 5.36209 11.4808 5.36209 11.1273V0.885935Z"
+                    fill="currentColor" />
+                </svg>
+              </button>
             </div>
 
             <div class="guide-card-article-wrapper">
@@ -534,7 +582,7 @@
                 <img src="./images/card_3_1.png" class="guide-card-main-article-img" />
                 <div>
                   <p class="guide-card-main-article-title" data-i18n="cards.3.articles.1.title"></p>
-                  <button class="secondary-btn" data-i18n="cards.3.articles.1.btn"></button>
+                  <button class="guide-card-article-btn" data-i18n="cards.3.articles.1.btn"></button>
                 </div>
               </div>
 
@@ -580,7 +628,16 @@
                 <span class="guide-card-title-number">5</span>
                 <p class="guide-card-title" data-i18n="cards.5.title"></p>
               </div>
-              <img src="./images/plus.svg" class="guide-card-plus" />
+              <button class="guide-card-plus">
+                <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path class="plus-icon-path"
+                    d="M0.241333 6.00654C0.241333 5.65303 0.527909 5.36646 0.881418 5.36646H11.1228C11.4763 5.36646 11.7629 5.65303 11.7629 6.00654C11.7629 6.36005 11.4763 6.64663 11.1228 6.64663H0.881418C0.527909 6.64663 0.241333 6.36005 0.241333 6.00654Z"
+                    fill="currentColor" />
+                  <path class="plus-icon-path"
+                    d="M5.36209 0.885935C5.36209 0.532425 5.64867 0.24585 6.00218 0.24585C6.35569 0.24585 6.64226 0.532426 6.64226 0.885935V11.1273C6.64226 11.4808 6.35569 11.7674 6.00218 11.7674C5.64867 11.7674 5.36209 11.4808 5.36209 11.1273V0.885935Z"
+                    fill="currentColor" />
+                </svg>
+              </button>
             </div>
 
             <div class="guide-card-article-wrapper">
@@ -589,7 +646,7 @@
                 <img src="./images/card_3_1.png" class="guide-card-main-article-img" />
                 <div>
                   <p class="guide-card-main-article-title" data-i18n="cards.3.articles.1.title"></p>
-                  <button class="secondary-btn" data-i18n="cards.3.articles.1.btn"></button>
+                  <button class="guide-card-article-btn" data-i18n="cards.3.articles.1.btn"></button>
                 </div>
               </div>
 

@@ -68,6 +68,12 @@ class Navigation {
   }
 
   initLanguageSwitcher() {
+    const updateActiveLanguage = (lang) => {
+      document.querySelectorAll('.lang-option, .mobile-lang-option').forEach((option) => {
+        option.classList.toggle('activeLang', option.dataset.lang === lang);
+      });
+    };
+
     document.querySelectorAll('.lang-option, .mobile-lang-option').forEach((option) => {
       option.addEventListener('click', async (e) => {
         e.stopPropagation();
@@ -85,6 +91,8 @@ class Navigation {
         document.querySelectorAll('.lang-menu, .mobile-lang-menu').forEach((menu) => {
           menu.classList.remove('active');
         });
+
+        updateActiveLanguage(lang);
       });
     });
 
@@ -92,10 +100,11 @@ class Navigation {
     if (mobileLangHeader) {
       mobileLangHeader.addEventListener('click', (e) => {
         e.stopPropagation();
-        const menu = document.querySelector('.mobile-lang-menu');
-        menu.classList.toggle('active');
+        document.querySelector('.mobile-lang-menu').classList.toggle('active');
       });
     }
+
+    updateActiveLanguage(i18n.currentLanguage);
   }
 }
 
@@ -106,83 +115,32 @@ const i18n = {
   async init() {
     await this.loadTranslations('en');
     this.changeLanguage('en');
-    this.setupLanguageSwitcher();
-    this.setupDropdownToggle();
   },
 
   async loadTranslations(lang) {
-    const path = `./locales/${lang}.json`;
-
     try {
-      const response = await fetch(path, {
-        headers: { Accept: 'application/json' },
-      });
-
-      if (!response.ok) {
-        console.warn(`no file: ${path}`);
-      }
-
-      const text = await response.text();
-      if (!text.trim()) {
-        console.error(`file is empty: ${path}`);
-      }
-
-      this.translations[lang] = JSON.parse(text);
-      console.log(`success: ${path}`);
-      return;
+      const response = await fetch(`./locales/${lang}.json`);
+      if (!response.ok) throw new Error('Failed to load translations');
+      this.translations[lang] = await response.json();
     } catch (e) {
-      console.error(`error в ${path}:`, e.message);
+      console.error(`Error loading ${lang} translations:`, e);
+      this.translations[lang] = {};
     }
-
-    this.translations[lang] = {};
   },
 
   changeLanguage(lang) {
     if (!this.translations[lang]) {
-      console.warn(`language "${lang}" not loaded`);
+      console.warn(`Translations for "${lang}" not loaded`);
       return;
     }
+
     this.currentLanguage = lang;
     document.documentElement.lang = lang;
     this.updateContent();
-    this.updateLanguageSwitcher();
-  },
 
-  updateLanguageSwitcher() {
-    const langElement = document.querySelector('.lang');
-    if (langElement) {
-      langElement.textContent = this.currentLanguage.toUpperCase();
-    }
-  },
-
-  setupLanguageSwitcher() {
-    document.querySelectorAll('.lang-option').forEach((item) => {
-      item.addEventListener('click', async (e) => {
-        e.stopPropagation();
-        const lang = item.getAttribute('data-lang');
-        if (lang !== this.currentLanguage) {
-          await this.loadTranslations(lang);
-          this.changeLanguage(lang);
-          document.querySelector('.lang-menu').classList.remove('active'); // Закрыть после выбора
-        }
-      });
+    document.querySelectorAll('.lang, .mobile-lang').forEach((el) => {
+      el.textContent = lang.toUpperCase();
     });
-  },
-
-  setupDropdownToggle() {
-    const langHeader = document.querySelector('.lang-header');
-    const langMenu = document.querySelector('.lang-menu');
-
-    if (langHeader && langMenu) {
-      langHeader.addEventListener('click', (e) => {
-        e.stopPropagation();
-        langMenu.classList.toggle('active');
-      });
-
-      document.addEventListener('click', () => {
-        langMenu.classList.remove('active');
-      });
-    }
   },
 
   updateContent() {
@@ -193,9 +151,8 @@ const i18n = {
   },
 
   t(key) {
-    const lang = document.documentElement.lang;
     const keys = key.split('.');
-    let value = this.translations[lang];
+    let value = this.translations[this.currentLanguage];
 
     for (const k of keys) {
       value = value?.[k];

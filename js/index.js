@@ -1,4 +1,28 @@
-document.addEventListener('DOMContentLoaded', function () {
+function collapseAllBlocks() {
+  const collapseBtn = document.querySelector('.guide-cards-collapse');
+
+  collapseBtn.addEventListener('click', () => {
+    const cards = document.querySelectorAll('.guide-card');
+
+    cards.forEach((card) => {
+      card.classList.remove('active');
+    });
+  });
+}
+
+function collapseOneBlock() {
+  const plusButtons = document.querySelectorAll('.guide-card-plus');
+
+  plusButtons.forEach((button) => {
+    button.addEventListener('click', function () {
+      const card = this.closest('.guide-card');
+
+      card.classList.toggle('active');
+    });
+  });
+}
+
+function addSliderAnimation() {
   const slidesContainer = document.querySelector('.slides-container');
   const slideBlocks = document.querySelectorAll('.slide-block');
   const prevBtn = document.querySelector('.prev');
@@ -47,23 +71,103 @@ document.addEventListener('DOMContentLoaded', function () {
       goToBlock(index);
     });
   });
+}
 
-  const plusButtons = document.querySelectorAll('.guide-card-plus');
-  const collapseBtn = document.querySelector('.guide-cards-collapse');
+function addHeaderCardsAnimation() {
+  let showTimers = [];
+  let hideTimers = [];
+  let mainTimer = null;
 
-  collapseBtn.addEventListener('click', () => {
-    const cards = document.querySelectorAll('.guide-card');
+  const items = [
+    //here we can setup order
+    document.querySelector('.header-card-1 .header-card-list-item-4'),
+    document.querySelector('.header-card-1 .header-card-list-item-3'),
+    document.querySelector('.header-card-1 .header-card-list-item-2'),
+    document.querySelector('.header-card-1 .header-card-list-item-1'),
 
-    cards.forEach((card) => {
-      card.classList.remove('active');
+    document.querySelector('.header-card-2 .header-card-list-item-4'),
+    document.querySelector('.header-card-2 .header-card-list-item-3'),
+    document.querySelector('.header-card-2 .header-card-list-item-2'),
+    document.querySelector('.header-card-2 .header-card-list-item-1'),
+
+    document.querySelector('.header-card-3 .header-card-list-item-4'),
+    document.querySelector('.header-card-3 .header-card-list-item-3'),
+    document.querySelector('.header-card-3 .header-card-list-item-2'),
+    document.querySelector('.header-card-3 .header-card-list-item-1'),
+  ].filter((item) => item !== null);
+
+  const clearAllTimers = () => {
+    showTimers.forEach((timer) => clearTimeout(timer));
+    hideTimers.forEach((timer) => clearTimeout(timer));
+    if (mainTimer) clearTimeout(mainTimer);
+    showTimers = [];
+    hideTimers = [];
+  };
+
+  const animateShowItems = (items) => {
+    items.forEach((item, index) => {
+      const timer = setTimeout(() => {
+        item.classList.add('animate-step');
+      }, index * 100);
+
+      showTimers.push(timer);
     });
-  });
+  };
 
-  plusButtons.forEach((button) => {
-    button.addEventListener('click', function () {
-      const card = this.closest('.guide-card');
+  const animateHideItems = (items) => {
+    items.forEach((item, index) => {
+      const timer = setTimeout(() => {
+        item.classList.remove('animate-step');
+      }, index * 100);
 
-      card.classList.toggle('active');
+      hideTimers.push(timer);
     });
+  };
+
+  const startAnimation = () => {
+    clearAllTimers();
+    animateShowItems(items);
+
+    setTimeout(() => {
+      animateHideItems(items);
+    }, items.length * 200); //total time
+  };
+
+  mainTimer = setTimeout(startAnimation, 3000);
+}
+
+function animatedHeader() {
+  const navbar = document.getElementById('navbar');
+  const triggerSection = document.getElementById('trigger-section');
+
+  const triggerOffset = triggerSection.offsetTop;
+  let wasTriggered = false;
+
+  function updateNavbar() {
+    const scrollY = window.scrollY;
+
+    if (scrollY >= triggerOffset && !wasTriggered) {
+      navbar.classList.add('scrolled');
+      wasTriggered = true;
+    } else if (scrollY < triggerOffset && wasTriggered) {
+      navbar.classList.remove('scrolled');
+      wasTriggered = false;
+    }
+  }
+
+  updateNavbar();
+
+  let isScrolling;
+  window.addEventListener('scroll', function () {
+    clearTimeout(isScrolling);
+    isScrolling = setTimeout(updateNavbar, 20);
   });
+}
+
+document.addEventListener('DOMContentLoaded', function () {
+  animatedHeader();
+  addHeaderCardsAnimation();
+  addSliderAnimation();
+  collapseAllBlocks();
+  collapseOneBlock();
 });
