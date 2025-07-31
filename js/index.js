@@ -133,7 +133,7 @@ function addHeaderCardsAnimation() {
     }, items.length * 200); //total time
   };
 
-  mainTimer = setTimeout(startAnimation, 3000);
+  mainTimer = setTimeout(startAnimation, 500);
 }
 
 function animatedHeader() {
