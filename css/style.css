@@ -415,7 +415,7 @@ from{
   width: 375px;
   height: 370px;
   padding: 24px;
-  border-radius: 150px;
+  border-radius: 15px;
 }
 
 .header-card-list-item {
