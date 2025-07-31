@@ -1,0 +1,716 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Personal loans</title>
+
+  <!-- fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap"
+    rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+    rel="stylesheet">
+  <!-- styles -->
+  <link rel="stylesheet" href="./css/index.css" />
+  <link rel="stylesheet" href="./css/base.css" />
+  <link rel="stylesheet" href="./css/style.css" />
+</head>
+
+<body>
+
+  <nav class="navbar-wrapper" id="navbar">
+    <div class="container-content">
+      <div class="navbar">
+        <div class="navbar-logo-wrapper">
+          <img src="../images/logo.svg" class="nav-logo" alt="logo" />
+        </div>
+        <!-- desktop -->
+        <ul class="navbar-links">
+          <!-- <li class="navbar-link-item dropdown">
+
+              <div class="dropdown-header">
+                <p data-i18n="navbar.loans.title"></p>
+                <img src="./images/nav_arrow.svg" class="navbar-link-arrow" />
+              </div>
+
+              <ul class="dropdown-menu">
+                <li class="dropdown-item">
+                  <p data-i18n="navbar.loans.student"></p>
+                </li>
+                <li class="dropdown-item">
+                  <p data-i18n="navbar.loans.business"></p>
+                </li>
+                <li class="dropdown-item">
+                  <p data-i18n="navbar.loans.personal"></p>
+                </li>
+                <li class="dropdown-item">
+                  <p data-i18n="navbar.loans.home"></p>
+                </li>
+              </ul>
+
+            </li>
+
+            <li class="navbar-link-item dropdown">
+
+              <div class="dropdown-header">
+                <p data-i18n="navbar.insurance.title"></p>
+                <img src="./images/nav_arrow.svg" class="navbar-link-arrow" />
+              </div>
+
+              <ul class="dropdown-menu">
+                <li class="dropdown-item">
+                  <p data-i18n="navbar.insurance.life"></p>
+                </li>
+                <li class="dropdown-item">
+                  <p data-i18n="navbar.insurance.health"></p>
+                </li>
+                <li class="dropdown-item">
+                  <p data-i18n="navbar.insurance.car"></p>
+                </li>
+                <li class="dropdown-item">
+                  <p data-i18n="navbar.insurance.home"></p>
+                </li>
+              </ul>
+
+            </li>
+
+            <li class="navbar-link-item dropdown">
+              <div class="dropdown-header">
+                <p data-i18n="navbar.finance.title"></p>
+                <img src="./images/nav_arrow.svg" class="navbar-link-arrow" />
+              </div>
+
+              <ul class="dropdown-menu">
+                <li class="dropdown-item">
+                  <p data-i18n="navbar.finance.credit"></p>
+                </li>
+                <li class="dropdown-item">
+                  <p data-i18n="navbar.finance.online"></p>
+                </li>
+                <li class="dropdown-item">
+                  <p data-i18n="navbar.finance.invest"></p>
+                </li>
+
+              </ul>
+            </li> -->
+
+          <li class="navbar-link-item">
+            <p data-i18n="navbar.partner.title"></p>
+          </li>
+
+          <li class="navbar-link-item">
+            <p data-i18n="navbar.about.title"></p>
+          </li>
+
+          <li class="navbar-link-item dropdown lang-dropdown">
+            <div class="dropdown-header lang-header">
+              <p class="lang">EN</p>
+            </div>
+
+            <ul class="dropdown-menu lang-menu">
+              <li class="dropdown-item lang-option" data-lang="en">
+                <p data-i18n="navbar.lang.en"></p>
+              </li>
+
+              <li class="dropdown-item lang-option" data-lang="es">
+                <p data-i18n="navbar.lang.es"></p>
+              </li>
+            </ul>
+          </li>
+
+        </ul>
+        <!-- mobile -->
+        <div class="mobile-menu">
+
+          <div class="mobile-header">
+
+            <div class="mobile-lang-dropdown">
+              <div class="mobile-lang-header">
+                <p class="mobile-lang">EN</p>
+              </div>
+              <ul class="mobile-lang-menu">
+                <li class="mobile-lang-option" data-lang="en">
+                  <p data-i18n="navbar.lang.en"></p>
+                </li>
+                <li class="mobile-lang-option" data-lang="es">
+                  <p data-i18n="navbar.lang.es"></p>
+                </li>
+              </ul>
+            </div>
+
+            <!-- Burger button -->
+            <button class="burger-btn">
+              <span></span>
+              <span></span>
+              <span></span>
+            </button>
+          </div>
+
+
+          <!-- Mobile menu content with close button -->
+          <div class="mobile-menu-content">
+
+            <ul class="mobile-nav-links">
+
+              <div class="mobile-dropdown-header">
+                <p data-i18n="navbar.loans.title"></p>
+                <img src="../images/nav_arrow.svg" class="mobile-dropdown-arrow" />
+              </div>
+              <ul class="mobile-dropdown-menu">
+                <li class="mobile-dropdown-item">
+                  <p data-i18n="navbar.loans.student"></p>
+                </li>
+                <li class="mobile-dropdown-item">
+                  <p data-i18n="navbar.loans.business"></p>
+                </li>
+                <li class="mobile-dropdown-item">
+                  <p data-i18n="navbar.loans.personal"></p>
+                </li>
+                <li class="mobile-dropdown-item">
+                  <p data-i18n="navbar.loans.home"></p>
+                </li>
+              </ul>
+              </li>
+
+              <li class="mobile-nav-item has-dropdown">
+                <div class="mobile-dropdown-header">
+                  <p data-i18n="navbar.insurance.title"></p>
+                  <img src="./images/nav_arrow.svg" class="mobile-dropdown-arrow" />
+                </div>
+                <ul class="mobile-dropdown-menu">
+                  <li class="mobile-dropdown-item">
+                    <p data-i18n="navbar.insurance.life"></p>
+                  </li>
+                  <li class="mobile-dropdown-item">
+                    <p data-i18n="navbar.insurance.health"></p>
+                  </li>
+                  <li class="mobile-dropdown-item">
+                    <p data-i18n="navbar.insurance.car"></p>
+                  </li>
+                  <li class="mobile-dropdown-item">
+                    <p data-i18n="navbar.insurance.home"></p>
+                  </li>
+                </ul>
+              </li>
+
+              <li class="mobile-nav-item has-dropdown">
+                <div class="mobile-dropdown-header">
+                  <p data-i18n="navbar.finance.title"></p>
+                  <img src="./images/nav_arrow.svg" class="mobile-dropdown-arrow" />
+                </div>
+                <ul class="mobile-dropdown-menu">
+                  <li class="mobile-dropdown-item">
+                    <p data-i18n="navbar.finance.credit"></p>
+                  </li>
+                  <li class="mobile-dropdown-item">
+                    <p data-i18n="navbar.finance.online"></p>
+                  </li>
+                  <li class="mobile-dropdown-item">
+                    <p data-i18n="navbar.finance.invest"></p>
+                  </li>
+
+                </ul>
+              </li> -->
+
+              <li class="mobile-nav-item">
+                <div class="mobile-dropdown-header">
+                  <p data-i18n="navbar.partner.title"></p>
+                </div>
+              </li>
+              <li class="mobile-nav-item">
+                <div class="mobile-dropdown-header">
+                  <p data-i18n="navbar.about.title"></p>
+                </div>
+              </li>
+
+
+            </ul>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </nav>
+
+
+
+
+  <section id="loan" class="section">
+    <div class="container-content">
+      <div>
+        <h3 class="block-title loan-title">
+          What is a personal loan?
+        </h3>
+
+        <div class="loan-info">
+          <p>22 January 2025</p>
+          <img src="./images/dot_2.svg" class="loan-info-dot" />
+          <p>
+            <img src="./images/clock.svg" class="loan-info-img" />
+            10 min read
+          </p>
+        </div>
+      </div>
+      <div class="loan-content">
+        <div class="loan-author-wrapper-mobile">
+          <p class="loan-author-by">Written by</p>
+          <div class="loan-author">
+            <img src="./images/article_author.png" class="loan-author-img" />
+            <div class="loan-author-name">
+              <p>Jake Krasinsky</p>
+              <p>Lorem ipsum set dolor</p>
+            </div>
+          </div>
+          <p class="loan-author-about">
+            Jake is a writer, marketer & spreadsheet wrangler <a href="https://sheetsformarketers.com/"
+              target="_blank">Sheets for Marketers</a>. He's a fan of dogs, SEO &
+            pizza.
+            Sometimes at the same time.
+          </p>
+        </div>
+        <div class="loan-left-part">
+          <div class="loan-share">
+            <p class="loan-share-title">Share this</p>
+            <div class="loan-share-images">
+              <a href="#"><img src="./images/share_link.svg" class="loan-share-img" /></a>
+              <a href="#"><img src="./images/share_fb.svg" class="loan-share-img" /></a>
+              <a href="#"><img src="./images/share_twitter.svg" class="loan-share-img" /></a>
+              <a href="#"><img src="./images/share_dots.svg" class="loan-share-img" /></a>
+            </div>
+          </div>
+          <div class="loan-contents">
+            <p class="loan-contents-title">On this page:</p>
+            <ul class="loan-contents-list">
+              <li class="loan-contents-list-item">What is a personal loan?</li>
+              <li class="loan-contents-list-item">Types of personal loans</li>
+              <li class="loan-contents-list-item">When to get a personal loan</li>
+              <li class="loan-contents-list-item">How to get the best personal loans</li>
+              <li class="loan-contents-list-item">How to apply for a personal loan</li>
+              <li class="loan-contents-list-item">Choosing the best lender</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="loan-center-part">
+
+
+          <article class="loan-article">
+            <h4 class="loan-article-title">What is a personal loan?</h4>
+            <p class="loan-article-txt">
+              Personal loans provide you with a <b>lump sum of cash that you can use for almost any purpose.</b> These
+              loans
+              are typically unsecured, meaning you don’t need collateral to get one. Instead, lenders will review your
+              income, debts, and credit profile to determine whether they can offer you a loan.
+              <br />
+              Terms on personal loans can vary widely. Depending on the lender and your financial circumstances, you
+              can get a loan for <b>as little as $1,000 or as much as $100,000. Interest rates range from 6% to
+                35.99%.</b>
+              <b>Loan terms vary but are usually between 12 and 60 months.</b>
+              <br />
+              <br />
+              Unlike other types of loans, like mortgages or business loans, personal loans <b>offer the
+                flexibility</b> of
+              using funds on almost anything. That includes:
+            </p>
+            <ul class="loan-article-list">
+              <li class="loan-article-list-item">
+                <img src="./images/check_2.svg" class="loan-article-check" />
+                Home improvement or repairs
+              </li>
+              <li class="loan-article-list-item">
+                <img src="./images/check_2.svg" class="loan-article-check" />
+                Medical debt
+              </li>
+              <li class="loan-article-list-item">
+                <img src="./images/check_2.svg" class="loan-article-check" />
+                Sudden expenses, like funerals or fires
+              </li>
+              <li class="loan-article-list-item">
+                <img src="./images/check_2.svg" class="loan-article-check" />
+                Debt consolidation
+              </li>
+              <li class="loan-article-list-item">
+                <img src="./images/check_2.svg" class="loan-article-check" />
+                Small business costs
+              </li>
+            </ul>
+            <p class="loan-article-txt">
+              You can get the funds from personal loans <b>faster than other types of loans.</b> Lenders typically
+              deposit
+              funds within a few days of approval. Once the money arrives in your bank account, you’ll start repaying
+              within 30 days. You’ll have a set monthly bill for the term of the loan, though you may pay it off
+              faster if you choose to make additional payments.
+            </p>
+          </article>
+
+          <article class="loan-article">
+            <h4 class="loan-article-title">Types of personal loans</h4>
+            <p class="loan-article-txt">
+              There are several types of personal loans to choose from:
+            </p>
+            <ul class="loan-article-list">
+              <li class="loan-article-list-item">
+                <img src="./images/check_2.svg" class="loan-article-check" />
+                <div class="">
+
+                  <b>Unsecured: </b>
+                  An unsecured loan doesn’t have any collateral to back it, which usually means it has a
+                  higher interest rate compared to a secured loan. It can also be more difficult to get an unsecured
+                  loan
+                  as lenders require better financial circumstances to qualify.
+                </div>
+              </li>
+              <li class="loan-article-list-item">
+                <img src="./images/check_2.svg" class="loan-article-check" />
+                <div class="">
+                  <b>Secured:</b>
+                  This type of loan has collateral, like a car or other valuable item, to back it. If you fail to
+                  repay the loan, your lender will use the collateral to recoup their lost funds.
+                </div>
+              </li>
+              <li class="loan-article-list-item">
+                <img src="./images/check_2.svg" class="loan-article-check" />
+                <div>
+                  <b>Cosigned:</b>
+                  If you’re struggling to get a personal loan due to poor credit or finances, a cosigner
+                  could help. The cosigner, which could be a family member or friend, agrees to repay the loan if you
+                  cannot.
+                </div>
+              </li>
+              <li class="loan-article-list-item">
+                <img src="./images/check_2.svg" class="loan-article-check" />
+                <div class="">
+                  <b>Variable and fixed rate loans:</b>
+                  All loans have either fixed or variable interest rates. With a fixed
+                  rate, you pay the same interest rate over the life of the loan. With variable rates, your interest
+                  rate
+                  fluctuates with the market.
+                </div>
+              </li>
+            </ul>
+            <img src="./images/article_man.png" class="article-image" />
+          </article>
+
+          <article class="loan-article">
+            <h4 class="loan-article-title">When to get a personal loan</h4>
+            <p class="loan-article-txt">
+              Since personal loans are typically unsecured, they can sometimes be more expensive than other types of
+              loans. That said, there are times when getting a personal loan can make the most sense.
+              <br />
+              <br />
+              <b>It’s best to get this type of loan when it is the least expensive form of financing.</b>
+              For example, let’s
+              say you want to open a small business and get a few quotes for a business loan. If those loans have higher
+              interest rates than a personal loan, then it makes more sense to choose the personal loan.
+              <br />
+              <br />
+              You’ll also need to make sure you can afford the monthly payments. That means the payment fits into your
+              budget without having to cut down on your essential spending, like groceries or utilities.
+              <br />
+              <br />
+              Additionally, it can make sense to get a personal loan when it will improve your financial
+              circumstances. <b>For example, using a personal loan to improve your house can add value to your home and
+                allow you to make more when you sell it.</b>
+              <br />
+              <br />
+              Personal loans can also help you consolidate debt, which could greatly <b>improve your finances</b>.
+              Credit card
+              debt can have high interest rates – up to 35.99%. If you carry a balance, that debt multiplies and can be
+              impossible to pay off. Getting a <b> personal loan allows you to pay it all off immediately </b>and have a
+              new set
+              monthly payment that fits into your budget.
+              <img src="./images/article_home.png" class="article-image" />
+            </p>
+
+          </article>
+
+
+          <article class="loan-article">
+            <h4 class="loan-article-title">How to get the best personal loans</h4>
+            <p class="loan-article-txt">
+              Generally speaking, the best personal loans are those that have the lowest APRs, minimal fees, and monthly
+              payments you can comfortably afford. Since most personal loans are unsecured, your loan terms depend
+              largely on your personal finances.
+            </p>
+            <div class="article-loan-tip">
+              <img src="./images/lamp.png" class="article-icon" />
+              <p class="article-loan-tip-txt">
+                <b>To get the best personal loan, you’ll need a strong credit score.</b>
+                <br />
+                You can boost your credit by reviewing your history. Request your credit report from the three major
+                credit reporting companies: TransUnion, Equifax, and Experian. Then, you can review your reports for any
+                errors that could be lowering your credit score.
+              </p>
+            </div>
+            <p class="loan-article-txt">
+              At the same time, <b>try to pay down any outstanding debts if you can, like credit cards. This will
+                improve
+                your DTI</b> (debt-to-income) ratio, which makes you a less risky investment for personal loan lenders.
+              <br />
+              <br />
+              On the other hand, <b>increasing your income can also help improve your DTI ratio. </b>If you’re able to,
+              you
+              might consider picking up more hours at work, looking for a part-time job, starting a side hustle, or
+              asking for a raise at work.
+            </p>
+
+          </article>
+
+          <article class="loan-article">
+            <h4 class="loan-article-title">How to apply for a personal loan</h4>
+            <p class="loan-article-txt">
+              Applying for a personal loan is easy, though it’s important to spend time doing your research. There are
+              just a few steps to complete.
+            </p>
+            <p class="loan-article-title-number">1. Shop around</p>
+            <p class="loan-article-txt">
+              Loan terms can vary greatly from lender to lender, so it’s important to compare your options before
+              applying. You can use the table above to compare the pros and cons of the top lenders.
+              <br />
+              <br />
+
+              Once you have 3 to 5 lenders in mind, prequalify with each. This step allows you to get personalized rate
+              estimates and terms so you can get a good idea of your loan options. Many lenders allow you to prequalify
+              with just a soft credit pull, meaning you won’t affect your credit score.
+              <br />
+              <br />
+
+              Compare your prequalified offers to determine which is the best fit for you. Generally speaking, the offer
+              with the lowest APR and monthly payments is usually best as it will save you the most money and fit into
+              your budget best.
+            </p>
+            <p class="loan-article-title-number">2. Submit an application</p>
+            <p class="loan-article-txt">
+              Once you’ve selected a lender, submit a full application. Applying for a loan requires you to provide
+              documentation about your identity and income, like W2s and pay stubs. As long as you have the documents
+              ready, <b>it should take under 30 minutes to complete this step.</b>
+            </p>
+            <p class="loan-article-title-number">3. Receive your funds and start repayment</p>
+            <p class="loan-article-txt">
+              Most lenders take two to five days to approve your loan and deliver your funds. That said, some of the
+              best personal loan lenders can approve you and deliver your money <b>in just one working day.</b>
+              <br />
+              <br />
+              You’ll typically start repaying the loan within a month of receiving the funds. Many lenders allow you to
+              set up autopay so you never miss a bill. Be sure to make full, on-time payments each month to protect your
+              credit score and meet the terms of your loan.
+            </p>
+          </article>
+
+          <div class="loan-action">
+            <p class="loan-action-title">Get personal loan offer from CreditNinja now!</p>
+            <button class="loan-action-btn">Apply now</button>
+          </div>
+
+          <article class="loan-article">
+            <h4 class="loan-article-title">Choosing the best lender</h4>
+            <p class="loan-article-txt">
+              The cost of your loan will be the most important factor of your personal loan. However, it’s also key to
+              consider your lender. You’ll have to interact with it for months or years as you repay the loan, so be
+              sure to compare options.
+              <br />
+              <br />
+              <b>To get the best personal loans, consider doing the following:</b>
+            </p>
+            <ul class="loan-article-list">
+              <li class="loan-article-list-item">
+                <img src="./images/check_2.svg" class="loan-article-check" />
+                <div>
+                  <b>Shop around and research:</b>
+                  Don’t just take the first personal loan you
+                  come across. Compare rates, terms, fees, repayment options, and customer service channels to determine
+                  which is best for you.
+                </div>
+              </li>
+              <li class="loan-article-list-item">
+                <img src="./images/check_2.svg" class="loan-article-check" />
+                <div class="">
+                  <b>Check for customer reviews: </b>
+                  What are other people saying about your chosen lender? If it has a bad reputation, you might want to
+                  avoid it. Scan third-party sites, like Google and TrustPilot, for unbiased reviews.
+                </div>
+              </li>
+              <li class="loan-article-list-item">
+                <img src="./images/check_2.svg" class="loan-article-check" />
+                <div>
+                  <b>Check for hidden costs: </b>
+                  A lender may charge you origination, processing, late, and early repayment fees. Read the fine print
+                  to
+                  make sure you understand all the costs associated with your loan. The best personal loans have minimal
+                  fees. Your lender will be able to explain each fee to you, so don’t be afraid to ask.
+                </div>
+
+              </li>
+
+            </ul>
+
+          </article>
+
+        </div>
+
+        <div class="loan-right-part">
+
+          <div class="loan-author-wrapper">
+            <p class="loan-author-by">Written by</p>
+            <div class="loan-author">
+              <img src="./images/article_author.png" class="loan-author-img" />
+              <div class="loan-author-name">
+                <p>Jake Krasinsky</p>
+                <p>Lorem ipsum set dolor</p>
+              </div>
+            </div>
+            <p class="loan-author-about">
+              Jake is a writer, marketer & spreadsheet wrangler <a href="https://sheetsformarketers.com/"
+                target="_blank">Sheets for Marketers</a>. He's a fan of dogs, SEO &
+              pizza.
+              Sometimes at the same time.
+            </p>
+          </div>
+
+          <div class="loan-share-mobile">
+            <p class="loan-share-title">Share this</p>
+            <div class="loan-share-images">
+              <a href="#"><img src="./images/share_link.svg" class="loan-share-img" /></a>
+              <a href="#"><img src="./images/share_fb.svg" class="loan-share-img" /></a>
+              <a href="#"><img src="./images/share_twitter.svg" class="loan-share-img" /></a>
+              <a href="#"><img src="./images/share_dots.svg" class="loan-share-img" /></a>
+            </div>
+          </div>
+
+          <div class="loan-article-right-block loan-article-perf">
+            <img src="./images/speed.png" />
+            <p class="loan-article-right-block-title">Article perfomance</p>
+            <p class="loan-article-right-block-subtitle">Data from Ahrefs</p>
+            <div class="loan-article-right-block-txt-wrapper">
+              <p class="loan-article-right-block-txt">
+                Organic traffic
+              </p>
+              <div class="tooltip">
+                <img src="./images/info.svg" />
+                <span class="tooltip-text">The number of websites linking to this post.</span>
+              </div>
+            </div>
+            <p class="loan-article-right-block-numbers">1.13K</p>
+            <div class="loan-article-right-block-txt-wrapper">
+              <p class="loan-article-right-block-txt">
+                Linking websites
+              </p>
+              <div class="tooltip">
+                <img src="./images/info.svg" />
+                <span class="tooltip-text">The number of websites linking to this post.</span>
+              </div>
+            </div>
+
+            <p class="loan-article-right-block-numbers">285</p>
+          </div>
+
+          <div class="loan-article-right-block  loan-article-contact">
+            <img src="./images/mail.png" />
+            <p class="loan-article-right-block-title">Contact a personal loan agent</p>
+            <p class="loan-article-right-block-txt">Leave your email and we will get back to you.</p>
+            <input class="loan-article-right-block-input" placeholder="Enter your email" />
+            <button type="btn" class="primary-btn">Submit</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer section">
+    <div class="container-content">
+      <p>
+        <a href="#" class="footer-txt-primary">LoansUnder36 disclosure</a><br />
+        *lender form varies
+        <br />
+        <br />
+        <a href="#" class="footer-txt-primary">Credit Ninja disclosure</a>
+        <br />
+        <br />
+        Loans made by First Electronic Bank, member FDIC. Loans over 35.99% APR. Your actual rate depends upon
+        proprietary scoring, credit history, and payment schedule. Loan approval not guaranteed. Loans range from $500
+        to $2,500. For loans made by First Electronic Bank, acceptable payment methods include ACH, debit card, personal
+        check, money order, and cashier’s check. Cash not accepted. See Terms & Conditions for website terms of use and
+        other important disclosures. Applications approved before 10:30 a.m. CT Monday-Friday are generally funded the
+        same business day. Applications approved after this time are generally funded the next business day. Some
+        applications may require additional verification, in which case the loan, if approved, will be funded the
+        business day after such additional verification is completed. Loans above 35.99% APR are not recommended as
+        long-term financial solutions. Your choice of a loan product should match your needs and ability to repay.
+        Consider carefully the amount, term, and finance charges for any loan. If you choose a high interest loan,
+        reduce your finance charges by paying more than the minimum installment payment. Paying late increases your
+        finance charges and may cause you to incur a late fee. Customers with credit difficulties should seek consumer
+        credit counseling. For helpful resources concerning financial literacy, credit score trends, and a glossary of
+        financial terms, please see the Resources tab at the top of our website, www.creditninja.com. IMPORTANT
+        INFORMATION ABOUT PROCEDURES FOR OPENING A NEW ACCOUNT — To help the government fight the funding of terrorism
+        and money laundering activities, federal law requires all financial institutions to obtain, verify, and record
+        information that identifies each person who opens an account. What this means for you: When you open an account,
+        we will ask for your name, address, date of birth, and other information that will allow”
+        <br />
+        <br />
+        *Credit Ninja is fully assured they can provide you with the best personal loan rate available. If you find a
+        better rate elsewhere and take that loan, they will give you $200. See full <a href="#"
+          class="footer-txt-primary">terms and
+          conditions.</a>
+        <br />
+        <br />
+        <a href="#">Empower Thrive disclosure</a>
+        <br />
+        <br />
+        *Not everyone will qualify for a Cash Advance offer. Offer amounts range from $10 - $300. As of 3/31/2024, the
+        average offer amount is $145. Instant delivery fees may apply.<a href="#" class="footer-txt-primary"> See
+          Terms.</a>
+        <br />
+        <br />
+        <a href="#" class="footer-txt-primary">Current Cash Advance disclosure</a>
+        <br />
+        For eligible customers only. Your actual available Paycheck Advance amount will be displayed to you in the
+        mobile app and may change from time to time. Conditions and eligibility may vary and are subject to change at
+        any time, at the sole discretion of Finco Advance LLC, which offers this optional feature. Finco Advance LLC is
+        a financial technology company, not a bank. For more information, please refer to<u> <a href="#">Paycheck
+            Advance
+            Terms and
+            Conditions</a>.</u>
+        <br />
+        For eligible customers only. Your actual available Paycheck Advance amount will be displayed to you in the
+        mobile app and may change from time to time. Conditions and eligibility may vary and are subject to change at
+        any time, at the sole discretion of Finco Advance LLC, which offers this optional feature. Finco Advance LLC is
+        a financial technology company, not a bank. For more information, please refer to Paycheck Advance Terms and
+        Conditions
+        <u>
+          <a
+            href="https://cdn.current.com/agreements/paycheck_advance_terms_v2.pdf">(https://cdn.current.com/agreements/paycheck_advance_terms_v2.pdf).</a>
+        </u>
+
+      </p>
+
+      <div class="footer-block">
+        The listings featured on this site are companies from which we earn affiliate link compensation. Placement and
+        display may be influenced by such compensation.
+      </div>
+
+      <p>
+        OnlineLoans.Credit is compensated by the affiliates on this site. The appearance and order of companies
+        appearing on this site is based on a combination of factors, including affiliate compensation and user
+        conversion rates. OnlineLoans.Credit is not paid to specifically rank companies in any particular position or
+        order. The information contained in OnlineLoans.Credit is not legal, financial, or investment advice and is not
+        an endorsement or recommendation of any of the companies or the products or services appearing on
+        OnlineLoans.Credit. As disclosed on the About Us page, all information on OnlineLoans.Credit is believed to be
+        accurate as of the date of each article and is subject to change. OnlineLoans.Credit does not contain an
+        exhaustive list of all lending or insurance companies in each category.
+      </p>
+      <div class="delimetr"></div>
+      <p>Copyright © 2024 OnlineLoans.Credit. All Rights Reserved.</p>
+    </div>
+  </footer>
+
+
+  <script src="./js/index.js"></script>
+  <script src="./../trackingScript.js"></script>
+  <script src="./js/i18n.js"></script>
+</body>
+
+</html>

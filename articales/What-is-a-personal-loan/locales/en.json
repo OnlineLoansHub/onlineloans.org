@@ -1,0 +1,284 @@
+{
+  "navbar": {
+    "loans": {
+      "title": "Loans",
+      "student": "Student loans",
+      "business": "Business loans",
+      "personal": "Personal loans",
+      "home": "Home loans"
+    },
+    "insurance": {
+      "title": "Insurance",
+      "life": "Life insurance",
+      "health": "Health insurance",
+      "car": "Car insurance",
+      "home": "Home insurance"
+    },
+    "finance": {
+      "title": "Finance",
+      "credit": "Credit cards",
+      "online": "Online banking",
+      "invest": "Investments"
+    },
+    "partner": {
+      "title": "Partner with Us"
+    },
+    "about": {
+      "title": "About Us"
+    },
+    "lang": {
+      "en": "English",
+      "es": "Espaniol"
+    }
+  },
+  "header": {
+    "title": "Compare and shop the best financial products for you",
+    "cards": {
+      "finance": {
+        "title": "Finance",
+        "credit": "Credit cards",
+        "online": "Online banking",
+        "invest": "Investments",
+        "cashback": "Cashback"
+      },
+      "insurance": {
+        "title": "Insurance",
+        "car": "Car insurance",
+        "life": "Life insurance",
+        "pet": "Pet insurance",
+        "travel": "Travel insurance"
+      },
+      "loans": {
+        "title": "Loans",
+        "home": "Home loans",
+        "personal": "Personal loans",
+        "business": "Business loans",
+        "student": "Student loans"
+      }
+    }
+  },
+  "logos": {
+    "title": "Explore offers from brands top-rated on"
+  },
+  "guide": {
+    "title": "Unlock better financial decisions with our proven tools and expert insights.",
+    "btns": {
+      "tred": "Trending articles",
+      "business": "Business loans",
+      "online": "Student loans",
+      "pet": "Personal loans",
+      "debt": "Mortgages",
+      "tax": "Insurance",
+      "life": "Life insurance",
+      "credit": "Credit cards"
+    },
+    "cards": {
+      "1": {
+        "title": "Protect your pet without breaking the bank – compare top insurance plans!",
+        "subtitle": "Shawn Hammond - Financial Expert"
+      },
+      "2": {
+        "title": "Fuel your business growth – find the right loan in just minutes!",
+        "subtitle": "Tiffany Chapman - Financial Expert"
+      },
+      "3": {
+        "title": "Smart funding for your education – compare student loan options now!",
+        "subtitle": "Macie Sims - Financial Expert"
+      },
+      "4": {
+        "title": "Get a personal loan that fits your needs – fast, easy, and secure!",
+        "subtitle": "Aislee Mathis - Financial Expert"
+      },
+      "5": {
+        "title": "Find the best mortgage rates for your next home – no stress, no hassle!",
+        "subtitle": "Hallie Carlson - Financial Expert"
+      }
+    }
+  },
+  "cards": {
+    "title": "",
+    "collapse": "",
+    "expand": "Expand all",
+    "readMore": "Read articles",
+    "1": {
+      "title": "Business Loans",
+      "articles": {
+        "1": {
+          "title": "Our best business loans of 2025. Apply in minutes. Get funded fast.",
+          "btn": "View business loans"
+        },
+        "2": {
+          "title": "How to Get a Business Loan with Bad Credit",
+          "author": "Su Guillory • Jul, 2025"
+        },
+        "3": {
+          "title": "How to Get a Business Loan with Bad Credit",
+          "author": "Su Guillory • Jul, 2025"
+        },
+        "4": {
+          "title": "How to Get a Business Loan with Bad Credit",
+          "author": "Su Guillory • Jul, 2025"
+        }
+      }
+    },
+    "2": {
+      "title": "Studen Loans",
+      "articles": {
+        "1": {
+          "title": "Best car insurance quotes of 2025. drive with confidence knowing you’re covered.",
+          "btn": "View car insurance"
+        },
+        "2": {
+          "title": "How to Get a Business Loan with Bad Credit",
+          "author": "Su Guillory • Jul, 2025"
+        },
+        "3": {
+          "title": "How to Get a Business Loan with Bad Credit",
+          "author": "Su Guillory • Jul, 2025"
+        },
+        "4": {
+          "title": "How to Get a Business Loan with Bad Credit",
+          "author": "Su Guillory • Jul, 2025"
+        }
+      }
+    },
+    "3": {
+      "title": "Personal Loans",
+      "articles": {
+        "1": {
+          "title": "Our best debt consolidation loans 2025 say goodbye to debt.",
+          "btn": "View car insurance"
+        },
+        "2": {
+          "title": "How to Get a Business Loan with Bad Credit",
+          "author": "Su Guillory • Jul, 2025"
+        },
+        "3": {
+          "title": "How to Get a Business Loan with Bad Credit",
+          "author": "Su Guillory • Jul, 2025"
+        },
+        "4": {
+          "title": "How to Get a Business Loan with Bad Credit",
+          "author": "Su Guillory • Jul, 2025"
+        }
+      }
+    },
+    "4": {
+      "title": "Insurance",
+      "articles": {
+        "1": {
+          "title": "Our best debt consolidation loans 2025 say goodbye to debt.",
+          "btn": "View car insurance"
+        },
+        "2": {
+          "title": "How to Get a Business Loan with Bad Credit",
+          "author": "Su Guillory • Jul, 2025"
+        },
+        "3": {
+          "title": "How to Get a Business Loan with Bad Credit",
+          "author": "Su Guillory • Jul, 2025"
+        },
+        "4": {
+          "title": "How to Get a Business Loan with Bad Credit",
+          "author": "Su Guillory • Jul, 2025"
+        }
+      }
+    },
+    "5": {
+      "title": "Credit Cards",
+      "articles": {
+        "1": {
+          "title": "Our best debt consolidation loans 2025 say goodbye to debt.",
+          "btn": "View car insurance"
+        },
+        "2": {
+          "title": "How to Get a Business Loan with Bad Credit",
+          "author": "Su Guillory • Jul, 2025"
+        },
+        "3": {
+          "title": "How to Get a Business Loan with Bad Credit",
+          "author": "Su Guillory • Jul, 2025"
+        },
+        "4": {
+          "title": "How to Get a Business Loan with Bad Credit",
+          "author": "Su Guillory • Jul, 2025"
+        }
+      }
+    },
+    "6": {
+      "title": "Home Insurance",
+      "articles": {
+        "1": {
+          "title": "Our best debt consolidation loans 2025 say goodbye to debt.",
+          "btn": "View car insurance"
+        },
+        "2": {
+          "title": "How to Get a Business Loan with Bad Credit",
+          "author": "Su Guillory • Jul, 2025"
+        },
+        "3": {
+          "title": "How to Get a Business Loan with Bad Credit",
+          "author": "Su Guillory • Jul, 2025"
+        },
+        "4": {
+          "title": "How to Get a Business Loan with Bad Credit",
+          "author": "Su Guillory • Jul, 2025"
+        }
+      }
+    }
+  },
+  "help": {
+    "title": "We help people do more with their money",
+    "1": {
+      "title": "450,000+",
+      "subtitle": "Home owners applied for a mortgage loan"
+    },
+    "2": {
+      "title": "100,000+",
+      "subtitle": "drivers connected with a car lender"
+    },
+    "3": {
+      "title": "330,000+",
+      "subtitle": "borrowers applied for a personal loan"
+    },
+    "4": {
+      "title": "50,000+",
+      "subtitle": "pet parents received a pet insurance quote"
+    }
+  },
+  "explore": {
+    "title": "Explore more from Online Loans",
+    "cards": {
+      "1": {
+        "title": "Home loans"
+      },
+      "2": {
+        "title": "Home loans refinance"
+      },
+      "3": {
+        "title": "Personal loans"
+      },
+      "4": {
+        "title": "Private student loans"
+      }
+    }
+  },
+  "footer": {
+    "addr": "Onlineloans.org, 5 Crosby St. 3rd floor, New York, NY 10013",
+    "copy": "Copyright © 2025 OnlineLoans.Credit. All rights reserved.",
+    "txt": "Designed to help users make confident decisions online, this website contains information about a wide range of products and services. Certain details, including but not limited to prices and special offers, are provided to us directly from our partners and are dynamic and subject to change at any time without prior notice. Though based on meticulous research, the information we share does not constitute legal or professional advice or forecast, and should not be treated as such. Company listings on this site DO NOT imply endorsement. We are not an investment adviser, loan provider, or a broker and we do not offer loans or mortgages directly to end users, but only allows users to match with lending partners and platforms that may extend a loan. All loan approval decisions and terms are determined by the loan providers at the time of your application with them. Any matching request submitted through our website does not constitute a loan application and you will have to submit a loan application to the respective lender before the lender provides you with an actual offer. We do not warrant that you will be approved for a loan, nor that you will be offered a loan with the same terms presented on our website. Insurance services are offered through Onlineloans.org Technologies Inc., a licensed insurance producer (NPN: 19016703). Services may not be available in all states. Additional licensing information can be found here. Insurance products are governed by the terms in the applicable insurance policy. Approval for coverage, premiums, commissions and fees, and other policy obligations are the sole responsibility of the underwriting insurer. The information on this site does not modify any insurance policy terms in any way. Reproduction in whole or in part is strictly prohibited.",
+    "student": "Student loan",
+    "business": "Business loan",
+    "personal": "Personal loan",
+    "home": "Home loan",
+    "life": "Life insurance",
+    "car": "Car insurance",
+    "homeIns": "Home insurance",
+    "health": "Health insurance",
+    "credit": "Credit cards",
+    "online": "Online banking",
+    "invest": "Investments",
+    "partner": "Partner with us",
+    "about": "About us"
+  }
+}
