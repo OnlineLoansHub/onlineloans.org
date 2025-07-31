@@ -880,7 +880,7 @@ from{
   width: 100%;
   font-family: var(--tikTok);
   border: 1px solid #e5e7f1;
-  border-radius: 20px;
+  border-radius: 3px;
   overflow: hidden;
 }
 
@@ -890,8 +890,8 @@ from{
   display: flex;
   align-items: center;
   justify-content: space-between;
-  border-top-left-radius: 20px;
-  border-top-right-radius: 20px;
+  border-top-left-radius: 3px;
+  border-top-right-radius: 3px;
 }
 
 .guide-card-title-wrapper {
