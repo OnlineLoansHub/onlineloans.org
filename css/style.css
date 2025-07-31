@@ -386,7 +386,8 @@
 }
 
 .header-title {
-  max-width: 640px;
+  letter-spacing: 1.5px;
+  max-width: 670px;
   line-height:62px;
   font-family: var(--tikTok);
   font-weight: 700;
@@ -1369,6 +1370,7 @@ from{
 
 @media (max-width: 992px) {
   .header-title {
+  letter-spacing: 1.5px;
     font-size: 36px;
     line-height: 42px;
     margin-bottom: 24px;
