@@ -40,6 +40,10 @@
   transition: all 0.2s;
 }
 
+.primary-btn:hover {
+  background: #dfe1f1;
+}
+
 .primary-btn.active {
   background-color: #3e62f0;
   color: #fff;

@@ -138,6 +138,7 @@ function addHeaderCardsAnimation() {
 
 function animatedHeader() {
   const navbar = document.getElementById('navbar');
+  const navLogo = document.querySelector('.nav-logo');
   const triggerSection = document.getElementById('trigger-section');
 
   const triggerOffset = triggerSection.offsetTop;
@@ -148,10 +149,12 @@ function animatedHeader() {
 
     if (scrollY >= triggerOffset && !wasTriggered) {
       navbar.classList.add('scrolled');
+      navLogo.src = './images/logo_dark.svg';
       wasTriggered = true;
     } else if (scrollY < triggerOffset && wasTriggered) {
       navbar.classList.remove('scrolled');
       wasTriggered = false;
+      navLogo.src = './images/logo.svg';
     }
   }
 
@@ -164,9 +167,32 @@ function animatedHeader() {
   });
 }
 
+function addTabSwitcher() {
+  const btns = document.querySelectorAll('.guide-btn');
+  const articleGrids = document.querySelectorAll('.guide-article-grid');
+
+  btns.forEach((button) => {
+    button.addEventListener('click', function () {
+      btns.forEach((btn) => btn.classList.remove('active'));
+
+      this.classList.add('active');
+
+      const tabNumber = this.getAttribute('data-guide-btn');
+
+      articleGrids.forEach((grid) => grid.classList.remove('active'));
+
+      const activeGrid = document.querySelector(`.guide-article-grid-${tabNumber}`);
+      if (activeGrid) {
+        activeGrid.classList.add('active');
+      }
+    });
+  });
+}
+
 document.addEventListener('DOMContentLoaded', function () {
   animatedHeader();
   addHeaderCardsAnimation();
+  addTabSwitcher();
   addSliderAnimation();
   collapseAllBlocks();
   collapseOneBlock();
