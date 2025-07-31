@@ -61,7 +61,7 @@
     "title": "Explore offers from brands top-rated on"
   },
   "guide": {
-    "title": "Top Expert Guides",
+    "title": "Unlock better financial decisions with our proven tools and expert insights.",
     "btns": {
       "tred": "Trending articles",
       "business": "Business loans",
@@ -96,8 +96,8 @@
     }
   },
   "cards": {
-    "title": "Get financially smart with our expert tools and guides",
-    "collapse": "Collapse all",
+    "title": "",
+    "collapse": "",
     "expand": "Expand all",
     "readMore": "Read articles",
     "1": {
@@ -122,7 +122,7 @@
       }
     },
     "2": {
-      "title": "Car Insurance",
+      "title": "Studen Loans",
       "articles": {
         "1": {
           "title": "Best car insurance quotes of 2025. drive with confidence knowing you’re covered.",
@@ -143,7 +143,7 @@
       }
     },
     "3": {
-      "title": "Debt Consolidation",
+      "title": "Personal Loans",
       "articles": {
         "1": {
           "title": "Our best debt consolidation loans 2025 say goodbye to debt.",
@@ -164,7 +164,7 @@
       }
     },
     "4": {
-      "title": "Student Loans Refinance",
+      "title": "Insurance",
       "articles": {
         "1": {
           "title": "Our best debt consolidation loans 2025 say goodbye to debt.",
