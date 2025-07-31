@@ -780,7 +780,7 @@ from{
   min-width: 260px;
   width: 100%;
   padding: 20px;
-  border-radius: 20px;
+  border-radius: 15px;
   color: #fff;
   display: flex;
   flex-direction: column;
