@@ -1,0 +1,4 @@
+User-agent: *
+Disallow:
+
+Sitemap: https://onlineloans.org/sitemap.xml
