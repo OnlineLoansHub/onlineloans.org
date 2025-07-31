@@ -65,33 +65,33 @@
     "btns": {
       "tred": "Trending articles",
       "business": "Business loans",
-      "online": "Online banking",
-      "pet": "Pet insurance",
-      "debt": "Debt consolidation",
-      "tax": "Tax relief",
+      "online": "Student loans",
+      "pet": "Personal loans",
+      "debt": "Mortgages",
+      "tax": "Insurance",
       "life": "Life insurance",
       "credit": "Credit cards"
     },
     "cards": {
       "1": {
-        "title": "Find the best pet insurance for your furry friends – quick, easy & free!",
-        "subtitle": "Find the best coverage for your pet in 7 easy questions tootoot"
+        "title": "Protect your pet without breaking the bank – compare top insurance plans!",
+        "subtitle": "Shawn Hammond - Financial Expert"
       },
       "2": {
-        "title": "Find the best pet insurance for your furry friends – quick, easy & free!",
-        "subtitle": "Find the best coverage for your pet in 7 easy questions tootoot"
+        "title": "Fuel your business growth – find the right loan in just minutes!",
+        "subtitle": "Tiffany Chapman - Financial Expert"
       },
       "3": {
-        "title": "Find the best pet insurance for your furry friends – quick, easy & free!",
-        "subtitle": "Find the best coverage for your pet in 7 easy questions tootoot"
+        "title": "Smart funding for your education – compare student loan options now!",
+        "subtitle": "Macie Sims - Financial Expert"
       },
       "4": {
-        "title": "Find the best pet insurance for your furry friends – quick, easy & free!",
-        "subtitle": "Find the best coverage for your pet in 7 easy questions tootoot"
+        "title": "Get a personal loan that fits your needs – fast, easy, and secure!",
+        "subtitle": "aislee Mathis - Financial Expert"
       },
       "5": {
-        "title": "Find the best pet insurance for your furry friends – quick, easy & free!",
-        "subtitle": "Find the best coverage for your pet in 7 easy questions tootoot"
+        "title": "Find the best mortgage rates for your next home – no stress, no hassle!",
+        "subtitle": "Hallie Carlson - Financial Expert"
       }
     }
   },
