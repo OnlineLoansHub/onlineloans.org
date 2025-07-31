@@ -1,283 +1,295 @@
 {
   "navbar": {
     "loans": {
-      "title": "pupupu",
-      "student": "Student loans",
-      "business": "Business loans",
-      "personal": "Personal loans",
-      "home": "Home loans"
+      "title": "Préstamos",
+      "student": "Préstamos estudiantiles",
+      "business": "Préstamos comerciales",
+      "personal": "Préstamos personales",
+      "home": "Préstamos hipotecarios"
     },
     "insurance": {
-      "title": "Insurance",
-      "life": "Life insurance",
-      "health": "Health insurance",
-      "car": "Car insurance",
-      "home": "Home insurance"
+      "title": "Seguros",
+      "life": "Seguro de vida",
+      "health": "Seguro de salud",
+      "car": "Seguro de coche",
+      "home": "Seguro de vivienda"
     },
     "finance": {
-      "title": "Finance",
-      "credit": "Credit cards",
-      "online": "Online banking",
-      "invest": "Investments"
+      "title": "Finanzas",
+      "credit": "Tarjetas de crédito",
+      "online": "Banca en línea",
+      "invest": "Inversiones"
     },
     "partner": {
-      "title": "Partner with Us"
+      "title": "Asóciate con nosotros"
     },
     "about": {
-      "title": "About Us"
+      "title": "Sobre nosotros"
     },
     "lang": {
-      "en": "English",
-      "es": "Espaniol"
+      "en": "Inglés",
+      "es": "Español"
     }
   },
   "header": {
-    "title": "Compare and shop the best financial products for you",
+    "title": "Compara y compra los mejores productos financieros para ti",
     "cards": {
       "finance": {
-        "title": "Finance",
-        "credit": "Credit cards",
-        "online": "Online banking",
-        "invest": "Investments",
-        "cashback": "Cashback"
+        "title": "Finanzas",
+        "credit": "Tarjetas de crédito",
+        "online": "Banca en línea",
+        "invest": "Inversiones",
+        "cashback": "Reembolso"
       },
       "insurance": {
-        "title": "Insurance",
-        "car": "Car insurance",
-        "life": "Life insurance",
-        "pet": "Pet insurance",
-        "travel": "Travel insurance"
+        "title": "Seguros",
+        "car": "Seguro de coche",
+        "life": "Seguro de vida",
+        "pet": "Seguro para mascotas",
+        "travel": "Seguro de viaje"
       },
       "loans": {
-        "title": "Loans",
-        "home": "Home loans",
-        "personal": "Personal loans",
-        "business": "Business loans",
-        "student": "Student loans"
+        "title": "Préstamos",
+        "home": "Préstamos hipotecarios",
+        "personal": "Préstamos personales",
+        "business": "Préstamos comerciales",
+        "student": "Préstamos estudiantiles"
       }
     }
   },
   "logos": {
-    "title": "Explore offers from brands top-rated on"
+    "title": "Explora ofertas de marcas mejor calificadas en"
   },
   "guide": {
-    "title": "Read our guides",
+    "title": "Toma mejores decisiones financieras con nuestras herramientas comprobadas y conocimientos de expertos.",
     "btns": {
-      "tred": "Trending articles",
-      "business": "Business loans",
-      "online": "Online banking",
-      "pet": "Pet insurance",
-      "debt": "Debt consolidation",
-      "tax": "Tax relief",
-      "life": "Life insurance",
-      "credit": "Credit cards"
+      "tred": "Artículos en tendencia",
+      "business": "Préstamos comerciales",
+      "online": "Préstamos estudiantiles",
+      "pet": "Préstamos personales",
+      "debt": "Hipotecas",
+      "tax": "Seguros",
+      "life": "Seguro de vida",
+      "credit": "Tarjetas de crédito"
     },
     "cards": {
       "1": {
-        "title": "Find the best pet insurance for your furry friends – quick, easy & free!",
-        "subtitle": "Find the best coverage for your pet in 7 easy questions tootoot"
+        "title": "Protege a tu mascota sin gastar de más – ¡compara los mejores planes de seguro!",
+        "subtitle": "Shawn Hammond - Experto financiero"
       },
       "2": {
-        "title": "Find the best pet insurance for your furry friends – quick, easy & free!",
-        "subtitle": "Find the best coverage for your pet in 7 easy questions tootoot"
+        "title": "Impulsa el crecimiento de tu negocio – ¡encuentra el préstamo adecuado en solo minutos!",
+        "subtitle": "Tiffany Chapman - Experta financiera"
       },
       "3": {
-        "title": "Find the best pet insurance for your furry friends – quick, easy & free!",
-        "subtitle": "Find the best coverage for your pet in 7 easy questions tootoot"
+        "title": "Financia tu educación inteligentemente – ¡compara opciones de préstamos estudiantiles ahora!",
+        "subtitle": "Macie Sims - Experta financiera"
       },
       "4": {
-        "title": "Find the best pet insurance for your furry friends – quick, easy & free!",
-        "subtitle": "Find the best coverage for your pet in 7 easy questions tootoot"
+        "title": "Obtén un préstamo personal que se ajuste a tus necesidades – ¡rápido, fácil y seguro!",
+        "subtitle": "Aislee Mathis - Experta financiera"
       },
       "5": {
-        "title": "Find the best pet insurance for your furry friends – quick, easy & free!",
-        "subtitle": "Find the best coverage for your pet in 7 easy questions tootoot"
+        "title": "Encuentra las mejores tasas hipotecarias para tu próximo hogar – sin estrés, sin complicaciones.",
+        "subtitle": "Hallie Carlson - Experta financiera"
       }
     }
   },
   "cards": {
-    "title": "Get financially smart with our expert tools and guides",
-    "collapse": "Collapse all",
-    "expand": "Expand all",
+    "title": "",
+    "collapse": "",
+    "expand": "Expandir todo",
+    "readMore": "Leer artículos",
     "1": {
-      "title": "Business Loans",
+      "title": "Préstamos comerciales",
       "articles": {
         "1": {
-          "title": "Our best business loans of 2025. Apply in minutes. Get funded fast.",
-          "btn": "View business loans"
+          "title": "Nuestros mejores préstamos comerciales de 2025. Solicita en minutos. Financiación rápida.",
+          "btn": "Ver préstamos comerciales"
         },
         "2": {
-          "title": "How to Get a Business Loan with Bad Credit",
+          "title": "Cómo obtener un préstamo comercial con mal crédito",
           "author": "Su Guillory • Jul, 2025"
         },
         "3": {
-          "title": "How to Get a Business Loan with Bad Credit",
+          "title": "Cómo obtener un préstamo comercial con mal crédito",
           "author": "Su Guillory • Jul, 2025"
         },
         "4": {
-          "title": "How to Get a Business Loan with Bad Credit",
+          "title": "Cómo obtener un préstamo comercial con mal crédito",
           "author": "Su Guillory • Jul, 2025"
         }
       }
     },
     "2": {
-      "title": "Car Insurance",
+      "title": "Préstamos estudiantiles",
       "articles": {
         "1": {
-          "title": "Best car insurance quotes of 2025. drive with confidence knowing you’re covered.",
-          "btn": "View car insurance"
+          "title": "Las mejores cotizaciones de seguros de coche de 2025. Conduce con confianza sabiendo que estás cubierto.",
+          "btn": "Ver seguro de coche"
         },
         "2": {
-          "title": "How to Get a Business Loan with Bad Credit",
+          "title": "Cómo obtener un préstamo comercial con mal crédito",
           "author": "Su Guillory • Jul, 2025"
         },
         "3": {
-          "title": "How to Get a Business Loan with Bad Credit",
+          "title": "Cómo obtener un préstamo comercial con mal crédito",
           "author": "Su Guillory • Jul, 2025"
         },
         "4": {
-          "title": "How to Get a Business Loan with Bad Credit",
+          "title": "Cómo obtener un préstamo comercial con mal crédito",
           "author": "Su Guillory • Jul, 2025"
         }
       }
     },
     "3": {
-      "title": "Debt Consolidation",
+      "title": "Préstamos personales",
       "articles": {
         "1": {
-          "title": "Our best debt consolidation loans 2025 say goodbye to debt.",
-          "btn": "View car insurance"
+          "title": "Nuestros mejores préstamos de consolidación de deudas de 2025. Di adiós a la deuda.",
+          "btn": "Ver seguro de coche"
         },
         "2": {
-          "title": "How to Get a Business Loan with Bad Credit",
+          "title": "Cómo obtener un préstamo comercial con mal crédito",
           "author": "Su Guillory • Jul, 2025"
         },
         "3": {
-          "title": "How to Get a Business Loan with Bad Credit",
+          "title": "Cómo obtener un préstamo comercial con mal crédito",
           "author": "Su Guillory • Jul, 2025"
         },
         "4": {
-          "title": "How to Get a Business Loan with Bad Credit",
+          "title": "Cómo obtener un préstamo comercial con mal crédito",
           "author": "Su Guillory • Jul, 2025"
         }
       }
     },
     "4": {
-      "title": "Student Loans Refinance",
+      "title": "Seguros",
       "articles": {
         "1": {
-          "title": "Our best debt consolidation loans 2025 say goodbye to debt.",
-          "btn": "View car insurance"
+          "title": "Nuestros mejores préstamos de consolidación de deudas de 2025. Di adiós a la deuda.",
+          "btn": "Ver seguro de coche"
         },
         "2": {
-          "title": "How to Get a Business Loan with Bad Credit",
+          "title": "Cómo obtener un préstamo comercial con mal crédito",
           "author": "Su Guillory • Jul, 2025"
         },
         "3": {
-          "title": "How to Get a Business Loan with Bad Credit",
+          "title": "Cómo obtener un préstamo comercial con mal crédito",
           "author": "Su Guillory • Jul, 2025"
         },
         "4": {
-          "title": "How to Get a Business Loan with Bad Credit",
+          "title": "Cómo obtener un préstamo comercial con mal crédito",
           "author": "Su Guillory • Jul, 2025"
         }
       }
     },
     "5": {
-      "title": "Credit Cards",
+      "title": "Tarjetas de crédito",
       "articles": {
         "1": {
-          "title": "Our best debt consolidation loans 2025 say goodbye to debt.",
-          "btn": "View car insurance"
+          "title": "Nuestros mejores préstamos de consolidación de deudas de 2025. Di adiós a la deuda.",
+          "btn": "Ver seguro de coche"
         },
         "2": {
-          "title": "How to Get a Business Loan with Bad Credit",
+          "title": "Cómo obtener un préstamo comercial con mal crédito",
           "author": "Su Guillory • Jul, 2025"
         },
         "3": {
-          "title": "How to Get a Business Loan with Bad Credit",
+          "title": "Cómo obtener un préstamo comercial con mal crédito",
           "author": "Su Guillory • Jul, 2025"
         },
         "4": {
-          "title": "How to Get a Business Loan with Bad Credit",
+          "title": "Cómo obtener un préstamo comercial con mal crédito",
           "author": "Su Guillory • Jul, 2025"
         }
       }
     },
     "6": {
-      "title": "Home Insurance",
+      "title": "Seguro de vivienda",
       "articles": {
         "1": {
-          "title": "Our best debt consolidation loans 2025 say goodbye to debt.",
-          "btn": "View car insurance"
+          "title": "Nuestros mejores préstamos de consolidación de deudas de 2025. Di adiós a la deuda.",
+          "btn": "Ver seguro de coche"
         },
         "2": {
-          "title": "How to Get a Business Loan with Bad Credit",
+          "title": "Cómo obtener un préstamo comercial con mal crédito",
           "author": "Su Guillory • Jul, 2025"
         },
         "3": {
-          "title": "How to Get a Business Loan with Bad Credit",
+          "title": "Cómo obtener un préstamo comercial con mal crédito",
           "author": "Su Guillory • Jul, 2025"
         },
         "4": {
-          "title": "How to Get a Business Loan with Bad Credit",
+          "title": "Cómo obtener un préstamo comercial con mal crédito",
           "author": "Su Guillory • Jul, 2025"
         }
       }
     }
   },
   "help": {
-    "title": "We help people do more with their money",
+    "title": "Ayudamos a las personas a hacer más con su dinero",
     "1": {
       "title": "450,000+",
-      "subtitle": "Home owners applied for a mortgage loan"
+      "subtitle": "Propietarios de viviendas solicitaron un préstamo hipotecario"
     },
     "2": {
       "title": "100,000+",
-      "subtitle": "drivers connected with a car lender"
+      "subtitle": "Conductores conectados con un prestamista de autos"
     },
     "3": {
       "title": "330,000+",
-      "subtitle": "borrowers applied for a personal loan"
+      "subtitle": "Solicitantes obtuvieron un préstamo personal"
     },
     "4": {
       "title": "50,000+",
-      "subtitle": "pet parents received a pet insurance quote"
+      "subtitle": "Dueños de mascotas recibieron una cotización de seguro"
     }
   },
   "explore": {
-    "title": "Explore more from Online Loans",
+    "title": "Explora más de Online Loans",
     "cards": {
       "1": {
-        "title": "Home loans"
+        "title": "Préstamos hipotecarios"
       },
       "2": {
-        "title": "Home loans refinance"
+        "title": "Refinanciamiento de préstamos hipotecarios"
       },
       "3": {
-        "title": "Personal loans"
+        "title": "Préstamos personales"
       },
       "4": {
-        "title": "Private student loans"
+        "title": "Préstamos estudiantiles privados"
       }
     }
   },
   "footer": {
-    "addr": "OnlineLoans.org, 5 Crosby St. 3rd floor, New York, NY 10013",
-    "copy": "Copyright © 2024 OnlineLoans.Credit. All rights reserved.",
-    "txt": "OnlineLoans.Credit is compensated by the affiliates on this site. The appearance and order of companies appearing on this site is based on a combination of factors, including affiliate compensation and user conversion rates. OnlineLoans.Credit is not paid to specifically rank companies in any particular position or order. The information contained in OnlineLoans.Credit is not legal, financial, or investment advice and is not an endorsement or recommendation of any of the companies or the products or services appearing on OnlineLoans.Credit. As disclosed on the About Us page, all information on OnlineLoans.Credit is believed to be accurate as of the date of each article and is subject to change. OnlineLoans.Credit does not contain an exhaustive list of all lending or insurance companies in each category.",
-    "student": "Student loan",
-    "business": "Business loan",
-    "personal": "Personal loan",
-    "home": "Home loan",
-    "life": "Life insurance",
-    "car": "Car insurance",
-    "homeIns": "Home insurance",
-    "health": "Health insurance",
-    "credit": "Credit cards",
-    "online": "Online banking",
-    "invest": "Investments",
-    "partner": "Partner with us",
-    "about": "About us"
+    "addr1": "Onlineloans.org, 4326 Rocket Drive, Minneapolis",
+    "addr2": "Minnesota 55409, Estados Unidos",
+    "copy": "Copyright © 2025 OnlineLoans.Credit. Todos los derechos reservados.",
+    "txt1": "Diseñado para ayudar a los usuarios a tomar decisiones confiables en línea, este sitio contiene información sobre una amplia gama de productos y servicios. Ciertos detalles, incluidos, entre otros, precios y ofertas especiales, nos son proporcionados directamente por nuestros socios y están sujetos a cambios sin previo aviso. Aunque se basa en investigaciones meticulosas, la información que compartimos no constituye asesoramiento legal o profesional ni debe tratarse como tal. La inclusión de empresas en este sitio NO implica respaldo.",
+    "txt2": "No somos asesores de inversión, prestamistas ni intermediarios y no ofrecemos préstamos ni hipotecas directamente a los usuarios finales, sino que permitimos que los usuarios se conecten con socios y plataformas de préstamo que pueden ofrecer un préstamo. Todas las decisiones y términos de aprobación de préstamos son determinados por los prestamistas en el momento de su solicitud. Cualquier solicitud de coincidencia enviada a través de nuestro sitio no constituye una solicitud de préstamo y usted deberá presentar una solicitud al prestamista respectivo para recibir una oferta real. No garantizamos que se le aprobará un préstamo ni que se le ofrecerán los términos mostrados en nuestro sitio.",
+    "txt3": "Se prohíbe estrictamente la reproducción total o parcial.",
+    "txt4": "Este sitio es un recurso gratuito en línea que ofrece contenido útil y funciones de comparación a nuestros visitantes. Aceptamos compensación publicitaria de las empresas que aparecen en el sitio, lo que puede afectar la ubicación y el orden en que se presentan las marcas (y/o sus productos), así como el puntaje asignado. La inclusión de empresas en esta página NO implica respaldo. No presentamos todos los proveedores del mercado. Salvo lo expresamente establecido en nuestros Términos de Uso, se rechazan todas las representaciones y garantías sobre la información presentada en esta página. La información, incluidos los precios, está sujeta a cambios en cualquier momento.",
+    "student": "Préstamo estudiantil",
+    "business": "Préstamo comercial",
+    "personal": "Préstamo personal",
+    "home": "Préstamo hipotecario",
+    "life": "Seguro de vida",
+    "car": "Seguro de coche",
+    "homeIns": "Seguro de vivienda",
+    "health": "Seguro de salud",
+    "securityPolicy": "Política de seguridad",
+    "sitemap": "Mapa del sitio",
+    "userRights": "Derechos del usuario",
+    "helpCenter": "Centro de ayuda",
+    "cookiePolicy": "Política de cookies",
+    "partner": "Asóciate con nosotros",
+    "about": "Sobre nosotros",
+    "privacyPolicy": "Política de privacidad",
+    "disclaimer": "Descargo de responsabilidad",
+    "contact": "Contáctanos",
+    "termsofService": "Términos de servicio",
+    "accessibilityStatement": "Declaración de accesibilidad"
   }
 }
