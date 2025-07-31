@@ -43,3 +43,7 @@ body {
 .bold {
   font-weight: 700;
 }
+
+img{
+  cursor: pointer;
+}
