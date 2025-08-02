@@ -1,0 +1,67 @@
+:root {
+  --main-bg-color: #f8f8f8;
+  --footer-bg-color: #101f30;
+  --header-main-color: #ecfaff;
+  --header-secondary-color: #effdf9;
+
+  --primary-light-color: #fff;
+  --primary-dark-color: #161616;
+  --primary-dark-color-2: #0e2b56;
+  --secondary-color: #e5e7f1;
+  --secondary-color-2: #161616;
+
+  --border-raduis: 10px;
+  --primary-btn-color: #1ab59b;
+  --secondary-btn-color: #c1edec;
+
+  --tikTok: 'TikTok Sans', sans-serif;
+  --roboto-font: 'Roboto', sans-serif;
+}
+
+.block-title {
+  font-size: 28px;
+  color: var(--primary-dark-color);
+  font-weight: 500;
+  font-family: var(--tikTok);
+  line-height: 36px;
+  margin-bottom: 24px;
+}
+
+.primary-btn {
+  background-color: #ebecf4;
+  color: #161616;
+  padding: 4px 8px;
+  text-wrap: nowrap;
+  font-family: var(--tikTok);
+  font-weight: 400;
+  font-size: 16px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.primary-btn:hover {
+  background: #dfe1f1;
+}
+
+.primary-btn.active {
+  background-color: #3e62f0;
+  color: #fff;
+}
+
+.secondary-btn {
+  font-family: var(--tikTok);
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 18px;
+  border-bottom: 1px solid #3e62f0;
+  background: transparent;
+}
+
+.section {
+  padding: 30px 0;
+}
+
+.show {
+  display: block !important;
+}

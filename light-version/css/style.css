@@ -4,15 +4,17 @@
 
 .navbar-wrapper {
   /* position: sticky; */
+  position: relative;
   top: 0;
   left: 0;
-  background: transparent;
-  color: var(--primary-light-color);
+  background: #ebecf4;
+  color: #000;
   height: 70px;
   font-family: var(--tikTok);
   font-size: 16px;
   z-index: 11;
   transition: all 0.3s ease;
+  border-bottom: 1px solid #dbdefc;
 }
 
 .navbar-wrapper.scrolled {
@@ -376,7 +378,7 @@
   width: 100%;
   height: 100%;
 
-  background-image: url('../images/header_bg.png');
+  background-image: url('../images/bg.png');
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
@@ -396,6 +398,7 @@
   margin: 0 auto;
   margin-bottom: 64px;
   animation: header-title 0.5s forwards;
+  color: #0e2b56;
 }
 
 @keyframes header-title {
@@ -459,8 +462,8 @@
   left: 0;
   padding: 24px 22px;
   width: 100%;
-  border-bottom-left-radius: 20px;
-  border-bottom-right-radius: 20px;
+  border-bottom-left-radius: 15px;
+  border-bottom-right-radius: 15px;
   font-family: TikTok Sans;
   font-weight: 500;
   font-size: 28px;
@@ -826,6 +829,7 @@
   white-space: nowrap;
   text-overflow: ellipsis;
   z-index: 1;
+  font: inherit;
 }
 
 .guide-article-1 {
@@ -885,8 +889,9 @@
   width: 100%;
   font-family: var(--tikTok);
   border: 1px solid #e5e7f1;
-  border-radius: 3px;
+  border-radius: 18px;
   overflow: hidden;
+  background: #fff;
 }
 
 .guide-card-title-block {
@@ -1217,7 +1222,10 @@
   pointer-events: none;
 }
 
-.slide img {
+.slide-img-wrapper {
+}
+
+.slide-img-wrapper img {
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -1279,7 +1287,13 @@
   .slide {
     flex: 0 0 300px;
     width: 100%;
+    height: 100%;
     max-width: 300px;
+  }
+
+  .slide-img-wrapper {
+    width: 100%;
+    height: 100%;
   }
 
   .slide-block::-webkit-scrollbar {
@@ -1293,7 +1307,7 @@
   padding: 60px 0;
   width: 100%;
   height: 100%;
-  background-image: url('../images/header_bg.png');
+  background-color: #172b54;
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
@@ -1353,6 +1367,22 @@
 }
 
 @media (max-width: 1200px) {
+  .header-cards-wrapper {
+    overflow-x: auto;
+    width: 100%;
+    padding-bottom: 20px;
+  }
+
+  .header-cards {
+    width: auto;
+    margin: 0 auto;
+    overflow-x: scroll;
+  }
+
+  .header-card {
+    flex-shrink: 0;
+  }
+
   .container-content {
     padding: 0 16px;
   }
@@ -1393,27 +1423,27 @@
 }
 
 @media (max-width: 992px) {
+  .container {
+    background: #f6f7fb;
+  }
+  .logos {
+    background: transparent;
+  }
+
   .header-title {
     letter-spacing: 1.5px;
     font-size: 36px;
     line-height: 42px;
     margin-bottom: 24px;
-    text-align: left;
-  }
-
-  .header-cards {
-    flex-direction: column;
-    align-items: center;
-    gap: 10px;
   }
 
   .header-card {
-    width: 343px;
+    width: 283px;
     height: 253px;
   }
 
   .header-card-list-item {
-    width: 85%;
+    width: 82%;
     padding: 12px;
     height: 72px;
     font-size: 16px;
@@ -1560,9 +1590,28 @@
   .logo-list {
     max-width: 85%;
   }
+
+  .explore .container-content {
+    padding: 0;
+  }
+
+  .explore-wrapper {
+    border-radius: 0;
+  }
+
+  .block-title-wrapper {
+    gap: 5px;
+  }
 }
 
 @media (max-width: 576px) {
+  .header-title {
+    font-weight: 500;
+    font-size: 28px;
+    line-height: 36px;
+    text-align: center;
+  }
+
   .footer-right-part {
     flex-wrap: wrap;
   }
