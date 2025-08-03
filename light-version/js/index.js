@@ -188,6 +188,78 @@ function addTabSwitcher() {
   });
 }
 
+function headerCardAnimation() {
+  const container = document.querySelector('.carousel-container');
+  const cardsWrapper = document.querySelector('.header-cards');
+  const cards = document.querySelectorAll('.header-card');
+  const indicators = document.querySelectorAll('.carousel-indicator');
+
+  if (window.innerWidth <= 768) {
+    let startX = 0;
+    let currentIndex = 0;
+    const cardWidth = cards[0].offsetWidth;
+
+    const goToSlide = (index) => {
+      currentIndex = Math.max(0, Math.min(index, cards.length - 1));
+      const maxOffset = (cards.length - 1) * cardWidth;
+      const offset = Math.min(currentIndex * cardWidth, maxOffset);
+      cardsWrapper.style.transform = `translateX(-${offset}px)`;
+
+      indicators.forEach((ind, i) => {
+        ind.classList.toggle('active', i === currentIndex);
+      });
+    };
+
+    container.addEventListener(
+      'touchstart',
+      (e) => {
+        startX = e.touches[0].clientX;
+      },
+      { passive: true }
+    );
+
+    container.addEventListener(
+      'touchmove',
+      (e) => {
+        if (!startX) return;
+        const x = e.touches[0].clientX;
+        const diff = startX - x;
+        cardsWrapper.style.transform = `translateX(calc(-${
+          currentIndex * cardWidth
+        }px - ${diff}px))`;
+      },
+      { passive: true }
+    );
+
+    container.addEventListener('touchend', (e) => {
+      if (!startX) return;
+      const endX = e.changedTouches[0].clientX;
+      const diff = startX - endX;
+
+      if (diff > 50 && currentIndex < cards.length - 1) {
+        goToSlide(currentIndex + 1); // left swipe
+      } else if (diff < -50 && currentIndex > 0) {
+        goToSlide(currentIndex - 1); // right swipe
+      } else {
+        goToSlide(currentIndex);
+      }
+      startX = 0;
+    });
+
+    indicators.forEach((ind) => {
+      ind.addEventListener('click', () => {
+        goToSlide(parseInt(ind.dataset.index));
+      });
+    });
+  }
+}
+
+window.addEventListener('resize', () => {
+  if (window.innerWidth > 768) {
+    document.querySelector('.header-cards').style.transform = 'translateX(0)';
+  }
+});
+
 document.addEventListener('DOMContentLoaded', function () {
   animatedHeader();
   addHeaderCardsAnimation();
@@ -195,4 +267,5 @@ document.addEventListener('DOMContentLoaded', function () {
   addSliderAnimation();
   collapseAllBlocks();
   collapseOneBlock();
+  headerCardAnimation();
 });

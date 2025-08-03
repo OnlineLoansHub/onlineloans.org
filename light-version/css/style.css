@@ -387,6 +387,10 @@
   margin-top: -70px;
 }
 
+.header-cards-wrapper {
+  position: relative;
+}
+
 .header-title {
   letter-spacing: 1.5px;
   max-width: 670px;
@@ -658,6 +662,50 @@
 }
 .header-card-3 .header-card-list-item-4.animate-step {
   transform: rotate(-2.68deg) translateY(-16px);
+}
+/* Базовые стили карусели */
+.carousel-container {
+  width: 100%;
+  // overflow: hidden;
+  // position: relative;
+  // max-width: calc(375px + 32px);
+}
+
+.header-cards {
+  display: flex;
+  transition: transform 0.5s ease;
+  // width: max-content;
+  gap: 32px;
+  // padding: 0 16px;
+}
+
+.header-card {
+  // width: 375px;
+  // height: 370px;
+  // flex-shrink: 0;
+  // scroll-snap-align: start;
+}
+
+/* Индикаторы */
+.carousel-indicators {
+  display: none;
+  justify-content: center;
+  gap: 6px;
+  margin-top: 20px;
+}
+
+.carousel-indicator {
+  width: 63px;
+  height: 4px;
+  background: #0e2b5633;
+  cursor: pointer;
+  transition: all 0.3s;
+  border-radius: 50px;
+}
+
+.carousel-indicator.active {
+  background: #0e2b5699;
+  width: 63px;
 }
 
 /* logos */
@@ -1367,22 +1415,6 @@
 }
 
 @media (max-width: 1200px) {
-  .header-cards-wrapper {
-    overflow-x: auto;
-    width: 100%;
-    padding-bottom: 20px;
-  }
-
-  .header-cards {
-    width: auto;
-    margin: 0 auto;
-    overflow-x: scroll;
-  }
-
-  .header-card {
-    flex-shrink: 0;
-  }
-
   .container-content {
     padding: 0 16px;
   }
@@ -1438,8 +1470,8 @@
   }
 
   .header-card {
-    width: 283px;
-    height: 253px;
+    width: 300px;
+    height: 270px;
   }
 
   .header-card-list-item {
@@ -1571,6 +1603,50 @@
 }
 
 @media (max-width: 768px) {
+  .header-cards {
+    gap: 45px;
+  }
+
+  .header-card {
+    width: 273px;
+    height: 253px;
+  }
+
+  .header-cards-wrapper {
+    position: relative;
+    padding-bottom: 40px;
+  }
+
+  .carousel-viewport {
+    width: 100%;
+    overflow: hidden;
+  }
+
+  .header-cards {
+    transition: transform 0.5s ease;
+    width: max-content;
+  }
+
+  .header-card {
+    flex-shrink: 0;
+    scroll-snap-align: start;
+  }
+
+  .carousel-container {
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+    // max-width: calc(375px + 32px);
+  }
+
+  .carousel-indicators {
+    display: flex;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+  }
+
   .guide-card-main-article {
     flex-direction: column;
   }
@@ -1605,6 +1681,9 @@
 }
 
 @media (max-width: 576px) {
+  .header-cards {
+    gap: 15px;
+  }
   .header-title {
     font-weight: 500;
     font-size: 28px;
