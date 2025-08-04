@@ -24,7 +24,8 @@
   font-weight: 500;
   font-family: var(--tikTok);
   line-height: 36px;
-  margin-bottom: 0 auto 24px 9px;
+  margin-bottom: 24px;
+  margin-left: 9px;
 }
 
 .primary-btn {
