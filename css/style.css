@@ -1462,8 +1462,8 @@
   }
 
   .header-card {
-    width: 273px;
-    height: 253px;
+    width: 283px;
+    height: 292px;
   }
 
   .header-card-list-item {
@@ -1475,22 +1475,23 @@
   }
 
   .header-card-list-item-1 {
-    bottom: 40px;
+    bottom: 50px;
   }
 
   .header-card-list-item-2 {
-    bottom: 80px;
+    bottom: 100px;
   }
   .header-card-list-item-3 {
-    bottom: 120px;
+    bottom: 150px;
   }
 
   .header-card-list-item-4 {
-    bottom: 160px;
+    bottom: 190px;
   }
 
   .header-card-title {
     padding: 12px 16px;
+    height: 68px;
   }
 
   .header-card-title::before {
@@ -1616,8 +1617,8 @@
   }
 
   .header-card {
-    width: 273px;
-    height: 253px;
+    width: 283px;
+    height: 292px;
   }
 
   .guide-card-main-article {
@@ -1655,6 +1656,8 @@
 
 @media (max-width: 576px) {
   .header-cards {
+        width: 283px;
+    height: 292px;
     gap: 15px;
   }
   .header-title {
