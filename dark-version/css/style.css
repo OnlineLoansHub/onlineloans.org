@@ -4,17 +4,15 @@
 
 .navbar-wrapper {
   /* position: sticky; */
-  position: relative;
   top: 0;
   left: 0;
-  background: #ebecf4;
-  color: #000;
+  background: transparent;
+  color: var(--primary-light-color);
   height: 70px;
   font-family: var(--tikTok);
   font-size: 16px;
   z-index: 11;
   transition: all 0.3s ease;
-  border-bottom: 1px solid #dbdefc;
 }
 
 .navbar-wrapper.scrolled {
@@ -378,7 +376,7 @@
   width: 100%;
   height: 100%;
 
-  background-image: url('../images/bg.png');
+  background-image: url('../images/header_bg.png');
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
@@ -398,7 +396,6 @@
   margin: 0 auto;
   margin-bottom: 64px;
   animation: header-title 0.5s forwards;
-  color: #0e2b56;
 }
 
 @keyframes header-title {
@@ -412,55 +409,15 @@
   }
 }
 
-.header-cards-wrapper {
-  position: relative;
-  width: 100%;
-  padding: 20px 0 60px;
-}
-
-.carousel-container {
-  width: 100%;
-  overflow: hidden;
-}
-
-.carousel-indicators {
-  display: none;
-  justify-content: center;
-  gap: 6px;
-  margin-top: 20px;
-}
-
-.carousel-indicator {
-  width: 63px;
-  height: 4px;
-  background: #0e2b5633;
-  cursor: pointer;
-  transition: all 0.3s;
-  border-radius: 50px;
-}
-
-.carousel-indicator.active {
-  background: #0e2b5699;
-  width: 63px;
-}
-
 .header-cards {
   display: flex;
   gap: 32px;
   color: #000;
-  transition: transform 0.5s ease;
-}
-
-.header-card-slide {
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  scroll-snap-align: center;
 }
 
 .header-card {
   position: relative;
-  width: 100%;
+  width: 375px;
   height: 370px;
   padding: 24px;
   border-radius: 15px;
@@ -502,8 +459,8 @@
   left: 0;
   padding: 24px 22px;
   width: 100%;
-  border-bottom-left-radius: 15px;
-  border-bottom-right-radius: 15px;
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
   font-family: TikTok Sans;
   font-weight: 500;
   font-size: 28px;
@@ -869,7 +826,6 @@
   white-space: nowrap;
   text-overflow: ellipsis;
   z-index: 1;
-  font: inherit;
 }
 
 .guide-article-1 {
@@ -929,9 +885,8 @@
   width: 100%;
   font-family: var(--tikTok);
   border: 1px solid #e5e7f1;
-  border-radius: 18px;
+  border-radius: 3px;
   overflow: hidden;
-  background: #fff;
 }
 
 .guide-card-title-block {
@@ -1262,10 +1217,7 @@
   pointer-events: none;
 }
 
-.slide-img-wrapper {
-}
-
-.slide-img-wrapper img {
+.slide img {
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -1327,13 +1279,7 @@
   .slide {
     flex: 0 0 300px;
     width: 100%;
-    height: 100%;
     max-width: 300px;
-  }
-
-  .slide-img-wrapper {
-    width: 100%;
-    height: 100%;
   }
 
   .slide-block::-webkit-scrollbar {
@@ -1347,7 +1293,7 @@
   padding: 60px 0;
   width: 100%;
   height: 100%;
-  background-color: #172b54;
+  background-image: url('../images/header_bg.png');
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
@@ -1447,27 +1393,27 @@
 }
 
 @media (max-width: 992px) {
-  .container {
-    background: #f6f7fb;
-  }
-  .logos {
-    background: transparent;
-  }
-
   .header-title {
     letter-spacing: 1.5px;
     font-size: 36px;
     line-height: 42px;
     margin-bottom: 24px;
+    text-align: left;
+  }
+
+  .header-cards {
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
   }
 
   .header-card {
-    width: 273px;
+    width: 343px;
     height: 253px;
   }
 
   .header-card-list-item {
-    width: 82%;
+    width: 85%;
     padding: 12px;
     height: 72px;
     font-size: 16px;
@@ -1595,31 +1541,6 @@
 }
 
 @media (max-width: 768px) {
-  .carousel-container {
-    width: 100%;
-    overflow: hidden;
-  }
-
-  .header-cards {
-    display: flex;
-    transition: transform 0.3s ease;
-    width: max-content;
-    gap: 16px;
-  }
-
-  .carousel-indicators {
-    display: flex;
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-  }
-
-  .header-card {
-    width: 273px;
-    height: 253px;
-  }
-
   .guide-card-main-article {
     flex-direction: column;
   }
@@ -1639,31 +1560,9 @@
   .logo-list {
     max-width: 85%;
   }
-
-  .explore .container-content {
-    padding: 0;
-  }
-
-  .explore-wrapper {
-    border-radius: 0;
-  }
-
-  .block-title-wrapper {
-    gap: 5px;
-  }
 }
 
 @media (max-width: 576px) {
-  .header-cards {
-    gap: 15px;
-  }
-  .header-title {
-    font-weight: 500;
-    font-size: 28px;
-    line-height: 36px;
-    text-align: center;
-  }
-
   .footer-right-part {
     flex-wrap: wrap;
   }

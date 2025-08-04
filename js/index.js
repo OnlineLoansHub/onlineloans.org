@@ -138,7 +138,6 @@ function addHeaderCardsAnimation() {
 
 function animatedHeader() {
   const navbar = document.getElementById('navbar');
-  const navLogo = document.querySelector('.nav-logo');
   const triggerSection = document.getElementById('trigger-section');
 
   const triggerOffset = triggerSection.offsetTop;
@@ -149,12 +148,12 @@ function animatedHeader() {
 
     if (scrollY >= triggerOffset && !wasTriggered) {
       navbar.classList.add('scrolled');
-      navLogo.src = './images/logo_dark.svg';
+      // navLogo.src = './images/logo_dark.svg';
       wasTriggered = true;
     } else if (scrollY < triggerOffset && wasTriggered) {
       navbar.classList.remove('scrolled');
       wasTriggered = false;
-      navLogo.src = './images/logo.svg';
+      // navLogo.src = './images/logo.svg';
     }
   }
 
@@ -189,6 +188,63 @@ function addTabSwitcher() {
   });
 }
 
+function initSlider() {
+  const container = document.querySelector('.carousel-container');
+  const slides = document.querySelectorAll('.header-card-slide');
+  const indicators = document.querySelectorAll('.carousel-indicator');
+  let currentIndex = 1; // начинаем со второго
+
+  const updateActiveSlide = (index) => {
+    slides.forEach((slide) => slide.classList.remove('active'));
+    indicators.forEach((ind) => ind.classList.remove('active'));
+    slides[index].classList.add('active');
+    indicators[index].classList.add('active');
+  };
+
+  const scrollToSlide = (index) => {
+    const slide = slides[index];
+    const containerCenter = container.offsetWidth / 2;
+    const slideCenter = slide.offsetLeft + slide.offsetWidth / 2;
+    const scrollX = slideCenter - containerCenter;
+
+    container.scrollTo({
+      left: scrollX,
+      behavior: 'smooth',
+    });
+
+    updateActiveSlide(index);
+  };
+
+  indicators.forEach((indicator) => {
+    indicator.addEventListener('click', () => {
+      currentIndex = parseInt(indicator.dataset.index, 10);
+      scrollToSlide(currentIndex);
+    });
+  });
+
+  // Touch swipe
+  let startX = 0;
+  container.addEventListener('touchstart', (e) => {
+    startX = e.touches[0].clientX;
+  });
+
+  container.addEventListener('touchend', (e) => {
+    const endX = e.changedTouches[0].clientX;
+    const delta = endX - startX;
+
+    if (delta < -50 && currentIndex < slides.length - 1) {
+      currentIndex++;
+      scrollToSlide(currentIndex);
+    } else if (delta > 50 && currentIndex > 0) {
+      currentIndex--;
+      scrollToSlide(currentIndex);
+    }
+  });
+
+  // init
+  scrollToSlide(currentIndex);
+}
+
 document.addEventListener('DOMContentLoaded', function () {
   animatedHeader();
   addHeaderCardsAnimation();
@@ -196,4 +252,5 @@ document.addEventListener('DOMContentLoaded', function () {
   addSliderAnimation();
   collapseAllBlocks();
   collapseOneBlock();
+  initSlider();
 });
