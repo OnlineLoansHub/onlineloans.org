@@ -1,3 +1,9 @@
+@media (hover: none) {
+  *:hover {
+    all: unset !important;
+  }
+}
+
 .container {
   position: relative;
 }
