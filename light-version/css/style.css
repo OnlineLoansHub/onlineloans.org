@@ -387,10 +387,6 @@
   margin-top: -70px;
 }
 
-.header-cards-wrapper {
-  position: relative;
-}
-
 .header-title {
   letter-spacing: 1.5px;
   max-width: 670px;
@@ -416,15 +412,55 @@
   }
 }
 
+.header-cards-wrapper {
+  position: relative;
+  width: 100%;
+  padding: 20px 0 60px;
+}
+
+.carousel-container {
+  width: 100%;
+  overflow: hidden;
+}
+
+.carousel-indicators {
+  display: none;
+  justify-content: center;
+  gap: 6px;
+  margin-top: 20px;
+}
+
+.carousel-indicator {
+  width: 63px;
+  height: 4px;
+  background: #0e2b5633;
+  cursor: pointer;
+  transition: all 0.3s;
+  border-radius: 50px;
+}
+
+.carousel-indicator.active {
+  background: #0e2b5699;
+  width: 63px;
+}
+
 .header-cards {
   display: flex;
   gap: 32px;
   color: #000;
+  transition: transform 0.5s ease;
+}
+
+.header-card-slide {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  scroll-snap-align: center;
 }
 
 .header-card {
   position: relative;
-  width: 375px;
+  width: 100%;
   height: 370px;
   padding: 24px;
   border-radius: 15px;
@@ -662,50 +698,6 @@
 }
 .header-card-3 .header-card-list-item-4.animate-step {
   transform: rotate(-2.68deg) translateY(-16px);
-}
-/* Базовые стили карусели */
-.carousel-container {
-  width: 100%;
-  // overflow: hidden;
-  // position: relative;
-  // max-width: calc(375px + 32px);
-}
-
-.header-cards {
-  display: flex;
-  transition: transform 0.5s ease;
-  // width: max-content;
-  gap: 32px;
-  // padding: 0 16px;
-}
-
-.header-card {
-  // width: 375px;
-  // height: 370px;
-  // flex-shrink: 0;
-  // scroll-snap-align: start;
-}
-
-/* Индикаторы */
-.carousel-indicators {
-  display: none;
-  justify-content: center;
-  gap: 6px;
-  margin-top: 20px;
-}
-
-.carousel-indicator {
-  width: 63px;
-  height: 4px;
-  background: #0e2b5633;
-  cursor: pointer;
-  transition: all 0.3s;
-  border-radius: 50px;
-}
-
-.carousel-indicator.active {
-  background: #0e2b5699;
-  width: 63px;
 }
 
 /* logos */
@@ -1470,8 +1462,8 @@
   }
 
   .header-card {
-    width: 300px;
-    height: 270px;
+    width: 273px;
+    height: 253px;
   }
 
   .header-card-list-item {
@@ -1603,40 +1595,16 @@
 }
 
 @media (max-width: 768px) {
-  .header-cards {
-    gap: 45px;
-  }
-
-  .header-card {
-    width: 273px;
-    height: 253px;
-  }
-
-  .header-cards-wrapper {
-    position: relative;
-    padding-bottom: 40px;
-  }
-
-  .carousel-viewport {
-    width: 100%;
-    overflow: hidden;
-  }
-
-  .header-cards {
-    transition: transform 0.5s ease;
-    width: max-content;
-  }
-
-  .header-card {
-    flex-shrink: 0;
-    scroll-snap-align: start;
-  }
-
   .carousel-container {
     width: 100%;
     overflow: hidden;
-    position: relative;
-    // max-width: calc(375px + 32px);
+  }
+
+  .header-cards {
+    display: flex;
+    transition: transform 0.3s ease;
+    width: max-content;
+    gap: 16px;
   }
 
   .carousel-indicators {
@@ -1645,6 +1613,11 @@
     bottom: 0;
     left: 0;
     right: 0;
+  }
+
+  .header-card {
+    width: 273px;
+    height: 253px;
   }
 
   .guide-card-main-article {

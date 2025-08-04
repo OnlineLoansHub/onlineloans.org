@@ -188,77 +188,62 @@ function addTabSwitcher() {
   });
 }
 
-function headerCardAnimation() {
+function initSlider() {
   const container = document.querySelector('.carousel-container');
-  const cardsWrapper = document.querySelector('.header-cards');
-  const cards = document.querySelectorAll('.header-card');
+  const slides = document.querySelectorAll('.header-card-slide');
   const indicators = document.querySelectorAll('.carousel-indicator');
+  let currentIndex = 1; // начинаем со второго
 
-  if (window.innerWidth <= 768) {
-    let startX = 0;
-    let currentIndex = 0;
-    const cardWidth = cards[0].offsetWidth;
+  const updateActiveSlide = (index) => {
+    slides.forEach((slide) => slide.classList.remove('active'));
+    indicators.forEach((ind) => ind.classList.remove('active'));
+    slides[index].classList.add('active');
+    indicators[index].classList.add('active');
+  };
 
-    const goToSlide = (index) => {
-      currentIndex = Math.max(0, Math.min(index, cards.length - 1));
-      const maxOffset = (cards.length - 1) * cardWidth;
-      const offset = Math.min(currentIndex * cardWidth, maxOffset);
-      cardsWrapper.style.transform = `translateX(-${offset}px)`;
+  const scrollToSlide = (index) => {
+    const slide = slides[index];
+    const containerCenter = container.offsetWidth / 2;
+    const slideCenter = slide.offsetLeft + slide.offsetWidth / 2;
+    const scrollX = slideCenter - containerCenter;
 
-      indicators.forEach((ind, i) => {
-        ind.classList.toggle('active', i === currentIndex);
-      });
-    };
-
-    container.addEventListener(
-      'touchstart',
-      (e) => {
-        startX = e.touches[0].clientX;
-      },
-      { passive: true }
-    );
-
-    container.addEventListener(
-      'touchmove',
-      (e) => {
-        if (!startX) return;
-        const x = e.touches[0].clientX;
-        const diff = startX - x;
-        cardsWrapper.style.transform = `translateX(calc(-${
-          currentIndex * cardWidth
-        }px - ${diff}px))`;
-      },
-      { passive: true }
-    );
-
-    container.addEventListener('touchend', (e) => {
-      if (!startX) return;
-      const endX = e.changedTouches[0].clientX;
-      const diff = startX - endX;
-
-      if (diff > 50 && currentIndex < cards.length - 1) {
-        goToSlide(currentIndex + 1); // left swipe
-      } else if (diff < -50 && currentIndex > 0) {
-        goToSlide(currentIndex - 1); // right swipe
-      } else {
-        goToSlide(currentIndex);
-      }
-      startX = 0;
+    container.scrollTo({
+      left: scrollX,
+      behavior: 'smooth',
     });
 
-    indicators.forEach((ind) => {
-      ind.addEventListener('click', () => {
-        goToSlide(parseInt(ind.dataset.index));
-      });
+    updateActiveSlide(index);
+  };
+
+  indicators.forEach((indicator) => {
+    indicator.addEventListener('click', () => {
+      currentIndex = parseInt(indicator.dataset.index, 10);
+      scrollToSlide(currentIndex);
     });
-  }
+  });
+
+  // Touch swipe
+  let startX = 0;
+  container.addEventListener('touchstart', (e) => {
+    startX = e.touches[0].clientX;
+  });
+
+  container.addEventListener('touchend', (e) => {
+    const endX = e.changedTouches[0].clientX;
+    const delta = endX - startX;
+
+    if (delta < -50 && currentIndex < slides.length - 1) {
+      currentIndex++;
+      scrollToSlide(currentIndex);
+    } else if (delta > 50 && currentIndex > 0) {
+      currentIndex--;
+      scrollToSlide(currentIndex);
+    }
+  });
+
+  // init
+  scrollToSlide(currentIndex);
 }
-
-window.addEventListener('resize', () => {
-  if (window.innerWidth > 768) {
-    document.querySelector('.header-cards').style.transform = 'translateX(0)';
-  }
-});
 
 document.addEventListener('DOMContentLoaded', function () {
   animatedHeader();
@@ -267,5 +252,5 @@ document.addEventListener('DOMContentLoaded', function () {
   addSliderAnimation();
   collapseAllBlocks();
   collapseOneBlock();
-  headerCardAnimation();
+  initSlider();
 });
