@@ -227,27 +227,27 @@
       }
     }
   },
-  "help": {
-    "title": "Helping Americans make smarter financial moves",
-    "1": {
-      "title": "45,000+",
-      "subtitle": "homeowners secured mortgage approvals with us"
-    },
-    "2": {
-      "title": "18,500+",
-      "subtitle": "drivers found auto loan matches tailored to their budget"
-    },
-    "3": {
-      "title": "32,000+",
-      "subtitle": "individuals accessed personal loans for life's big moments"
-    },
-    "4": {
-      "title": "4,700+",
-      "subtitle": "pet owners protected their furry friends with insurance quotes"
-    }
+"help": {
+  "title": "Helping Americans make smarter financial moves",
+  "1": {
+    "title": "45,000+",
+    "subtitle": "homeowners secured mortgage approvals with us"
   },
+  "2": {
+    "title": "18,500+",
+    "subtitle": "drivers found auto loan matches tailored to their budget"
+  },
+  "3": {
+    "title": "32,000+",
+    "subtitle": "individuals accessed personal loans for life's big moments"
+  },
+  "4": {
+    "title": "4,700+",
+    "subtitle": "pet owners protected their furry friends with insurance quotes"
+  }
+},
   "explore": {
-    "title": "Explore more from Online Loans",
+    "title": "Explore more from OnlineLoans.org",
     "cards": {
       "1": {
         "title": "Home loans"
