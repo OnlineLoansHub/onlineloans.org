@@ -1,0 +1,141 @@
+{
+  "navbar": {
+    "loans": {
+      "title": "Loans",
+      "student": "Student loans",
+      "business": "Business loans",
+      "personal": "Personal loans",
+      "home": "Home loans"
+    },
+    "insurance": {
+      "title": "Insurance",
+      "life": "Life insurance",
+      "health": "Health insurance",
+      "car": "Car insurance",
+      "home": "Home insurance"
+    },
+    "finance": {
+      "title": "Finance",
+      "credit": "Credit cards",
+      "online": "Online banking",
+      "invest": "Investments"
+    },
+    "partner": {
+      "title": "Partner with Us"
+    },
+    "about": {
+      "title": "About Us"
+    },
+    "lang": {
+      "en": "English",
+      "es": "Espaniol"
+    }
+  },
+  "header": {
+    "title": "Empowering smarter financial choices",
+    "txt": "We're on a mission to simplify financial decisions by providing transparent, comprehensive comparisons of loans, insurance, and investment products tailored to your unique needs.",
+    "card_1": "drivers connected with a car lender",
+    "card_2": "Home owners applied for a mortgage loan",
+    "card_3": "Health care savings in 2 years"
+  },
+  "logos": {
+    "title": "Explore offers from brands top-rated on"
+  },
+  "main": {
+    "1": {
+      "title": "Story",
+      "txt": "We launched with a clear purpose: to bring transparency and simplicity to financial decision-making. In a market full of complexity, we set out to create a trusted platform where users can easily compare financial products and choose what’s right for them."
+    },
+    "2": {
+      "title": "Mission",
+      "txt": "Our mission is to simplify the way people discover, compare, and choose financial products. We are committed to delivering clear, trustworthy, and up-to-date information that helps our users navigate the financial landscape with confidence."
+    },
+    "3": {
+      "title": "Vision",
+      "txt": "To empower individuals and businesses to make confident financial decisions by providing transparent, unbiased, and comprehensive comparisons of financial products. Through technology, trust, and transparency, we’re building a future where financial clarity is available to everyone."
+    }
+  },
+  "partner": {
+    "title": "Find the best financial solutions — compare, choose, and save",
+    "txt1": "By partnering with a wide range of financial providers — from lenders to insurers — we ensure that our platform offers real value, transparency, and choice. ",
+    "txt2": "We strive to make financial decisions easier, smarter, and more accessible for everyone.",
+    "list": {
+      "1": "Home owners applied for a mortgage loan",
+      "2": "drivers connected with a car lender",
+      "3": "borrowers applied for a personal loan",
+      "4": "pet parents received a pet insurance quote"
+    }
+  },
+  "reviews": {
+    "title": "Client experiences that speaks for themselves",
+    "goggleTitle": "Google Rating",
+    "googleTxt": "avarage rating",
+    "list": {
+      "1": {
+        "txt": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. ",
+        "author": "James Sanches",
+        "jobTitle": "Marketing director"
+      },
+      "2": {
+        "txt": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. ",
+        "author": "James Sanches 2",
+        "jobTitle": "Marketing director"
+      },
+      "3": {
+        "txt": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. ",
+        "author": "James Sanches 3",
+        "jobTitle": "Marketing director"
+      }
+    }
+  },
+  "explore": {
+    "title": "Hear directly from our experts",
+    "cards": {
+      "1": {
+        "title": "Find the best pet insurance for your furry friends – quick, easy & free!",
+        "txt": "Find the best coverage for your pet in 7 easy questions tootoot"
+      },
+      "2": {
+        "title": "Find the best pet insurance for your furry friends – quick, easy & free!",
+        "txt": "Find the best coverage for your pet in 7 easy questions tootoot"
+      },
+      "3": {
+        "title": "Find the best pet insurance for your furry friends – quick, easy & free!",
+        "txt": "Find the best coverage for your pet in 7 easy questions tootoot"
+      },
+      "4": {
+        "title": "Find the best pet insurance for your furry friends – quick, easy & free!",
+        "txt": "Find the best coverage for your pet in 7 easy questions tootoot"
+      }
+    }
+  },
+  "footer": {
+    "addr1": "Onlineloans.org, 4326 Rocket Drive, Minneapolis ",
+    "addr2": "Minnesota 55409, United States",
+    "copy": "Copyright © 2025 OnlineLoans.Credit. All rights reserved.",
+    "txt1": "Designed to help users make confident decisions online, this website contains information about a wide range of products and services. Certain details, including but not limited to prices and special offers, are provided to us directly from our partners and are dynamic and subject to change at any time without prior notice. Though based on meticulous research, the information we share does not constitute legal or professional advice or forecast, and should not be treated as such. Company listings on this site DO NOT imply endorsement.",
+    "txt2": "We are not an investment adviser, loan provider, or a broker and we do not offer loans or mortgages directly to end users, but only allows users to match with lending partners and platforms that may extend a loan. All loan approval decisions and terms are determined by the loan providers at the time of your application with them. Any matching request submitted through our website does not constitute a loan application and you will have to submit a loan application to the respective lender before the lender provides you with an actual offer. We do not warrant that you will be approved for a loan, nor that you will be offered a loan with the same terms presented on our website.",
+    "txt3": "Reproduction in whole or in part is strictly prohibited.",
+    "txt4": "This site is a free online resource that strives to offer helpful content and comparison features to our visitors. We accept advertising compensation from companies that appear on the site, which may impact the location and order in which brands (and/or their products) are presented, and may also impact the score that is assigned to it. Company listings on this page DO NOT imply endorsement. We do not feature all providers on the market. Except as expressly set forth in our Terms of Use, all representations and warranties regarding the information presented on this page are disclaimed. The information, including pricing, which appears on this site is subject to change at any time.",
+    "student": "Student Loan",
+    "business": "Business Loan",
+    "personal": "Personal Loan",
+    "home": "Home Loan",
+    "life": "Life Insurance",
+    "car": "Car Insurance",
+    "homeIns": "Home Insurance",
+    "health": "Health Insurance",
+    "securityPolicy": "Security Policy",
+    "sitemap": "Sitemap",
+    "userRights": "User Rights",
+    "helpCenter": "Help Center",
+    "cookiePolicy": "Cookie Policy",
+    "partner": "Partner With Us",
+    "about": "About Us",
+    "privacyPolicy": "Privacy Policy",
+    "disclaimer": "Disclaimer",
+    "contact": "Contact Us",
+    "termsofService": "Terms of Service",
+    "accessibilityStatement": "Accessibility Statement"
+  }
+}
