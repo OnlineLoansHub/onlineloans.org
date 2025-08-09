@@ -49,3 +49,26 @@ img {
   height: 100%;
   cursor: pointer;
 }
+
+.nav-underline {
+  position: relative;
+}
+
+.nav-underline::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -5px;
+  height: 1px;
+  width: 0%;
+  background-color: currentColor;
+  transition: width 0.3s ease;
+}
+
+.nav-underline:hover::after {
+  width: 100%;
+}
+
+.nav-underline.active::after {
+  width: 100%;
+}

@@ -84,7 +84,9 @@
       <div class="container-content">
         <div class="navbar">
           <div class="navbar-logo-wrapper">
-            <img src="./images/logo_dark.svg" class="nav-logo" alt="logo" />
+            <a href="/">
+              <img src="./images/logo_dark.svg" class="nav-logo" alt="logo" />
+            </a>
           </div>
 
           <!-- desktop -->
@@ -157,12 +159,18 @@
               </ul>
             </li> -->
 
-            <li class="navbar-link-item">
-              <p data-i18n="navbar.partner.title"></p>
+            <li class="navbar-link-item nav-underline">
+              <a href="/partner-with-us">
+
+                <p data-i18n="navbar.partner.title"></p>
+              </a>
+
             </li>
 
-            <li class="navbar-link-item underline">
-              <p data-i18n="navbar.about.title"></p>
+            <li class="navbar-link-item nav-underline active">
+              <a href="/about-us">
+                <p data-i18n="navbar.about.title"></p>
+              </a>
             </li>
 
             <li class="navbar-link-item dropdown lang-dropdown">
@@ -280,12 +288,16 @@
 
                 <li class="mobile-nav-item">
                   <div class="mobile-dropdown-header">
-                    <p data-i18n="navbar.partner.title"></p>
+                    <a href="/partner-with-us">
+                      <p data-i18n="navbar.partner.title"></p>
+                    </a>
                   </div>
                 </li>
                 <li class="mobile-nav-item">
                   <div class="mobile-dropdown-header">
-                    <p data-i18n="navbar.about.title"></p>
+                    <a href="/about-us">
+                      <p data-i18n="navbar.about.title"></p>
+                    </a>
                   </div>
                 </li>
 
@@ -307,29 +319,29 @@
           </div>
           <div class="header-content-right">
             <div class="header-img-wrapper">
-              <img class="header-img" src="./images/header_image.jpg" alt="Empowering smarter financial choices">
-            </div>
-            <div class="header-card header-card-1">
-              <div class="header-card-top">
-                <p class="header-card-title">100,000+</p>
-                <img src="./images/header_people.png" class="header-card-img" alt="drivers" />
+              <!-- <img class="header-img" src="./images/header_image.jpg" alt="Empowering smarter financial choices"> -->
+              <div class="header-card header-card-1">
+                <div class="header-card-top">
+                  <p class="header-card-title">100,000+</p>
+                  <img src="./images/header_people.png" class="header-card-img" alt="drivers" />
+                </div>
+                <p class="header-card-txt" data-i18n="header.card_1"></p>
               </div>
-              <p class="header-card-txt" data-i18n="header.card_1"></p>
-            </div>
 
-            <div class="header-card header-card-2">
-              <div class="header-card-top">
-                <p class="header-card-title">450,000+</p>
+              <div class="header-card header-card-2">
+                <div class="header-card-top">
+                  <p class="header-card-title">450,000+</p>
+                </div>
+                <p class="header-card-txt" data-i18n="header.card_2"></p>
               </div>
-              <p class="header-card-txt" data-i18n="header.card_2"></p>
-            </div>
 
-            <div class="header-card header-card-3">
-              <div class="header-card-3-txt-wrapper">
-                <p class="header-card-title">$22,000+</p>
-                <p class="header-card-txt" data-i18n="header.card_3"></p>
+              <div class="header-card header-card-3">
+                <div class="header-card-3-txt-wrapper">
+                  <p class="header-card-title">$22,000+</p>
+                  <p class="header-card-txt" data-i18n="header.card_3"></p>
+                </div>
+                <img src="./images/hand_with_card_2.png" class="header-card-img-2" alt="hand with card" />
               </div>
-              <img src="./images/hand_with_card.png" class="header-card-img-2" alt="hand with card" />
             </div>
           </div>
         </div>
