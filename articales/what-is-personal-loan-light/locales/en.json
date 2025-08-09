@@ -1,0 +1,160 @@
+{
+  "navbar": {
+    "loans": {
+      "title": "Loans",
+      "student": "Student loans",
+      "business": "Business loans",
+      "personal": "Personal loans",
+      "home": "Home loans"
+    },
+    "insurance": {
+      "title": "Insurance",
+      "life": "Life insurance",
+      "health": "Health insurance",
+      "car": "Car insurance",
+      "home": "Home insurance"
+    },
+    "finance": {
+      "title": "Finance",
+      "credit": "Credit cards",
+      "online": "Online banking",
+      "invest": "Investments"
+    },
+    "partner": {
+      "title": "Partner with Us"
+    },
+    "about": {
+      "title": "About Us"
+    },
+    "lang": {
+      "en": "English",
+      "es": "Espaniol"
+    }
+  },
+  "header": {
+    "title": "What is personal loan?",
+    "author": {
+      "by": "Written by <b>Roy McAlpin</b>",
+      "date": "Published on May 29, 2025 | 6 min read"
+    }
+  },
+  "articles": {
+    "1": {
+      "title": "What is a personal loan?",
+      "txt_1": "Personal loans provide you with a lump sum of cash that you can use for almost any purpose. These loans are typically unsecured, meaning you don’t need collateral to get one. Instead, lenders will review your income, debts, and credit profile to determine whether they can offer you a loan. <br/> Terms on personal loans can vary widely. Depending on the lender and your financial circumstances, you can get a loan for as little as $1,000 or as much as $100,000. Interest rates range from 6% to 35.99%. Loan terms vary but are usually between 12 and 60 months.",
+      "box": {
+        "title": "<b>Key Insights</b>",
+        "txt": "Unlike other types of loans, like mortgages or business loans, personal loans offer the flexibility of using funds on almost anything. That includes:",
+        "list": {
+          "1": "Home improvement or repairs",
+          "2": "Medical debt",
+          "3": "Sudden expenses, like funerals or fires",
+          "4": "Debt consolidation",
+          "5": "Small business costs"
+        }
+      },
+      "txt_2": "You can get the funds from personal loans faster than other types of loans. Lenders typically deposit funds within a few days of approval. Once the money arrives in your bank account, you’ll start repaying within 30 days. You’ll have a set monthly bill for the term of the loan, though you may pay it off faster if you choose to make additional payments."
+    },
+    "2": {
+      "title": "Types of personal loans",
+      "txt_1": "There are several types of personal loans to choose from:",
+      "list": {
+        "1": "<b>Unsecured:</b> An unsecured loan doesn’t have any collateral to back it, which usually means it has a higher interest rate compared to a secured loan. It can also be more difficult to get an unsecured loan as lenders require better financial circumstances to qualify.",
+        "2": "<b>Secured:</b> This type of loan has collateral, like a car or other valuable item, to back it. If you fail to repay the loan, your lender will use the collateral to recoup their lost funds.",
+        "3": "<b>Cosigned: </b> If you’re struggling to get a personal loan due to poor credit or finances, a cosigner could help. The cosigner, which could be a family member or friend, agrees to repay the loan if you cannot.",
+        "4": "<b>Variable and fixed rate loans: </b> All loans have either fixed or variable interest rates. With a fixed rate, you pay the same interest rate over the life of the loan. With variable rates, your interest rate fluctuates with the market."
+      }
+    },
+    "3": {
+      "title": "When to get a personal loan",
+      "txt_1": "Since personal loans are typically unsecured, they can sometimes be more expensive than other types of loans. That said, there are times when getting a personal loan can make the most sense.",
+      "txt_2": "<b>It’s best to get this type of loan when it is the least expensive form of financing. </b>For example, let’s say you want to open a small business and get a few quotes for a business loan. If those loans have higher interest rates than a personal loan, then it makes more sense to choose the personal loan.",
+      "txt_3": "You’ll also need to make sure you can afford the monthly payments. That means the payment fits into your budget without having to cut down on your essential spending, like groceries or utilities.",
+      "txt_4": "Additionally, it can make sense to get a personal loan when it will improve your financial circumstances. <b>For example, using a personal loan to improve your house can add value to your home and allow you to make more when you sell it.</b>",
+      "txt_5": "Personal loans can also help you consolidate debt, which could greatly <b>improve your finances</b>. Credit card debt can have high interest rates – up to 35.99%. If you carry a balance, that debt multiplies and can be impossible to pay off. Getting a <b>personal loan allows you to pay it all off immediately</b> and have a new set monthly payment that fits into your budget."
+    },
+    "4": {
+      "title": "How to get the best personal loans",
+      "txt_1": "Generally speaking, the best personal loans are those that have <b>the lowest APRs, minimal fees, and monthly payments you can comfortably afford.</b> Since most personal loans are unsecured, your loan terms depend largely on your personal finances.",
+      "txt_2": "<b>To get the best personal loan, you’ll need a strong credit score.</b><br/> You can boost your credit by reviewing your history. Request your credit report from the three major credit reporting companies: TransUnion, Equifax, and Experian. Then, you can review your reports for any errors that could be lowering your credit score.",
+      "txt_3": "At the same time, <b>try to pay down any outstanding debts if you can, like credit cards. This will improve your DTI</b> (debt-to-income) ratio, which makes you a less risky investment for personal loan lenders. <br /><br />On the other hand, <b>increasing your income can also help improve your DTI ratio. </b>If you’re able to, you might consider picking up more hours at work, looking for a part-time job, starting a side hustle, or asking for a raise at work."
+    },
+    "5": {
+      "title": "How to apply for a personal loan",
+      "txt_1": "Applying for a personal loan is easy, though it’s important to spend time doing your research. There are just a few steps to complete.",
+      "subtitle_1": "1. Shop around",
+      "txt_2": "Loan terms can vary greatly from lender to lender, so it’s important to compare your options before applying. You can use the table above to compare the pros and cons of the top lenders.",
+      "txt_3": "Once you have 3 to 5 lenders in mind, prequalify with each. This step allows you to get personalized rate estimates and terms so you can get a good idea of your loan options. Many lenders allow you to prequalify with just a soft credit pull, meaning you won’t affect your credit score.",
+      "txt_4": "Compare your prequalified offers to determine which is the best fit for you. Generally speaking, the offer with the lowest APR and monthly payments is usually best as it will save you the most money and fit into your budget best.",
+      "subtitle_2": "2. Submit an application",
+      "txt_5": "Once you’ve selected a lender, submit a full application. Applying for a loan requires you to provide documentation about your identity and income, like W2s and pay stubs. As long as you have the documents ready, <b>it should take under 30 minutes to complete this step.</b>",
+      "subtitle_3": "3. Receive your funds and start repayment",
+      "txt_6": "Most lenders take two to five days to approve your loan and deliver your funds. That said, some of the best personal loan lenders can approve you and deliver your money <b>in just one working day.</b>",
+      "txt_7": "You’ll typically start repaying the loan within a month of receiving the funds. Many lenders allow you to set up autopay so you never miss a bill. Be sure to make full, on-time payments each month to protect your credit score and meet the terms of your loan."
+    },
+    "form": {
+      "title": "Get personal loan offer from CreditNinja now!",
+      "btn": "Apply now"
+    },
+    "6": {
+      "title": "Choosing the best lender",
+      "txt_1": "The cost of your loan will be the most important factor of your personal loan. However, it’s also key to consider your lender. You’ll have to interact with it for months or years as you repay the loan, so be sure to compare options.",
+      "txt_2": "To get the best personal loans, consider doing the following:",
+      "list": {
+        "1": "<b>Shop around and research:</b> Don’t just take the first personal loan you come across. Compare rates, terms, fees, repayment options, and customer service channels to determine which is best for you.",
+        "2": "<b>Check for customer reviews:</b> What are other people saying about your chosen lender? If it has a bad reputation, you might want to avoid it. Scan third-party sites, like Google and TrustPilot, for unbiased reviews.",
+        "3": "<b>Check for hidden costs:</b> A lender may charge you origination, processing, late, and early repayment fees. Read the fine print to make sure you understand all the costs associated with your loan. The best personal loans have minimal fees. Your lender will be able to explain each fee to you, so don’t be afraid to ask."
+      }
+    }
+  },
+  "explore": {
+    "title": "Hear directly from our experts",
+    "cards": {
+      "1": {
+        "title": "Find the best pet insurance for your furry friends – quick, easy & free!",
+        "txt": "Find the best coverage for your pet in 7 easy questions tootoot"
+      },
+      "2": {
+        "title": "Find the best pet insurance for your furry friends – quick, easy & free!",
+        "txt": "Find the best coverage for your pet in 7 easy questions tootoot"
+      },
+      "3": {
+        "title": "Find the best pet insurance for your furry friends – quick, easy & free!",
+        "txt": "Find the best coverage for your pet in 7 easy questions tootoot"
+      },
+      "4": {
+        "title": "Find the best pet insurance for your furry friends – quick, easy & free!",
+        "txt": "Find the best coverage for your pet in 7 easy questions tootoot"
+      }
+    }
+  },
+  "footer": {
+    "addr1": "OnlineLoans.com, 5 Crosby St. 3rd floor, New York, NY 10013",
+    "addr2": "Minnesota 55409, United States",
+    "copy": "Copyright © 2025 OnlineLoans.Credit. All rights reserved.",
+    "txt1": "Designed to help users make confident decisions online, this website contains information about a wide range of products and services. Certain details, including but not limited to prices and special offers, are provided to us directly from our partners and are dynamic and subject to change at any time without prior notice. Though based on meticulous research, the information we share does not constitute legal or professional advice or forecast, and should not be treated as such. Company listings on this site DO NOT imply endorsement.",
+    "txt2": "We are not an investment adviser, loan provider, or a broker and we do not offer loans or mortgages directly to end users, but only allows users to match with lending partners and platforms that may extend a loan. All loan approval decisions and terms are determined by the loan providers at the time of your application with them. Any matching request submitted through our website does not constitute a loan application and you will have to submit a loan application to the respective lender before the lender provides you with an actual offer. We do not warrant that you will be approved for a loan, nor that you will be offered a loan with the same terms presented on our website.",
+    "txt3": "Reproduction in whole or in part is strictly prohibited.",
+    "txt4": "This site is a free online resource that strives to offer helpful content and comparison features to our visitors. We accept advertising compensation from companies that appear on the site, which may impact the location and order in which brands (and/or their products) are presented, and may also impact the score that is assigned to it. Company listings on this page DO NOT imply endorsement. We do not feature all providers on the market. Except as expressly set forth in our Terms of Use, all representations and warranties regarding the information presented on this page are disclaimed. The information, including pricing, which appears on this site is subject to change at any time.",
+    "student": "Student Loan",
+    "business": "Business Loan",
+    "personal": "Personal Loan",
+    "home": "Home Loan",
+    "life": "Life Insurance",
+    "car": "Car Insurance",
+    "homeIns": "Home Insurance",
+    "health": "Health Insurance",
+    "securityPolicy": "Security Policy",
+    "sitemap": "Sitemap",
+    "userRights": "User Rights",
+    "helpCenter": "Help Center",
+    "cookiePolicy": "Cookie Policy",
+    "partner": "Partner With Us",
+    "about": "About Us",
+    "privacyPolicy": "Privacy Policy",
+    "disclaimer": "Disclaimer",
+    "contact": "Contact Us",
+    "termsofService": "Terms of Service",
+    "accessibilityStatement": "Accessibility Statement"
+  }
+}
