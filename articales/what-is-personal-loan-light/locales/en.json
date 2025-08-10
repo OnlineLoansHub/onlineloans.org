@@ -105,6 +105,32 @@
         "2": "<b>Check for customer reviews:</b> What are other people saying about your chosen lender? If it has a bad reputation, you might want to avoid it. Scan third-party sites, like Google and TrustPilot, for unbiased reviews.",
         "3": "<b>Check for hidden costs:</b> A lender may charge you origination, processing, late, and early repayment fees. Read the fine print to make sure you understand all the costs associated with your loan. The best personal loans have minimal fees. Your lender will be able to explain each fee to you, so don’t be afraid to ask."
       }
+    },
+    "share": "Share this",
+    "navigation": {
+      "title": "On this page",
+      "list": {
+        "1": "What is a personal loan?",
+        "2": "Types of personal loans",
+        "3": "When to get a personal loan",
+        "4": "How to get the best personal loans",
+        "5": "How to apply for a personal loan",
+        "6": "Choosing the best lender"
+      }
+    },
+    "perf": {
+      "title": "Article perfomance",
+      "txt_1": "Data from Ahrefs",
+      "txt_2": "Organic traffic",
+      "txt_3": "The number of websites linking to this post.",
+      "txt_4": "Linking websites",
+      "txt_5": "The number of websites linking to this post."
+    },
+    "contact": {
+      "title": "Contact a personal loan agent",
+      "txt_1": "Leave your email and we will get back to you.",
+      "email": "Your email",
+      "submit": "Submit"
     }
   },
   "explore": {

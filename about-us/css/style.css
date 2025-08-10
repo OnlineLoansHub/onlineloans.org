@@ -623,11 +623,14 @@
 }
 
 .about-list {
+  position: relative;
   display: flex;
   flex-direction: column;
 }
 
 .about-list-item {
+  position: sticky;
+  top: 0;
   display: flex;
   padding: 60px;
   justify-content: space-between;
