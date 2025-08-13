@@ -1,0 +1,186 @@
+{
+  "navbar": {
+    "loans": {
+      "title": "Loans",
+      "student": "Student loans",
+      "business": "Business loans",
+      "personal": "Personal loans",
+      "home": "Home loans"
+    },
+    "insurance": {
+      "title": "Insurance",
+      "life": "Life insurance",
+      "health": "Health insurance",
+      "car": "Car insurance",
+      "home": "Home insurance"
+    },
+    "finance": {
+      "title": "Finance",
+      "credit": "Credit cards",
+      "online": "Online banking",
+      "invest": "Investments"
+    },
+    "partner": {
+      "title": "Partner with Us"
+    },
+    "about": {
+      "title": "About Us"
+    },
+    "lang": {
+      "en": "English",
+      "es": "Espaniol"
+    }
+  },
+  "header": {
+    "title": "What is pet insurance?",
+    "author": {
+      "by": "Written by <b>Roy McAlpin</b>",
+      "date": "Published on May 29, 2025 | 6 min read"
+    }
+  },
+  "articles": {
+    "1": {
+      "title": "What is pet insurance?",
+      "txt_1": "Pet insurance helps cover the cost of veterinary care for your dog, cat, or other eligible pets. By paying a monthly premium, you can get reimbursed for certain medical expenses when your pet becomes ill, is injured, or needs preventive care (depending on the plan).<br/> Most pet insurance plans are reimbursement-based, meaning you pay the vet upfront and then submit a claim to your insurer. Policies vary widely in coverage, deductibles, and reimbursement rates. Annual coverage limits typically range from $5,000 to unlimited, with monthly premiums averaging $20 to $70 depending on your pet’s species, breed, and age.",
+      "box": {
+        "title": "<b>Key Insights</b>",
+        "txt": "Pet insurance offers peace of mind and financial protection for a range of situations, including:",
+        "list": {
+          "1": "Unexpected illnesses (like cancer or diabetes)",
+          "2": "Accidents and injuries",
+          "3": "Emergency surgeries",
+          "4": "Chronic condition management",
+          "5": "Preventive care (if included in your plan)"
+        }
+      },
+      "txt_2": "Pet insurance can make it easier to afford lifesaving treatments without draining your savings. Depending on your plan, you could get reimbursed up to 90% of your vet bill. Coverage typically starts after a short waiting period, and once active, it can help protect your finances from high and unpredictable veterinary costs."
+    },
+    "2": {
+      "title": "Types of pet insurance",
+      "txt_1": "There are several types of pet insurance plans to consider:",
+      "list": {
+        "1": "<b>Accident-only:</b> Covers treatment for injuries caused by accidents, like broken bones or swallowed objects. This is usually the most affordable option but won’t cover illnesses.",
+        "2": "<b>Accident and illness:</b> The most common type, covering both accidents and illnesses such as infections, allergies, or cancer.",
+        "3": "<b>Comprehensive (with wellness):</b> Includes accident and illness coverage, plus preventive care like vaccinations, dental cleanings, and annual checkups.",
+        "4": "<b>Customizable plans:</b> Some insurers let you tailor your coverage, choosing deductibles, annual limits, and reimbursement rates to fit your budget."
+      }
+    },
+    "3": {
+      "title": "When to get pet insurance",
+      "txt_1": "Pet insurance is most valuable when purchased while your pet is young and healthy, before pre-existing conditions develop. Once a condition is diagnosed, it’s usually excluded from coverage.",
+      "txt_2": "<b>It’s best to get pet insurance before you need it.</b> Emergencies and illnesses are unpredictable, and having coverage in place can mean the difference between affording treatment or making difficult decisions.",
+      "txt_3": "You’ll also want to ensure the monthly premium fits your budget. Look for a plan with a balance of affordable premiums and a deductible you can manage if your pet needs care.",
+      "txt_4": "Pet insurance can be particularly beneficial if your pet’s breed is prone to hereditary conditions, such as hip dysplasia, heart disease, or certain cancers.",
+      "txt_5": "It can also help with long-term conditions, like arthritis or diabetes, where ongoing treatment costs can add up over time."
+    },
+    "4": {
+      "title": "How to get the best pet insurance",
+      "txt_1": "The best pet insurance plans combine <b>comprehensive coverage, high reimbursement rates, reasonable premiums, and good customer service.</b> Your pet’s age, breed, and medical history will play a major role in your options.",
+      "txt_2": "<b>To get the best plan, compare multiple providers.</b><br/> Review each insurer’s policy details, exclusions, and reimbursement timelines. Check for waiting periods on illnesses, accidents, and special conditions like cruciate ligament injuries.",
+      "txt_3": "Consider your financial comfort zone: <b>select a deductible and reimbursement rate that balance affordability and coverage.</b> For example, a higher deductible lowers your monthly premium but increases your upfront costs in an emergency."
+    },
+    "5": {
+      "title": "How to apply for pet insurance",
+      "txt_1": "Applying for pet insurance is straightforward, but researching your options is essential. Here’s what to do:",
+      "subtitle_1": "1. Compare providers",
+      "txt_2": "Policy terms, exclusions, and reimbursement rates vary widely between companies. Use comparison tools or read reviews to find a shortlist of top providers.",
+      "txt_3": "Once you’ve narrowed down your choices, request personalized quotes. You’ll usually need to provide your pet’s age, breed, gender, and medical history. Many insurers allow you to get a quote in minutes online.",
+      "txt_4": "Compare your quotes carefully, paying attention to coverage caps, reimbursement rates, and deductibles.",
+      "subtitle_2": "2. Submit an application",
+      "txt_5": "After choosing a provider, fill out the application. You may need to submit your pet’s veterinary records or schedule a wellness exam. <b>This step typically takes less than 30 minutes.</b>",
+      "subtitle_3": "3. Activate coverage",
+      "txt_6": "Once your application is approved and your first premium is paid, coverage begins after the waiting period (often 14 days for illnesses and 48 hours for accidents).",
+      "txt_7": "After that, you can visit any licensed vet, pay upfront, and submit claims for reimbursement."
+    },
+    "form": {
+      "title": "Get a free pet insurance quote now!",
+      "btn": "Compare plans"
+    },
+    "6": {
+      "title": "Choosing the best provider",
+      "txt_1": "While cost is important, it’s also crucial to choose a provider with a solid reputation and fast claims processing.",
+      "txt_2": "To find the best provider, consider the following:",
+      "list": {
+        "1": "<b>Research multiple insurers:</b> Compare coverage, exclusions, claim turnaround times, and customer reviews.",
+        "2": "<b>Read policy fine print:</b> Watch for hidden limitations, such as breed-specific exclusions or annual claim caps.",
+        "3": "<b>Check customer feedback:</b> Look for reviews on independent sites like TrustPilot or Consumer Affairs to see how real customers rate their experience."
+      }
+    },
+    "share": "Share this",
+    "navigation": {
+      "title": "On this page",
+      "list": {
+        "1": "What is pet insurance?",
+        "2": "Types of pet insurance",
+        "3": "When to get pet insurance",
+        "4": "How to get the best pet insurance",
+        "5": "How to apply for pet insurance",
+        "6": "Choosing the best provider"
+      }
+    },
+    "perf": {
+      "title": "Article performance",
+      "txt_1": "Data from Ahrefs",
+      "txt_2": "Organic traffic",
+      "txt_3": "The number of websites linking to this post.",
+      "txt_4": "Linking websites",
+      "txt_5": "The number of websites linking to this post."
+    },
+    "contact": {
+      "title": "Contact a pet insurance specialist",
+      "txt_1": "Leave your email and we will get back to you with personalized quotes.",
+      "email": "Your email",
+      "submit": "Submit"
+    }
+  },
+  "explore": {
+    "title": "Hear directly from our experts",
+    "cards": {
+      "1": {
+        "title": "Find the best pet insurance for your furry friends – quick, easy & free!",
+        "txt": "Find the best coverage for your pet in 7 easy questions tootoot"
+      },
+      "2": {
+        "title": "Find the best pet insurance for your furry friends – quick, easy & free!",
+        "txt": "Find the best coverage for your pet in 7 easy questions tootoot"
+      },
+      "3": {
+        "title": "Find the best pet insurance for your furry friends – quick, easy & free!",
+        "txt": "Find the best coverage for your pet in 7 easy questions tootoot"
+      },
+      "4": {
+        "title": "Find the best pet insurance for your furry friends – quick, easy & free!",
+        "txt": "Find the best coverage for your pet in 7 easy questions tootoot"
+      }
+    }
+  },
+  "footer": {
+    "addr1": "OnlineLoans.com, 5 Crosby St. 3rd floor, New York, NY 10013",
+    "addr2": " Limassol 3025, Cyprus",
+    "copy": "Copyright © 2025 OnlineLoans.Credit. All rights reserved.",
+    "txt1": "Designed to help users make confident decisions online, this website contains information about a wide range of products and services. Certain details, including but not limited to prices and special offers, are provided to us directly from our partners and are dynamic and subject to change at any time without prior notice. Though based on meticulous research, the information we share does not constitute legal or professional advice or forecast, and should not be treated as such. Company listings on this site DO NOT imply endorsement.",
+    "txt2": "We are not an investment adviser, loan provider, or a broker and we do not offer loans or mortgages directly to end users, but only allows users to match with lending partners and platforms that may extend a loan. All loan approval decisions and terms are determined by the loan providers at the time of your application with them. Any matching request submitted through our website does not constitute a loan application and you will have to submit a loan application to the respective lender before the lender provides you with an actual offer. We do not warrant that you will be approved for a loan, nor that you will be offered a loan with the same terms presented on our website.",
+    "txt3": "Reproduction in whole or in part is strictly prohibited.",
+    "txt4": "This site is a free online resource that strives to offer helpful content and comparison features to our visitors. We accept advertising compensation from companies that appear on the site, which may impact the location and order in which brands (and/or their products) are presented, and may also impact the score that is assigned to it. Company listings on this page DO NOT imply endorsement. We do not feature all providers on the market. Except as expressly set forth in our Terms of Use, all representations and warranties regarding the information presented on this page are disclaimed. The information, including pricing, which appears on this site is subject to change at any time.",
+    "student": "Student Loan",
+    "business": "Business Loan",
+    "personal": "Personal Loan",
+    "home": "Home Loan",
+    "life": "Life Insurance",
+    "car": "Car Insurance",
+    "homeIns": "Home Insurance",
+    "health": "Health Insurance",
+    "securityPolicy": "Security Policy",
+    "sitemap": "Sitemap",
+    "userRights": "User Rights",
+    "helpCenter": "Help Center",
+    "cookiePolicy": "Cookie Policy",
+    "partner": "Partner With Us",
+    "about": "About Us",
+    "privacyPolicy": "Privacy Policy",
+    "disclaimer": "Disclaimer",
+    "contact": "Contact Us",
+    "termsofService": "Terms of Service",
+    "accessibilityStatement": "Accessibility Statement"
+  }
+}
