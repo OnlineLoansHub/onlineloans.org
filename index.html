@@ -415,37 +415,56 @@
           <button data-guide-btn="8" class="guide-btn primary-btn" data-i18n="guide.btns.credit"></button>
         </div> -->
         <div class="guide-article-grid guide-article-grid-1 active">
-          <div class="guide-article guide-article-1">
+
+          <div class="guide-article guide-article-1" data-url="https://www.onlineloans.org/articales/what-is-personal-loan-light/">
             <div class="guide-article-shadow "></div>
 
             <p class="guide-article-title" data-i18n="guide.cards.1.title"></p>
             <p class="guide-article-subtitle" data-i18n="guide.cards.1.subtitle"></p>
           </div>
-          <div class="guide-article guide-article-2">
+
+          <div class="guide-article guide-article-2" data-url="https://www.onlineloans.org/articales/what-is-personal-loan-light/">
             <div class="guide-article-shadow "></div>
 
             <p class="guide-article-title" data-i18n="guide.cards.2.title"></p>
             <p class="guide-article-subtitle" data-i18n="guide.cards.2.subtitle"></p>
           </div>
-          <div class="guide-article guide-article-3">
+
+          <div class="guide-article guide-article-3" data-url="https://www.onlineloans.org/articales/what-is-personal-loan-light/">
             <div class="guide-article-shadow "></div>
 
             <p class="guide-article-title" data-i18n="guide.cards.3.title"></p>
             <p class="guide-article-subtitle" data-i18n="guide.cards.3.subtitle"></p>
           </div>
-          <div class="guide-article guide-article-4">
+
+          <div class="guide-article guide-article-4" data-url="https://www.onlineloans.org/articales/what-is-personal-loan-light/">
             <div class="guide-article-shadow "></div>
 
             <p class="guide-article-title" data-i18n="guide.cards.4.title"></p>
             <p class="guide-article-subtitle" data-i18n="guide.cards.4.subtitle"></p>
           </div>
-          <div class="guide-article guide-article-5">
+
+          <div class="guide-article guide-article-5" data-url="https://www.onlineloans.org/articales/what-is-personal-loan-light/">
             <div class="guide-article-shadow "></div>
 
             <p class="guide-article-title" data-i18n="guide.cards.5.title"></p>
             <p class="guide-article-subtitle" data-i18n="guide.cards.5.subtitle"></p>
           </div>
+
         </div>
+
+        <script>
+          document.querySelectorAll('.guide-article').forEach(card => {
+            card.style.cursor = 'pointer';
+            card.addEventListener('click', () => {
+              const url = card.getAttribute('data-url');
+              if (url) {
+                window.open(url, '_blank');
+              }
+            });
+          });
+        </script>
+
         <div class="guide-article-grid guide-article-grid-2">
           <div class="guide-article guide-article-1">
             <div class="guide-article-shadow "></div>
