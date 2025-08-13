@@ -43,16 +43,24 @@
   },
   "main": {
     "1": {
-      "title": "Story",
-      "txt": "We launched with a clear purpose: to bring transparency and simplicity to financial decision-making. In a market full of complexity, we set out to create a trusted platform where users can easily compare financial products and choose what’s right for them."
+      "title": "Our Commitment to You",
+      "txt": "Our team of researchers, writers, and industry experts aim to provide you with the knowledge and insights needed to make informed and confident financial decisions. We strive to offer you clear and practical advice to make your money decisions simple and stress-free."
     },
     "2": {
-      "title": "Mission",
-      "txt": "Our mission is to simplify the way people discover, compare, and choose financial products. We are committed to delivering clear, trustworthy, and up-to-date information that helps our users navigate the financial landscape with confidence."
+      "title": "How We Make Money",
+      "txt": "While Onlineloans.org is a free-to-use service, we earn commissions from our partners by promoting their products or services through affiliate links. The compensation we receive from our partners influences where, how, and in what order they appear on our site."
     },
     "3": {
-      "title": "Vision",
-      "txt": "To empower individuals and businesses to make confident financial decisions by providing transparent, unbiased, and comprehensive comparisons of financial products. Through technology, trust, and transparency, we’re building a future where financial clarity is available to everyone."
+      "title": "Our Process",
+      "txt": "Research and Analysis: Our team is dedicated to conducting comprehensive research and analysis on every product or service. We examine specifications, user feedback, expert opinions, and industry trends to provide you with the insights we believe will help you make informed decisions."
+    },
+    "4": {
+      "title": "Our Values",
+      "txt": "Consumer Empowerment: Our goal is to equip consumers with the essential information they need to make informed and confident decisions. Quality: We are committed to excellence in our research and writing, ensuring that we deliver the highest quality content possible. Accessibility: We strive to make our content straightforward and accessible to everyone, regardless of their level of expertise."
+    },
+    "5": {
+      "title": "Contact Us",
+      "txt": "We love hearing from our users! If you have any questions, feedback, or suggestions, feel free to reach out to us. Your input helps us improve and serve you better. Email: business@onlineloans.org"
     }
   },
   "partner": {
