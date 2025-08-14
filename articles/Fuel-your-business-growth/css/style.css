@@ -472,11 +472,18 @@
 .header-author-wrapper {
   display: flex;
   gap: 14px;
+  align-items: center;
 }
 
 .header-author-img-wrapper {
-  width: 43px;
-  height: 43px;
+  width: 55px;
+  height: 55px;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.header-author-img {
+  object-fit: cover;
 }
 
 .header-author-name {
