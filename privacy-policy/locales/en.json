@@ -1,0 +1,146 @@
+{
+  "navbar": {
+    "loans": {
+      "title": "Loans",
+      "student": "Student loans",
+      "business": "Business loans",
+      "personal": "Personal loans",
+      "home": "Home loans"
+    },
+    "insurance": {
+      "title": "Insurance",
+      "life": "Life insurance",
+      "health": "Health insurance",
+      "car": "Car insurance",
+      "home": "Home insurance"
+    },
+    "finance": {
+      "title": "Finance",
+      "credit": "Credit cards",
+      "online": "Online banking",
+      "invest": "Investments"
+    },
+    "partner": {
+      "title": "Partner with Us"
+    },
+    "about": {
+      "title": "About Us"
+    },
+    "lang": {
+      "en": "English",
+      "es": "Espaniol"
+    }
+  },
+  "privacy": {
+    "title": "Privacy Policy",
+    "txt_1": "Effective Date: 26/12/2024",
+    "txt_2": "Welcome to OnlineLoans.Credit! Your privacy is important to us. This Privacy Policy explains how we collect, use, and protect your information when you visit our website."
+  },
+  "who": {
+    "title": "Who we are",
+    "txt_1": "OnlineLoans.Credit is an affiliate website. We provide information and advertisements for lending companies in the United States. We are not a lender, broker, or financial institution and do not process or facilitate loans."
+  },
+  "collect": {
+    "title": "Information we collect",
+    "txt_1": "OnlineLoans.Credit is an affiliate website. We provide information and advertisements for lending companies in the United States. We are not a lender, broker, or financial institution and do not process or facilitate loans.",
+    "list": {
+      "1": {
+        "title": "a) Personal Information You Provide",
+        "txt_1": "Your name",
+        "txt_2": "Email address",
+        "txt_3": "Phone number"
+      },
+      "2": {
+        "title": "b) Non-Personal Information",
+        "txt_1": "IP address",
+        "txt_2": "Browser type and version",
+        "txt_3": "Pages visited and time spent on our site",
+        "txt_4": "Device type and operating system"
+      }
+    }
+  },
+  "how": {
+    "title": "How we use your information",
+    "list": {
+      "1": "To improve our website’s content and functionality.",
+      "2": "To respond to your inquiries or requests.",
+      "3": "To send updates, newsletters, or promotional materials (only if you opt-in).",
+      "4": "To analyze user trends and preferences to enhance the website experience.",
+      "5": "To comply with legal requirements."
+    },
+    "txt_1": "We do not sell or share your personal information with unaffiliated third parties for their marketing purposes."
+  },
+  "affilate": {
+    "title": "Affiliate relationships",
+    "txt": "As an affiliate website, we advertise lending companies in the United States. Clicking on affiliate links or advertisements may redirect you to third-party websites. These websites may collect additional information or have their own privacy policies, which we encourage you to review."
+  },
+  "cookies": {
+    "title": "Cookies and tracking technologies",
+    "txt": "We use cookies and similar tracking technologies to enhance your browsing experience and analyze website traffic. By using our website, you consent to the use of cookies. You can manage or disable cookies in your browser settings, but some features of our website may not function properly if cookies are disabled."
+  },
+  "third": {
+    "title": "Third-party services",
+    "txt": "We may use third-party services, such as analytics tools (e.g., Google Analytics), to better understand user behavior and improve our website. These services may collect information about your use of our website and process it in accordance with their own privacy policies."
+  },
+  "data": {
+    "title": "Data protection",
+    "txt": "We implement reasonable security measures to protect your personal information from unauthorized access, disclosure, alteration, or destruction. However, no data transmission or storage system can be guaranteed to be 100% secure."
+  },
+  "choises": {
+    "title": "Your choices",
+    "list": {
+      "1": "<b>Opt-Out:</b> You can opt out of receiving promotional emails by clicking the \"unsubscribe\" link in any email we send you.",
+      "2": "<b>Access and Update Information:</b> If you wish to access, update, or delete your personal information, please contact us at <a class=\"section-main-list-link\" href=\"mailto:Contact@OnlineLoans.Credit\">Contact@OnlineLoans.Credit</a>."
+    }
+  },
+  "children": {
+    "title": "Children’s privacy",
+    "txt": "Our website is not intended for individuals under the age of 18. We do not knowingly collect personal information from children. If we discover that we have collected information from a minor, we will delete it promptly."
+  },
+  "links": {
+    "title": "Links to third-party website",
+    "txt": "Our website may contain links to third-party websites. We are not responsible for the privacy practices or content of these external sites. Please review their privacy policies before providing any personal information."
+  },
+  "updates": {
+    "title": "Updates to this privacy policy",
+    "txt": "We may update this Privacy Policy from time to time to reflect changes in our practices or for other operational, legal, or regulatory reasons. The updated version will be posted on this page with the \"Effective Date\" noted."
+  },
+  "contact": {
+    "title": "Contact us",
+    "txt_1": " If you have any questions or concerns about this Privacy Policy or how we handle your information, please contact us at:",
+    "list": {
+      "1": "Email: <a href=\"mailto:Contact@OnlineLoans.Credit\" class=\"underline\">Contact@OnlineLoans.Credit</a>",
+      "2": "Address: No.40, Triq L-Uqija, Swieqi SWQ 2332, Malta"
+    },
+    "txt_2": " By using OnlineLoans.Credit, you agree to the terms outlined in this Privacy Policy. Thank you for trusting us with your information."
+  },
+  "footer": {
+    "addr1": "Onlineloans.org, Agias Zonis 1, & Thessalonikis str. ",
+    "addr2": " Limassol 3025, Cyprus",
+    "copy": "Copyright © 2025 OnlineLoans.org. All rights reserved.",
+    "txt1": "Designed to help users make confident decisions online, this website contains information about a wide range of products and services. Certain details, including but not limited to prices and special offers, are provided to us directly from our partners and are dynamic and subject to change at any time without prior notice. Though based on meticulous research, the information we share does not constitute legal or professional advice or forecast, and should not be treated as such. Company listings on this site DO NOT imply endorsement.",
+    "txt2": "We are not an investment adviser, loan provider, or a broker and we do not offer loans or mortgages directly to end users, but only allows users to match with lending partners and platforms that may extend a loan. All loan approval decisions and terms are determined by the loan providers at the time of your application with them. Any matching request submitted through our website does not constitute a loan application and you will have to submit a loan application to the respective lender before the lender provides you with an actual offer. We do not warrant that you will be approved for a loan, nor that you will be offered a loan with the same terms presented on our website.",
+    "txt3": "Reproduction in whole or in part is strictly prohibited.",
+    "txt4": "This site is a free online resource that strives to offer helpful content and comparison features to our visitors. We accept advertising compensation from companies that appear on the site, which may impact the location and order in which brands (and/or their products) are presented, and may also impact the score that is assigned to it. Company listings on this page DO NOT imply endorsement. We do not feature all providers on the market. Except as expressly set forth in our Terms of Use, all representations and warranties regarding the information presented on this page are disclaimed. The information, including pricing, which appears on this site is subject to change at any time.",
+    "student": "Student Loan",
+    "business": "Business Loan",
+    "personal": "Personal Loan",
+    "home": "Home Loan",
+    "life": "Life Insurance",
+    "car": "Car Insurance",
+    "homeIns": "Home Insurance",
+    "health": "Health Insurance",
+    "securityPolicy": "Security Policy",
+    "sitemap": "Sitemap",
+    "userRights": "User Rights",
+    "helpCenter": "Help Center",
+    "cookiePolicy": "Cookie Policy",
+    "partner": "Partner With Us",
+    "about": "About Us",
+    "privacyPolicy": "Privacy Policy",
+    "disclaimer": "Disclaimer",
+    "contact": "Contact Us",
+    "termsofService": "Terms of Service",
+    "accessibilityStatement": "Accessibility Statement"
+  }
+}
