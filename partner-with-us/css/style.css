@@ -435,6 +435,7 @@
 }
 
 .header-form {
+  position: relative;
   display: flex;
   flex-direction: column;
   gap: 30px;
@@ -444,6 +445,7 @@
   padding: 60px 80px;
   background: #fff;
   box-shadow: 0px 0px 17px 3px #0e2b561a;
+  overflow: hidden;
 }
 
 .header-form-title {
@@ -484,6 +486,43 @@
   padding: 13px 10px;
   border: 1px solid #0e2b56;
   cursor: pointer;
+}
+
+.loader-spinner-wrapper {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100%;
+  height: 100%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 50%);
+  display: none;
+}
+
+.loader-spinner-wrapper.visible {
+  display: flex;
+}
+
+.loader-spinner {
+  width: 36px;
+  height: 36px;
+  border: 3px solid #f3f3f3;
+  border-top: 2px solid #0e2b56;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  display: inline-block;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }
 
 .header-cards-wrapper {
@@ -1007,6 +1046,72 @@
   display: flex;
   flex-direction: column;
   gap: 20px;
+}
+
+.form-modal-wrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(229, 231, 241, 80%);
+  backdrop-filter: blur(1px);
+  z-index: 100;
+  display: none;
+}
+
+.form-modal-wrapper.visible {
+  display: block;
+}
+
+.form-modal {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  max-width: 500px;
+  width: 100%;
+  border-radius: 20px;
+  padding: 60px;
+  background: #fff;
+  box-shadow: 0px 0px 17px 3px #0e2b561a;
+}
+
+.form-modal-title {
+  text-align: center;
+  font-weight: 500;
+  font-size: 32px;
+  line-height: 38px;
+  margin-bottom: 10px;
+}
+
+.form-modal-subtitle {
+  text-align: center;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 25px;
+  margin-bottom: 34px;
+}
+
+.form-modal-btn {
+  width: 100%;
+  color: #fff;
+  padding: 13px 10px;
+  background: #0e2b56;
+  border-radius: 10px;
+  border: 1px solid #0e2b56;
+  font-family: TikTok Sans;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 18px;
+  cursor: pointer;
+}
+
+button[disabled] {
+  opacity: 0.7;
+  cursor: not-allowed;
 }
 
 @media (max-width: 1200px) {

@@ -125,8 +125,21 @@ function addSliderAnimation() {
 }
 
 function saveDataToGoogleForm() {
-  document.querySelector('.header-form').addEventListener('submit', async function (e) {
+  const modal = document.querySelector('.form-modal-wrapper');
+  const loader = document.querySelector('.loader-spinner-wrapper');
+  const form = document.querySelector('.header-form');
+
+  form.addEventListener('submit', async function (e) {
     e.preventDefault();
+
+    const form = e.target;
+    const submitButton = form.querySelector('button[type="submit"]');
+    const originalButtonText = submitButton.textContent;
+
+    submitButton.disabled = true;
+    submitButton.textContent = 'Sending...';
+
+    loader.classList.add('visible');
 
     const data = {
       name: document.querySelector('[data-i18n="header.form.name"]').value,
@@ -136,17 +149,29 @@ function saveDataToGoogleForm() {
       company: document.querySelector('[data-i18n="header.form.company"]').value,
     };
 
-    await fetch(
-      `https://script.google.com/macros/s/AKfycbwATv2Pfnoqx5m4sXuZHbR1HbJ1RMTNvUJtv_LCM2-bD_MFagFQju2A5UvRJpc8eQOI/exec`,
-      {
-        method: 'POST',
-        mode: 'no-cors',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(data),
-      }
-    );
+    try {
+      await fetch(
+        `https://script.google.com/macros/s/AKfycbwATv2Pfnoqx5m4sXuZHbR1HbJ1RMTNvUJtv_LCM2-bD_MFagFQju2A5UvRJpc8eQOI/exec`,
+        {
+          method: 'POST',
+          mode: 'no-cors',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(data),
+        }
+      );
+    } catch (e) {
+      console.log('e', e);
+    } finally {
+      e.target.reset();
+      submitButton.textContent = originalButtonText;
+      submitButton.disabled = false;
+      loader.classList.remove('visible');
+      modal.classList.add('visible');
+    }
+  });
 
-    e.target.reset();
+  modal.addEventListener('click', (e) => {
+    modal.classList.toggle('visible');
   });
 }
 
