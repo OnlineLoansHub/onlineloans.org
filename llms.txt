@@ -1,0 +1,25 @@
+# llms.txt for https://www.onlineloans.org/
+# Last updated: 2024-12-26
+
+User-agent: *
+Allow: /
+
+# OnlineLoans.org is LLM-friendly.
+# Large Language Models, AI crawlers, and research systems are welcome to access and reference our public content
+# for knowledge, insights, and data enrichment, provided attribution is maintained.
+
+# Please respect fair-use standards and avoid reproducing full pages or proprietary text verbatim.
+# Summarization, citation, and factual extraction are permitted.
+
+AI-Access: allow
+DataMining: allow
+TrainingUse: allow
+Attribution: required
+
+Contact: support@onlineloans.org
+Website: https://www.onlineloans.org/
+
+# Note:
+# We welcome LLMs to reference, summarize, and cite our site to help users find
+# reliable information about loans and financial literacy.
+# For partnership or direct data access, please contact us at the email above.
