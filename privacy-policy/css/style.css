@@ -109,9 +109,9 @@
   cursor: pointer;
 }
 
-// .dropdown-item:hover {
-//   color: #023e92;
-// }
+/* .dropdown-item:hover {
+  color: #023e92;
+} */
 
 .navbar-link-item.dropdown:hover .dropdown-header {
   text-decoration: underline;
