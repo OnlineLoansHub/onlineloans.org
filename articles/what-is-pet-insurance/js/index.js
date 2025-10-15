@@ -50,7 +50,7 @@ function addSliderAnimation() {
 }
 
 function showActiveArticleItem() {
-  const articles = document.querySelectorAll('.loan-article');
+  const articles = document.querySelectorAll('.article');
   const menuItems = document.querySelectorAll('.loan-contents-list-item');
   let currentActiveIndex = 0;
 
@@ -63,7 +63,7 @@ function showActiveArticleItem() {
       e.preventDefault();
       const targetId = this.textContent.trim();
       const targetArticle = Array.from(articles).find(
-        (article) => article.querySelector('.loan-article-title').textContent.trim() === targetId
+        (article) => article.querySelector('.article-title').textContent.trim() === targetId
       );
 
       if (targetArticle) {
