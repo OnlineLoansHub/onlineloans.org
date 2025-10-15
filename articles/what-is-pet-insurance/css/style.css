@@ -511,7 +511,7 @@
 
 /* loan  */
 
-.loan-content {
+.articale-content {
   display: flex;
   justify-content: space-between;
   gap: 100px;
@@ -1250,7 +1250,7 @@
     text-align: center;
   }
 
-  .loan-content {
+  .articale-content {
     flex-direction: column-reverse;
     gap: 60px;
   }
