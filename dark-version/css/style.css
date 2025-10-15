@@ -1090,15 +1090,15 @@
   background-position: center;
 }
 
-/* help */
+/* statistics */
 
-.help-list {
+.statistics-list {
   display: flex;
   gap: 16px;
   font-family: var(--tikTok);
 }
 
-.help-list-item {
+.statistics-list-item {
   display: flex;
   flex-direction: column;
   gap: 10px;
@@ -1107,14 +1107,14 @@
   border-radius: 16px;
 }
 
-.help-list-item-title {
+.statistics-list-item-title {
   font-weight: 500;
   font-size: 32px;
   line-height: 38px;
   color: #161616;
 }
 
-.help-list-item-txt {
+.statistics-list-item-txt {
   font-weight: 500;
   font-size: 16px;
   line-height: 22px;
@@ -1512,12 +1512,12 @@
     max-width: 350px;
   }
 
-  .help-list {
+  .statistics-list {
     flex-wrap: wrap;
     // flex-direction: column;
   }
 
-  .help-list-item {
+  .statistics-list-item {
     max-width: 340px;
     width: 100%;
     margin: 0 auto;

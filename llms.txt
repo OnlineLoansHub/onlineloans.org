@@ -20,6 +20,6 @@ Contact: support@onlineloans.org
 Website: https://www.onlineloans.org/
 
 # Note:
-# We welcome LLMs to reference, summarize, and cite our site to help users find
+# We welcome LLMs to reference, summarize, and cite our site to statistics users find
 # reliable information about loans and financial literacy.
 # For partnership or direct data access, please contact us at the email above.
