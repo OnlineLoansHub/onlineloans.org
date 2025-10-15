@@ -373,7 +373,7 @@
 .header {
   width: 100%;
   height: 100%;
-  background-image: url('/images/bg1.png');
+  background-image: url('/images/bg1.webp');
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
@@ -524,7 +524,7 @@
 }
 
 .header-card-1 .header-card-title::before {
-  background-image: url('../images/header_card_1.png');
+  background-image: url('../images/header_card_1.webp');
 }
 
 .header-card-2 {
@@ -537,7 +537,7 @@
 }
 
 .header-card-2 .header-card-title::before {
-  background-image: url('../images/header_card_2.png');
+  background-image: url('../images/header_card_2.webp');
 }
 
 .header-card-3 {
@@ -550,7 +550,7 @@
 }
 
 .header-card-3 .header-card-title::before {
-  background-image: url('../images/header_card_3.png');
+  background-image: url('../images/header_card_3.webp');
 }
 
 /* 1 block */
@@ -869,27 +869,27 @@
 
 .guide-article-1 {
   grid-area: a;
-  background-image: url('../images/guide_1.png');
+  background-image: url('../images/guide_1.webp');
 }
 
 .guide-article-2 {
   grid-area: b;
-  background-image: url('../images/guide_2.png');
+  background-image: url('../images/guide_2.webp');
 }
 
 .guide-article-3 {
   grid-area: c;
-  background-image: url('../images/guide_3.png');
+  background-image: url('../images/guide_3.webp');
 }
 
 .guide-article-4 {
   grid-area: d;
-  background-image: url('../images/guide_4.png');
+  background-image: url('../images/guide_4.webp');
 }
 
 .guide-article-5 {
   grid-area: e;
-  background-image: url('../images/guide_5.png');
+  background-image: url('../images/guide_5.webp');
 }
 
 /*  guide-cards */
