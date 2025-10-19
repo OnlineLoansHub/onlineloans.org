@@ -18983,8 +18983,8 @@ video {
 }
 
 section {
-  padding-top: 3.5rem;
-  padding-bottom: 2.8rem;
+  /* padding-top: 3.5rem; */
+  /* padding-bottom: 2.8rem; */
 }
 
 @media (max-width: 767.98px) {
