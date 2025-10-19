@@ -1,5 +1,19 @@
 {
   "scripts": {
     "build": "find . -name \"*.js\" -o -name \"*.css\" | xargs -I{} minify {} -o {}"
-  }
+  },
+  "name": "onlineloans.org",
+  "version": "1.0.0",
+  "description": "onlineloans.org",
+  "main": "trackingScript.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/OnlineLoansHub/onlineloans.org.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/OnlineLoansHub/onlineloans.org/issues"
+  },
+  "homepage": "https://github.com/OnlineLoansHub/onlineloans.org#readme"
 }
