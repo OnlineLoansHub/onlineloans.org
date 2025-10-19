@@ -1,3 +1,5 @@
-"scripts": {
-  "build": "find . -name '*.js' -o -name '*.css' | xargs -I{} minify {} -o {}"
+{
+  "scripts": {
+    "build": "find . -name \"*.js\" -o -name \"*.css\" | xargs -I{} minify {} -o {}"
+  }
 }
