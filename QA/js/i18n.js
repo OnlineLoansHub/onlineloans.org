@@ -124,7 +124,7 @@ const i18n = {
       this.translations[lang] = await response.json();
     } catch (e) {
       console.error(`Error loading ${lang} translations:`, e);
-      this.translations[lang] = {};
+     
     }
   },
 
