@@ -2313,7 +2313,7 @@ button:not(:disabled) {
 	text-align: inherit
 }
 
-.list-group-item-action:not(.active):focus,
+/* .list-group-item-action:not(.active):focus,
 .list-group-item-action:not(.active):hover {
 	z-index: 1;
 	color: var(--bs-list-group-action-hover-color);
@@ -2324,7 +2324,7 @@ button:not(:disabled) {
 .list-group-item-action:not(.active):active {
 	color: var(--bs-list-group-action-active-color);
 	background-color: var(--bs-list-group-action-active-bg)
-}
+} */
 
 .list-group-item-primary {
 	--bs-list-group-color: var(--bs-primary-text-emphasis);

@@ -55,6 +55,7 @@ class Navigation {
         document.body.classList.remove('menu-open');
       }
     } else {
+      console.log('Toggling menu. Currently open:', isOpen);
       if (!isOpen) {
         this.burgerBtn.classList.add('active');
         this.mobileMenu.classList.add('active');
