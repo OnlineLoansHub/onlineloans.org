@@ -274,7 +274,7 @@ h6, .h6 {
 
 p {
   margin-top: 0;
-  margin-bottom: 1rem;
+  /* margin-bottom: 1rem; */
 }
 
 abbr[title] {
@@ -300,7 +300,7 @@ ol,
 ul,
 dl {
   margin-top: 0;
-  margin-bottom: 1rem;
+  /* margin-bottom: 1rem; */
 }
 
 ol ol,
@@ -355,7 +355,7 @@ sup {
 }
 
 a {
-  color: rgba(var(--bs-link-color-rgb), var(--bs-link-opacity, 1));
+  /* color: rgba(var(--bs-link-color-rgb), var(--bs-link-opacity, 1)); */
   text-decoration: none;
 }
 a:hover {
