@@ -11031,6 +11031,14 @@ h1 {
   box-shadow: 0 3px 3px rgba(0, 99, 130, .15)
 }
 
+/* Accessibility: visible focus for keyboard users */
+a:focus-visible,
+.btn:focus-visible,
+button:focus-visible {
+  outline: 2px solid #1E8449;
+  outline-offset: 2px
+}
+
 .template-47 .ppc-header .updated-on {
   margin-bottom: 14px
 }
